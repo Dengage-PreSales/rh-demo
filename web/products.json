@@ -1,0 +1,4007 @@
+{
+  "capturedAt": "2026-08-16T12:22:23Z",
+  "productCount": 200,
+  "departments": [
+    "BABY",
+    "BRINQUEDOS",
+    "BONECOS E BONECAS",
+    "JOGOS",
+    "COLECIONÁVEIS",
+    "FANTASIAS",
+    "ESPORTES",
+    "TECNOLOGIA",
+    "LIVROS E PAPELARIA"
+  ],
+  "products": [
+    {
+      "id": "100002050",
+      "name": "Girafa com Blocos Fisher-Price",
+      "brand": "Fisher Price",
+      "licence": null,
+      "department": "BABY",
+      "category": "BRINQUEDOS PARA BEBÊS",
+      "categoryPath": "BABY/BRINQUEDOS PARA BEBÊS/BRINQUEDOS EDUCATIVOS PARA BEBÊ",
+      "price": 139.99,
+      "listPrice": 219.99,
+      "ageMinMonths": 6,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6m-18a",
+      "ageBracket": "0-2",
+      "image": "img/products/100002050-0.jpg",
+      "images": [
+        "img/products/100002050-0.jpg",
+        "img/products/100002050-1.jpg"
+      ]
+    },
+    {
+      "id": "1002835452",
+      "name": "Mini Veiculo Elétrico - Audi RS E-Tron GT - Branco - 12V - Bandeirante",
+      "brand": "Bandeirante",
+      "licence": null,
+      "department": "BABY",
+      "category": "MINI VEÍCULOS",
+      "categoryPath": "BABY/MINI VEÍCULOS/MINI VEÍCULOS ELÉTRICOS",
+      "price": 2699.99,
+      "listPrice": null,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002835452-0.jpg",
+      "images": [
+        "img/products/1002835452-0.jpg",
+        "img/products/1002835452-1.jpg"
+      ]
+    },
+    {
+      "id": "100216724",
+      "name": "Chocalho - Amiguinho Maluquinho - 1 peça - Minimi",
+      "brand": "Minimi",
+      "licence": null,
+      "department": "BABY",
+      "category": "MORDEDORES",
+      "categoryPath": "BABY/MORDEDORES",
+      "price": 53.99,
+      "listPrice": 69.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100216724-0.jpg",
+      "images": [
+        "img/products/100216724-0.jpg",
+        "img/products/100216724-1.jpg"
+      ]
+    },
+    {
+      "id": "1003152913",
+      "name": "Conjunto De Acessórios - Fábrica Faça Seu Squishy - Fun",
+      "brand": "Fun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "ARTES",
+      "categoryPath": "BRINQUEDOS/ARTES/SLIMES",
+      "price": 150.99,
+      "listPrice": 159.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003152913-0.jpg",
+      "images": [
+        "img/products/1003152913-0.jpg",
+        "img/products/1003152913-1.jpg"
+      ]
+    },
+    {
+      "id": "1003150653",
+      "name": "Sylvanian Families - Série Dos Bebês Com Fantasias De Fadas Do Bosque - Surpresa - Epoch",
+      "brand": "Epoch",
+      "licence": "Sylvanian Families",
+      "department": "BRINQUEDOS",
+      "category": "BRINCADEIRA DE CASINHA",
+      "categoryPath": "BRINQUEDOS/BRINCADEIRA DE CASINHA/RÉPLICAS DE CASINHAS",
+      "price": 49.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 120,
+      "ageDisplay": "4a-10a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003150653-0.jpg",
+      "images": [
+        "img/products/1003150653-0.jpg",
+        "img/products/1003150653-1.jpg"
+      ]
+    },
+    {
+      "id": "1002724877",
+      "name": "Brinquedo De Atividades - Projetor De Pintura - Galinha Pintadinha - Yes Toys",
+      "brand": "Yes Toys",
+      "licence": "Galinha Pintadinha",
+      "department": "BRINQUEDOS",
+      "category": "FAZ DE CONTA",
+      "categoryPath": "BRINQUEDOS/FAZ DE CONTA/BRINQUEDOS MÁGICOS",
+      "price": 139.99,
+      "listPrice": 169.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002724877-0.jpg",
+      "images": [
+        "img/products/1002724877-0.jpg",
+        "img/products/1002724877-1.jpg"
+      ]
+    },
+    {
+      "id": "1002994937",
+      "name": "Conjunto de Artes - 2 Mini Pelucia - Surpresa - Para Pintar - Airbrush - Fun",
+      "brand": "Fun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "PELÚCIAS",
+      "categoryPath": "BRINQUEDOS/PELÚCIAS/ANIMAIS DE PELÚCIA",
+      "price": 119.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 120,
+      "ageDisplay": "6a-10a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002994937-0.jpg",
+      "images": [
+        "img/products/1002994937-0.jpg",
+        "img/products/1002994937-1.jpg"
+      ]
+    },
+    {
+      "id": "1003051830",
+      "name": "Guitarra Eletronica - Galinha Pintadinha - Com Som E Luz - Yes Toys",
+      "brand": "Yes Toys",
+      "licence": "Galinha Pintadinha",
+      "department": "BRINQUEDOS",
+      "category": "INSTRUMENTOS MUSICAIS",
+      "categoryPath": "BRINQUEDOS/INSTRUMENTOS MUSICAIS/GUITARRAS DE BRINQUEDO",
+      "price": 57.99,
+      "listPrice": 69.99,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 72,
+      "ageDisplay": "12m-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003051830-0.jpg",
+      "images": [
+        "img/products/1003051830-0.jpg",
+        "img/products/1003051830-1.jpg"
+      ]
+    },
+    {
+      "id": "1002800281",
+      "name": "Carrinho com Controle Remoto - Marvel - Homem-Aranha - Autoracing - Candide",
+      "brand": "Candide",
+      "licence": "Homem Aranha",
+      "department": "BRINQUEDOS",
+      "category": "VEÍCULOS DE BRINQUEDO",
+      "categoryPath": "BRINQUEDOS/VEÍCULOS DE BRINQUEDO/VEÍCULOS DE CONTROLE REMOTO",
+      "price": 67.99,
+      "listPrice": 129.99,
+      "ageMinMonths": 60,
+      "ageMaxMonths": 216,
+      "ageDisplay": "5a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002800281-0.jpg",
+      "images": [
+        "img/products/1002800281-0.jpg",
+        "img/products/1002800281-1.jpg"
+      ]
+    },
+    {
+      "id": "100326062",
+      "name": "Lançador De Dardos - Nerf - Elite 2.0 - Commander - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Nerf",
+      "department": "BRINQUEDOS",
+      "category": "LANÇADORES",
+      "categoryPath": "BRINQUEDOS/LANÇADORES/LANÇA-DARDOS",
+      "price": 142.99,
+      "listPrice": 169.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 216,
+      "ageDisplay": "8a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/100326062-0.jpg",
+      "images": [
+        "img/products/100326062-0.jpg",
+        "img/products/100326062-1.jpg"
+      ]
+    },
+    {
+      "id": "1003137934",
+      "name": "LEGO - Speed Champions - Máquina do Tempo De Volta Para O Futuro - 77256",
+      "brand": "LEGO",
+      "licence": "LEGO",
+      "department": "BRINQUEDOS",
+      "category": "BLOCOS DE MONTAR",
+      "categoryPath": "BRINQUEDOS/BLOCOS DE MONTAR/LEGO",
+      "price": 213.99,
+      "listPrice": 299.99,
+      "ageMinMonths": 108,
+      "ageMaxMonths": 144,
+      "ageDisplay": "9a-12a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003137934-0.jpg",
+      "images": [
+        "img/products/1003137934-0.jpg",
+        "img/products/1003137934-1.jpg"
+      ]
+    },
+    {
+      "id": "1003139614",
+      "name": "Quebra-Cabeça - Guerreiras Do K-Pop - 200 Peças - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "QUEBRA-CABEÇAS",
+      "categoryPath": "BRINQUEDOS/QUEBRA-CABEÇAS/QUEBRA-CABEÇAS ATE 300 PEÇAS",
+      "price": 55.99,
+      "listPrice": 69.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 216,
+      "ageDisplay": "7a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003139614-0.jpg",
+      "images": [
+        "img/products/1003139614-0.jpg",
+        "img/products/1003139614-1.jpg"
+      ]
+    },
+    {
+      "id": "100411316",
+      "name": "Laptop - Patrulha Canina - Bilingue - Modelos Sortidos - Candide",
+      "brand": "Candide",
+      "licence": "Patrulha Canina",
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS ELETRONICOS",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS ELETRONICOS/LAPTOP DE BRINQUEDO",
+      "price": 99.99,
+      "listPrice": null,
+      "ageMinMonths": 0,
+      "ageMaxMonths": 6,
+      "ageDisplay": "0m-6m",
+      "ageBracket": "0-2",
+      "image": "img/products/100411316-0.jpg",
+      "images": [
+        "img/products/100411316-0.jpg",
+        "img/products/100411316-1.jpg"
+      ]
+    },
+    {
+      "id": "100222379",
+      "name": "Bumbo - Patrulha Canina - Elka",
+      "brand": "Elka",
+      "licence": "Patrulha Canina",
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS DE BELEZA",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS DE BELEZA/BIJUTERIAS DE BRINQUEDO",
+      "price": 99.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100222379-0.jpg",
+      "images": [
+        "img/products/100222379-0.jpg",
+        "img/products/100222379-1.jpg"
+      ]
+    },
+    {
+      "id": "1002816893",
+      "name": "Boneca Articulada - Baby Alive - Brincando de Spa Loira - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Baby Alive",
+      "department": "BONECOS E BONECAS",
+      "category": "BONECAS",
+      "categoryPath": "BONECOS E BONECAS/BONECAS/BONECAS BEBÊS",
+      "price": 94.99,
+      "listPrice": 129.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002816893-0.jpg",
+      "images": [
+        "img/products/1002816893-0.jpg",
+        "img/products/1002816893-1.jpg"
+      ]
+    },
+    {
+      "id": "1002111906",
+      "name": "Boneco Articulado - Disney - Marvel - Amazing Friends - Homem Aranha - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Homem Aranha",
+      "department": "BONECOS E BONECAS",
+      "category": "BONECOS",
+      "categoryPath": "BONECOS E BONECAS/BONECOS/BONECOS ARTICULADOS",
+      "price": 87.99,
+      "listPrice": 109.99,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 48,
+      "ageDisplay": "12m-4a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002111906-0.jpg",
+      "images": [
+        "img/products/1002111906-0.jpg",
+        "img/products/1002111906-1.jpg"
+      ]
+    },
+    {
+      "id": "100370971",
+      "name": "Sylvanian Families - Van Piquenique Da Família - Epoch",
+      "brand": "Epoch",
+      "licence": "Sylvanian Families",
+      "department": "BONECOS E BONECAS",
+      "category": "ACESSÓRIOS PARA BONECAS",
+      "categoryPath": "BONECOS E BONECAS/ACESSÓRIOS PARA BONECAS/VEÍCULOS DE BONECA",
+      "price": 299.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100370971-0.jpg",
+      "images": [
+        "img/products/100370971-0.jpg",
+        "img/products/100370971-1.jpg"
+      ]
+    },
+    {
+      "id": "1002685911",
+      "name": "Sylvanian Families - Conjunto A Primeira Casa - Epoch",
+      "brand": "Epoch",
+      "licence": "Sylvanian Families",
+      "department": "BONECOS E BONECAS",
+      "category": "CASA DE BONECA",
+      "categoryPath": "BONECOS E BONECAS/CASA DE BONECA/PLAYSET DE BONECA",
+      "price": 279.99,
+      "listPrice": null,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 132,
+      "ageDisplay": "3a-11a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002685911-0.jpg",
+      "images": [
+        "img/products/1002685911-0.jpg",
+        "img/products/1002685911-1.jpg"
+      ]
+    },
+    {
+      "id": "1003055606",
+      "name": "Jogo De Ação - Tapalavras - Multikids",
+      "brand": "Multikids",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE AÇÃO",
+      "categoryPath": "JOGOS/JOGOS DE AÇÃO/OUTROS JOGOS",
+      "price": 133.99,
+      "listPrice": 179.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 216,
+      "ageDisplay": "8a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003055606-0.jpg",
+      "images": [
+        "img/products/1003055606-0.jpg",
+        "img/products/1003055606-1.jpg"
+      ]
+    },
+    {
+      "id": "1003156075",
+      "name": "Jogo De Cartas - Pokémon - ME04 - Blister Unitário - Copag",
+      "brand": "Copag",
+      "licence": "Pokemon",
+      "department": "JOGOS",
+      "category": "JOGOS DE CARTAS",
+      "categoryPath": "JOGOS/JOGOS DE CARTAS/CARTAS POKÉMON",
+      "price": 18.99,
+      "listPrice": 19.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 216,
+      "ageDisplay": "7a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003156075-0.jpg",
+      "images": [
+        "img/products/1003156075-0.jpg",
+        "img/products/1003156075-1.jpg"
+      ]
+    },
+    {
+      "id": "100155359",
+      "name": "Jogo Batalha Naval - Novo - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS CLÁSSICOS",
+      "categoryPath": "JOGOS/JOGOS CLÁSSICOS/BATALHA NAVAL",
+      "price": 69.99,
+      "listPrice": 129.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100155359-0.jpg",
+      "images": [
+        "img/products/100155359-0.jpg",
+        "img/products/100155359-1.jpg"
+      ]
+    },
+    {
+      "id": "1002722741",
+      "name": "Jogo Educativo - O Show da Luna - Laboratório Criativo - Nig Brinquedos",
+      "brand": "Nig Brinquedos",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS EDUCATIVOS",
+      "categoryPath": "JOGOS/JOGOS EDUCATIVOS/JOGOS DE LABORATÓRIO",
+      "price": 115.99,
+      "listPrice": 149.99,
+      "ageMinMonths": 60,
+      "ageMaxMonths": 144,
+      "ageDisplay": "5a-12a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002722741-0.jpg",
+      "images": [
+        "img/products/1002722741-0.jpg",
+        "img/products/1002722741-1.jpg"
+      ]
+    },
+    {
+      "id": "1002749529",
+      "name": "Jogo De Tabuleiro -  War - O Jogo Da Estratégia - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE TABULEIRO",
+      "categoryPath": "JOGOS/JOGOS DE TABULEIRO/WAR",
+      "price": 110.99,
+      "listPrice": 199.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002749529-0.jpg",
+      "images": [
+        "img/products/1002749529-0.jpg",
+        "img/products/1002749529-1.jpg"
+      ]
+    },
+    {
+      "id": "1002909752",
+      "name": "Boneco - Funko POP Racing - Mclaren - Ayrton Senna - Candide",
+      "brand": "Candide",
+      "licence": "Funko Pop",
+      "department": "COLECIONÁVEIS",
+      "category": "FUNKO POP",
+      "categoryPath": "COLECIONÁVEIS/FUNKO POP/FUNKO DE EDIÇÃO ESPECIAL",
+      "price": 199.99,
+      "listPrice": null,
+      "ageMinMonths": 156,
+      "ageMaxMonths": 216,
+      "ageDisplay": "13a-18a",
+      "ageBracket": "13+",
+      "image": "img/products/1002909752-0.jpg",
+      "images": [
+        "img/products/1002909752-0.jpg",
+        "img/products/1002909752-1.jpg"
+      ]
+    },
+    {
+      "id": "1003067096",
+      "name": "EXCLUSIVO: Chaveiro Miniatura Colecionável - Glasses Up - Barbie",
+      "brand": "SEM LICENÇA",
+      "licence": "Barbie",
+      "department": "COLECIONÁVEIS",
+      "category": "ACTION FIGURE",
+      "categoryPath": "COLECIONÁVEIS/ACTION FIGURE/MINI ACTION FIGURE",
+      "price": 19.91,
+      "listPrice": 39.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003067096-0.jpg",
+      "images": [
+        "img/products/1003067096-0.jpg",
+        "img/products/1003067096-1.jpg"
+      ]
+    },
+    {
+      "id": "1003110418",
+      "name": "Blocos De Montar - Hot Wheels - Brick Shop - 94 Audi Avant RS2 - Mattel",
+      "brand": "Mattel",
+      "licence": "Hot Wheels",
+      "department": "COLECIONÁVEIS",
+      "category": "CARRINHOS COLECIONÁVEIS",
+      "categoryPath": "COLECIONÁVEIS/CARRINHOS COLECIONÁVEIS",
+      "price": 178.99,
+      "listPrice": 249.99,
+      "ageMinMonths": 120,
+      "ageMaxMonths": 216,
+      "ageDisplay": "10a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003110418-0.jpg",
+      "images": [
+        "img/products/1003110418-0.jpg",
+        "img/products/1003110418-1.jpg"
+      ]
+    },
+    {
+      "id": "1003151978",
+      "name": "Mini Brands - Fill The Fridge - Mini Minis - Refil Mini Geladeira - Candide",
+      "brand": "Candide",
+      "licence": "Mini Brands",
+      "department": "COLECIONÁVEIS",
+      "category": "MONTAGEM E MODELISMO",
+      "categoryPath": "COLECIONÁVEIS/MONTAGEM E MODELISMO",
+      "price": 99.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003151978-0.jpg",
+      "images": [
+        "img/products/1003151978-0.jpg",
+        "img/products/1003151978-1.jpg"
+      ]
+    },
+    {
+      "id": "1002844721",
+      "name": "Fantasia Infantil Clássica - Batman - Tamanho P - Novabrink",
+      "brand": "Novabrink",
+      "licence": "Batman",
+      "department": "FANTASIAS",
+      "category": "FANTASIA INFANTIL",
+      "categoryPath": "FANTASIAS/FANTASIA INFANTIL/FANTASIA DE HEROI",
+      "price": 249.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002844721-0.jpg",
+      "images": [
+        "img/products/1002844721-0.jpg",
+        "img/products/1002844721-1.jpg"
+      ]
+    },
+    {
+      "id": "1003086132",
+      "name": "Sabre de Luz Black Series Ahsoka Tano Star Wars - Hasbro",
+      "brand": "Brinkedo Legal",
+      "licence": "Star Wars",
+      "department": "FANTASIAS",
+      "category": "SABRE DE LUZ",
+      "categoryPath": "FANTASIAS/SABRE DE LUZ",
+      "price": 1349,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003086132-0.jpg",
+      "images": [
+        "img/products/1003086132-0.jpg",
+        "img/products/1003086132-1.jpg"
+      ]
+    },
+    {
+      "id": "1003044258",
+      "name": "Máscara - Jurassic World - Dinossauro - Mattel - Modelos Unitários Sortidos",
+      "brand": "Mattel",
+      "licence": "Jurassic World",
+      "department": "FANTASIAS",
+      "category": "MÁSCARAS",
+      "categoryPath": "FANTASIAS/MÁSCARAS",
+      "price": 138.99,
+      "listPrice": 239.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 216,
+      "ageDisplay": "4a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003044258-0.jpg",
+      "images": [
+        "img/products/1003044258-0.jpg",
+        "img/products/1003044258-1.jpg"
+      ]
+    },
+    {
+      "id": "100472896",
+      "name": "Bicicleta - Aro 16 - Dino - Infantil - Tk3-Track - Prata e Laranja",
+      "brand": "TRACKBIKES",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BICICLETAS",
+      "categoryPath": "ESPORTES/BICICLETAS/BICICLETA ARO 16",
+      "price": 799.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 60,
+      "ageDisplay": "12m-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/100472896-0.jpg",
+      "images": [
+        "img/products/100472896-0.jpg"
+      ]
+    },
+    {
+      "id": "1003055272",
+      "name": "Skatenet - Homem-Aranha - Bandeirante",
+      "brand": "Bandeirante",
+      "licence": "Homem Aranha",
+      "department": "ESPORTES",
+      "category": "SKATES",
+      "categoryPath": "ESPORTES/SKATES/Skatenet",
+      "price": 399.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003055272-0.jpg",
+      "images": [
+        "img/products/1003055272-0.jpg",
+        "img/products/1003055272-1.jpg"
+      ]
+    },
+    {
+      "id": "1003050062",
+      "name": "Patinete - Decorado - Cardoso - Rosa",
+      "brand": "Cardoso",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "PATINETES",
+      "categoryPath": "ESPORTES/PATINETES",
+      "price": 249.99,
+      "listPrice": 279.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 60,
+      "ageDisplay": "2a-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003050062-0.jpg",
+      "images": [
+        "img/products/1003050062-0.jpg",
+        "img/products/1003050062-1.jpg"
+      ]
+    },
+    {
+      "id": "1002835147",
+      "name": "Patins - Barbie - 04 Rodas - Tamanho 33/34 - Branco - Fun",
+      "brand": "Fun",
+      "licence": "Barbie",
+      "department": "ESPORTES",
+      "category": "PATINS",
+      "categoryPath": "ESPORTES/PATINS",
+      "price": 349.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 120,
+      "ageDisplay": "6a-10a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002835147-0.jpg",
+      "images": [
+        "img/products/1002835147-0.jpg",
+        "img/products/1002835147-1.jpg"
+      ]
+    },
+    {
+      "id": "1002992927",
+      "name": "Bola de Futebol Infantil - Fun Kids - T50 XXIV - Penalty",
+      "brand": "Penalty",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BOLAS",
+      "categoryPath": "ESPORTES/BOLAS/BOLA DE FUTEBOL AMERICANO",
+      "price": 92.99,
+      "listPrice": 119.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002992927-0.jpg",
+      "images": [
+        "img/products/1002992927-0.jpg",
+        "img/products/1002992927-1.jpg"
+      ]
+    },
+    {
+      "id": "100376692",
+      "name": "Barraca - Barbie - 50 bolinhas - Fun",
+      "brand": "Fun",
+      "licence": "Barbie",
+      "department": "ESPORTES",
+      "category": "BRINCADEIRAS AO AR LIVRE",
+      "categoryPath": "ESPORTES/BRINCADEIRAS AO AR LIVRE/BARRACAS",
+      "price": 307.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 216,
+      "ageDisplay": "2a-18a",
+      "ageBracket": "0-2",
+      "image": "img/products/100376692-0.jpg",
+      "images": [
+        "img/products/100376692-0.jpg",
+        "img/products/100376692-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194993",
+      "name": "Bote Inflável Seahawk 4 Pessoas 351cm Suporta 400kg Intex",
+      "brand": "Intex",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "PRAIA E PISCINA",
+      "categoryPath": "ESPORTES/PRAIA E PISCINA/BOTES",
+      "price": 1299.99,
+      "listPrice": 1499.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194993-0.jpg",
+      "images": [
+        "img/products/1003194993-0.jpg",
+        "img/products/1003194993-1.jpg"
+      ]
+    },
+    {
+      "id": "1002136986",
+      "name": "Jogo PS5 - Uncharted - Coleção Legado dos Ladrões - Sony",
+      "brand": "Sony",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "JOGOS DE VÍDEO-GAME",
+      "categoryPath": "TECNOLOGIA/JOGOS DE VÍDEO-GAME/JOGOS DE PLAYSTATION",
+      "price": 124.91,
+      "listPrice": 249.9,
+      "ageMinMonths": 156,
+      "ageMaxMonths": 216,
+      "ageDisplay": "13a-18a",
+      "ageBracket": "13+",
+      "image": "img/products/1002136986-0.jpg",
+      "images": [
+        "img/products/1002136986-0.jpg",
+        "img/products/1002136986-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194030",
+      "name": "Controle X 360 Sem Fio  Cor Preto ALTO-6560W Altomex",
+      "brand": "Altomex",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "CONTROLES",
+      "categoryPath": "TECNOLOGIA/CONTROLES/CONTROLE PARA XBOX",
+      "price": 199.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194030-0.jpg",
+      "images": [
+        "img/products/1003194030-0.jpg",
+        "img/products/1003194030-1.jpg"
+      ]
+    },
+    {
+      "id": "1002962091",
+      "name": "Conjunto de Carimbo e Caderno - Melissa & Doug - Cachorro - Sunny",
+      "brand": "Sunny",
+      "licence": null,
+      "department": "LIVROS E PAPELARIA",
+      "category": "LIVROS",
+      "categoryPath": "LIVROS E PAPELARIA/LIVROS/LIVROS DE ATIVIDADES",
+      "price": 59.91,
+      "listPrice": 149.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002962091-0.jpg",
+      "images": [
+        "img/products/1002962091-0.jpg",
+        "img/products/1002962091-1.jpg"
+      ]
+    },
+    {
+      "id": "1003140112",
+      "name": "Box Caixa Premium - Fifa - Copa Do Mundo 2026 - Álbum Capa Dura Ouro Com 350 Figurinhas - Panini",
+      "brand": "Catavento",
+      "licence": "Fifa",
+      "department": "LIVROS E PAPELARIA",
+      "category": "ÁLBUM DE FIGURINHAS",
+      "categoryPath": "LIVROS E PAPELARIA/ÁLBUM DE FIGURINHAS",
+      "price": 299.91,
+      "listPrice": 429.9,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003140112-0.jpg",
+      "images": [
+        "img/products/1003140112-0.jpg",
+        "img/products/1003140112-1.jpg"
+      ]
+    },
+    {
+      "id": "1002794956",
+      "name": "Mochila Pelúcia - Hello Kitty - Candide",
+      "brand": "Candide",
+      "licence": "Hello Kitty",
+      "department": "LIVROS E PAPELARIA",
+      "category": "MOCHILAS",
+      "categoryPath": "LIVROS E PAPELARIA/MOCHILAS",
+      "price": 109.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 96,
+      "ageDisplay": "2a-8a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002794956-0.jpg",
+      "images": [
+        "img/products/1002794956-0.jpg",
+        "img/products/1002794956-1.jpg"
+      ]
+    },
+    {
+      "id": "1003137234",
+      "name": "LEGO - Disney - Speed Champions - Relâmpago Mcqueen - 77255",
+      "brand": "LEGO",
+      "licence": "LEGO",
+      "department": "BRINQUEDOS",
+      "category": "BLOCOS DE MONTAR",
+      "categoryPath": "BRINQUEDOS/BLOCOS DE MONTAR/LEGO",
+      "price": 222.99,
+      "listPrice": 299.99,
+      "ageMinMonths": 108,
+      "ageMaxMonths": 216,
+      "ageDisplay": "9a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003137234-0.jpg",
+      "images": [
+        "img/products/1003137234-0.jpg",
+        "img/products/1003137234-1.jpg"
+      ]
+    },
+    {
+      "id": "1002996212",
+      "name": "Boneca - Baby Alive - Festinha do Chá - Loira - Hasbro",
+      "brand": "HASBRO",
+      "licence": "Baby Alive",
+      "department": "BONECOS E BONECAS",
+      "category": "BONECAS",
+      "categoryPath": "BONECOS E BONECAS/BONECAS/BONECA COM ACESSÓRIO",
+      "price": 207.99,
+      "listPrice": 259.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002996212-0.jpg",
+      "images": [
+        "img/products/1002996212-0.jpg",
+        "img/products/1002996212-1.jpg"
+      ]
+    },
+    {
+      "id": "1003047707",
+      "name": "Brinquedo Interativo - Minimi - Casinha Pets - Modelos Sortidos - Jxp Brink",
+      "brand": "SEM LICENÇA",
+      "licence": null,
+      "department": "BABY",
+      "category": "BRINQUEDOS PARA BEBÊS",
+      "categoryPath": "BABY/BRINQUEDOS PARA BEBÊS/BRINQUEDOS INTERATIVOS PARA BEBÊ",
+      "price": 36.99,
+      "listPrice": 59.99,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 48,
+      "ageDisplay": "12m-4a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003047707-0.jpg",
+      "images": [
+        "img/products/1003047707-0.jpg",
+        "img/products/1003047707-1.jpg"
+      ]
+    },
+    {
+      "id": "1002825509",
+      "name": "Pelucia - Furby Furblets - Modelos Unitários Sortidos - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Furby",
+      "department": "BRINQUEDOS",
+      "category": "PELÚCIAS",
+      "categoryPath": "BRINQUEDOS/PELÚCIAS/UNICÓRNIO DE PELÚCIA",
+      "price": 123.99,
+      "listPrice": 149.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 120,
+      "ageDisplay": "6a-10a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002825509-0.jpg",
+      "images": [
+        "img/products/1002825509-0.jpg",
+        "img/products/1002825509-1.jpg"
+      ]
+    },
+    {
+      "id": "1003051273",
+      "name": "Carro De Corrida - Hot Whells - Sprint 1:24 Rc - 2 Canais - Vermelho",
+      "brand": "Multikids",
+      "licence": "Hot Wheels",
+      "department": "BRINQUEDOS",
+      "category": "VEÍCULOS DE BRINQUEDO",
+      "categoryPath": "BRINQUEDOS/VEÍCULOS DE BRINQUEDO/VEÍCULOS DE CONTROLE REMOTO",
+      "price": 77.99,
+      "listPrice": 89.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 216,
+      "ageDisplay": "4a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003051273-0.jpg",
+      "images": [
+        "img/products/1003051273-0.jpg",
+        "img/products/1003051273-1.jpg"
+      ]
+    },
+    {
+      "id": "100270288",
+      "name": "Figura de Ação - 24 Cm - Disney - Marvel - Avenges - Homem Aranha - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Homem Aranha",
+      "department": "BONECOS E BONECAS",
+      "category": "BONECOS",
+      "categoryPath": "BONECOS E BONECAS/BONECOS/BONECOS ARTICULADOS",
+      "price": 63.99,
+      "listPrice": 79.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 60,
+      "ageDisplay": "4a-5a",
+      "ageBracket": "3-5",
+      "image": "img/products/100270288-0.jpg",
+      "images": [
+        "img/products/100270288-0.jpg",
+        "img/products/100270288-1.jpg"
+      ]
+    },
+    {
+      "id": "1003139809",
+      "name": "Jogo de Cartas - Pokémon - ME03 - Blister Unitário - Copag - Modelos Unitários Sortidos",
+      "brand": "Copag",
+      "licence": "Pokemon",
+      "department": "JOGOS",
+      "category": "JOGOS DE CARTAS",
+      "categoryPath": "JOGOS/JOGOS DE CARTAS/CARTAS POKÉMON",
+      "price": 18.99,
+      "listPrice": 19.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 216,
+      "ageDisplay": "7a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003139809-0.jpg",
+      "images": [
+        "img/products/1003139809-0.jpg",
+        "img/products/1003139809-1.jpg"
+      ]
+    },
+    {
+      "id": "100110518",
+      "name": "Jogo Detetive com App - Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE TABULEIRO",
+      "categoryPath": "JOGOS/JOGOS DE TABULEIRO/JOGOS DE ESTRATÉGIA",
+      "price": 99.95,
+      "listPrice": 149.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 144,
+      "ageDisplay": "8a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/100110518-0.jpg",
+      "images": [
+        "img/products/100110518-0.jpg",
+        "img/products/100110518-1.jpg"
+      ]
+    },
+    {
+      "id": "1003133650",
+      "name": "Boneco - Funko Pop - Guerreiras Do K-Pop - Zoey - Candide",
+      "brand": "Candide",
+      "licence": "Funko Pop",
+      "department": "COLECIONÁVEIS",
+      "category": "FUNKO POP",
+      "categoryPath": "COLECIONÁVEIS/FUNKO POP/FUNKO DE SÉRIES",
+      "price": 149.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003133650-0.jpg",
+      "images": [
+        "img/products/1003133650-0.jpg",
+        "img/products/1003133650-1.jpg"
+      ]
+    },
+    {
+      "id": "1003065107",
+      "name": "EXCLUSIVO: Chaveiro Miniatura Colecionável - Cutie - Twist - Barbie",
+      "brand": "SEM LICENÇA",
+      "licence": "Barbie",
+      "department": "COLECIONÁVEIS",
+      "category": "ACTION FIGURE",
+      "categoryPath": "COLECIONÁVEIS/ACTION FIGURE/MINI ACTION FIGURE",
+      "price": 19.91,
+      "listPrice": 39.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003065107-0.jpg",
+      "images": [
+        "img/products/1003065107-0.jpg",
+        "img/products/1003065107-1.jpg"
+      ]
+    },
+    {
+      "id": "1003045912",
+      "name": "Blocos De Montar - Mattel - Custom 68 Camaro",
+      "brand": "Mattel",
+      "licence": null,
+      "department": "COLECIONÁVEIS",
+      "category": "CARRINHOS COLECIONÁVEIS",
+      "categoryPath": "COLECIONÁVEIS/CARRINHOS COLECIONÁVEIS",
+      "price": 148.99,
+      "listPrice": 239.99,
+      "ageMinMonths": 120,
+      "ageMaxMonths": 216,
+      "ageDisplay": "10a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003045912-0.jpg",
+      "images": [
+        "img/products/1003045912-0.jpg",
+        "img/products/1003045912-1.jpg"
+      ]
+    },
+    {
+      "id": "1003058846",
+      "name": "EXCLUSIVO - Bicicleta De Equilíbrio - Fisher-Price - Baby",
+      "brand": "Bandeirante",
+      "licence": null,
+      "department": "BABY",
+      "category": "MINI VEÍCULOS",
+      "categoryPath": "BABY/MINI VEÍCULOS/BICICLETA DE EQUILÍBRIO",
+      "price": 370.99,
+      "listPrice": 399.99,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 48,
+      "ageDisplay": "12m-4a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003058846-0.jpg",
+      "images": [
+        "img/products/1003058846-0.jpg",
+        "img/products/1003058846-1.jpg"
+      ]
+    },
+    {
+      "id": "1002814846",
+      "name": "Conjunto de Mordedores - Disney Baby - Meu Primeiro Kit - Bda - Toyster",
+      "brand": "Toyster",
+      "licence": "Disney",
+      "department": "BABY",
+      "category": "MORDEDORES",
+      "categoryPath": "BABY/MORDEDORES",
+      "price": 89.99,
+      "listPrice": 119.99,
+      "ageMinMonths": 0,
+      "ageMaxMonths": 6,
+      "ageDisplay": "0m-6m",
+      "ageBracket": "0-2",
+      "image": "img/products/1002814846-0.jpg",
+      "images": [
+        "img/products/1002814846-0.jpg",
+        "img/products/1002814846-1.jpg"
+      ]
+    },
+    {
+      "id": "1002103479",
+      "name": "Massinha de Modelar - Play-Doh - Pet Shop - Veterinário - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Play-Doh",
+      "department": "BRINQUEDOS",
+      "category": "ARTES",
+      "categoryPath": "BRINQUEDOS/ARTES/MASSA DE MODELAR",
+      "price": 149.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 48,
+      "ageDisplay": "12m-4a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002103479-0.jpg",
+      "images": [
+        "img/products/1002103479-0.jpg",
+        "img/products/1002103479-1.jpg"
+      ]
+    },
+    {
+      "id": "1003150768",
+      "name": "Sylvanian Families - Gêmeos Urso Biscoito - Epoch",
+      "brand": "Epoch",
+      "licence": "Sylvanian Families",
+      "department": "BRINQUEDOS",
+      "category": "BRINCADEIRA DE CASINHA",
+      "categoryPath": "BRINQUEDOS/BRINCADEIRA DE CASINHA/RÉPLICAS DE CASINHAS",
+      "price": 99.99,
+      "listPrice": null,
+      "ageMinMonths": 3,
+      "ageMaxMonths": 120,
+      "ageDisplay": "3m-10a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003150768-0.jpg",
+      "images": [
+        "img/products/1003150768-0.jpg",
+        "img/products/1003150768-1.jpg"
+      ]
+    },
+    {
+      "id": "1003044299",
+      "name": "Projetor De Desenhos - Barbie - Rosa - Multikids",
+      "brand": "Multikids",
+      "licence": "Barbie",
+      "department": "BRINQUEDOS",
+      "category": "FAZ DE CONTA",
+      "categoryPath": "BRINQUEDOS/FAZ DE CONTA/PROFISSÕES",
+      "price": 160.99,
+      "listPrice": 199.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 216,
+      "ageDisplay": "3a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003044299-0.jpg",
+      "images": [
+        "img/products/1003044299-0.jpg",
+        "img/products/1003044299-1.jpg"
+      ]
+    },
+    {
+      "id": "1002704027",
+      "name": "Brinquedo Musical Infantil - Patrulha Canina - Piano Xilofone - Yes Toys",
+      "brand": "Yes Toys",
+      "licence": "Patrulha Canina",
+      "department": "BRINQUEDOS",
+      "category": "INSTRUMENTOS MUSICAIS",
+      "categoryPath": "BRINQUEDOS/INSTRUMENTOS MUSICAIS/PIANOS DE BRINQUEDO",
+      "price": 102.99,
+      "listPrice": 129.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002704027-0.jpg",
+      "images": [
+        "img/products/1002704027-0.jpg",
+        "img/products/1002704027-1.jpg"
+      ]
+    },
+    {
+      "id": "100326061",
+      "name": "Lançador de Dardos - Nerf - Elite 2.0 - Volt SD 1 - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Nerf",
+      "department": "BRINQUEDOS",
+      "category": "LANÇADORES",
+      "categoryPath": "BRINQUEDOS/LANÇADORES/NERF",
+      "price": 95.99,
+      "listPrice": 109.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100326061-0.jpg",
+      "images": [
+        "img/products/100326061-0.jpg",
+        "img/products/100326061-1.jpg"
+      ]
+    },
+    {
+      "id": "1003152564",
+      "name": "Quebra-Cabeça - Disney - Pixar - Toy Story 5 - 100 Peças - Toyster",
+      "brand": "SEM LICENÇA",
+      "licence": "Disney",
+      "department": "BRINQUEDOS",
+      "category": "QUEBRA-CABEÇAS",
+      "categoryPath": "BRINQUEDOS/QUEBRA-CABEÇAS/QUEBRA-CABEÇAS ATE 100 PEÇAS",
+      "price": 52.99,
+      "listPrice": 79.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 120,
+      "ageDisplay": "6a-10a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003152564-0.jpg",
+      "images": [
+        "img/products/1003152564-0.jpg",
+        "img/products/1003152564-1.jpg"
+      ]
+    },
+    {
+      "id": "100266232",
+      "name": "Laptop de Atividades - Bilíngue - Barbie - Candide",
+      "brand": "Candide",
+      "licence": "Barbie",
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS ELETRONICOS",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS ELETRONICOS/LAPTOP DE BRINQUEDO",
+      "price": 99.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100266232-0.jpg",
+      "images": [
+        "img/products/100266232-0.jpg",
+        "img/products/100266232-1.jpg"
+      ]
+    },
+    {
+      "id": "1002459051",
+      "name": "Conjunto De Pintura Para Unhas - Cool Maker - Go Glam U-Nique Nail Salon - Sunny",
+      "brand": "Sunny",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS DE BELEZA",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS DE BELEZA/UNHAS DE BRINQUEDO",
+      "price": 129.91,
+      "listPrice": 299.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 144,
+      "ageDisplay": "8a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002459051-0.jpg",
+      "images": [
+        "img/products/1002459051-0.jpg",
+        "img/products/1002459051-1.jpg"
+      ]
+    },
+    {
+      "id": "100292972",
+      "name": "Carrinho de Boneca - Ninos - 64cm - Sortido - Cotiplás",
+      "brand": "Cotiplas",
+      "licence": null,
+      "department": "BONECOS E BONECAS",
+      "category": "ACESSÓRIOS PARA BONECAS",
+      "categoryPath": "BONECOS E BONECAS/ACESSÓRIOS PARA BONECAS/CARRINHO DE BONECA",
+      "price": 169.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 84,
+      "ageDisplay": "2a-7a",
+      "ageBracket": "0-2",
+      "image": "img/products/100292972-0.jpg",
+      "images": [
+        "img/products/100292972-0.jpg",
+        "img/products/100292972-1.jpg"
+      ]
+    },
+    {
+      "id": "1002730513",
+      "name": "Playset - Barbie - Casa De Bonecas Dos Sonhos - Mattel",
+      "brand": "Mattel",
+      "licence": "Barbie",
+      "department": "BONECOS E BONECAS",
+      "category": "CASA DE BONECA",
+      "categoryPath": "BONECOS E BONECAS/CASA DE BONECA/CASINHAS",
+      "price": 1548.99,
+      "listPrice": 2199.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 216,
+      "ageDisplay": "4a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002730513-0.jpg",
+      "images": [
+        "img/products/1002730513-0.jpg",
+        "img/products/1002730513-1.jpg"
+      ]
+    },
+    {
+      "id": "100451995",
+      "name": "Jogo Imagem & Ação Júnior - 448 Peças - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE AÇÃO",
+      "categoryPath": "JOGOS/JOGOS DE AÇÃO/IMAGEM E AÇÃO",
+      "price": 50.99,
+      "listPrice": 99.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100451995-0.jpg",
+      "images": [
+        "img/products/100451995-0.jpg",
+        "img/products/100451995-1.jpg"
+      ]
+    },
+    {
+      "id": "1003134878",
+      "name": "Jogo de Cartas - Uno - Original - Mattel",
+      "brand": "Mattel",
+      "licence": "UNO",
+      "department": "JOGOS",
+      "category": "JOGOS CLÁSSICOS",
+      "categoryPath": "JOGOS/JOGOS CLÁSSICOS/JOGOS DE MESA",
+      "price": 11.99,
+      "listPrice": 29.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 96,
+      "ageDisplay": "7a-8a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003134878-0.jpg",
+      "images": [
+        "img/products/1003134878-0.jpg",
+        "img/products/1003134878-1.jpg"
+      ]
+    },
+    {
+      "id": "100137601",
+      "name": "Conjunto de Atividades - LAB 42 Experiências - Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS EDUCATIVOS",
+      "categoryPath": "JOGOS/JOGOS EDUCATIVOS/JOGOS DE LABORATÓRIO",
+      "price": 99.99,
+      "listPrice": 159.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100137601-0.jpg",
+      "images": [
+        "img/products/100137601-0.jpg",
+        "img/products/100137601-1.jpg"
+      ]
+    },
+    {
+      "id": "1003151979",
+      "name": "Geladeira - Mini Brands - Fill The Fridge - Mini Minis - Candide",
+      "brand": "Candide",
+      "licence": "Mini Brands",
+      "department": "COLECIONÁVEIS",
+      "category": "MONTAGEM E MODELISMO",
+      "categoryPath": "COLECIONÁVEIS/MONTAGEM E MODELISMO",
+      "price": 349.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003151979-0.jpg",
+      "images": [
+        "img/products/1003151979-0.jpg",
+        "img/products/1003151979-1.jpg"
+      ]
+    },
+    {
+      "id": "1002723753",
+      "name": "Fantasia - Disney Princesa - A Pequena Sereia Ariel - Tamanho M - Novabrink",
+      "brand": "Novabrink",
+      "licence": "Disney",
+      "department": "FANTASIAS",
+      "category": "FANTASIA INFANTIL",
+      "categoryPath": "FANTASIAS/FANTASIA INFANTIL/FANTASIAS PRINCESAS",
+      "price": 79.91,
+      "listPrice": 199.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002723753-0.jpg",
+      "images": [
+        "img/products/1002723753-0.jpg",
+        "img/products/1002723753-1.jpg"
+      ]
+    },
+    {
+      "id": "1002830189",
+      "name": "Sabre de Luz Space Force - Cores Sortidas - DM Toys",
+      "brand": "DM TOYS",
+      "licence": "Star Wars",
+      "department": "FANTASIAS",
+      "category": "SABRE DE LUZ",
+      "categoryPath": "FANTASIAS/SABRE DE LUZ",
+      "price": 41.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002830189-0.jpg",
+      "images": [
+        "img/products/1002830189-0.jpg",
+        "img/products/1002830189-1.jpg"
+      ]
+    },
+    {
+      "id": "1002828403",
+      "name": "Mascara - Jurassic World - Dominion - Dinossauro - Modelos Unitários Sortidos - Mattel",
+      "brand": "Mattel",
+      "licence": "Jurassic World",
+      "department": "FANTASIAS",
+      "category": "MÁSCARAS",
+      "categoryPath": "FANTASIAS/MÁSCARAS",
+      "price": 238.99,
+      "listPrice": 259.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 96,
+      "ageDisplay": "4a-8a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002828403-0.jpg",
+      "images": [
+        "img/products/1002828403-0.jpg",
+        "img/products/1002828403-1.jpg"
+      ]
+    },
+    {
+      "id": "100412539",
+      "name": "Bicicleta Aro 12 -  Arco Íris Branco e Pink - TK3 Track",
+      "brand": "TRACKBIKES",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BICICLETAS",
+      "categoryPath": "ESPORTES/BICICLETAS/BICICLETA ARO 12",
+      "price": 349.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 60,
+      "ageDisplay": "12m-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/100412539-0.jpg",
+      "images": [
+        "img/products/100412539-0.jpg",
+        "img/products/100412539-1.jpg"
+      ]
+    },
+    {
+      "id": "100354084",
+      "name": "Skate Com Acessórios - Hot Wheels  - Modelos Sortidos - Fun",
+      "brand": "Fun",
+      "licence": "Hot Wheels",
+      "department": "ESPORTES",
+      "category": "SKATES",
+      "categoryPath": "ESPORTES/SKATES/SKATE INFANTIL",
+      "price": 399.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/100354084-0.jpg",
+      "images": [
+        "img/products/100354084-0.jpg",
+        "img/products/100354084-1.jpg"
+      ]
+    },
+    {
+      "id": "1003151974",
+      "name": "Patinete - Skatenet - Led - Dobrável - Bandeirante",
+      "brand": "SEM LICENÇA",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "PATINETES",
+      "categoryPath": "ESPORTES/PATINETES",
+      "price": 599.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 96,
+      "ageDisplay": "4a-8a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003151974-0.jpg",
+      "images": [
+        "img/products/1003151974-0.jpg",
+        "img/products/1003151974-1.jpg"
+      ]
+    },
+    {
+      "id": "1002415192",
+      "name": "Patins - Barbie - Dreamtopia - Tamanho 29 a 32 - Fun - Rosa",
+      "brand": "Fun",
+      "licence": "Barbie",
+      "department": "ESPORTES",
+      "category": "PATINS",
+      "categoryPath": "ESPORTES/PATINS",
+      "price": 333.99,
+      "listPrice": 379.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002415192-0.jpg",
+      "images": [
+        "img/products/1002415192-0.jpg",
+        "img/products/1002415192-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194320",
+      "name": "BOLA TOTAL PRINT ESTAMPA DE CARROS - ALLPHA",
+      "brand": "ALLPHA",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BOLAS",
+      "categoryPath": "ESPORTES/BOLAS",
+      "price": 42.89,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194320-0.jpg",
+      "images": [
+        "img/products/1003194320-0.jpg",
+        "img/products/1003194320-1.jpg"
+      ]
+    },
+    {
+      "id": "100167562",
+      "name": "Jogo de Boliche - Com 6 Pinos e 2 Bolas - Cardoso",
+      "brand": "Cardoso",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BRINCADEIRAS AO AR LIVRE",
+      "categoryPath": "ESPORTES/BRINCADEIRAS AO AR LIVRE/BRINQUEDOS PARA O AR LIVRE",
+      "price": 42.99,
+      "listPrice": 49.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 216,
+      "ageDisplay": "2a-18a",
+      "ageBracket": "0-2",
+      "image": "img/products/100167562-0.jpg",
+      "images": [
+        "img/products/100167562-0.jpg"
+      ]
+    },
+    {
+      "id": "1003194992",
+      "name": "Piscina Inflável Infantil Fundo do Mar 28 Litros Intex",
+      "brand": "Intex",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "PRAIA E PISCINA",
+      "categoryPath": "ESPORTES/PRAIA E PISCINA/PISCINAS PLÁSTICAS",
+      "price": 44.99,
+      "listPrice": 54.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194992-0.jpg",
+      "images": [
+        "img/products/1003194992-0.jpg",
+        "img/products/1003194992-1.jpg"
+      ]
+    },
+    {
+      "id": "1002312637",
+      "name": "Jogo PS4 - Kena Brigde of Spirits - Sony",
+      "brand": "Sony",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "JOGOS DE VÍDEO-GAME",
+      "categoryPath": "TECNOLOGIA/JOGOS DE VÍDEO-GAME/JOGOS DE PLAYSTATION",
+      "price": 124.91,
+      "listPrice": 249.9,
+      "ageMinMonths": 108,
+      "ageMaxMonths": 216,
+      "ageDisplay": "9a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1002312637-0.jpg",
+      "images": [
+        "img/products/1002312637-0.jpg",
+        "img/products/1002312637-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194016",
+      "name": "Controle Gamepad Bluetooth AL-G7 H Android iOS PC Switch Preto",
+      "brand": "Altomex",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "CONTROLES",
+      "categoryPath": "TECNOLOGIA/CONTROLES/CONTROLE PARA NINTENDO",
+      "price": 129.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194016-0.jpg",
+      "images": [
+        "img/products/1003194016-0.jpg",
+        "img/products/1003194016-1.jpg"
+      ]
+    },
+    {
+      "id": "1003154943",
+      "name": "Livro Magnético Infantil - Histórias Magnéticas - Dinossauros - Janod",
+      "brand": "Maped",
+      "licence": null,
+      "department": "LIVROS E PAPELARIA",
+      "category": "LIVROS",
+      "categoryPath": "LIVROS E PAPELARIA/LIVROS/LIVROS INFANTIS",
+      "price": 89.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 108,
+      "ageDisplay": "12m-9a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003154943-0.jpg",
+      "images": [
+        "img/products/1003154943-0.jpg",
+        "img/products/1003154943-1.jpg"
+      ]
+    },
+    {
+      "id": "1003054887",
+      "name": "Conjunto Álbum E Figurinhas - Fórmula 1 - 2024 - Topps",
+      "brand": "TOPPS SPORTS",
+      "licence": null,
+      "department": "LIVROS E PAPELARIA",
+      "category": "ÁLBUM DE FIGURINHAS",
+      "categoryPath": "LIVROS E PAPELARIA/ÁLBUM DE FIGURINHAS",
+      "price": 159.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 120,
+      "ageDisplay": "6a-10a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003054887-0.jpg",
+      "images": [
+        "img/products/1003054887-0.jpg",
+        "img/products/1003054887-1.jpg"
+      ]
+    },
+    {
+      "id": "1002794399",
+      "name": "Mochila Pelúcia - Patrulha Canina - Skye - Candide",
+      "brand": "Candide",
+      "licence": "Patrulha Canina",
+      "department": "LIVROS E PAPELARIA",
+      "category": "MOCHILAS",
+      "categoryPath": "LIVROS E PAPELARIA/MOCHILAS",
+      "price": 109.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002794399-0.jpg",
+      "images": [
+        "img/products/1002794399-0.jpg",
+        "img/products/1002794399-1.jpg"
+      ]
+    },
+    {
+      "id": "100154823",
+      "name": "LEGO Classic - Maleta Criativa - 10713",
+      "brand": "LEGO",
+      "licence": "LEGO",
+      "department": "BRINQUEDOS",
+      "category": "BLOCOS DE MONTAR",
+      "categoryPath": "BRINQUEDOS/BLOCOS DE MONTAR/LEGO",
+      "price": 125.99,
+      "listPrice": 229.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 120,
+      "ageDisplay": "4a-10a",
+      "ageBracket": "3-5",
+      "image": "img/products/100154823-0.jpg",
+      "images": [
+        "img/products/100154823-0.jpg",
+        "img/products/100154823-1.jpg"
+      ]
+    },
+    {
+      "id": "1003156001",
+      "name": "Boneca Musical - Dos Rosa - Emilly Vick - Novabrink",
+      "brand": "Novabrink",
+      "licence": null,
+      "department": "BONECOS E BONECAS",
+      "category": "BONECAS",
+      "categoryPath": "BONECOS E BONECAS/BONECAS/BONECAS INTERATIVAS",
+      "price": 198.99,
+      "listPrice": 229.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 108,
+      "ageDisplay": "4a-9a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003156001-0.jpg",
+      "images": [
+        "img/products/1003156001-0.jpg",
+        "img/products/1003156001-1.jpg"
+      ]
+    },
+    {
+      "id": "1003047706",
+      "name": "Brinquedo Interativo - Minimi - Centopeia Pula Pula - Modelos Sortidos - Jxp Brink",
+      "brand": "SEM LICENÇA",
+      "licence": null,
+      "department": "BABY",
+      "category": "BRINQUEDOS PARA BEBÊS",
+      "categoryPath": "BABY/BRINQUEDOS PARA BEBÊS/BRINQUEDOS INTERATIVOS PARA BEBÊ",
+      "price": 30.99,
+      "listPrice": 49.99,
+      "ageMinMonths": 0,
+      "ageMaxMonths": 6,
+      "ageDisplay": "0m-6m",
+      "ageBracket": "0-2",
+      "image": "img/products/1003047706-0.jpg",
+      "images": [
+        "img/products/1003047706-0.jpg",
+        "img/products/1003047706-1.jpg"
+      ]
+    },
+    {
+      "id": "1002731188",
+      "name": "Pelúcia - Série Bluey - Modelos Sortidos - Candide",
+      "brand": "Candide",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "PELÚCIAS",
+      "categoryPath": "BRINQUEDOS/PELÚCIAS/PERSONAGENS DE PELÚCIA",
+      "price": 98.99,
+      "listPrice": 109.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002731188-0.jpg",
+      "images": [
+        "img/products/1002731188-0.jpg",
+        "img/products/1002731188-1.jpg"
+      ]
+    },
+    {
+      "id": "100001810",
+      "name": "Carrinho Hot Wheels - Veículos Básicos - Sortido - Mattel",
+      "brand": "Mattel",
+      "licence": "Hot Wheels",
+      "department": "BRINQUEDOS",
+      "category": "VEÍCULOS DE BRINQUEDO",
+      "categoryPath": "BRINQUEDOS/VEÍCULOS DE BRINQUEDO/CARRINHOS",
+      "price": 17.99,
+      "listPrice": 21.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100001810-0.jpg",
+      "images": [
+        "img/products/100001810-0.jpg"
+      ]
+    },
+    {
+      "id": "100184971",
+      "name": "Boneco Articulado - Disney - Marvel - Homem Aranha - Titan Hero Series - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Homem Aranha",
+      "department": "BONECOS E BONECAS",
+      "category": "BONECOS",
+      "categoryPath": "BONECOS E BONECAS/BONECOS/BONECOS ARTICULADOS",
+      "price": 99.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 96,
+      "ageDisplay": "2a-8a",
+      "ageBracket": "0-2",
+      "image": "img/products/100184971-0.jpg",
+      "images": [
+        "img/products/100184971-0.jpg",
+        "img/products/100184971-1.jpg"
+      ]
+    },
+    {
+      "id": "1003109693",
+      "name": "Jogo De Cartas - Pokémon - Mega Kangaskhan Ex -  Copag",
+      "brand": "Copag",
+      "licence": "Pokemon",
+      "department": "JOGOS",
+      "category": "JOGOS DE CARTAS",
+      "categoryPath": "JOGOS/JOGOS DE CARTAS/CARTAS POKÉMON",
+      "price": 169.99,
+      "listPrice": 179.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 216,
+      "ageDisplay": "7a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003109693-0.jpg",
+      "images": [
+        "img/products/1003109693-0.jpg",
+        "img/products/1003109693-1.jpg"
+      ]
+    },
+    {
+      "id": "100103329",
+      "name": "Jogo Eu Sou? - Novas Cartas e App - Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE TABULEIRO",
+      "categoryPath": "JOGOS/JOGOS DE TABULEIRO/JOGOS DE PERGUNTAS E RESPOSTAS",
+      "price": 87.99,
+      "listPrice": 99.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 144,
+      "ageDisplay": "6a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/100103329-0.jpg",
+      "images": [
+        "img/products/100103329-0.jpg"
+      ]
+    },
+    {
+      "id": "1003133630",
+      "name": "Boneco - Funko Pop - Guerreiras Do K-Pop - Rumi - Candide",
+      "brand": "Candide",
+      "licence": "Funko Pop",
+      "department": "COLECIONÁVEIS",
+      "category": "FUNKO POP",
+      "categoryPath": "COLECIONÁVEIS/FUNKO POP/FUNKO DE SÉRIES",
+      "price": 149.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003133630-0.jpg",
+      "images": [
+        "img/products/1003133630-0.jpg",
+        "img/products/1003133630-1.jpg"
+      ]
+    },
+    {
+      "id": "1003067242",
+      "name": "EXCLUSIVO: Chaveiro Miniatura Colecionável - Bone Shaker - Hot Wheels",
+      "brand": "Hot Wheels",
+      "licence": "Hot Wheels",
+      "department": "COLECIONÁVEIS",
+      "category": "ACTION FIGURE",
+      "categoryPath": "COLECIONÁVEIS/ACTION FIGURE/MINI ACTION FIGURE",
+      "price": 19.91,
+      "listPrice": 39.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003067242-0.jpg",
+      "images": [
+        "img/products/1003067242-0.jpg",
+        "img/products/1003067242-1.jpg"
+      ]
+    },
+    {
+      "id": "1003045917",
+      "name": "Blocos De Montar - Mattel - Corvette Grand Sport",
+      "brand": "Mattel",
+      "licence": null,
+      "department": "COLECIONÁVEIS",
+      "category": "CARRINHOS COLECIONÁVEIS",
+      "categoryPath": "COLECIONÁVEIS/CARRINHOS COLECIONÁVEIS",
+      "price": 329.99,
+      "listPrice": 499.99,
+      "ageMinMonths": 120,
+      "ageMaxMonths": 216,
+      "ageDisplay": "10a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003045917-0.jpg",
+      "images": [
+        "img/products/1003045917-0.jpg",
+        "img/products/1003045917-1.jpg"
+      ]
+    },
+    {
+      "id": "1002698898",
+      "name": "Mini Veículo Elétrico - Hello Kitty - 6V - Lambreta - Bandeirante - Rosa",
+      "brand": "Bandeirante",
+      "licence": "Hello Kitty",
+      "department": "BABY",
+      "category": "MINI VEÍCULOS",
+      "categoryPath": "BABY/MINI VEÍCULOS/MINI VEÍCULOS ELÉTRICOS",
+      "price": 999.99,
+      "listPrice": 1599.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 60,
+      "ageDisplay": "2a-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002698898-0.jpg",
+      "images": [
+        "img/products/1002698898-0.jpg",
+        "img/products/1002698898-1.jpg"
+      ]
+    },
+    {
+      "id": "1002788614",
+      "name": "Mordedor - Sensimals - Modelos Sortidos - Fisher-Price",
+      "brand": "Fisher Price",
+      "licence": null,
+      "department": "BABY",
+      "category": "MORDEDORES",
+      "categoryPath": "BABY/MORDEDORES",
+      "price": 40.99,
+      "listPrice": 59.99,
+      "ageMinMonths": 3,
+      "ageMaxMonths": 24,
+      "ageDisplay": "3m-2a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002788614-0.jpg",
+      "images": [
+        "img/products/1002788614-0.jpg",
+        "img/products/1002788614-1.jpg"
+      ]
+    },
+    {
+      "id": "1002128253",
+      "name": "Massa de Modelar - Play-Doh - Mini Sorveteria Divertida com 2 Cores de Massinha - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Play-Doh",
+      "department": "BRINQUEDOS",
+      "category": "ARTES",
+      "categoryPath": "BRINQUEDOS/ARTES/MASSA DE MODELAR",
+      "price": 49.99,
+      "listPrice": null,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002128253-0.jpg",
+      "images": [
+        "img/products/1002128253-0.jpg",
+        "img/products/1002128253-1.jpg"
+      ]
+    },
+    {
+      "id": "1003051355",
+      "name": "Conjunto De Acessórios - Barbie - Pic Nic No Parque - Elka",
+      "brand": "Elka",
+      "licence": "Barbie",
+      "department": "BRINQUEDOS",
+      "category": "BRINCADEIRA DE CASINHA",
+      "categoryPath": "BRINQUEDOS/BRINCADEIRA DE CASINHA/UTENSÍLIOS DE COZINHA DE BRINQUEDO",
+      "price": 80.99,
+      "listPrice": 99.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003051355-0.jpg",
+      "images": [
+        "img/products/1003051355-0.jpg",
+        "img/products/1003051355-1.jpg"
+      ]
+    },
+    {
+      "id": "1002838608",
+      "name": "Brincando de Ser - Caixa Registradora Unique - Barbie - Fun",
+      "brand": "Fun",
+      "licence": "Barbie",
+      "department": "BRINQUEDOS",
+      "category": "FAZ DE CONTA",
+      "categoryPath": "BRINQUEDOS/FAZ DE CONTA/PROFISSÕES",
+      "price": 221.99,
+      "listPrice": 249.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002838608-0.jpg",
+      "images": [
+        "img/products/1002838608-0.jpg",
+        "img/products/1002838608-1.jpg"
+      ]
+    },
+    {
+      "id": "1002767370",
+      "name": "Conjunto Musical - Disney - Frozen - Boombox Karaokê - Candide",
+      "brand": "Candide",
+      "licence": "Disney",
+      "department": "BRINQUEDOS",
+      "category": "INSTRUMENTOS MUSICAIS",
+      "categoryPath": "BRINQUEDOS/INSTRUMENTOS MUSICAIS/TECLADOS DE BRINQUEDO",
+      "price": 149.99,
+      "listPrice": null,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 132,
+      "ageDisplay": "3a-11a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002767370-0.jpg",
+      "images": [
+        "img/products/1002767370-0.jpg",
+        "img/products/1002767370-1.jpg"
+      ]
+    },
+    {
+      "id": "1002999968",
+      "name": "Beyblade - Conjunto Inicial - Modelos Sortidos - Hasbro",
+      "brand": "Hasbro",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "LANÇADORES",
+      "categoryPath": "BRINQUEDOS/LANÇADORES/BEYBLADE",
+      "price": 99.95,
+      "listPrice": 149.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 144,
+      "ageDisplay": "8a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002999968-0.jpg",
+      "images": [
+        "img/products/1002999968-0.jpg",
+        "img/products/1002999968-1.jpg"
+      ]
+    },
+    {
+      "id": "1003139611",
+      "name": "Quebra-Cabeça - Panorama - Guerreiras Do K-Pop - 350 Peças - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "QUEBRA-CABEÇAS",
+      "categoryPath": "BRINQUEDOS/QUEBRA-CABEÇAS/QUEBRA-CABEÇAS ATÉ 500 PEÇAS",
+      "price": 95.99,
+      "listPrice": 119.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 216,
+      "ageDisplay": "8a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003139611-0.jpg",
+      "images": [
+        "img/products/1003139611-0.jpg",
+        "img/products/1003139611-1.jpg"
+      ]
+    },
+    {
+      "id": "1002733220",
+      "name": "Laptop Infantil - C/ Tela Incorp - Sonic - Minigame - Candide",
+      "brand": "Candide",
+      "licence": "Sonic",
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS ELETRONICOS",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS ELETRONICOS/LAPTOP DE BRINQUEDO",
+      "price": 79.91,
+      "listPrice": 99.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002733220-0.jpg",
+      "images": [
+        "img/products/1002733220-0.jpg",
+        "img/products/1002733220-1.jpg"
+      ]
+    },
+    {
+      "id": "1002175945",
+      "name": "Conjunto - Cabelos Customizados - FanFun",
+      "brand": "FanFun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS DE BELEZA",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS DE BELEZA/MAQUIAGEM DE BRINQUEDO",
+      "price": 85.99,
+      "listPrice": 99.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002175945-0.jpg",
+      "images": [
+        "img/products/1002175945-0.jpg",
+        "img/products/1002175945-1.jpg"
+      ]
+    },
+    {
+      "id": "1002388260",
+      "name": "Boneca e Acessórios - Barbie - Passeio De Bicicleta - 18cm - Mattel",
+      "brand": "Mattel",
+      "licence": "Barbie",
+      "department": "BONECOS E BONECAS",
+      "category": "ACESSÓRIOS PARA BONECAS",
+      "categoryPath": "BONECOS E BONECAS/ACESSÓRIOS PARA BONECAS/VEÍCULOS DE BONECA",
+      "price": 178.99,
+      "listPrice": 249.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002388260-0.jpg",
+      "images": [
+        "img/products/1002388260-0.jpg",
+        "img/products/1002388260-1.jpg"
+      ]
+    },
+    {
+      "id": "100166885",
+      "name": "Conjunto Sala de Jantar Clássica - 15 Peças - Sylvanian Families - Epoch",
+      "brand": "Epoch",
+      "licence": "Sylvanian Families",
+      "department": "BONECOS E BONECAS",
+      "category": "CASA DE BONECA",
+      "categoryPath": "BONECOS E BONECAS/CASA DE BONECA/SALA DE BONECA",
+      "price": 169.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100166885-0.jpg",
+      "images": [
+        "img/products/100166885-0.jpg",
+        "img/products/100166885-1.jpg"
+      ]
+    },
+    {
+      "id": "1002991579",
+      "name": "Jogo de Raciocínio Lógico - Jogo Senha - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE AÇÃO",
+      "categoryPath": "JOGOS/JOGOS DE AÇÃO/OUTROS JOGOS",
+      "price": 51.99,
+      "listPrice": 99.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 144,
+      "ageDisplay": "8a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002991579-0.jpg",
+      "images": [
+        "img/products/1002991579-0.jpg",
+        "img/products/1002991579-1.jpg"
+      ]
+    },
+    {
+      "id": "1002722731",
+      "name": "Jogo Clássico - Stop! - 2 a 4 Jogadores - Nig Brinquedos",
+      "brand": "Nig Brinquedos",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS CLÁSSICOS",
+      "categoryPath": "JOGOS/JOGOS CLÁSSICOS/STOP",
+      "price": 52.99,
+      "listPrice": 69.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 216,
+      "ageDisplay": "7a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002722731-0.jpg",
+      "images": [
+        "img/products/1002722731-0.jpg",
+        "img/products/1002722731-1.jpg"
+      ]
+    },
+    {
+      "id": "1003135703",
+      "name": "Jogo Educativo - Cartas Geniais - Bandeiras do Mundo - Toyster",
+      "brand": "Toyster",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS EDUCATIVOS",
+      "categoryPath": "JOGOS/JOGOS EDUCATIVOS/JOGOS PARA ALFABETIZAÇÃO",
+      "price": 26.99,
+      "listPrice": 39.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 84,
+      "ageDisplay": "6a-7a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003135703-0.jpg",
+      "images": [
+        "img/products/1003135703-0.jpg",
+        "img/products/1003135703-1.jpg"
+      ]
+    },
+    {
+      "id": "1003191642",
+      "name": "Kit Caminhonete Monta Desmonta Infantil Plástico Carrinho",
+      "brand": "Futuro Kids",
+      "licence": null,
+      "department": "COLECIONÁVEIS",
+      "category": "MONTAGEM E MODELISMO",
+      "categoryPath": "COLECIONÁVEIS/MONTAGEM E MODELISMO",
+      "price": 45.68,
+      "listPrice": 47.14,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003191642-0.jpg",
+      "images": [
+        "img/products/1003191642-0.jpg",
+        "img/products/1003191642-1.jpg"
+      ]
+    },
+    {
+      "id": "1002888229",
+      "name": "Fantasia Infantil - Moana 2 - Tam P - Princesas Disney - Novabrink",
+      "brand": "Novabrink",
+      "licence": "Disney",
+      "department": "FANTASIAS",
+      "category": "FANTASIA INFANTIL",
+      "categoryPath": "FANTASIAS/FANTASIA INFANTIL/FANTASIAS PRINCESAS",
+      "price": 149.91,
+      "listPrice": 189.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002888229-0.jpg",
+      "images": [
+        "img/products/1002888229-0.jpg",
+        "img/products/1002888229-1.jpg"
+      ]
+    },
+    {
+      "id": "100270916",
+      "name": "Sabre De Luz - Disney - Star Wars - Black Series - Force FX Elite - Conde Dookan - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Star Wars",
+      "department": "FANTASIAS",
+      "category": "SABRE DE LUZ",
+      "categoryPath": "FANTASIAS/SABRE DE LUZ",
+      "price": 499.91,
+      "listPrice": 1999.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100270916-0.jpg",
+      "images": [
+        "img/products/100270916-0.jpg",
+        "img/products/100270916-1.jpg"
+      ]
+    },
+    {
+      "id": "1003164314",
+      "name": "Óculos De Sol - Disney - Princesas - Toyng",
+      "brand": "Toyng",
+      "licence": "Disney",
+      "department": "FANTASIAS",
+      "category": "MÁSCARAS",
+      "categoryPath": "FANTASIAS/MÁSCARAS",
+      "price": 49.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 132,
+      "ageDisplay": "4a-11a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003164314-0.jpg",
+      "images": [
+        "img/products/1003164314-0.jpg",
+        "img/products/1003164314-1.jpg"
+      ]
+    },
+    {
+      "id": "1003051453",
+      "name": "EXCLUSIVO - Bicicleta - Aro 14 - Barbie - Bandeirante",
+      "brand": "Bandeirante",
+      "licence": "Barbie",
+      "department": "ESPORTES",
+      "category": "BICICLETAS",
+      "categoryPath": "ESPORTES/BICICLETAS/BICICLETA ARO 14",
+      "price": 799.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 60,
+      "ageDisplay": "12m-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003051453-0.jpg",
+      "images": [
+        "img/products/1003051453-0.jpg",
+        "img/products/1003051453-1.jpg"
+      ]
+    },
+    {
+      "id": "100354033",
+      "name": "Skate Com Acessórios - Barbie - Modelos Sortidos - Fun",
+      "brand": "Fun",
+      "licence": "Barbie",
+      "department": "ESPORTES",
+      "category": "SKATES",
+      "categoryPath": "ESPORTES/SKATES/SKATE INFANTIL",
+      "price": 353.99,
+      "listPrice": 379.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/100354033-0.jpg",
+      "images": [
+        "img/products/100354033-0.jpg",
+        "img/products/100354033-1.jpg"
+      ]
+    },
+    {
+      "id": "1002833280",
+      "name": "Patinete Com Led - Disney -  Stitch - Azul - Bbr Toys",
+      "brand": "SEM LICENÇA",
+      "licence": "Disney",
+      "department": "ESPORTES",
+      "category": "PATINETES",
+      "categoryPath": "ESPORTES/PATINETES",
+      "price": 271.99,
+      "listPrice": 399.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 60,
+      "ageDisplay": "2a-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002833280-0.jpg",
+      "images": [
+        "img/products/1002833280-0.jpg",
+        "img/products/1002833280-1.jpg"
+      ]
+    },
+    {
+      "id": "1002415232",
+      "name": "Patins - Hot Wheels - Ajustável - Tamanho 33 a 36 - Fun - Azul",
+      "brand": "Fun",
+      "licence": "Hot Wheels",
+      "department": "ESPORTES",
+      "category": "PATINS",
+      "categoryPath": "ESPORTES/PATINS",
+      "price": 348.99,
+      "listPrice": 379.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 216,
+      "ageDisplay": "3a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002415232-0.jpg",
+      "images": [
+        "img/products/1002415232-0.jpg",
+        "img/products/1002415232-1.jpg"
+      ]
+    },
+    {
+      "id": "1003193757",
+      "name": "Bola De Vinil Lisa Prata - 14 Polegadas - 10 Unidades",
+      "brand": "Outras",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BOLAS",
+      "categoryPath": "ESPORTES/BOLAS/BOLA DE BORRACHA",
+      "price": 79.9,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003193757-0.jpg",
+      "images": [
+        "img/products/1003193757-0.jpg",
+        "img/products/1003193757-1.jpg"
+      ]
+    },
+    {
+      "id": "100224362",
+      "name": "Brinquedo Clássico - Pogobol - Amarelo e Laranja - Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BRINCADEIRAS AO AR LIVRE",
+      "categoryPath": "ESPORTES/BRINCADEIRAS AO AR LIVRE/BRINQUEDOS PARA O AR LIVRE",
+      "price": 249.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 144,
+      "ageDisplay": "6a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/100224362-0.jpg",
+      "images": [
+        "img/products/100224362-0.jpg",
+        "img/products/100224362-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194986",
+      "name": "Bote Inflável Excursion 4 Pessoas 315cm Remos Bomba até 500kg Intex",
+      "brand": "Intex",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "PRAIA E PISCINA",
+      "categoryPath": "ESPORTES/PRAIA E PISCINA/BOTES",
+      "price": 1399.99,
+      "listPrice": 1499.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194986-0.jpg",
+      "images": [
+        "img/products/1003194986-0.jpg",
+        "img/products/1003194986-1.jpg"
+      ]
+    },
+    {
+      "id": "1002515425",
+      "name": "Jogo PS5 - Playstation - Resident Evil Village - Gold Edition - Azul - Sony",
+      "brand": "Sony",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "JOGOS DE VÍDEO-GAME",
+      "categoryPath": "TECNOLOGIA/JOGOS DE VÍDEO-GAME/JOGOS DE PLAYSTATION",
+      "price": 124.91,
+      "listPrice": 249.9,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1002515425-0.jpg",
+      "images": [
+        "img/products/1002515425-0.jpg",
+        "img/products/1002515425-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194015",
+      "name": "Controle Gamepad Bluetooth AL-G7 K Android IOS PC Cor Preto",
+      "brand": "Altomex",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "CONTROLES",
+      "categoryPath": "TECNOLOGIA/CONTROLES/CONTROLE PARA NINTENDO",
+      "price": 129.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194015-0.jpg",
+      "images": [
+        "img/products/1003194015-0.jpg",
+        "img/products/1003194015-1.jpg"
+      ]
+    },
+    {
+      "id": "1003154975",
+      "name": "Livro Magnético Infantil - Histórias Magnéticas - Pets - Janod",
+      "brand": "Maped",
+      "licence": null,
+      "department": "LIVROS E PAPELARIA",
+      "category": "LIVROS",
+      "categoryPath": "LIVROS E PAPELARIA/LIVROS/LIVROS INFANTIS",
+      "price": 89.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 108,
+      "ageDisplay": "12m-9a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003154975-0.jpg",
+      "images": [
+        "img/products/1003154975-0.jpg",
+        "img/products/1003154975-1.jpg"
+      ]
+    },
+    {
+      "id": "1003192439",
+      "name": "TOY STORY 5 - Álbum Capa Cartão + 36 Envelopes",
+      "brand": "PANINI",
+      "licence": "Toy Story",
+      "department": "LIVROS E PAPELARIA",
+      "category": "ÁLBUM DE FIGURINHAS",
+      "categoryPath": "LIVROS E PAPELARIA/ÁLBUM DE FIGURINHAS",
+      "price": 179.91,
+      "listPrice": 199.9,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003192439-0.jpg",
+      "images": [
+        "img/products/1003192439-0.jpg",
+        "img/products/1003192439-1.jpg"
+      ]
+    },
+    {
+      "id": "1003054900",
+      "name": "Mochila - Pokemon - Pikachu - Bbr Toys",
+      "brand": "BBR TOYS",
+      "licence": "Pokemon",
+      "department": "LIVROS E PAPELARIA",
+      "category": "MOCHILAS",
+      "categoryPath": "LIVROS E PAPELARIA/MOCHILAS",
+      "price": 272.99,
+      "listPrice": 349.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 60,
+      "ageDisplay": "2a-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003054900-0.jpg",
+      "images": [
+        "img/products/1003054900-0.jpg",
+        "img/products/1003054900-1.jpg"
+      ]
+    },
+    {
+      "id": "1003044980",
+      "name": "LEGO - Speed Champions - Honda S2000 de 2 Fast 2 Furious - 77241",
+      "brand": "LEGO",
+      "licence": "LEGO",
+      "department": "BRINQUEDOS",
+      "category": "BLOCOS DE MONTAR",
+      "categoryPath": "BRINQUEDOS/BLOCOS DE MONTAR/LEGO",
+      "price": 249.99,
+      "listPrice": 299.99,
+      "ageMinMonths": 108,
+      "ageMaxMonths": 216,
+      "ageDisplay": "9a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003044980-0.jpg",
+      "images": [
+        "img/products/1003044980-0.jpg",
+        "img/products/1003044980-1.jpg"
+      ]
+    },
+    {
+      "id": "1003002974",
+      "name": "Boneca Articulada - Emilly Vick - Rosa - Novabrink",
+      "brand": "Novabrink",
+      "licence": null,
+      "department": "BONECOS E BONECAS",
+      "category": "BONECAS",
+      "categoryPath": "BONECOS E BONECAS/BONECAS/BONECA ARTICULADA",
+      "price": 155.99,
+      "listPrice": 179.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003002974-0.jpg",
+      "images": [
+        "img/products/1003002974-0.jpg",
+        "img/products/1003002974-1.jpg"
+      ]
+    },
+    {
+      "id": "1002968482",
+      "name": "Lousa Mágica Magnética - Desenha Comigo - Sortida - Fisher Price",
+      "brand": "Mattel",
+      "licence": null,
+      "department": "BABY",
+      "category": "BRINQUEDOS PARA BEBÊS",
+      "categoryPath": "BABY/BRINQUEDOS PARA BEBÊS/BRINQUEDOS INTERATIVOS PARA BEBÊ",
+      "price": 39.95,
+      "listPrice": 129.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002968482-0.jpg",
+      "images": [
+        "img/products/1002968482-0.jpg",
+        "img/products/1002968482-1.jpg"
+      ]
+    },
+    {
+      "id": "1002835548",
+      "name": "Pelucia - Minnie - C luz e Som - Vestido Rosa - Multikids",
+      "brand": "Multikids",
+      "licence": "Disney",
+      "department": "BRINQUEDOS",
+      "category": "PELÚCIAS",
+      "categoryPath": "BRINQUEDOS/PELÚCIAS/PERSONAGENS DE PELÚCIA",
+      "price": 175.99,
+      "listPrice": 219.99,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 60,
+      "ageDisplay": "12m-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002835548-0.jpg",
+      "images": [
+        "img/products/1002835548-0.jpg",
+        "img/products/1002835548-1.jpg"
+      ]
+    },
+    {
+      "id": "1003046904",
+      "name": "Pista De Percurso - Hot Wheels - Loja De Doces - City - Mattel",
+      "brand": "Mattel",
+      "licence": "Hot Wheels",
+      "department": "BRINQUEDOS",
+      "category": "VEÍCULOS DE BRINQUEDO",
+      "categoryPath": "BRINQUEDOS/VEÍCULOS DE BRINQUEDO/PISTAS DE PERCURSOS",
+      "price": 105.99,
+      "listPrice": 169.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003046904-0.jpg",
+      "images": [
+        "img/products/1003046904-0.jpg",
+        "img/products/1003046904-1.jpg"
+      ]
+    },
+    {
+      "id": "1003151993",
+      "name": "Boneco Articulado - Disney - Pixar - Toy Story 5 - Modelos Unitários - Sortidos - Mattel",
+      "brand": "Mattel",
+      "licence": "Disney",
+      "department": "BONECOS E BONECAS",
+      "category": "BONECOS",
+      "categoryPath": "BONECOS E BONECAS/BONECOS/BONECOS ARTICULADOS",
+      "price": 138.99,
+      "listPrice": 169.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003151993-0.jpg",
+      "images": [
+        "img/products/1003151993-0.jpg",
+        "img/products/1003151993-1.jpg"
+      ]
+    },
+    {
+      "id": "1003159339",
+      "name": "Jogo De Cartas - Pokémon TCG - ME04 - Blister Triplo - Copag",
+      "brand": "Copag",
+      "licence": "Pokemon",
+      "department": "JOGOS",
+      "category": "JOGOS DE CARTAS",
+      "categoryPath": "JOGOS/JOGOS DE CARTAS/CARTAS POKÉMON",
+      "price": 49.99,
+      "listPrice": 59.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 216,
+      "ageDisplay": "7a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003159339-0.jpg",
+      "images": [
+        "img/products/1003159339-0.jpg",
+        "img/products/1003159339-1.jpg"
+      ]
+    },
+    {
+      "id": "1003150375",
+      "name": "Jogo De Tabuleiro - Monopoly - FIFA - Copa Do Mundo - Hasbro",
+      "brand": "SEM LICENÇA",
+      "licence": "Fifa",
+      "department": "JOGOS",
+      "category": "JOGOS DE TABULEIRO",
+      "categoryPath": "JOGOS/JOGOS DE TABULEIRO/JOGOS DE TABULEIRO MODERNO",
+      "price": 149.91,
+      "listPrice": 399.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 216,
+      "ageDisplay": "8a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003150375-0.jpg",
+      "images": [
+        "img/products/1003150375-0.jpg",
+        "img/products/1003150375-1.jpg"
+      ]
+    },
+    {
+      "id": "1003059823",
+      "name": "Boneco Funko Pop - Harry Potter - Harry No Quadribol - Candide",
+      "brand": "Candide",
+      "licence": "Harry Potter",
+      "department": "COLECIONÁVEIS",
+      "category": "FUNKO POP",
+      "categoryPath": "COLECIONÁVEIS/FUNKO POP/FUNKO DE FILMES",
+      "price": 149.99,
+      "listPrice": null,
+      "ageMinMonths": 120,
+      "ageMaxMonths": 216,
+      "ageDisplay": "10a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003059823-0.jpg",
+      "images": [
+        "img/products/1003059823-0.jpg",
+        "img/products/1003059823-1.jpg"
+      ]
+    },
+    {
+      "id": "1002827778",
+      "name": "Topper Unitário - Patrulha Canina - Skye - Estrela",
+      "brand": "Estrela",
+      "licence": "Patrulha Canina",
+      "department": "COLECIONÁVEIS",
+      "category": "ACTION FIGURE",
+      "categoryPath": "COLECIONÁVEIS/ACTION FIGURE/MINI ACTION FIGURE",
+      "price": 29.91,
+      "listPrice": 49.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 216,
+      "ageDisplay": "2a-18a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002827778-0.jpg",
+      "images": [
+        "img/products/1002827778-0.jpg",
+        "img/products/1002827778-1.jpg"
+      ]
+    },
+    {
+      "id": "1003045916",
+      "name": "Blocos De Montar - Mattel - 90 Acura NSX",
+      "brand": "Mattel",
+      "licence": null,
+      "department": "COLECIONÁVEIS",
+      "category": "CARRINHOS COLECIONÁVEIS",
+      "categoryPath": "COLECIONÁVEIS/CARRINHOS COLECIONÁVEIS",
+      "price": 399.99,
+      "listPrice": 499.99,
+      "ageMinMonths": 120,
+      "ageMaxMonths": 216,
+      "ageDisplay": "10a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1003045916-0.jpg",
+      "images": [
+        "img/products/1003045916-0.jpg",
+        "img/products/1003045916-1.jpg"
+      ]
+    },
+    {
+      "id": "1002312605",
+      "name": "Triciclo Infantil - Europa - Bandeirante - Vermelho",
+      "brand": "Bandeirante",
+      "licence": null,
+      "department": "BABY",
+      "category": "MINI VEÍCULOS",
+      "categoryPath": "BABY/MINI VEÍCULOS/TRICICLO",
+      "price": 268.99,
+      "listPrice": 369.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 60,
+      "ageDisplay": "2a-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002312605-0.jpg",
+      "images": [
+        "img/products/1002312605-0.jpg",
+        "img/products/1002312605-1.jpg"
+      ]
+    },
+    {
+      "id": "1003017287",
+      "name": "Teclado Musical Com Mordedor - Disney Baby - Yestoys",
+      "brand": "Yes Toys",
+      "licence": "Disney",
+      "department": "BABY",
+      "category": "MORDEDORES",
+      "categoryPath": "BABY/MORDEDORES",
+      "price": 46.99,
+      "listPrice": 59.99,
+      "ageMinMonths": 0,
+      "ageMaxMonths": 18,
+      "ageDisplay": "0m-18m",
+      "ageBracket": "0-2",
+      "image": "img/products/1003017287-0.jpg",
+      "images": [
+        "img/products/1003017287-0.jpg",
+        "img/products/1003017287-1.jpg"
+      ]
+    },
+    {
+      "id": "1002800242",
+      "name": "Conjunto de Massa de Modelar - Play-Doh - Smoothies Coloridos - Playset - 5 Potes - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Play-Doh",
+      "department": "BRINQUEDOS",
+      "category": "ARTES",
+      "categoryPath": "BRINQUEDOS/ARTES/MASSA DE MODELAR",
+      "price": 79.99,
+      "listPrice": null,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002800242-0.jpg",
+      "images": [
+        "img/products/1002800242-0.jpg",
+        "img/products/1002800242-1.jpg"
+      ]
+    },
+    {
+      "id": "1002693667",
+      "name": "Jogo De Chá - 18 Peças - Fanfun",
+      "brand": "FanFun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "BRINCADEIRA DE CASINHA",
+      "categoryPath": "BRINQUEDOS/BRINCADEIRA DE CASINHA/UTENSÍLIOS DE COZINHA DE BRINQUEDO",
+      "price": 111.99,
+      "listPrice": 149.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 216,
+      "ageDisplay": "3a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002693667-0.jpg",
+      "images": [
+        "img/products/1002693667-0.jpg"
+      ]
+    },
+    {
+      "id": "100127301",
+      "name": "Caixa Registradora - Creative Fun - Rosa - Multikids",
+      "brand": "Multikids",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "FAZ DE CONTA",
+      "categoryPath": "BRINQUEDOS/FAZ DE CONTA/PROFISSÕES",
+      "price": 175.99,
+      "listPrice": 199.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100127301-0.jpg",
+      "images": [
+        "img/products/100127301-0.jpg"
+      ]
+    },
+    {
+      "id": "1002750567",
+      "name": "Brinquedo Musical - Patrulha Canina - Boombox Karaokê - Candide",
+      "brand": "Candide",
+      "licence": "Patrulha Canina",
+      "department": "BRINQUEDOS",
+      "category": "INSTRUMENTOS MUSICAIS",
+      "categoryPath": "BRINQUEDOS/INSTRUMENTOS MUSICAIS/TECLADOS DE BRINQUEDO",
+      "price": 135.99,
+      "listPrice": 149.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 120,
+      "ageDisplay": "3a-10a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002750567-0.jpg",
+      "images": [
+        "img/products/1002750567-0.jpg",
+        "img/products/1002750567-1.jpg"
+      ]
+    },
+    {
+      "id": "1002376756",
+      "name": "Lançador de Água - Nerf Super Soaker - Torrent - Capacidade 236ml - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Nerf",
+      "department": "BRINQUEDOS",
+      "category": "LANÇADORES",
+      "categoryPath": "BRINQUEDOS/LANÇADORES/NERF",
+      "price": 69.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 120,
+      "ageDisplay": "6a-10a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002376756-0.jpg",
+      "images": [
+        "img/products/1002376756-0.jpg",
+        "img/products/1002376756-1.jpg"
+      ]
+    },
+    {
+      "id": "1002787831",
+      "name": "Quebra-Cabeça - 1500 Peças - Pôr do Sol em Praga - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "QUEBRA-CABEÇAS",
+      "categoryPath": "BRINQUEDOS/QUEBRA-CABEÇAS/QUEBRA-CABEÇAS ACIMA DE 1000 PEÇAS",
+      "price": 78.99,
+      "listPrice": 119.99,
+      "ageMinMonths": 156,
+      "ageMaxMonths": 216,
+      "ageDisplay": "13a-18a",
+      "ageBracket": "13+",
+      "image": "img/products/1002787831-0.jpg",
+      "images": [
+        "img/products/1002787831-0.jpg",
+        "img/products/1002787831-1.jpg"
+      ]
+    },
+    {
+      "id": "1003055395",
+      "name": "Minigame Portátil - Marvel - Homem-Aranha - Candide",
+      "brand": "Candide",
+      "licence": "Homem Aranha",
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS ELETRONICOS",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS ELETRONICOS/MINI GAME",
+      "price": 66.99,
+      "listPrice": 99.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003055395-0.jpg",
+      "images": [
+        "img/products/1003055395-0.jpg"
+      ]
+    },
+    {
+      "id": "1002176470",
+      "name": "Conjunto - Cabelos Rainbow - Giz Colorido - Fanfun",
+      "brand": "FanFun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS DE BELEZA",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS DE BELEZA/MIÇANGAS DE BRINQUEDO",
+      "price": 145.99,
+      "listPrice": 169.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002176470-0.jpg",
+      "images": [
+        "img/products/1002176470-0.jpg",
+        "img/products/1002176470-1.jpg"
+      ]
+    },
+    {
+      "id": "100291506",
+      "name": "Veículo de Controle Remoto - Barbie - Glamour Flip - Modelos Sortidos - Candide",
+      "brand": "Candide",
+      "licence": "Barbie",
+      "department": "BONECOS E BONECAS",
+      "category": "ACESSÓRIOS PARA BONECAS",
+      "categoryPath": "BONECOS E BONECAS/ACESSÓRIOS PARA BONECAS/VEÍCULOS DE BONECA",
+      "price": 106.99,
+      "listPrice": 119.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 108,
+      "ageDisplay": "4a-9a",
+      "ageBracket": "3-5",
+      "image": "img/products/100291506-0.jpg",
+      "images": [
+        "img/products/100291506-0.jpg",
+        "img/products/100291506-1.jpg"
+      ]
+    },
+    {
+      "id": "1003045919",
+      "name": "Playset E Mini Bonecas - Polly Pocket - Estojo Gabby'S Dollhouse - Mattel",
+      "brand": "Mattel",
+      "licence": "Polly Pocket",
+      "department": "BONECOS E BONECAS",
+      "category": "CASA DE BONECA",
+      "categoryPath": "BONECOS E BONECAS/CASA DE BONECA/PLAYSET DE BONECA",
+      "price": 202.99,
+      "listPrice": 219.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 216,
+      "ageDisplay": "4a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003045919-0.jpg",
+      "images": [
+        "img/products/1003045919-0.jpg",
+        "img/products/1003045919-1.jpg"
+      ]
+    },
+    {
+      "id": "1002804178",
+      "name": "Jogo de Ação - Cai Não Cai - Tetris - Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE AÇÃO",
+      "categoryPath": "JOGOS/JOGOS DE AÇÃO/OUTROS JOGOS",
+      "price": 49.99,
+      "listPrice": 69.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 144,
+      "ageDisplay": "8a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002804178-0.jpg",
+      "images": [
+        "img/products/1002804178-0.jpg",
+        "img/products/1002804178-1.jpg"
+      ]
+    },
+    {
+      "id": "100000048",
+      "name": "Jogo Cilada Estrela Tabuleiro Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS CLÁSSICOS",
+      "categoryPath": "JOGOS/JOGOS CLÁSSICOS/KIT DE JOGOS",
+      "price": 49.49,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100000048-0.jpg",
+      "images": [
+        "img/products/100000048-0.jpg",
+        "img/products/100000048-1.jpg"
+      ]
+    },
+    {
+      "id": "1002975598",
+      "name": "Jogo de Anatomia - Operando - A partir de 01 Jogador - Hasbro",
+      "brand": "HASBRO",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS EDUCATIVOS",
+      "categoryPath": "JOGOS/JOGOS EDUCATIVOS/JOGOS DE ANATOMIA",
+      "price": 199.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 120,
+      "ageDisplay": "6a-10a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002975598-0.jpg",
+      "images": [
+        "img/products/1002975598-0.jpg",
+        "img/products/1002975598-1.jpg"
+      ]
+    },
+    {
+      "id": "1003147426",
+      "name": "Capacete em Miniatura - 1987 Ayrton Senna - Formula 1 - 3cm - 1/10 - Minichamps",
+      "brand": "Minichamps",
+      "licence": null,
+      "department": "COLECIONÁVEIS",
+      "category": "MONTAGEM E MODELISMO",
+      "categoryPath": "COLECIONÁVEIS/MONTAGEM E MODELISMO",
+      "price": 214.9,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003147426-0.jpg",
+      "images": [
+        "img/products/1003147426-0.jpg",
+        "img/products/1003147426-1.jpg"
+      ]
+    },
+    {
+      "id": "1003056186",
+      "name": "Fantasia - A Casa Magica Da Gabby - Novabrink - Tam M",
+      "brand": "Novabrink",
+      "licence": "Gabby Dollhouse",
+      "department": "FANTASIAS",
+      "category": "FANTASIA INFANTIL",
+      "categoryPath": "FANTASIAS/FANTASIA INFANTIL/FANTASIAS DE PERSONAGENS",
+      "price": 159.9,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 108,
+      "ageDisplay": "6a-9a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003056186-0.jpg",
+      "images": [
+        "img/products/1003056186-0.jpg",
+        "img/products/1003056186-1.jpg"
+      ]
+    },
+    {
+      "id": "100172847",
+      "name": "Mini Sabre de Luz e Figura Surpresa - Disney - Star Wars - Micro Force - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Star Wars",
+      "department": "FANTASIAS",
+      "category": "SABRE DE LUZ",
+      "categoryPath": "FANTASIAS/SABRE DE LUZ",
+      "price": 49.97,
+      "listPrice": 79.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100172847-0.jpg",
+      "images": [
+        "img/products/100172847-0.jpg"
+      ]
+    },
+    {
+      "id": "1003194231",
+      "name": "Máscara Halloween It A Coisa Palhaço Assasino 3D Realista de Luxo com Cabelo pra Fantasia de Terror",
+      "brand": "Fantasias Carol",
+      "licence": null,
+      "department": "FANTASIAS",
+      "category": "MÁSCARAS",
+      "categoryPath": "FANTASIAS/MÁSCARAS",
+      "price": 46.9,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194231-0.jpg",
+      "images": [
+        "img/products/1003194231-0.jpg",
+        "img/products/1003194231-1.jpg"
+      ]
+    },
+    {
+      "id": "100412540",
+      "name": "Bicicleta Aro 12 - Arco Íris Vermelho e Azul - TK3 Track",
+      "brand": "TRACKBIKES",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BICICLETAS",
+      "categoryPath": "ESPORTES/BICICLETAS/BICICLETA ARO 12",
+      "price": 349.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 60,
+      "ageDisplay": "12m-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/100412540-0.jpg",
+      "images": [
+        "img/products/100412540-0.jpg",
+        "img/products/100412540-1.jpg"
+      ]
+    },
+    {
+      "id": "1003055271",
+      "name": "Skatenet - Princesas - Bandeirante",
+      "brand": "Bandeirante",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "SKATES",
+      "categoryPath": "ESPORTES/SKATES/Skatenet",
+      "price": 399.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003055271-0.jpg",
+      "images": [
+        "img/products/1003055271-0.jpg",
+        "img/products/1003055271-1.jpg"
+      ]
+    },
+    {
+      "id": "1002975096",
+      "name": "Skatenet - Led Pro - Dobravel - Rosa - Bandeirante",
+      "brand": "Bandeirante",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "PATINETES",
+      "categoryPath": "ESPORTES/PATINETES",
+      "price": 599.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002975096-0.jpg",
+      "images": [
+        "img/products/1002975096-0.jpg",
+        "img/products/1002975096-1.jpg"
+      ]
+    },
+    {
+      "id": "100366877",
+      "name": "Patins Ajustável com Acessórios - Patrulha Canina - 29 a 32 - Fun",
+      "brand": "Fun",
+      "licence": "Patrulha Canina",
+      "department": "ESPORTES",
+      "category": "PATINS",
+      "categoryPath": "ESPORTES/PATINS",
+      "price": 429.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/100366877-0.jpg",
+      "images": [
+        "img/products/100366877-0.jpg",
+        "img/products/100366877-1.jpg"
+      ]
+    },
+    {
+      "id": "1003191926",
+      "name": "Jogo de Bola Bola Maluca Que Salta e Muda de Direção para Brincar Sozinho Ou em Grupo Ark Brasil",
+      "brand": "ARK BRASIL",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BOLAS",
+      "categoryPath": "ESPORTES/BOLAS",
+      "price": 47.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003191926-0.jpg",
+      "images": [
+        "img/products/1003191926-0.jpg",
+        "img/products/1003191926-1.jpg"
+      ]
+    },
+    {
+      "id": "100223887",
+      "name": "Brinquedo Clássico - Pogobol - Roxo e Verde - Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "BRINCADEIRAS AO AR LIVRE",
+      "categoryPath": "ESPORTES/BRINCADEIRAS AO AR LIVRE/BRINQUEDOS PARA O AR LIVRE",
+      "price": 192.89,
+      "listPrice": 229.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 144,
+      "ageDisplay": "6a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/100223887-0.jpg",
+      "images": [
+        "img/products/100223887-0.jpg",
+        "img/products/100223887-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194982",
+      "name": "Piscina Inflável Playground Infantil Castelo Unicórnio 234L Intex",
+      "brand": "Intex",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "PRAIA E PISCINA",
+      "categoryPath": "ESPORTES/PRAIA E PISCINA/PISCINAS PLÁSTICAS",
+      "price": 479.99,
+      "listPrice": 499.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194982-0.jpg",
+      "images": [
+        "img/products/1003194982-0.jpg",
+        "img/products/1003194982-1.jpg"
+      ]
+    },
+    {
+      "id": "1003195516",
+      "name": "A Era do Gelo Scrats Nutty Adventure PS4 Midia Fisica",
+      "brand": "Playstation",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "JOGOS DE VÍDEO-GAME",
+      "categoryPath": "TECNOLOGIA/JOGOS DE VÍDEO-GAME/JOGOS DE PLAYSTATION",
+      "price": 169.97,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003195516-0.jpg",
+      "images": [
+        "img/products/1003195516-0.jpg",
+        "img/products/1003195516-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194005",
+      "name": "Vídeo Game Sitck 8K +10.000 Jogos 2 Controles 2.4g Wireless",
+      "brand": "Inova",
+      "licence": null,
+      "department": "TECNOLOGIA",
+      "category": "CONTROLES",
+      "categoryPath": "TECNOLOGIA/CONTROLES/CONTROLE PARA NINTENDO",
+      "price": 299.99,
+      "listPrice": null,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194005-0.jpg",
+      "images": [
+        "img/products/1003194005-0.jpg",
+        "img/products/1003194005-1.jpg"
+      ]
+    },
+    {
+      "id": "1003154942",
+      "name": "Livro Magnético Infantil - Histórias Magnéticas - A Festa Dos Animais - Janod",
+      "brand": "Maped",
+      "licence": null,
+      "department": "LIVROS E PAPELARIA",
+      "category": "LIVROS",
+      "categoryPath": "LIVROS E PAPELARIA/LIVROS/LIVROS INFANTIS",
+      "price": 89.99,
+      "listPrice": null,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 108,
+      "ageDisplay": "12m-9a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003154942-0.jpg",
+      "images": [
+        "img/products/1003154942-0.jpg",
+        "img/products/1003154942-1.jpg"
+      ]
+    },
+    {
+      "id": "1003192438",
+      "name": "TOY STORY 5 - Álbum Capa Cartão + 12 Envelopes",
+      "brand": "PANINI",
+      "licence": "Toy Story",
+      "department": "LIVROS E PAPELARIA",
+      "category": "ÁLBUM DE FIGURINHAS",
+      "categoryPath": "LIVROS E PAPELARIA/ÁLBUM DE FIGURINHAS",
+      "price": 71.91,
+      "listPrice": 79.9,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003192438-0.jpg",
+      "images": [
+        "img/products/1003192438-0.jpg",
+        "img/products/1003192438-1.jpg"
+      ]
+    },
+    {
+      "id": "1003054899",
+      "name": "Mochila - Pokemon - Squirtle - Bbr Toys",
+      "brand": "BBR TOYS",
+      "licence": "Pokemon",
+      "department": "LIVROS E PAPELARIA",
+      "category": "MOCHILAS",
+      "categoryPath": "LIVROS E PAPELARIA/MOCHILAS",
+      "price": 271.99,
+      "listPrice": 349.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 60,
+      "ageDisplay": "2a-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003054899-0.jpg",
+      "images": [
+        "img/products/1003054899-0.jpg",
+        "img/products/1003054899-1.jpg"
+      ]
+    },
+    {
+      "id": "1003137061",
+      "name": "LEGO - Spidey - Spidey Em Sua Motocicleta Vs. Rhino - 11206",
+      "brand": "LEGO",
+      "licence": "LEGO",
+      "department": "BRINQUEDOS",
+      "category": "BLOCOS DE MONTAR",
+      "categoryPath": "BRINQUEDOS/BLOCOS DE MONTAR/LEGO",
+      "price": 83.99,
+      "listPrice": 99.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 96,
+      "ageDisplay": "4a-8a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003137061-0.jpg",
+      "images": [
+        "img/products/1003137061-0.jpg",
+        "img/products/1003137061-1.jpg"
+      ]
+    },
+    {
+      "id": "1002959277",
+      "name": "Boneca Bebê com Acessórios - Baby Alive - Festa do Chá Borbulhante - Hasbro",
+      "brand": "HASBRO",
+      "licence": "Baby Alive",
+      "department": "BONECOS E BONECAS",
+      "category": "BONECAS",
+      "categoryPath": "BONECOS E BONECAS/BONECAS/BONECA COM ACESSÓRIO",
+      "price": 207.99,
+      "listPrice": 259.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002959277-0.jpg",
+      "images": [
+        "img/products/1002959277-0.jpg",
+        "img/products/1002959277-1.jpg"
+      ]
+    },
+    {
+      "id": "100130976",
+      "name": "Xilofone para Bebês - Fisher-Price - Colorido",
+      "brand": "Fisher-Price",
+      "licence": null,
+      "department": "BABY",
+      "category": "BRINQUEDOS PARA BEBÊS",
+      "categoryPath": "BABY/BRINQUEDOS PARA BEBÊS/BRINQUEDOS INTERATIVOS PARA BEBÊ",
+      "price": 73.99,
+      "listPrice": 189.99,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/100130976-0.jpg",
+      "images": [
+        "img/products/100130976-0.jpg",
+        "img/products/100130976-1.jpg"
+      ]
+    },
+    {
+      "id": "1002835648",
+      "name": "Pelúcia - Little Live Pets - Meu Baby Macaquinho - Fun",
+      "brand": "Fun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "PELÚCIAS",
+      "categoryPath": "BRINQUEDOS/PELÚCIAS/ANIMAIS DE PELÚCIA",
+      "price": 399.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 96,
+      "ageDisplay": "4a-8a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002835648-0.jpg",
+      "images": [
+        "img/products/1002835648-0.jpg",
+        "img/products/1002835648-1.jpg"
+      ]
+    },
+    {
+      "id": "1002800279",
+      "name": "Carrinho com Controle Remoto - Batman - Smart Driver - Candide",
+      "brand": "Candide",
+      "licence": "Batman",
+      "department": "BRINQUEDOS",
+      "category": "VEÍCULOS DE BRINQUEDO",
+      "categoryPath": "BRINQUEDOS/VEÍCULOS DE BRINQUEDO/VEÍCULOS DE CONTROLE REMOTO",
+      "price": 87.99,
+      "listPrice": 109.99,
+      "ageMinMonths": 60,
+      "ageMaxMonths": 216,
+      "ageDisplay": "5a-18a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002800279-0.jpg",
+      "images": [
+        "img/products/1002800279-0.jpg",
+        "img/products/1002800279-1.jpg"
+      ]
+    },
+    {
+      "id": "1002836835",
+      "name": "Figura Interativa - Senhor Cabeça De Batata - Hasbro",
+      "brand": "Hasbro",
+      "licence": null,
+      "department": "BONECOS E BONECAS",
+      "category": "BONECOS",
+      "categoryPath": "BONECOS E BONECAS/BONECOS/BONECOS DE AÇÃO",
+      "price": 89.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002836835-0.jpg",
+      "images": [
+        "img/products/1002836835-0.jpg",
+        "img/products/1002836835-1.jpg"
+      ]
+    },
+    {
+      "id": "1003048384",
+      "name": "Jogo De Cartas - Pokémon - ME02 - Blister Triplo - Copag",
+      "brand": "Copag",
+      "licence": "Pokemon",
+      "department": "JOGOS",
+      "category": "JOGOS DE CARTAS",
+      "categoryPath": "JOGOS/JOGOS DE CARTAS/CARTAS POKÉMON",
+      "price": 39.99,
+      "listPrice": 49.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 216,
+      "ageDisplay": "7a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003048384-0.jpg",
+      "images": [
+        "img/products/1003048384-0.jpg",
+        "img/products/1003048384-1.jpg"
+      ]
+    },
+    {
+      "id": "1002759110",
+      "name": "Jogo de Tabuleiro - Bloqueio - Preto - Grow",
+      "brand": "Grow",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE TABULEIRO",
+      "categoryPath": "JOGOS/JOGOS DE TABULEIRO/JOGOS DE ESTRATÉGIA",
+      "price": 62.99,
+      "listPrice": 89.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 144,
+      "ageDisplay": "8a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002759110-0.jpg",
+      "images": [
+        "img/products/1002759110-0.jpg",
+        "img/products/1002759110-1.jpg"
+      ]
+    },
+    {
+      "id": "1003161872",
+      "name": "Boneco - Funko Pop - One Piece - Live Action - Monkey D. Luffy - Candide",
+      "brand": "Funko",
+      "licence": "Funko Pop",
+      "department": "COLECIONÁVEIS",
+      "category": "FUNKO POP",
+      "categoryPath": "COLECIONÁVEIS/FUNKO POP/FUNKO DE ANIMES E MANGÁS",
+      "price": 149.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 84,
+      "ageDisplay": "4a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003161872-0.jpg",
+      "images": [
+        "img/products/1003161872-0.jpg",
+        "img/products/1003161872-1.jpg"
+      ]
+    },
+    {
+      "id": "1003065109",
+      "name": "EXCLUSIVO: Chaveiro Miniatura Colecionável - Rock a Stack - Fisher Price",
+      "brand": "Fisher Price",
+      "licence": null,
+      "department": "COLECIONÁVEIS",
+      "category": "ACTION FIGURE",
+      "categoryPath": "COLECIONÁVEIS/ACTION FIGURE/MINI ACTION FIGURE",
+      "price": 19.91,
+      "listPrice": 39.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003065109-0.jpg",
+      "images": [
+        "img/products/1003065109-0.jpg",
+        "img/products/1003065109-1.jpg"
+      ]
+    },
+    {
+      "id": "1003194647",
+      "name": "Carrinho Hot Wheels Premium Formula 1 Atlassian Williams Racing #55 JKD85",
+      "brand": "Hot Wheels",
+      "licence": "Hot Wheels",
+      "department": "COLECIONÁVEIS",
+      "category": "CARRINHOS COLECIONÁVEIS",
+      "categoryPath": "COLECIONÁVEIS/CARRINHOS COLECIONÁVEIS",
+      "price": 139.9,
+      "listPrice": 149.9,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003194647-0.jpg",
+      "images": [
+        "img/products/1003194647-0.jpg",
+        "img/products/1003194647-1.jpg"
+      ]
+    },
+    {
+      "id": "1003151976",
+      "name": "Mini Veiculo - Moto - Street Elétrica - 6V - Bandeirante",
+      "brand": "SEM LICENÇA",
+      "licence": null,
+      "department": "BABY",
+      "category": "MINI VEÍCULOS",
+      "categoryPath": "BABY/MINI VEÍCULOS/MINI VEÍCULOS ELÉTRICOS",
+      "price": 1029.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 60,
+      "ageDisplay": "2a-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003151976-0.jpg",
+      "images": [
+        "img/products/1003151976-0.jpg",
+        "img/products/1003151976-1.jpg"
+      ]
+    },
+    {
+      "id": "1002342677",
+      "name": "Conjunto de Mordedores com Chocalho – Toyster – BDA - Meu Primeiro Kit - Colorido",
+      "brand": "Toyster",
+      "licence": null,
+      "department": "BABY",
+      "category": "MORDEDORES",
+      "categoryPath": "BABY/MORDEDORES",
+      "price": 80.99,
+      "listPrice": 109.99,
+      "ageMinMonths": 3,
+      "ageMaxMonths": 18,
+      "ageDisplay": "3m-18m",
+      "ageBracket": "0-2",
+      "image": "img/products/1002342677-0.jpg",
+      "images": [
+        "img/products/1002342677-0.jpg",
+        "img/products/1002342677-1.jpg"
+      ]
+    },
+    {
+      "id": "1003152896",
+      "name": "Decore Sua Luminária - Style 4 Ever - Unicórnio Kawaii - Fun",
+      "brand": "Fun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "ARTES",
+      "categoryPath": "BRINQUEDOS/ARTES/PINTURAS",
+      "price": 121.99,
+      "listPrice": 129.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003152896-0.jpg",
+      "images": [
+        "img/products/1003152896-0.jpg",
+        "img/products/1003152896-1.jpg"
+      ]
+    },
+    {
+      "id": "100168636",
+      "name": "Cozinha Portátil e Acessórios - Fan Fun",
+      "brand": "FanFun",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "BRINCADEIRA DE CASINHA",
+      "categoryPath": "BRINQUEDOS/BRINCADEIRA DE CASINHA/UTENSÍLIOS DE COZINHA DE BRINQUEDO",
+      "price": 142.99,
+      "listPrice": 159.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 120,
+      "ageDisplay": "4a-10a",
+      "ageBracket": "3-5",
+      "image": "img/products/100168636-0.jpg",
+      "images": [
+        "img/products/100168636-0.jpg",
+        "img/products/100168636-1.jpg"
+      ]
+    },
+    {
+      "id": "1003050403",
+      "name": "Rádio Comunicadores - Homem Aranha - Candide",
+      "brand": "Candide",
+      "licence": "Homem Aranha",
+      "department": "BRINQUEDOS",
+      "category": "FAZ DE CONTA",
+      "categoryPath": "BRINQUEDOS/FAZ DE CONTA/WALKIE TALKIE",
+      "price": 114.99,
+      "listPrice": 229.99,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 108,
+      "ageDisplay": "4a-9a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003050403-0.jpg",
+      "images": [
+        "img/products/1003050403-0.jpg",
+        "img/products/1003050403-1.jpg"
+      ]
+    },
+    {
+      "id": "1002903751",
+      "name": "Aparelho de Karaokê - Boombox - Infantil - Bluey - Candide",
+      "brand": "Candide",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "INSTRUMENTOS MUSICAIS",
+      "categoryPath": "BRINQUEDOS/INSTRUMENTOS MUSICAIS/MICROFONE DE BRINQUEDO",
+      "price": 149.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1002903751-0.jpg",
+      "images": [
+        "img/products/1002903751-0.jpg",
+        "img/products/1002903751-1.jpg"
+      ]
+    },
+    {
+      "id": "1002969227",
+      "name": "Lançador de Dardos - Nerf - Series Purestrike - 2 Dardos Oficiais N1 - Hasbro",
+      "brand": "SEM LICENÇA",
+      "licence": "Nerf",
+      "department": "BRINQUEDOS",
+      "category": "LANÇADORES",
+      "categoryPath": "BRINQUEDOS/LANÇADORES/LANÇA-DARDOS",
+      "price": 47.99,
+      "listPrice": 59.99,
+      "ageMinMonths": 96,
+      "ageMaxMonths": 144,
+      "ageDisplay": "8a-12a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002969227-0.jpg",
+      "images": [
+        "img/products/1002969227-0.jpg",
+        "img/products/1002969227-1.jpg"
+      ]
+    },
+    {
+      "id": "1002699797",
+      "name": "Quebra-Cabeça - 500 Peças Nano - Coleção Obras de Arte - Van Gogh: A Noite Estrelada - Toyster",
+      "brand": "Toyster",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "QUEBRA-CABEÇAS",
+      "categoryPath": "BRINQUEDOS/QUEBRA-CABEÇAS/QUEBRA-CABEÇAS ATÉ 500 PEÇAS",
+      "price": 31.99,
+      "listPrice": 49.99,
+      "ageMinMonths": 120,
+      "ageMaxMonths": 216,
+      "ageDisplay": "10a-18a",
+      "ageBracket": "9-12",
+      "image": "img/products/1002699797-0.jpg",
+      "images": [
+        "img/products/1002699797-0.jpg",
+        "img/products/1002699797-1.jpg"
+      ]
+    },
+    {
+      "id": "1003055382",
+      "name": "Minigame Portátil - Sonic - Candide",
+      "brand": "Candide",
+      "licence": "Sonic",
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS ELETRONICOS",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS ELETRONICOS/MINI GAME",
+      "price": 86.99,
+      "listPrice": 99.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003055382-0.jpg",
+      "images": [
+        "img/products/1003055382-0.jpg"
+      ]
+    },
+    {
+      "id": "1002162974",
+      "name": "Conjunto - Relógio Personalizado - FanFun",
+      "brand": "SEM LICENÇA",
+      "licence": null,
+      "department": "BRINQUEDOS",
+      "category": "BRINQUEDOS DE BELEZA",
+      "categoryPath": "BRINQUEDOS/BRINQUEDOS DE BELEZA/BIJUTERIAS DE BRINQUEDO",
+      "price": 135.99,
+      "listPrice": 149.99,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002162974-0.jpg",
+      "images": [
+        "img/products/1002162974-0.jpg",
+        "img/products/1002162974-1.jpg"
+      ]
+    },
+    {
+      "id": "100426092",
+      "name": "Carrinho de Boneca - Confort Baby - Samba Toys",
+      "brand": "Samba Toys",
+      "licence": null,
+      "department": "BONECOS E BONECAS",
+      "category": "ACESSÓRIOS PARA BONECAS",
+      "categoryPath": "BONECOS E BONECAS/ACESSÓRIOS PARA BONECAS/CARRINHO DE BONECA",
+      "price": 75.99,
+      "listPrice": 129.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100426092-0.jpg",
+      "images": [
+        "img/products/100426092-0.jpg",
+        "img/products/100426092-1.jpg"
+      ]
+    },
+    {
+      "id": "1003009628",
+      "name": "Mini Playset - Polly Pocket - Compacto Revel - Comidinha Rápida - Mattel",
+      "brand": "Mattel",
+      "licence": "Polly Pocket",
+      "department": "BONECOS E BONECAS",
+      "category": "CASA DE BONECA",
+      "categoryPath": "BONECOS E BONECAS/CASA DE BONECA/PLAYSET DE BONECA",
+      "price": 73.99,
+      "listPrice": 129.99,
+      "ageMinMonths": 36,
+      "ageMaxMonths": 84,
+      "ageDisplay": "3a-7a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003009628-0.jpg",
+      "images": [
+        "img/products/1003009628-0.jpg",
+        "img/products/1003009628-1.jpg"
+      ]
+    },
+    {
+      "id": "100137590",
+      "name": "Jogo Tapa Certo - Animais - Estrela",
+      "brand": "Estrela",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS DE AÇÃO",
+      "categoryPath": "JOGOS/JOGOS DE AÇÃO/OUTROS JOGOS",
+      "price": 39.99,
+      "listPrice": 59.99,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100137590-0.jpg",
+      "images": [
+        "img/products/100137590-0.jpg",
+        "img/products/100137590-1.jpg"
+      ]
+    },
+    {
+      "id": "1002836222",
+      "name": "Mesa Para Jogo de Botão - Sportv - Xalingo",
+      "brand": "Xalingo",
+      "licence": null,
+      "department": "JOGOS",
+      "category": "JOGOS CLÁSSICOS",
+      "categoryPath": "JOGOS/JOGOS CLÁSSICOS/FUTEBOL DE BOTÃO",
+      "price": 81.99,
+      "listPrice": 89.99,
+      "ageMinMonths": 84,
+      "ageMaxMonths": 132,
+      "ageDisplay": "7a-11a",
+      "ageBracket": "6-8",
+      "image": "img/products/1002836222-0.jpg",
+      "images": [
+        "img/products/1002836222-0.jpg",
+        "img/products/1002836222-1.jpg"
+      ]
+    },
+    {
+      "id": "1003152914",
+      "name": "Jogo De Memória - Disney - Pixar - Toy Story 5 - Toyster",
+      "brand": "Toyster",
+      "licence": "Disney",
+      "department": "JOGOS",
+      "category": "JOGOS EDUCATIVOS",
+      "categoryPath": "JOGOS/JOGOS EDUCATIVOS/JOGOS DE MEMÓRIA",
+      "price": 42.99,
+      "listPrice": 59.99,
+      "ageMinMonths": 12,
+      "ageMaxMonths": 60,
+      "ageDisplay": "12m-5a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003152914-0.jpg",
+      "images": [
+        "img/products/1003152914-0.jpg",
+        "img/products/1003152914-1.jpg"
+      ]
+    },
+    {
+      "id": "1003172490",
+      "name": "Mini Brands - Magic Cook - Kitchen - Candide",
+      "brand": "Candide",
+      "licence": "Mini Brands",
+      "department": "COLECIONÁVEIS",
+      "category": "MONTAGEM E MODELISMO",
+      "categoryPath": "COLECIONÁVEIS/MONTAGEM E MODELISMO",
+      "price": 179.99,
+      "listPrice": null,
+      "ageMinMonths": 72,
+      "ageMaxMonths": 216,
+      "ageDisplay": "6a-18a",
+      "ageBracket": "6-8",
+      "image": "img/products/1003172490-0.jpg",
+      "images": [
+        "img/products/1003172490-0.jpg",
+        "img/products/1003172490-1.jpg"
+      ]
+    },
+    {
+      "id": "100583398",
+      "name": "Fantasia Infantil - Harry Potter - Novabrink - Tamanho M",
+      "brand": "Novabrink",
+      "licence": "Harry Potter",
+      "department": "FANTASIAS",
+      "category": "FANTASIA INFANTIL",
+      "categoryPath": "FANTASIAS/FANTASIA INFANTIL/FANTASIAS DE PERSONAGENS",
+      "price": 176.99,
+      "listPrice": 189.9,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/100583398-0.jpg",
+      "images": [
+        "img/products/100583398-0.jpg"
+      ]
+    },
+    {
+      "id": "1002833457",
+      "name": "Sabre de Luz - Star Wars - Lightsaber Forge - Cavaleiro Jedi Yord - Hasbro",
+      "brand": "Hasbro",
+      "licence": "Star Wars",
+      "department": "FANTASIAS",
+      "category": "SABRE DE LUZ",
+      "categoryPath": "FANTASIAS/SABRE DE LUZ",
+      "price": 279.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 96,
+      "ageDisplay": "4a-8a",
+      "ageBracket": "3-5",
+      "image": "img/products/1002833457-0.jpg",
+      "images": [
+        "img/products/1002833457-0.jpg",
+        "img/products/1002833457-1.jpg"
+      ]
+    },
+    {
+      "id": "1003192641",
+      "name": "Máscara Do Homem De Ferro Avengers Marvel Hasbro - C0481",
+      "brand": "Fabrica da Alegria",
+      "licence": "Marvel",
+      "department": "FANTASIAS",
+      "category": "MÁSCARAS",
+      "categoryPath": "FANTASIAS/MÁSCARAS",
+      "price": 120.94,
+      "listPrice": 127.3,
+      "ageMinMonths": null,
+      "ageMaxMonths": null,
+      "ageDisplay": "",
+      "ageBracket": null,
+      "image": "img/products/1003192641-0.jpg",
+      "images": [
+        "img/products/1003192641-0.jpg",
+        "img/products/1003192641-1.jpg"
+      ]
+    },
+    {
+      "id": "1003051472",
+      "name": "EXCLUSIVO - Bicicleta - Hot Whells - Aro 14 - Bandeirante",
+      "brand": "Bandeirante",
+      "licence": "Hot Wheels",
+      "department": "ESPORTES",
+      "category": "BICICLETAS",
+      "categoryPath": "ESPORTES/BICICLETAS/BICICLETA ARO 14",
+      "price": 799.99,
+      "listPrice": null,
+      "ageMinMonths": 48,
+      "ageMaxMonths": 108,
+      "ageDisplay": "4a-9a",
+      "ageBracket": "3-5",
+      "image": "img/products/1003051472-0.jpg",
+      "images": [
+        "img/products/1003051472-0.jpg",
+        "img/products/1003051472-1.jpg"
+      ]
+    },
+    {
+      "id": "1003061087",
+      "name": "Meu Primeiro Skatenet - Rosa - Bandeirante",
+      "brand": "Bandeirante",
+      "licence": null,
+      "department": "ESPORTES",
+      "category": "SKATES",
+      "categoryPath": "ESPORTES/SKATES/Skatenet",
+      "price": 299.99,
+      "listPrice": null,
+      "ageMinMonths": 24,
+      "ageMaxMonths": 72,
+      "ageDisplay": "2a-6a",
+      "ageBracket": "0-2",
+      "image": "img/products/1003061087-0.jpg",
+      "images": [
+        "img/products/1003061087-0.jpg",
+        "img/products/1003061087-1.jpg"
+      ]
+    }
+  ]
+}

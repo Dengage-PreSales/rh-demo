@@ -1,0 +1,300 @@
+{
+  "capturedAt": "2026-08-16T12:29:44Z",
+  "note": "Every pickup store name seen during capture. Input to the curated data/stores.json.",
+  "stores": [
+    {
+      "name": "Ri Happy Praia de Belas Prime Offices",
+      "regions": [
+        "poa"
+      ],
+      "count": 132
+    },
+    {
+      "name": "Ri Happy Bourbon Ipiranga - POA",
+      "regions": [
+        "poa"
+      ],
+      "count": 114
+    },
+    {
+      "name": "PBKIDS SHOPPING ELDORADO - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 112
+    },
+    {
+      "name": "Ri Happy Vila Mariana",
+      "regions": [
+        "sp"
+      ],
+      "count": 110
+    },
+    {
+      "name": "Ri Happy Baby Barra Shopping Sul",
+      "regions": [
+        "poa"
+      ],
+      "count": 109
+    },
+    {
+      "name": "Ri Happy Iguatemi São Paulo",
+      "regions": [
+        "sp"
+      ],
+      "count": 106
+    },
+    {
+      "name": "Ri Happy Augusta",
+      "regions": [
+        "sp"
+      ],
+      "count": 102
+    },
+    {
+      "name": "Ri Happy João Cachoeira",
+      "regions": [
+        "sp"
+      ],
+      "count": 102
+    },
+    {
+      "name": "Ri Happy Bourbon Shopping Carlos Gomes ",
+      "regions": [
+        "poa"
+      ],
+      "count": 98
+    },
+    {
+      "name": "Ri Happy Shopping Pátio Higienópolis",
+      "regions": [
+        "sp"
+      ],
+      "count": 97
+    },
+    {
+      "name": "PBKIDS SHOPPING IBIRAPUERA - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 96
+    },
+    {
+      "name": " Ri Happy Otto Baumgart",
+      "regions": [
+        "sp"
+      ],
+      "count": 92
+    },
+    {
+      "name": "PBKIDS AVENIDA REBOUÇAS - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 91
+    },
+    {
+      "name": "PBKIDS IGUATEMI JK - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 88
+    },
+    {
+      "name": "Ri Happy Bourbon SP",
+      "regions": [
+        "sp"
+      ],
+      "count": 80
+    },
+    {
+      "name": "PBKIDS MOOCA PLAZA SHOPPING - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 68
+    },
+    {
+      "name": "Ri Happy Miruna",
+      "regions": [
+        "sp"
+      ],
+      "count": 61
+    },
+    {
+      "name": "Ri Happy Shopping Villa Lobos",
+      "regions": [
+        "sp"
+      ],
+      "count": 56
+    },
+    {
+      "name": "Ri Happy  Shopping Metrô Tatuapé",
+      "regions": [
+        "sp"
+      ],
+      "count": 37
+    },
+    {
+      "name": "Ri Happy Tiete Plaza Shopping",
+      "regions": [
+        "sp"
+      ],
+      "count": 34
+    },
+    {
+      "name": "PBKIDS MORUMBI SHOPPING - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 28
+    },
+    {
+      "name": "PBKIDS SHOPPING ANÁLIA FRANCO - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 26
+    },
+    {
+      "name": "Ri Happy Shopping Leste Aricanduva",
+      "regions": [
+        "sp"
+      ],
+      "count": 25
+    },
+    {
+      "name": "Ri Happy Shopping Center Penha",
+      "regions": [
+        "sp"
+      ],
+      "count": 23
+    },
+    {
+      "name": "Ri Happy Shopping Interlagos",
+      "regions": [
+        "sp"
+      ],
+      "count": 22
+    },
+    {
+      "name": "PBKIDS SANTANA PARQUE SHOPPING - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 21
+    },
+    {
+      "name": "Ri Happy Shopping União de Osasco",
+      "regions": [
+        "sp"
+      ],
+      "count": 21
+    },
+    {
+      "name": "RI HAPPY SHOPPING METRO TUCURUVI - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 15
+    },
+    {
+      "name": "Ri Happy Shopping SP Market",
+      "regions": [
+        "sp"
+      ],
+      "count": 14
+    },
+    {
+      "name": "Ri Happy Shopping Praça da Moça",
+      "regions": [
+        "sp"
+      ],
+      "count": 12
+    },
+    {
+      "name": "Ri Happy Grand Plaza Shopping",
+      "regions": [
+        "sp"
+      ],
+      "count": 9
+    },
+    {
+      "name": "PBKIDS SHOPPING TAMBORÉ - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 9
+    },
+    {
+      "name": "PBKIDS SHOPPING JARDIM SUL - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 8
+    },
+    {
+      "name": "Ri Happy Raposo Shopping",
+      "regions": [
+        "sp"
+      ],
+      "count": 8
+    },
+    {
+      "name": "Ri Happy Internacional Shopping Guarulhos",
+      "regions": [
+        "sp"
+      ],
+      "count": 7
+    },
+    {
+      "name": "Ri Happy Morumbi Town Shopping",
+      "regions": [
+        "sp"
+      ],
+      "count": 5
+    },
+    {
+      "name": "PBKIDS SHOPPING GRANJA VIANNA - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 5
+    },
+    {
+      "name": "Ri Happy Metrô Itaquera",
+      "regions": [
+        "sp"
+      ],
+      "count": 5
+    },
+    {
+      "name": "PBKIDS IGUATEMI ALPHAVILLE - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 5
+    },
+    {
+      "name": "PBKIDS GOLDEN SQUARE SHOPPING - Loja Parceira",
+      "regions": [
+        "sp"
+      ],
+      "count": 5
+    },
+    {
+      "name": "Ri Happy Mogi Shopping",
+      "regions": [
+        "sp"
+      ],
+      "count": 4
+    },
+    {
+      "name": "Ri Happy Maxi Shopping Jundiaí",
+      "regions": [
+        "sp"
+      ],
+      "count": 1
+    }
+  ]
+}
