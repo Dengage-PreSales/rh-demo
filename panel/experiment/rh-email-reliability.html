@@ -26,6 +26,24 @@
        fewer            something is different about the heavier call and it
                         needs looking at before anything is built on it.
 
+     TWO OTHER QUESTIONS RIDE ALONG, because they cost nothing extra
+
+     Both are about $from, the way a template reads a Data Space table, and
+     both are answered by asking rather than by executing anything expensive.
+
+     1. Which methods does $from really have? Our own notes say where, take
+        and get, and that anything else fails at send time. The official
+        reference lists order, skip, random, first and value as well. The
+        notes were written from failed sends, so they may well be right, but
+        the difference decides whether the email hero can be the contact's
+        MOST RECENT basket item or merely one of them. This asks the builder
+        what it can do instead of guessing.
+
+     2. Can $from see a remote table at all? Not answered here, because no
+        remote table exists yet. Section 2 establishes the baseline against a
+        table we know is local, so that when a remote one is registered there
+        is something to compare against.
+
      Uses rh_email, which already exists. Nothing new to create.
      ========================================================================== -->
 <!doctype html>
@@ -37,6 +55,10 @@
 {% try { var a = JSON.parse($CustomApi.rh_email('90010-150', '100184971', '3')); if (a.ok) { ok = ok + 1; shop = a.storeName; if (a.hero) { toy = a.hero.name; } } } catch (e) { fail = fail + 1; lastErr = String(e); } %}
 {% try { var b = JSON.parse($CustomApi.rh_email('90010-150', '100184971', '3')); if (b.ok) { ok = ok + 1; } } catch (e) { fail = fail + 1; lastErr = String(e); } %}
 {% try { var c = JSON.parse($CustomApi.rh_email('90010-150', '100184971', '3')); if (c.ok) { ok = ok + 1; } } catch (e) { fail = fail + 1; lastErr = String(e); } %}
+
+{% var fMeth = ''; var fErr = ''; var fRows = ''; %}
+{% try { var fq = $from('$db.page_view_events'); fMeth = 'where ' + (typeof fq.where) + ', take ' + (typeof fq.take) + ', get ' + (typeof fq.get) + ', order ' + (typeof fq.order) + ', skip ' + (typeof fq.skip) + ', random ' + (typeof fq.random) + ', first ' + (typeof fq.first) + ', value ' + (typeof fq.value); } catch (e) { fErr = String(e); } %}
+{% try { var fRes = $from('$db.page_view_events').where('contact_key', '=', $Contact.contact_key).take(1).get(); fRows = fRes ? String(fRes.length) : 'nothing returned'; } catch (e) { fErr = fErr + ' reading rows: ' + String(e); } %}
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f4f5;">
 <tr><td align="center" style="padding:24px 12px;">
@@ -61,7 +83,26 @@
     </div>
   </td></tr>
 
-  <tr><td style="padding:4px 24px 24px;">
+  <tr><td style="padding:10px 24px 4px;">
+    <div style="font-size:15px;font-weight:bold;padding-bottom:2px;">What a template can ask a table for</div>
+    <div style="font-size:12px;color:#727273;padding-bottom:8px;">
+      Whichever of these says <b>function</b> is real. Anything saying undefined
+      is not there, whatever the reference page claims.
+    </div>
+    <div style="font-size:12px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      methods: [{%= fMeth %}]<br>
+      rows it could read for you: [{%= fRows %}]<br>
+      error: [{%= fErr %}]
+    </div>
+    <div style="font-size:12px;color:#727273;padding-top:8px;line-height:1.55;">
+      This is the local table, so it is the baseline. If a remote table is
+      registered later, the same question asked of that one tells us whether a
+      message can read an external database directly at send time, which is the
+      part no documentation states.
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:14px 24px 24px;">
     <div style="font-size:12px;color:#727273;line-height:1.55;background:#f6f7f8;padding:12px;border-radius:6px;">
       <b>Three of three</b> and the email is live every time. The stock change
       belongs in the email as well as on the website, and the safety net becomes
