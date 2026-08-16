@@ -2,12 +2,15 @@
   "slug": "rh-demo",
   "displayName": "Dengage eComm Demo",
   "capturedFrom": "rihappy.com.br",
-
-  "_theme_note": "Colours taken from Ri Happy's own published assets on 16 August 2026, not chosen by eye. primary and accent are the action colour and highlight in their theme stylesheet (rihappyio.rihappy-theme 4.9.82). logoColours are the seven fills inside their own logo file and are used for the playful category chips. Their logo itself is never shown: this storefront carries the Dengage mark.",
+  "_theme_note": "Sampled from Ri Happy's own screen recording and asset files on 16 August 2026, not chosen by eye. The header yellow #FCF708 is the most common pixel across their header band in three frames. Age chip fills are sampled from their gift by age row. Green is their add to cart button, red their discount badge, purple their postcode modal button and logo. An earlier reading of their stylesheet alone concluded the frame was magenta, which was wrong: the magenta is an accent. Their logo and word mark are never shown here; this storefront carries the Dengage mark.",
   "theme": {
-    "primary": "#DD1659",
+    "header": "#FCF708",
+    "onHeader": "#3F3F40",
+    "primary": "#4CAF50",
     "onPrimary": "#ffffff",
     "accent": "#FFB100",
+    "sale": "#FF4C4C",
+    "highlight": "#DD1659",
     "ink": "#3F3F40",
     "muted": "#727273",
     "surface": "#ffffff",
@@ -16,22 +19,65 @@
     "radius": "12px",
     "displayFont": "Poppins",
     "bodyFont": "Poppins",
-    "logoColours": ["#E1007A", "#603F8E", "#E22019", "#35A32C", "#E85B10", "#3ABAE8", "#EA73A4"]
+    "logoColours": [
+      "#E1007A",
+      "#603F8E",
+      "#E22019",
+      "#35A32C",
+      "#E85B10",
+      "#3ABAE8",
+      "#EA73A4"
+    ],
+    "cta": "#603F8E",
+    "onCta": "#ffffff"
   },
-
+  "_storefront_note": "Details mirrored from their live site so the demo reads as their shop rather than a generic one: a postcode gateway modal on first visit (theirs reads 'Seu CEP garante ofertas e prazos para a sua regiao'), a postcode chip in the header ('Deliver by: 05319-000' on their site), gift by age chips as first class navigation, the collect in 90 minutes promise, instalment lines under each price, and discount badges. The purple cta is the colour of the continue button in their own postcode modal and of their logo.",
+  "ageChips": [
+    {
+      "id": "0-1",
+      "label": "up to 1 year",
+      "tint": "#92CFEE",
+      "maxMonths": 12
+    },
+    {
+      "id": "1-2",
+      "label": "1 to 2 years",
+      "tint": "#93D8C6",
+      "minMonths": 12,
+      "maxMonths": 35
+    },
+    {
+      "id": "3-5",
+      "label": "3 to 5 years",
+      "tint": "#B2DE91",
+      "minMonths": 36,
+      "maxMonths": 71
+    },
+    {
+      "id": "6-8",
+      "label": "6 to 8 years",
+      "tint": "#FDFC86",
+      "minMonths": 72,
+      "maxMonths": 107
+    },
+    {
+      "id": "9+",
+      "label": "+9 years",
+      "tint": "#F2B2CD",
+      "minMonths": 108
+    }
+  ],
   "locale": {
     "language": "en",
     "currency": "BRL",
     "currencySymbol": "R$",
     "numberLocale": "pt-BR"
   },
-
   "dengage": {
     "accountId": "28",
     "appGuid": "99d9b8fb-0c62-5a85-3e43-2402554d93a5",
     "scenarioPrefix": "rh_"
   },
-
   "_api_note": "The key below is Supabase's publishable key. It is public by design, is confined by row level security to reading the four rh_ tables, and can write nothing. Verified on 16 August 2026: it works in the apikey header and as a query parameter, and a request with no key at all is refused with 401.",
   "api": {
     "base": "https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc",

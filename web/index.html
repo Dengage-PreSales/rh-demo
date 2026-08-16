@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" data-demo-slug="rh-demo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dengage eComm Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Resolves the demo slug and the contact key synchronously, before the SDK
+     is initialised, so the first page view carries an identity rather than
+     landing on an anonymous device and being reconciled seconds later. -->
+<script src="js/identity.js"></script>
+
+<script>
+window.dengage=window.dengage||function(){(window.dengage.q=window.dengage.q||[]).push(arguments)};
+</script>
+<script async src="https://pcdn.dengage.com/p/push/28/99d9b8fb-0c62-5a85-3e43-2402554d93a5/dengage_sdk_loader.js"></script>
+<script>
+window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage('initialize');
+</script>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <div class="header-top">
+      <div class="brand">
+        <span class="brand-mark" data-copy="brandMark">Dengage</span>
+        <span class="brand-sub" data-copy="brandSub">eComm Demo</span>
+      </div>
+
+      <!-- Their own header carries a postcode chip reading "Deliver by:
+           05319-000". This sits in the same place and does the same job. -->
+      <button class="store-chip" id="store-chip" type="button">
+        <span class="pin">▾</span><span class="chip-text">Enter your postcode</span>
+      </button>
+
+      <div class="search">
+        <input id="search-input" type="search" data-copy-attr="placeholder:searchPlaceholder"
+               placeholder="Discover a world of fun here...">
+        <span aria-hidden="true">⌕</span>
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-button" type="button" id="cart-button" aria-label="Bag">
+          🛒<span class="badge-count" id="cart-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="header-nav">
+      <a href="index.html" aria-current="true" data-copy="navAll">All departments</a>
+      <a href="#by-age" data-copy="navByAge">Gift by age</a>
+      <a href="#all" data-copy="navNew">News</a>
+      <a href="#all" data-copy="navGiftCard">Gift Card</a>
+      <a href="#all" data-copy="navImported">Imported</a>
+      <a href="#all" data-copy="navPickup">Pick up in store</a>
+      <a href="#all" data-copy="navExclusive">Exclusive</a>
+      <a href="#all" data-copy="navInStore">In-store event</a>
+      <a class="pill" href="#all" data-copy="navOutlet">OUTLET</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Their service promises. The middle one is the reason this demo exists:
+     collection in ninety minutes only means anything if the shop nearby
+     actually has the toy. -->
+<section class="promises">
+  <div class="wrap promises-row">
+    <div class="promise"><span class="promise-icon">🎁</span>
+      <strong data-copy="promiseGiftWrap">Gift wrapped</strong><span data-copy="promiseGiftWrapSub"></span></div>
+    <div class="promise"><span class="promise-icon">⚡</span>
+      <strong data-copy="promiseFast">Delivered in 3 hours</strong><span data-copy="promiseFastSub"></span></div>
+    <div class="promise"><span class="promise-icon">🏬</span>
+      <strong data-copy="promisePickup">Collect in store in 90 min</strong><span data-copy="promisePickupSub"></span></div>
+    <div class="promise"><span class="promise-icon">🔁</span>
+      <strong data-copy="promiseExchange">Exchange in any store</strong><span data-copy="promiseExchangeSub"></span></div>
+    <div class="promise"><span class="promise-icon">💳</span>
+      <strong data-copy="promiseInstalments">Pay in 6 instalments</strong><span data-copy="promiseInstalmentsSub"></span></div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <div id="state-notice"></div>
+
+    <section class="section" id="by-age">
+      <div class="section-head">
+        <h2 data-copy="sectionByAge">Gift by age</h2>
+      </div>
+      <div class="age-chips" id="age-chips"></div>
+    </section>
+
+    <section class="section" id="all">
+      <div class="section-head">
+        <h2 data-copy="sectionAll">All toys</h2>
+      </div>
+      <div class="toolbar">
+        <button class="chip" id="filter-available" type="button" aria-pressed="false" hidden></button>
+        <span class="result-count" id="result-count"></span>
+      </div>
+      <div class="grid" id="product-grid"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap"><span data-copy="footerNote"></span></div>
+</footer>
+
+<!-- The postcode gateway, mirroring theirs: a yellow card, the postcode field
+     with the continue button attached, and the location option underneath. -->
+<div class="overlay" id="cep-overlay">
+  <div class="dialog cep-dialog" role="dialog" aria-modal="true" aria-labelledby="cep-title">
+    <h2 id="cep-title" data-copy="cepTitle">Your postcode guarantees offers and delivery times for your region</h2>
+    <p data-copy="cepBody"></p>
+    <div class="field cep-field">
+      <input id="cep-input" inputmode="numeric" autocomplete="postal-code"
+             data-copy-attr="placeholder:cepPlaceholder" placeholder="00000-000">
+      <button class="button cep-continue" id="cep-submit" type="button" data-copy="cepSubmit">continue</button>
+    </div>
+    <div class="dialog-error" id="cep-error"></div>
+    <button class="button secondary cep-locate" id="cep-locate" type="button">
+      <span aria-hidden="true">➤</span> <span data-copy="cepUseLocation">use my location</span>
+    </button>
+    <div id="cep-stores"></div>
+    <div class="cep-foot">
+      <span data-copy="cepPrivacy"></span>
+      <button class="button link" id="cep-clear" type="button" data-copy="cepClear">Clear my shop</button>
+      <button class="button link" data-close-cep type="button" data-copy="cepLater">Please provide your zip code later.</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/dengageEvents.js"></script>
+<script src="js/debug.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/storeContext.js"></script>
+<script src="js/availability.js"></script>
+<script src="js/storefront.js"></script>
+<script src="js/boot.js"></script>
+<script>
+window.RhBoot.boot('home').then(function () {
+    window.Storefront.ageChips(document.getElementById('age-chips'));
+    window.Storefront.paintHome();
+
+    /* The shop is resolved after the shelves are already on screen. A slow
+       availability lookup slows down the badges, never the shop. */
+    window.StoreContext.boot().then(function (state) {
+        if (state.status === 'idle') window.Storefront.openCep();
+    });
+}).catch(function (err) {
+    window.RhBoot.fail(err && err.message ? err.message : '');
+});
+</script>
+</body>
+</html>

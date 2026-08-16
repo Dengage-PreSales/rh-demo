@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en" data-demo-slug="rh-demo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dengage eComm Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="js/identity.js"></script>
+<script>
+window.dengage=window.dengage||function(){(window.dengage.q=window.dengage.q||[]).push(arguments)};
+</script>
+<script async src="https://pcdn.dengage.com/p/push/28/99d9b8fb-0c62-5a85-3e43-2402554d93a5/dengage_sdk_loader.js"></script>
+<script>
+window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage('initialize');
+</script>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <div class="header-top">
+      <div class="brand">
+        <a href="index.html"><span class="brand-mark" data-copy="brandMark">Dengage</span></a>
+        <span class="brand-sub" data-copy="brandSub">eComm Demo</span>
+      </div>
+      <button class="store-chip" id="store-chip" type="button">
+        <span class="pin">▾</span><span class="chip-text">Enter your postcode</span>
+      </button>
+      <div class="search">
+        <input id="search-input" type="search" data-copy-attr="placeholder:searchPlaceholder"
+               placeholder="Discover a world of fun here...">
+        <span aria-hidden="true">⌕</span>
+      </div>
+      <div class="header-actions">
+        <button class="icon-button" type="button" id="cart-button" aria-label="Bag">
+          🛒<span class="badge-count" id="cart-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html" data-copy="navAll">All departments</a>
+      <a href="index.html#by-age" data-copy="navByAge">Gift by age</a>
+      <a href="index.html#all" data-copy="navPickup">Collect in store</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div id="state-notice"></div>
+
+    <!-- The substitution panel sits above the product on purpose. When the
+         shop nearby cannot supply what the visitor came for, that is the most
+         important thing on the page and it should not be below the fold. -->
+    <div id="substitution"></div>
+
+    <div class="pdp" id="pdp"></div>
+
+    <section class="section">
+      <div class="section-head"><h2 data-copy="pdpSimilar">You might also like</h2></div>
+      <div class="grid" id="similar-grid"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap"><span data-copy="footerNote"></span></div>
+</footer>
+
+<div class="overlay" id="cep-overlay">
+  <div class="dialog cep-dialog" role="dialog" aria-modal="true" aria-labelledby="cep-title">
+    <h2 id="cep-title" data-copy="cepTitle"></h2>
+    <p data-copy="cepBody"></p>
+    <div class="field cep-field">
+      <input id="cep-input" inputmode="numeric" autocomplete="postal-code"
+             data-copy-attr="placeholder:cepPlaceholder" placeholder="00000-000">
+      <button class="button cep-continue" id="cep-submit" type="button" data-copy="cepSubmit">continue</button>
+    </div>
+    <div class="dialog-error" id="cep-error"></div>
+    <button class="button secondary cep-locate" id="cep-locate" type="button">
+      <span aria-hidden="true">➤</span> <span data-copy="cepUseLocation">use my location</span>
+    </button>
+    <div id="cep-stores"></div>
+    <div class="cep-foot">
+      <span data-copy="cepPrivacy"></span>
+      <button class="button link" id="cep-clear" type="button" data-copy="cepClear">Clear my shop</button>
+      <button class="button link" data-close-cep type="button" data-copy="cepLater">Please provide your zip code later.</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/dengageEvents.js"></script>
+<script src="js/debug.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/storeContext.js"></script>
+<script src="js/availability.js"></script>
+<script src="js/storefront.js"></script>
+<script src="js/boot.js"></script>
+<script>
+(function () {
+    'use strict';
+
+    function render() {
+        var S = window.Storefront;
+        var product = window.Catalog.get(S.currentProductId());
+        var host = document.getElementById('pdp');
+        if (!product) {
+            host.innerHTML = '<div class="notice" data-tone="warn"><div>' +
+                '<strong>That toy is not in this catalogue.</strong>' +
+                'It may have been withdrawn since this demo was captured.</div></div>';
+            return;
+        }
+
+        var discount = product.listPrice
+            ? Math.round((1 - product.price / product.listPrice) * 100) : 0;
+
+        host.innerHTML =
+            '<div class="pdp-media">' + S.media(product) + '</div>' +
+            '<div>' +
+                '<h1>' + S.escapeText(product.name) + '</h1>' +
+                '<div class="meta">' + S.escapeText(product.categoryPath) + '</div>' +
+                '<div class="price-row">' +
+                    (product.listPrice ? '<span class="price-was">' + S.money(product.listPrice) + '</span>' : '') +
+                    '<span class="price-now">' + S.money(product.price) + '</span>' +
+                    (discount >= 5 ? '<span class="sale-badge">' +
+                        S.escapeText(S.t('saveBadge', { n: discount })) + '</span>' : '') +
+                '</div>' +
+                '<div class="installments">' + S.escapeText(S.instalmentLine(product.price)) + '</div>' +
+                '<div id="pdp-availability" style="margin:14px 0"></div>' +
+                '<button class="add-button" data-add="' + S.escapeAttr(product.id) + '">' +
+                    S.escapeText(S.t('addToCart')) + '</button>' +
+                '<button class="button link" id="pdp-refresh" type="button" style="margin-top:10px">' +
+                    S.escapeText(S.t('pdpRefresh')) + '</button>' +
+                '<dl style="margin-top:18px">' +
+                    (product.brand ? '<div class="spec"><dt>' + S.escapeText(S.t('pdpBrand')) +
+                        '</dt><dd>' + S.escapeText(product.brand) + '</dd></div>' : '') +
+                    (product.licence ? '<div class="spec"><dt>' + S.escapeText(S.t('pdpRange')) +
+                        '</dt><dd>' + S.escapeText(product.licence) + '</dd></div>' : '') +
+                    (product.ageDisplay ? '<div class="spec"><dt>' + S.escapeText(S.t('pdpAge')) +
+                        '</dt><dd>' + S.escapeText(product.ageDisplay) + '</dd></div>' : '') +
+                    (product.category ? '<div class="spec"><dt>' + S.escapeText(S.t('pdpCategory')) +
+                        '</dt><dd>' + S.escapeText(product.category) + '</dd></div>' : '') +
+                '</dl>' +
+            '</div>';
+
+        repaint();
+    }
+
+    function repaint() {
+        var product = window.Catalog.get(window.Storefront.currentProductId());
+        if (!product) return;
+
+        var slot = document.getElementById('pdp-availability');
+        if (slot) slot.innerHTML = window.Availability.badgeFor(product.id);
+
+        var button = document.querySelector('.pdp .add-button');
+        if (button) {
+            var state = window.StoreContext.hasStore()
+                ? window.StoreContext.availabilityOf(product.id) : 'unknown';
+            if (state === 'withoutStock') {
+                button.setAttribute('disabled', 'disabled');
+                button.textContent = window.Storefront.t('outOfStockHere');
+            } else {
+                button.removeAttribute('disabled');
+                button.textContent = window.Storefront.t('addToCart');
+            }
+        }
+
+        window.Availability.renderSubstitution(product, document.getElementById('substitution'));
+        window.Availability.renderStateNotice(document.getElementById('state-notice'));
+
+        /* Suggestions are ranked by the same ladder the substitution uses, and
+           narrowed to what this shop can actually supply once one is known. */
+        var pool = window.Catalog.all();
+        if (window.StoreContext.hasStore()) {
+            pool = pool.filter(function (candidate) {
+                return window.StoreContext.availabilityOf(candidate.id) === 'available';
+            });
+        }
+        var similar = window.Catalog.similarTo(product, pool, 5).map(function (entry) {
+            return entry.product;
+        });
+        window.Storefront.renderGrid(document.getElementById('similar-grid'), similar);
+    }
+
+    window.RhProductPage = { repaint: repaint };
+
+    window.RhBoot.boot('product').then(function () {
+        render();
+        document.addEventListener('click', function (event) {
+            var refresh = event.target.closest ? event.target.closest('#pdp-refresh') : null;
+            if (refresh) window.StoreContext.refresh({ sku: window.Storefront.currentProductId() });
+        });
+        /* Re-asked on every product view, because "current at render" is the
+           requirement this page exists to demonstrate. */
+        window.StoreContext.boot({ sku: window.Storefront.currentProductId() });
+    }).catch(function (err) {
+        window.RhBoot.fail(err && err.message ? err.message : '');
+    });
+})();
+</script>
+</body>
+</html>
