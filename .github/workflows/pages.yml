@@ -1,0 +1,75 @@
+name: Publish the demo
+
+# What reaches the public site, and what deliberately does not.
+#
+# Published:   the storefront, the pre-rendered fallback offers, and the
+#              operator page used for the live stock change during a demo.
+# Not published: the Android app, the capture tooling, the Supabase migrations
+#              and the panel notes. They live in this repository because that is
+#              where the work is reviewed, not because anyone should serve them.
+#
+# The site is assembled here rather than served straight from a branch, so the
+# storefront sits at the root of the site and the rest of the repository stays
+# off the web without needing a second branch to keep them apart.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the site
+        run: |
+          set -euo pipefail
+          mkdir -p site
+          cp -r web/. site/
+          mkdir -p site/fallback
+          if compgen -G "data/fallback/*.json" > /dev/null; then
+            cp data/fallback/*.json site/fallback/
+          fi
+          mkdir -p site/ops
+          if [ -f panel/stock-flip.html ]; then
+            cp panel/stock-flip.html site/ops/index.html
+          fi
+          touch site/.nojekyll
+
+      - name: Check nothing private is about to be published
+        run: |
+          set -euo pipefail
+          # A service key or a Google services file reaching the public site
+          # would be a genuine incident, so the build refuses rather than warns.
+          if find site -name 'google-services.json' -o -name '.env' -o -name 'local.properties' | grep -q .; then
+            echo "Refusing to publish: a private file is staged in site/"
+            exit 1
+          fi
+          if grep -rIl --exclude-dir=img -E 'service_role|SUPABASE_SERVICE_KEY' site >/dev/null 2>&1; then
+            echo "Refusing to publish: something in site/ mentions a service key"
+            exit 1
+          fi
+          echo "Staged files:"
+          find site -maxdepth 2 -type d | sort
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
