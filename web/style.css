@@ -707,3 +707,40 @@ body.has-drawer { overflow: hidden; }
 .notice-actions { display: flex; gap: 14px; margin-top: 8px; }
 .notice-actions .button.link { font-size: 12px; padding: 0; }
 #cart-notice .notice-why { display: block; margin-top: 2px; }
+
+/* ==========================================================================
+   Checkout. Their shipping method choice, summary and payment block.
+   ========================================================================== */
+
+.checkout-dialog { max-width: 460px; width: 100%; padding: 0; }
+.checkout-dialog .drawer-head { padding: 16px 18px; }
+#checkout-body { padding: 0 18px; max-height: 62vh; overflow-y: auto; }
+#checkout-body .notice { margin: 12px 0; }
+
+.method-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 4px; }
+.method {
+  text-align: left;
+  border: 1.5px solid #d6d9dc;
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.method[aria-checked="true"] { border-color: var(--primary); background: #fffdf3; }
+.method[disabled] { opacity: 0.5; cursor: not-allowed; }
+.method-name { display: block; font-weight: 700; font-size: 13.5px; }
+.method-note { display: block; font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+.payment-block { margin: 14px 0 18px; }
+.payment-block h3 { font-size: 13.5px; margin: 0 0 8px; }
+.pay-option { display: block; font-size: 13.5px; padding: 5px 0; cursor: pointer; }
+
+.checkout-done { text-align: center; padding: 26px 6px 10px; }
+.done-mark {
+  width: 46px; height: 46px; line-height: 46px; margin: 0 auto 12px;
+  border-radius: 50%; background: #2E7D32; color: #fff; font-size: 24px;
+}
+.checkout-done h3 { font-size: 17px; margin: 0 0 6px; }
+.checkout-done p { color: var(--muted); font-size: 13.5px; margin: 0 0 4px; }
+.order-ref { font-family: ui-monospace, monospace; font-size: 12px !important; }
+.button.secondary.block { width: 100%; }

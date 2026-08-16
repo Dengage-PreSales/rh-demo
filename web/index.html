@@ -197,6 +197,26 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
   </footer>
 </aside>
 
+<!-- Checkout. Their bundle names every part: a shipping method choice of
+     Entrega or Retirada, a store selection under pickup, the noStoresState
+     that offers Continuar com entrega, a summary carrying Shipping, and
+     Meios de pagamento. -->
+<div class="overlay" id="checkout-overlay">
+  <div class="dialog checkout-dialog" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <header class="drawer-head">
+      <h2 id="checkout-title" data-copy="checkoutTitle">Checkout</h2>
+      <button class="icon-button" id="checkout-close" type="button" aria-label="Close">&#215;</button>
+    </header>
+    <div id="checkout-body"></div>
+    <footer class="drawer-foot">
+      <button class="button primary block" id="checkout-place" type="button"
+              data-copy="checkoutPlace">Place order</button>
+      <button class="button secondary block" id="checkout-close-done" type="button"
+              data-copy="checkoutCloseDone" hidden>Continue shopping</button>
+    </footer>
+  </div>
+</div>
+
 <script src="js/dengageEvents.js"></script>
 <script src="js/debug.js"></script>
 <script src="js/catalog.js"></script>
@@ -205,6 +225,7 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
 <script src="js/availability.js"></script>
 <script src="js/storefront.js"></script>
 <script src="js/cartDrawer.js"></script>
+<script src="js/checkout.js"></script>
 <script src="js/boot.js"></script>
 <script>
 window.RhBoot.boot('home').then(function () {

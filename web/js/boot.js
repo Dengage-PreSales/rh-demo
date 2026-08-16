@@ -127,6 +127,7 @@
             /* After Storefront.wire, because the drawer takes over the cart
                button and the count badge that the header set up. */
             if (window.CartDrawer) window.CartDrawer.wire();
+            if (window.CheckoutView) window.CheckoutView.wire();
             window.Storefront.paintChip();
 
             window.StoreContext.onChange(function () {
