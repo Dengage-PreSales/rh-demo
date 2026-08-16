@@ -71,11 +71,14 @@
   "pdpRefresh": "Check availability again",
   "pdpCollect": "Ready to collect in 90 minutes",
   "pdpSimilar": "You might also like",
-  "cartTitle": "Your bag",
-  "cartEmpty": "Your bag is empty.",
+  "cartTitle": "Cart",
+  "cartEmpty": "Your cart is empty.",
   "cartTotal": "Total",
-  "cartCheckout": "Checkout",
+  "cartCheckout": "Complete purchase",
   "cartRemove": "Remove",
+  "cartStuckTitle": "{store} cannot supply these",
+  "cartStuckWhy": "They are still in your bag. Choose another shop, or have them delivered.",
+  "cartClose": "Close",
   "searchNothing": "Nothing matched that.",
   "searchResults": "Results for {n}",
   "footerNote": "A Dengage demonstration storefront. Product names, prices, photographs and shop availability are real and were read from Ri Happy's public website. This is not Ri Happy's own site.",
@@ -84,5 +87,7 @@
   "navImported": "Imported",
   "navInStore": "In-store event",
   "cepLater": "Please provide your zip code later.",
-  "pickupSteps": "Choose your product, enter your zip code, choose a store, complete your purchase"
+  "pickupSteps": "Choose your product, enter your zip code, choose a store, complete your purchase",
+  "cartSubtotal": "Subtotal",
+  "cartDiscounts": "Discounts"
 }

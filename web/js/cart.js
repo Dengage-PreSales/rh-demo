@@ -45,6 +45,11 @@
             name: product.name,
             quantity: 1,
             price: product.price,
+            /* Kept so the cart can show a subtotal and a saving the way their
+               own cart does. Null unless the catalogue genuinely carries a
+               higher was-price, which catalog.js already enforces, so a saving
+               can never be conjured out of a missing figure. */
+            listPrice: typeof product.listPrice === 'number' ? product.listPrice : null,
             categoryPath: product.categoryPath,
             image: product.image,
             /* Which shop this was added at, so a later change of postcode can be
@@ -88,6 +93,45 @@
         return lines;
     }
 
+    /* One step up or down on a line already in the bag.
+
+       It reports each step as its own event rather than as a correction to a
+       running figure, because that is what happened: pressing plus is adding one
+       of something, and Dengage's cart events describe movements. Stepping the
+       last one off a line removes the line, which is the same movement as
+       pressing Remove and is reported the same way. */
+    function changeQuantity(productId, delta) {
+        var line = null;
+        for (var i = 0; i < lines.length; i += 1) {
+            if (lines[i].id === productId) { line = lines[i]; break; }
+        }
+        if (!line || !delta) return lines;
+
+        if (delta > 0) {
+            line.quantity += 1;
+            save();
+            if (window.DengageEvents) {
+                window.DengageEvents.addToCart({
+                    id: line.id, quantity: 1, price: line.price,
+                    categoryPath: line.categoryPath
+                }, lines);
+            }
+            return lines;
+        }
+
+        if (line.quantity <= 1) return remove(productId);
+
+        line.quantity -= 1;
+        save();
+        if (window.DengageEvents) {
+            window.DengageEvents.removeFromCart({
+                id: line.id, quantity: 1, price: line.price,
+                categoryPath: line.categoryPath
+            }, lines);
+        }
+        return lines;
+    }
+
     function clear() {
         lines = [];
         save();
@@ -124,6 +168,7 @@
     window.Cart = {
         add: add,
         remove: remove,
+        changeQuantity: changeQuantity,
         clear: clear,
         lines: function () { return lines.slice(); },
         count: count,

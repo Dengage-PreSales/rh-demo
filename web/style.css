@@ -594,3 +594,111 @@ img { max-width: 100%; display: block; }
 .cep-dialog .store-list { border-top-color: rgba(0, 0, 0, .12); text-align: left; }
 .cep-dialog .store-list button { border-bottom-color: rgba(0, 0, 0, .1); }
 .cep-dialog .store-list button:hover { background: rgba(255, 255, 255, .5); }
+
+/* ==========================================================================
+   The cart drawer.
+
+   Sized and placed to match theirs: a right drawer capped at 450px, which is
+   the maxDrawerWidth their own VTEX minicart declares. Below that width it
+   takes the full screen, as theirs does on a phone.
+   ========================================================================== */
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 60;
+}
+.scrim.is-open { opacity: 1; pointer-events: auto; }
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(450px, 100vw);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  z-index: 61;
+  box-shadow: -8px 0 28px rgba(0, 0, 0, 0.16);
+}
+.drawer.is-open { transform: translateX(0); }
+body.has-drawer { overflow: hidden; }
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid #eceef0;
+}
+.drawer-head h2 { font-size: 17px; margin: 0; }
+
+/* Empty it must take no space at all, or every cart carries a gap for content
+   that is usually not there. */
+.inline-slot:empty { display: none; }
+
+.cart-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+.cart-empty { padding: 28px 18px; color: var(--muted); font-size: 14px; }
+
+.cart-line {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f2f3f4;
+}
+.line-media { width: 68px; flex: none; }
+.line-media img { width: 68px; height: 68px; object-fit: contain; display: block; }
+.line-body { flex: 1; min-width: 0; }
+.line-name { font-size: 13.5px; line-height: 1.35; }
+.line-price { font-weight: 700; margin-top: 4px; }
+
+.line-note { display: inline-block; font-size: 11.5px; margin-top: 5px; font-weight: 600; }
+.line-note[data-state="available"] { color: #2E7D32; }
+.line-note[data-state="withoutStock"] { color: #C62828; }
+
+/* Their stepper is a minus, a count and a plus. */
+.line-controls { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.line-controls .step {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #d6d9dc;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+}
+.line-controls .step:hover { border-color: var(--primary); }
+.line-qty { min-width: 20px; text-align: center; font-size: 13.5px; }
+.line-remove { margin-left: auto; font-size: 12px; }
+
+.drawer-foot { border-top: 1px solid #eceef0; padding: 14px 18px 18px; }
+.cart-summary { margin: 0 0 12px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 13.5px; padding: 3px 0; }
+.summary-row dt, .summary-row dd { margin: 0; }
+.summary-row dd { color: var(--muted); }
+.summary-row.is-total { font-size: 16px; padding-top: 8px; }
+.summary-row.is-total dt, .summary-row.is-total dd { font-weight: 700; color: inherit; }
+
+.button.block { width: 100%; }
+.button.primary[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+/* The lines the resolved shop cannot supply. Not on their cart: this is the
+   Dengage layer, in the one place where ship from store stops being abstract. */
+#cart-notice-host .notice { margin: 12px 18px 0; }
+.stuck-list { margin: 6px 0 4px; padding-left: 18px; font-size: 13px; }
+.stuck-list li { margin: 2px 0; }
+.notice-why { font-size: 12px; color: var(--muted); }

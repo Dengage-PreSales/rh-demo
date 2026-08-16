@@ -111,6 +111,9 @@
             });
         }).then(function (loaded) {
             window.Storefront.wire();
+            /* After Storefront.wire, because the drawer takes over the cart
+               button and the count badge that the header set up. */
+            if (window.CartDrawer) window.CartDrawer.wire();
             window.Storefront.paintChip();
 
             window.StoreContext.onChange(function () {
@@ -119,14 +122,10 @@
                 if (window.RhProductPage) window.RhProductPage.repaint();
             });
 
-            window.Cart.onChange(function () {
-                var badge = document.getElementById('cart-count');
-                if (badge) {
-                    var n = window.Cart.count();
-                    badge.textContent = n;
-                    badge.hidden = n === 0;
-                }
-            });
+            /* The count badge used to be repainted here as well as in the
+               drawer. Two owners for one element is how a number ends up stale
+               in one place and current in the other, so the drawer owns it
+               alone now, through the same listener that repaints the lines. */
 
             /* One page view per page, before anything else is reported. */
             if (window.DengageEvents) {

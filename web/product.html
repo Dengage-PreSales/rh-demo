@@ -93,6 +93,68 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
   </div>
 </div>
 
+<!-- The cart, built to match theirs rather than to a generic pattern.
+
+     Read from rihappy.com.br on 16 August 2026, from the blocks their own
+     VTEX theme declares:
+
+       minicart.v2            maxDrawerWidth 450, quantityDisplay "not-empty"
+       minicart-banner        a content slot above the lines
+       minicart-product-list  a numeric stepper per line
+       minicart-coupon        a coupon field
+       minicart-summary       Subtotal, Descontos, Impostos, Total
+       minicart-checkout-button   "Finalizar compra"
+       minicart-empty-state
+
+     So it is a right drawer at 450px, their block order, and their labels in
+     English. Their badge shows only when the cart is not empty, which is what
+     quantityDisplay "not-empty" means and what ours already did.
+
+     TWO DELIBERATE DIFFERENCES, both chosen rather than overlooked.
+
+     The coupon field is left out. There is no discount behind it here, and a
+     control that ignores what you type is the same defect as a navigation link
+     that goes nowhere.
+
+     Impostos is left out. We hold no tax figure, and printing a row we cannot
+     compute would be inventing a number. Subtotal and Total are real, and
+     Discounts appears only when a line genuinely carries a higher list price.
+
+     ONE DELIBERATE ADDITION, and it is the point of the demo rather than an
+     embellishment: the notice naming what the resolved shop cannot supply.
+     Their cart does not have it. It is the Dengage layer, in the one place
+     where ship from store stops being an abstraction. -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+  <header class="drawer-head">
+    <h2 id="cart-title" data-copy="cartTitle">Cart</h2>
+    <button class="icon-button" id="cart-close" type="button"
+            data-copy-attr="aria-label:cartClose" aria-label="Close">&#215;</button>
+  </header>
+
+  <!-- Their minicart-banner. A Dengage inline content target, so a campaign in
+       the panel can place content here without anyone touching this file. The
+       documented convention is an id carrying the dn-inline-target prefix, and
+       the div has to exist even while empty or there is nothing to inject into.
+       Empty it has no height. -->
+  <div id="dn-inline-target-cart" class="inline-slot"></div>
+
+  <div id="cart-notice-host"></div>
+  <ul class="cart-lines" id="cart-lines"></ul>
+
+  <footer class="drawer-foot">
+    <dl class="cart-summary">
+      <div class="summary-row"><dt data-copy="cartSubtotal">Subtotal</dt><dd id="cart-subtotal"></dd></div>
+      <div class="summary-row" id="cart-discount-row" hidden>
+        <dt data-copy="cartDiscounts">Discounts</dt><dd id="cart-discount"></dd>
+      </div>
+      <div class="summary-row is-total"><dt data-copy="cartTotal">Total</dt><dd id="cart-total"></dd></div>
+    </dl>
+    <button class="button primary block" id="cart-checkout" type="button"
+            data-copy="cartCheckout" disabled>Complete purchase</button>
+  </footer>
+</aside>
+
 <script src="js/dengageEvents.js"></script>
 <script src="js/debug.js"></script>
 <script src="js/catalog.js"></script>
@@ -100,6 +162,7 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
 <script src="js/storeContext.js"></script>
 <script src="js/availability.js"></script>
 <script src="js/storefront.js"></script>
+<script src="js/cartDrawer.js"></script>
 <script src="js/boot.js"></script>
 <script>
 (function () {
