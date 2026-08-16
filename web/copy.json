@@ -115,5 +115,18 @@
   "checkoutCloseDone": "Continue shopping",
   "searchEmpty": "No results found",
   "searchTooShort": "Your search term is too short",
-  "searchFor": "Search for {term}"
+  "searchFor": "Search for {term}",
+  "loginSignIn": "Sign in",
+  "loginTitle": "Choose an option to sign in",
+  "loginEmailVerification": "Receive an access code by email",
+  "loginEmail": "E-mail",
+  "loginEmailPlaceholder": "e.g. example@mail.com",
+  "loginContinue": "Continue",
+  "loginEmptyField": "This field is empty",
+  "loginInvalidEmail": "Enter a valid email",
+  "loginHello": "Hello, {name}",
+  "loginMyAccount": "My account",
+  "loginLogout": "Sign out",
+  "loginWishlistReason": "Sign in to save items to your list.",
+  "loginNote": "This demo identifies you so the same person can be reached by email and push. No code is sent."
 }

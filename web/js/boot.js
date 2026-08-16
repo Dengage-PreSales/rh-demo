@@ -129,6 +129,7 @@
             if (window.CartDrawer) window.CartDrawer.wire();
             if (window.CheckoutView) window.CheckoutView.wire();
             if (window.SearchPanel) window.SearchPanel.wire();
+            if (window.Account) window.Account.wire();
             window.Storefront.paintChip();
 
             window.StoreContext.onChange(function () {
