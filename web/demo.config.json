@@ -83,6 +83,6 @@
     "base": "https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc",
     "key": "sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK",
     "timeoutMs": 3000,
-    "fallbackBase": "fallback"
+    "fallbackBase": "offer/storefront"
   }
 }

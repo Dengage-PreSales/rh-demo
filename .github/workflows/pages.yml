@@ -40,15 +40,32 @@ jobs:
           set -euo pipefail
           mkdir -p site
           cp -r web/. site/
-          mkdir -p site/fallback
-          if compgen -G "data/fallback/*.json" > /dev/null; then
-            cp data/fallback/*.json site/fallback/
-          fi
           mkdir -p site/ops
           if [ -f panel/stock-flip.html ]; then
             cp panel/stock-flip.html site/ops/index.html
           fi
           touch site/.nojekyll
+
+      - name: Check the stored answers are really there
+        run: |
+          set -euo pipefail
+          # The page falls back to these when a live call does not come back.
+          # They arrive with the copy above because they live under web/offer,
+          # so this checks rather than moves anything.
+          #
+          # It replaces a step that copied from data/fallback, a directory that
+          # does not exist. That step was guarded, so it never failed, and it
+          # published an empty fallback directory every time without a word. An
+          # empty one looks exactly like a working one until the moment it is
+          # needed, which on the day would be the worst possible moment to find
+          # out. Hence a count and a refusal rather than a guard.
+          stored=$(find site/offer/storefront -name '*.json' | wc -l)
+          if [ "$stored" -lt 20 ]; then
+            echo "Refusing to publish: only $stored stored answers for the storefront, expected one per city."
+            echo "Run tools/build-offers.mjs and commit web/offer."
+            exit 1
+          fi
+          echo "Stored answers for the storefront: $stored"
 
       - name: Check nothing private is about to be published
         run: |

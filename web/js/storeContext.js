@@ -63,7 +63,24 @@
     /* ------------------------------------------------------------------ */
     /* Talking to the offer endpoint                                       */
 
+    /* Add ?offline=1 to any page and the live call fails on purpose, so the
+       stored answer is what renders. It is the only way to see the fallback
+       without waiting for a real outage, and a path that is never rehearsed is
+       a path nobody should rely on during a call.
+
+       It fails by asking this site for something that is not here, rather than
+       by returning early. That matters: an early return would skip the response
+       check, the catch and the chain into the fallback, which is to say it
+       would skip everything the rehearsal is for. This way the real code runs
+       and only the destination is wrong. */
+    function offline() {
+        try {
+            return new window.URLSearchParams(window.location.search).get('offline') === '1';
+        } catch (err) { return false; }
+    }
+
     function buildUrl(params) {
+        if (offline()) return 'offer/deliberately-not-here.json';
         var base = api().base;
         var query = [];
         for (var key in params) {
@@ -95,15 +112,30 @@
         });
     }
 
-    /* When the live endpoint cannot be reached, a pre-rendered answer for the
-       narrative postcodes is served from this site instead. It is the same
-       shape, so nothing downstream knows the difference, and it is marked so the
-       debug readout can say which one was used. */
+    /* When the live call does not come back, a stored answer for that postcode
+       is served from this site instead. It is marked, so the debug readout can
+       always say which one was used.
+
+       These files carry the page's shape rather than the message's. The two are
+       not interchangeable and the difference is invisible if you get it wrong:
+       a message needs one shop and one product, while a page needs the whole
+       stock map to badge every tile, the store object for the header chip and
+       the list of shops serving the postcode. An earlier version of this pointed
+       at the message shaped files, which would have reported a perfectly
+       successful fallback and then drawn a storefront with no chip and no badges
+       anywhere, which is the feature quietly absent rather than a visible
+       failure. tools/build-offers.mjs asserts all three fields as it writes
+       them, so the mistake cannot be made again without the build stopping.
+
+       Resolving by location rather than by postcode has nothing to fall back on,
+       and says so, because there is no stored answer keyed by shop in this
+       shape. The page then renders without availability, which is the same
+       thing it does for any other failure and is the honest outcome. */
     function fallback(params) {
         var cep = String(params.cep || '').replace(/[^0-9]/g, '');
-        if (!cep) return Promise.reject(new Error('no postcode to fall back on'));
-        var base = api().fallbackBase || 'fallback';
-        return window.fetch(base + '/offer-' + cep + '.json', { cache: 'no-store' })
+        if (!cep) return Promise.reject(new Error('nothing stored to fall back on without a postcode'));
+        var base = api().fallbackBase || 'offer/storefront';
+        return window.fetch(base + '/' + cep + '.json', { cache: 'no-store' })
             .then(function (response) {
                 if (!response.ok) throw new Error('no stored answer for this postcode');
                 return response.json();

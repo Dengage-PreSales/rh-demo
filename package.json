@@ -1,0 +1,13 @@
+{
+  "name": "rh-demo",
+  "private": true,
+  "type": "module",
+  "description": "Ri Happy demo storefront, capture tooling and panel assets.",
+  "scripts": {
+    "build:offers": "node tools/build-offers.mjs",
+    "check:fallback": "node tools/check-fallback.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

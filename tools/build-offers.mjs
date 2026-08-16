@@ -138,9 +138,25 @@ async function main() {
     for (const city of cities) {
         const answer = await rpc('rh_offer', { cep: city.cep, sku: HERO, n: '3' });
 
-        if (!answer.stock) throw new Error(`${city.cep}: no stock map, so no tile could show a badge`);
-        if (!answer.store) throw new Error(`${city.cep}: no store object, so the header chip would be blank`);
+        if (!answer.stock) throw new Error(`${city.cep}: no stock map at all, so no tile could show a badge`);
         if (!answer.stores) throw new Error(`${city.cep}: no list of serving shops`);
+
+        if (answer.resolved === 'store') {
+            if (!answer.store) throw new Error(`${city.cep}: a shop resolved but the header chip would be blank`);
+            if (!answer.stores.length) throw new Error(`${city.cep}: a shop resolved but nothing serves the postcode`);
+            if (!Object.keys(answer.stock).length) throw new Error(`${city.cep}: a shop resolved but no tile could show a badge`);
+        } else {
+            /* Vitoria and Rio Branco land here, and they are not faults. Each has
+               exactly one Ri Happy branch and their own checkout never offers it
+               as a collection point, so fulfils_online is false and nothing
+               serves those postcodes. The page must then say nothing at all
+               about availability rather than reading empty as out of stock, so
+               the check is that the answer really is empty. An answer that
+               resolved no shop but still carried stock would put badges on a
+               page with no shop behind them. */
+            if (answer.store) throw new Error(`${city.cep}: no shop resolved, yet a shop is named`);
+            if (Object.keys(answer.stock).length) throw new Error(`${city.cep}: no shop resolved, yet it claims stock`);
+        }
 
         const body = JSON.stringify(answer);
         writeFileSync(join(OUT, 'storefront', `${city.cep}.json`), body);
