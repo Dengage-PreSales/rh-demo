@@ -1,0 +1,215 @@
+<!-- ==========================================================================
+     WILL THIS HOLD ON THE DAY? Nine cities, the safety net, and the contact.
+
+     WHY THIS IS HEAVIER THAN THE REAL EMAIL, DELIBERATELY
+
+     The real Use Case 1 email makes one live call, or two if the safety net is
+     needed. This makes eleven. If eleven hold, one has room; if eleven fail
+     where one succeeds, then there is a limit on the whole message rather than
+     on each call, and that is worth knowing now rather than on the day.
+
+     Everything here uses the endpoints that already exist. Nothing new to
+     create.
+
+     WHAT EACH SECTION ANSWERS
+
+     1. NINE CITIES, not one twice. The two postcodes tested so far are the two
+        the demo happens to use, which is the smallest possible sample and the
+        least representative. These nine span the whole range of how much work
+        the query has to do, from Sao Paulo with 37 shops serving it down to
+        Natal with one. If failures track the heavy end, the cause is the query
+        rather than the trip, and that is something we can act on. If they are
+        scattered, it is load.
+
+     2. VITORIA IS IN THERE ON PURPOSE and it is not a failure. It has one Ri
+        Happy branch and their own checkout never offers it as a collection
+        point, so nothing serves that postcode. The right answer is a shop count
+        of zero and no claim of any kind about stock. A row that names no shop
+        AND claims nothing is a pass. A row that names no shop and still says
+        something about availability is the worst outcome on this page, because
+        it is the one a customer would catch us on.
+
+     3. THE SAFETY NET, tested rather than assumed. It reads a file from our own
+        site rather than the database, so it is what renders if Supabase is slow
+        or asleep. It has been wrong once already: it fetched a generic answer
+        belonging to no shop, and the message then made a confident statement
+        about a shop it had never resolved.
+
+     4. THE CONTACT, which is the part closest to the real email. The real one
+        does not carry postcodes in its text; it reads them off the contact. So
+        this prints what the contact record actually holds, and then drives a
+        lookup from that value rather than from a string typed here.
+
+     5. WHAT A TEMPLATE CAN ASK A TABLE FOR. Our own notes and the reference
+        page disagree about which $from methods exist. The difference decides
+        whether the email can feature the contact's MOST RECENT basket item or
+        merely one of them.
+
+     HOW TO READ IT
+
+     Send it to yourself three times, a few minutes apart, and screenshot each.
+     Three sends is 27 city lookups. That is a sample worth trusting, where the
+     four observations we had were not.
+
+     Every call is wrapped on its own, so one failure cannot stop the others or
+     stop the message arriving. If the message does not arrive at all, that is
+     itself the answer to the question this page exists to ask.
+     ========================================================================== -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f2f4f5;">
+
+{% var ok = 0; var bad = 0; %}
+
+{% var r1 = ''; var n1 = ''; %}
+{% try { var d1 = JSON.parse($CustomApi.rh_email('01310-100', '100184971', '3')); r1 = d1.storeName ? d1.storeName : 'no shop'; n1 = String(d1.storeCount); ok = ok + 1; } catch (e) { r1 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r2 = ''; var n2 = ''; %}
+{% try { var d2 = JSON.parse($CustomApi.rh_email('20040-020', '100184971', '3')); r2 = d2.storeName ? d2.storeName : 'no shop'; n2 = String(d2.storeCount); ok = ok + 1; } catch (e) { r2 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r3 = ''; var n3 = ''; %}
+{% try { var d3 = JSON.parse($CustomApi.rh_email('60010-000', '100184971', '3')); r3 = d3.storeName ? d3.storeName : 'no shop'; n3 = String(d3.storeCount); ok = ok + 1; } catch (e) { r3 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r4 = ''; var n4 = ''; %}
+{% try { var d4 = JSON.parse($CustomApi.rh_email('30130-000', '100184971', '3')); r4 = d4.storeName ? d4.storeName : 'no shop'; n4 = String(d4.storeCount); ok = ok + 1; } catch (e) { r4 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r5 = ''; var n5 = ''; %}
+{% try { var d5 = JSON.parse($CustomApi.rh_email('40020-000', '100184971', '3')); r5 = d5.storeName ? d5.storeName : 'no shop'; n5 = String(d5.storeCount); ok = ok + 1; } catch (e) { r5 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r6 = ''; var n6 = ''; %}
+{% try { var d6 = JSON.parse($CustomApi.rh_email('80010-000', '100184971', '3')); r6 = d6.storeName ? d6.storeName : 'no shop'; n6 = String(d6.storeCount); ok = ok + 1; } catch (e) { r6 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r7 = ''; var n7 = ''; var sub7 = ''; %}
+{% try { var d7 = JSON.parse($CustomApi.rh_email('90010-150', '100184971', '3')); r7 = d7.storeName ? d7.storeName : 'no shop'; n7 = String(d7.storeCount); if (d7.substitute) { sub7 = d7.substitute.name + ', because ' + d7.substituteReason; } ok = ok + 1; } catch (e) { r7 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r8 = ''; var n8 = ''; %}
+{% try { var d8 = JSON.parse($CustomApi.rh_email('59012-300', '100184971', '3')); r8 = d8.storeName ? d8.storeName : 'no shop'; n8 = String(d8.storeCount); ok = ok + 1; } catch (e) { r8 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var r9 = ''; var n9 = ''; var claim9 = ''; %}
+{% try { var d9 = JSON.parse($CustomApi.rh_email('29010-000', '100184971', '3')); r9 = d9.storeName ? d9.storeName : 'no shop, which is correct here'; n9 = String(d9.storeCount); claim9 = d9.hero ? ('IT STILL MADE A CLAIM: ' + String(d9.hero.available)) : 'claims nothing, which is right'; ok = ok + 1; } catch (e) { r9 = 'FAILED ' + String(e); bad = bad + 1; } %}
+
+{% var netShop = ''; var netErr = ''; %}
+{% try { var net = JSON.parse($CustomApi.rh_store_offer('sp-pb-eldorado')); netShop = net.storeName ? net.storeName : 'no shop in the stored answer'; } catch (e) { netErr = String(e); } %}
+
+{% var ckey = ''; var cnear = ''; var ccity = ''; var cstore = ''; %}
+{% try { ckey = String($Contact.contact_key); } catch (e) { ckey = 'not readable'; } %}
+{% try { cnear = String($Contact.nearest_store); } catch (e) { cnear = 'not readable'; } %}
+{% try { ccity = String($Contact.city); } catch (e) { ccity = 'not readable'; } %}
+{% try { cstore = String($Contact.store_name); } catch (e) { cstore = 'not readable'; } %}
+
+{% var byContact = ''; var byContactErr = ''; %}
+{% try { if (cnear && cnear !== 'not readable' && cnear !== 'null') { var dc = JSON.parse($CustomApi.rh_store_offer(cnear)); byContact = dc.storeName ? dc.storeName : 'the contact points at a shop we hold nothing for'; } else { byContact = 'nothing on the contact to look up'; } } catch (e) { byContactErr = String(e); } %}
+
+{% var fMeth = ''; var fErr = ''; var fRows = ''; %}
+{% try { var fq = $from('$db.page_view_events'); fMeth = 'where ' + (typeof fq.where) + ', take ' + (typeof fq.take) + ', get ' + (typeof fq.get) + ', order ' + (typeof fq.order) + ', skip ' + (typeof fq.skip) + ', random ' + (typeof fq.random) + ', first ' + (typeof fq.first) + ', value ' + (typeof fq.value); } catch (e) { fErr = String(e); } %}
+{% try { var fRes = $from('$db.page_view_events').where('contact_key', '=', $Contact.contact_key).take(1).get(); fRows = fRes ? String(fRes.length) : 'nothing returned'; } catch (e) { fErr = fErr + ' reading rows: ' + String(e); } %}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f4f5;">
+<tr><td align="center" style="padding:24px 12px;">
+<table width="680" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:12px;font-family:Arial,Helvetica,sans-serif;color:#3f3f40;">
+
+  <tr><td style="padding:20px 24px;background:#FCF708;border-radius:12px 12px 0 0;">
+    <div style="font-size:18px;font-weight:bold;">Eleven calls in one message</div>
+    <div style="font-size:12px;">The real email makes one. If eleven hold, one has room.</div>
+  </td></tr>
+
+  <tr><td style="padding:22px 24px 6px;text-align:center;">
+    <div style="font-size:40px;font-weight:bold;">{%= ok %} of 9</div>
+    <div style="font-size:13px;color:#727273;padding-top:2px;">cities answered, {%= bad %} did not</div>
+  </td></tr>
+
+  <tr><td style="padding:10px 24px 4px;">
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">1. Nine cities, heaviest first</div>
+    <div style="font-size:12px;color:#727273;padding-bottom:8px;">
+      The number in brackets is how many shops serve that postcode, which is the
+      work the query has to do. If failures gather at the top, the cause is the
+      query. If they are scattered, it is load.
+    </div>
+    <table width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:12px;">
+      <tr style="background:#f6f7f8;"><td width="34%"><b>Sao Paulo</b> [37]</td><td>{%= r1 %} <span style="color:#727273;">serving {%= n1 %}</span></td></tr>
+      <tr><td><b>Rio de Janeiro</b> [20]</td><td>{%= r2 %} <span style="color:#727273;">serving {%= n2 %}</span></td></tr>
+      <tr style="background:#f6f7f8;"><td><b>Fortaleza</b> [12]</td><td>{%= r3 %} <span style="color:#727273;">serving {%= n3 %}</span></td></tr>
+      <tr><td><b>Belo Horizonte</b> [10]</td><td>{%= r4 %} <span style="color:#727273;">serving {%= n4 %}</span></td></tr>
+      <tr style="background:#f6f7f8;"><td><b>Salvador</b> [7]</td><td>{%= r5 %} <span style="color:#727273;">serving {%= n5 %}</span></td></tr>
+      <tr><td><b>Curitiba</b> [4]</td><td>{%= r6 %} <span style="color:#727273;">serving {%= n6 %}</span></td></tr>
+      <tr style="background:#f6f7f8;"><td><b>Porto Alegre</b> [4]</td><td>{%= r7 %} <span style="color:#727273;">serving {%= n7 %}</span></td></tr>
+      <tr><td><b>Natal</b> [1]</td><td>{%= r8 %} <span style="color:#727273;">serving {%= n8 %}</span></td></tr>
+      <tr style="background:#fff6f6;"><td><b>Vitoria</b> [0]</td><td>{%= r9 %}<br><b>{%= claim9 %}</b></td></tr>
+    </table>
+    <div style="font-size:12px;color:#727273;padding-top:8px;">
+      Porto Alegre is the scene with the replacement. It offered:
+      <b>{%= sub7 %}</b>
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:16px 24px 4px;">
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">2. The safety net</div>
+    <div style="font-size:12px;color:#727273;padding-bottom:8px;">
+      Read from our own site rather than the database, so it is what renders if
+      Supabase is slow or asleep. It must name the right shop, not a generic one.
+    </div>
+    <div style="font-size:12px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      asked for: [sp-pb-eldorado]<br>
+      it returned: [{%= netShop %}]<br>
+      error: [{%= netErr %}]
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:16px 24px 4px;">
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">3. The contact, which is how the real email works</div>
+    <div style="font-size:12px;color:#727273;padding-bottom:8px;">
+      The real email carries no postcodes in its text. It reads the contact and
+      looks up whatever it finds. This prints what is actually on the record, and
+      then does that lookup for real.
+    </div>
+    <div style="font-size:12px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      contact_key: [{%= ckey %}]<br>
+      nearest_store: [{%= cnear %}]<br>
+      city: [{%= ccity %}]<br>
+      store_name: [{%= cstore %}]<br>
+      <br>
+      looked up from nearest_store: [{%= byContact %}]<br>
+      error: [{%= byContactErr %}]
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:16px 24px 4px;">
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">4. What a template can ask a table for</div>
+    <div style="font-size:12px;color:#727273;padding-bottom:8px;">
+      Whichever says <b>function</b> is real. Anything saying undefined is not
+      there, whatever the reference page claims.
+    </div>
+    <div style="font-size:12px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      methods: [{%= fMeth %}]<br>
+      rows it could read for you: [{%= fRows %}]<br>
+      error: [{%= fErr %}]
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:16px 24px 24px;">
+    <div style="font-size:12px;color:#727273;line-height:1.55;background:#f6f7f8;padding:12px;border-radius:6px;">
+      <b>Nine of nine, three sends running,</b> and the email is live every time.
+      The stock change belongs in the email as well as on the website, and the
+      safety net becomes insurance rather than a working part.<br><br>
+      <b>Failures gathered at the heavy end</b> and the cost is the query for
+      those postcodes, which we can make cheaper.<br><br>
+      <b>Failures scattered</b> and it is load, so the safety net stays load
+      bearing and the stock change stays a website scene.<br><br>
+      <b>Vitoria naming no shop is a pass.</b> Vitoria claiming anything about
+      stock is the one result on this page that would have to be fixed before
+      anything else.<br><br>
+      <b>Nothing arrives at all</b> and the limit is on the whole message rather
+      than each call, which changes how the real email has to be written.
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:14px 24px;background:#f6f7f8;border-radius:0 0 12px 12px;font-size:11px;color:#727273;">
+    Ri Happy demo build. A test message.
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
