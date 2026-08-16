@@ -4,9 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dengage eComm Demo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Poppins from this repository, not from Google. A third party CDN in the
+     render path is one more thing that can be slow or blocked on a conference
+     room network, and when it is the storefront falls back to a system font in
+     front of the customer whose brand it is meant to look like. -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts/poppins.css">
 <link rel="stylesheet" href="style.css">
 
 <script src="js/identity.js"></script>

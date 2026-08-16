@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The Dengage mark, never the prospect's. The tab is on screen for the
+       whole call, and an untitled default icon beside a themed storefront is
+       the kind of small thing an executive audience notices. -->
+  <rect width="64" height="64" rx="12" fill="#FCF708"/>
+  <text x="32" y="45" text-anchor="middle"
+        font-family="Poppins, system-ui, sans-serif" font-size="40"
+        font-weight="700" fill="#3F3F40">D</text>
+</svg>
