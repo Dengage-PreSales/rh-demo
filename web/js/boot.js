@@ -130,11 +130,13 @@
             if (window.CheckoutView) window.CheckoutView.wire();
             if (window.SearchPanel) window.SearchPanel.wire();
             if (window.Account) window.Account.wire();
+            if (window.Wishlist) window.Wishlist.wire();
             window.Storefront.paintChip();
 
             window.StoreContext.onChange(function () {
                 window.Storefront.paintChip();
                 if (pageType === 'home') window.Storefront.paintHome();
+                if (window.Wishlist) window.Wishlist.paintHearts();
                 if (window.RhProductPage) window.RhProductPage.repaint();
             });
 

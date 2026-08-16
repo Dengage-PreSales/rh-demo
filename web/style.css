@@ -817,3 +817,21 @@ body.has-drawer { overflow: hidden; }
 #account-reason { font-size: 13px; margin: 0 0 10px; }
 .account-dialog .field { display: flex; gap: 8px; }
 .account-dialog .field input { flex: 1; }
+
+/* Their favourite control, on the tile and on the product page. */
+.card { position: relative; }
+.heart {
+  position: absolute;
+  top: 8px; right: 8px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e3e5e7;
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  font-size: 15px; line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+}
+.heart:hover { border-color: var(--sale); color: var(--sale); }
+.heart[aria-pressed="true"] { color: var(--sale); border-color: var(--sale); }
+.wish-add { margin-right: auto; }

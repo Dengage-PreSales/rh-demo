@@ -37,6 +37,9 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
         <div class="results" id="search-results" hidden></div>
       </div>
       <div class="header-actions">
+        <button class="icon-button" type="button" id="wishlist-button" aria-label="Wish list">
+          &#9825;<span class="badge-count" id="wishlist-count" hidden>0</span>
+        </button>
         <div class="account">
         <button class="icon-button" type="button" id="account-button" data-signed-in="false">
           <span aria-hidden="true">&#128100;</span><span id="account-label">Sign in</span>
@@ -135,6 +138,17 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
      Their cart does not have it. It is the Dengage layer, in the one place
      where ship from store stops being an abstraction. -->
 <div class="scrim" id="scrim"></div>
+<!-- Saved items. Their list, gated behind a sign in the way theirs is, and
+     carrying availability because a saved item outlives the shop it was
+     saved at. -->
+<aside class="drawer" id="wishlist" role="dialog" aria-modal="true" aria-labelledby="wishlist-title">
+  <header class="drawer-head">
+    <h2 id="wishlist-title" data-copy="wishlistTitle">Wish list</h2>
+    <button class="icon-button" id="wishlist-close" type="button" aria-label="Close">&#215;</button>
+  </header>
+  <ul class="cart-lines" id="wishlist-lines"></ul>
+</aside>
+
 <aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title">
   <header class="drawer-head">
     <h2 id="cart-title" data-copy="cartTitle">Cart</h2>
@@ -218,6 +232,7 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
 <script src="js/checkout.js"></script>
 <script src="js/search.js"></script>
 <script src="js/account.js"></script>
+<script src="js/wishlist.js"></script>
 <script src="js/boot.js"></script>
 <script>
 (function () {

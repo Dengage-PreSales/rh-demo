@@ -80,6 +80,12 @@
         '<article class="card" data-product-id="' + escapeAttr(product.id) + '">' +
             (discount >= 5 ? '<span class="card-flag">' +
                 escapeText(t('saveBadge', { n: discount })) + '</span>' : '') +
+            /* Their favourite control sits on the tile itself. It carries no
+               state here: Wishlist paints every heart after any repaint, so a
+               grid redrawn on a shop change cannot leave a stale one. */
+            '<button class="heart" data-heart="' + escapeAttr(product.id) + '" ' +
+                'aria-pressed="false" aria-label="' + escapeAttr(t('wishlistAdd')) + '">' +
+                '\u2661</button>' +
             '<a class="card-media" href="' + escapeAttr(product.url) + '">' +
                 media(product) +
             '</a>' +

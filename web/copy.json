@@ -128,5 +128,8 @@
   "loginMyAccount": "My account",
   "loginLogout": "Sign out",
   "loginWishlistReason": "Sign in to save items to your list.",
-  "loginNote": "This demo identifies you so the same person can be reached by email and push. No code is sent."
+  "loginNote": "This demo identifies you so the same person can be reached by email and push. No code is sent.",
+  "wishlistTitle": "Wish list",
+  "wishlistAdd": "Add to favourites",
+  "wishlistEmpty": "This list is empty"
 }
