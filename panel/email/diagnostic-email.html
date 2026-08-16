@@ -1,0 +1,185 @@
+<!-- ==========================================================================
+     DIAGNOSTIC EMAIL. Send this before anything real is built on top of it.
+
+     It answers one question that nobody has answered yet and that the whole
+     Use Case 1 email depends on:
+
+         can an email read this contact's postcode and pass it to our endpoint?
+
+     Everything else about the chain is already proven. The endpoint answers
+     correctly over GET, tolerates every blank and broken parameter, and refuses
+     unauthenticated requests. What is unproven is the syntax a Dengage email
+     uses to reach a contact attribute, so rather than guess one and build on it,
+     this prints several candidates side by side and lets the send tell us.
+
+     HOW TO USE IT
+
+       1. Content > Email > Code Editor > New, paste this whole file
+       2. Subject: rh diagnostic
+       3. Send it to the two demo contacts, one of which has a postcode set
+       4. Look at what arrives and tell me which rows filled in
+
+     It never uses $blockSend, deliberately. A diagnostic that refuses to send
+     when something is wrong tells you nothing, and the whole point is to see
+     what happens when parts of it fail.
+
+     Read the result like this. Section A tells us every attribute name this
+     contact actually has, which settles the column name question outright.
+     Section B tells us which syntax reaches it. Section C proves the endpoint
+     is reachable from inside a send. Section D is the whole chain end to end.
+     If A and C fill in but B does not, the endpoint is fine and only the tag is
+     wrong, which is a five minute fix rather than a redesign.
+     ========================================================================== -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f2f4f5;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f4f5;">
+<tr><td align="center" style="padding:24px 12px;">
+<table width="640" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:12px;font-family:Arial,Helvetica,sans-serif;color:#3f3f40;">
+
+  <tr><td style="padding:20px 24px;background:#FCF708;border-radius:12px 12px 0 0;">
+    <div style="font-size:18px;font-weight:bold;">Ri Happy demo: diagnostic</div>
+    <div style="font-size:12px;">Nothing here is customer facing. It exists to prove the plumbing.</div>
+  </td></tr>
+
+  <!-- ================================================================
+       A. What this contact actually carries.
+
+       One line, and it settles the column name question completely: it
+       prints every attribute this contact has rather than us guessing
+       whether the field is cep, CEP, zip, postal_code or something else.
+       ================================================================ -->
+  <tr><td style="padding:18px 24px 6px;">
+    <div style="font-size:14px;font-weight:bold;">A. Everything this contact has</div>
+    <div style="font-size:11px;color:#727273;padding-bottom:6px;">
+      If this fills in, we know the exact attribute name and section B is only confirmation.
+    </div>
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;word-break:break-all;">
+      {%= JSON.stringify($Contact) %}
+    </div>
+  </td></tr>
+
+  <!-- ================================================================
+       B. Candidate ways to reach one attribute.
+
+       Each is on its own row so a failure shows up as one empty cell
+       rather than taking the whole email down with it. The literal
+       merge tag forms sit inside quotes so that if the engine does not
+       substitute them we see the raw tag rather than a syntax error.
+       ================================================================ -->
+  <tr><td style="padding:12px 24px 6px;">
+    <div style="font-size:14px;font-weight:bold;">B. Which syntax reads the postcode</div>
+    <table width="100%" cellpadding="6" cellspacing="0" border="0" style="font-size:12px;font-family:monospace;">
+      <tr style="background:#f6f7f8;">
+        <td width="45%">$Contact.cep</td>
+        <td>[{%= $Contact.cep %}]</td>
+      </tr>
+      <tr>
+        <td>$Contact.CEP</td>
+        <td>[{%= $Contact.CEP %}]</td>
+      </tr>
+      <tr style="background:#f6f7f8;">
+        <td>$Contact.zip_code</td>
+        <td>[{%= $Contact.zip_code %}]</td>
+      </tr>
+      <tr>
+        <td>$Contact.postal_code</td>
+        <td>[{%= $Contact.postal_code %}]</td>
+      </tr>
+      <tr style="background:#f6f7f8;">
+        <td>$Contact.contact_key</td>
+        <td>[{%= $Contact.contact_key %}]</td>
+      </tr>
+      <tr>
+        <td>curly contact tag</td>
+        <td>[{{contact.cep}}]</td>
+      </tr>
+      <tr style="background:#f6f7f8;">
+        <td>curly bare tag</td>
+        <td>[{{cep}}]</td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- ================================================================
+       C. Is our endpoint reachable from inside a send.
+
+       This one has no parameters at all: the postcode is baked into the
+       endpoint definition. So if C fills in and D does not, the endpoint
+       feature works and only the parameter passing is wrong.
+       ================================================================ -->
+  <tr><td style="padding:12px 24px 6px;">
+    <div style="font-size:14px;font-weight:bold;">C. Endpoint reachable, no parameters</div>
+    <div style="font-size:11px;color:#727273;padding-bottom:6px;">
+      Calls rh_offer_fixed, which has a Sao Paulo postcode baked into its URL.
+    </div>
+    {% var fixed = null; %}
+    {% try { fixed = $CustomApi.rh_offer_fixed(); } catch (e) { fixed = null; } %}
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      resolved: [{%= fixed ? fixed.resolved : 'CALL FAILED' %}]<br>
+      store: [{%= fixed && fixed.store ? fixed.store.name : '' %}]<br>
+      shops serving that postcode: [{%= fixed ? fixed.storeCount : '' %}]<br>
+      offers returned: [{%= fixed && fixed.offers ? fixed.offers.length : '' %}]
+    </div>
+  </td></tr>
+
+  <!-- ================================================================
+       D. The whole chain: this contact's postcode into the endpoint.
+
+       Whichever tag from section B turns out to be the right one, this
+       is the call the real email will make. The postcode is read into a
+       plain variable first so the call itself stays readable.
+       ================================================================ -->
+  <tr><td style="padding:12px 24px 6px;">
+    <div style="font-size:14px;font-weight:bold;">D. This contact's postcode, end to end</div>
+    {% var cep = ''; %}
+    {% try { if ($Contact.cep) { cep = String($Contact.cep); } } catch (e) { cep = ''; } %}
+    {% var live = null; %}
+    {% try { live = $CustomApi.rh_offer(cep, '', '4'); } catch (e) { live = null; } %}
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      postcode sent: [{%= cep %}]<br>
+      resolved: [{%= live ? live.resolved : 'CALL FAILED' %}]<br>
+      region: [{%= live && live.region ? live.region : '' %}]<br>
+      store: [{%= live && live.store ? live.store.name : '' %}]<br>
+      first offer: [{%= live && live.offers && live.offers.length > 0 ? live.offers[0].name : '' %}]
+    </div>
+  </td></tr>
+
+  <!-- ================================================================
+       E. A real product block, drawn from whatever D returned.
+
+       This is the shape the real email uses. If it renders here with a
+       picture and a price, the Use Case 1 email is a formatting job
+       rather than an engineering one.
+       ================================================================ -->
+  <tr><td style="padding:12px 24px 24px;">
+    <div style="font-size:14px;font-weight:bold;padding-bottom:8px;">E. One product, rendered</div>
+    {% var first = live && live.offers && live.offers.length > 0 ? live.offers[0] : null; %}
+    {% if (first) { %}
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #e6e6e6;border-radius:8px;">
+        <tr>
+          <td width="120" style="padding:10px;">
+            <img src="{%= first.image_url %}" width="100" alt="" style="display:block;border-radius:6px;">
+          </td>
+          <td style="padding:10px;font-size:13px;">
+            <div style="font-weight:bold;">{%= first.name %}</div>
+            <div style="font-size:16px;font-weight:bold;padding-top:4px;">R$ {%= first.price %}</div>
+            <a href="{%= first.page_url %}" style="font-size:12px;color:#603F8E;">View this toy</a>
+          </td>
+        </tr>
+      </table>
+    {% } else { %}
+      <div style="font-size:12px;color:#727273;">No product came back, which is expected if D did not resolve.</div>
+    {% } %}
+  </td></tr>
+
+  <tr><td style="padding:14px 24px;background:#f6f7f8;border-radius:0 0 12px 12px;font-size:11px;color:#727273;">
+    Sent from the Ri Happy demo build. If you are reading this outside the project, it is a test message and can be ignored.
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
