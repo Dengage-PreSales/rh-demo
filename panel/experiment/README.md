@@ -73,3 +73,39 @@ If live Supabase is viable from Dengage, then the mid-call stock flip shows up i
 the email as well as on the storefront, and the demo has one honest live path
 rather than two different ones. That is worth ten minutes of your time to find
 out properly.
+
+## Remote Table, looked at and parked
+
+Asked whether the email could read a Remote Table directly instead of going
+through a Custom API endpoint. It is a reasonable idea and the answer is not to
+pursue it for this demo.
+
+**What is true.** PostgreSQL is a supported remote source, so Supabase qualifies
+on paper. The list is Google BigQuery, Amazon Redshift, Microsoft SQL Server,
+Azure Data Warehouse, MySQL, PostgreSQL, Oracle, Dremio, SAP HANA, Apache Kafka,
+ODBC-compatible sources and Teradata. If it worked it would remove the whole
+cost we have been fighting, because a remote table is a database connection
+Dengage manages rather than a fresh HTTPS request per recipient, and the trip is
+the entire cost: the query itself runs in 1.4 milliseconds.
+
+**Why it is parked.** A remote table is defined around a `contact_key` column,
+TEXT and NOT NULL, that relates it to `master_contact`, and it is queried through
+Interactive Segments with Table Filter. `rh_store_stock` is a product by shop
+matrix with no contact in it anywhere, so the shape is wrong for the feature.
+Beyond that, nothing in the documentation says a template can read a remote
+table at send time; the reference says `$from` reaches any table in the data
+space, and a remote table does appear there, but that is an inference rather
+than a statement. It would also need a database role and password for Dengage to
+connect with, which is a new standing credential into a shared database.
+
+Three unknowns, a shape mismatch and a credential, against a Custom API endpoint
+that answers today. Not the right thing to spend the week on. Worth revisiting
+after the demo as a production architecture question, where the customer's
+inventory table would have the contact relationship the feature expects.
+
+## What we are doing instead
+
+Widening the sample on the call that already works. `rh-email-reliability.html`
+makes six calls per send, three at each narrative postcode, and is sent three
+times. Eighteen observations is enough to tell a reliable endpoint from a lucky
+one; the four we had were not.
