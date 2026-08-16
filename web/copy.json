@@ -46,8 +46,8 @@
   "addToCart": "Add",
   "addedToCart": "Added",
   "outOfStockHere": "Not at this shop",
-  "availableHere": "Collect at {store}",
-  "notAvailableHere": "Not at {store}",
+  "availableHere": "Pickup at {store}",
+  "notAvailableHere": "Pickup unavailable",
   "instalments": "or {n} x {price} no interest",
   "bestSeller": "BEST SELLER",
   "saveBadge": "{n}% OFF",
@@ -76,8 +76,8 @@
   "cartTotal": "Total",
   "cartCheckout": "Complete purchase",
   "cartRemove": "Remove",
-  "cartStuckTitle": "{store} cannot supply these",
-  "cartStuckWhy": "They are still in your bag. Choose another shop, or have them delivered.",
+  "cartStuckTitle": "Unavailable items",
+  "cartStuckWhy": "These items are not available for pickup at {store}.",
   "cartClose": "Close",
   "searchNothing": "Nothing matched that.",
   "searchResults": "Results for {n}",
@@ -89,5 +89,7 @@
   "cepLater": "Please provide your zip code later.",
   "pickupSteps": "Choose your product, enter your zip code, choose a store, complete your purchase",
   "cartSubtotal": "Subtotal",
-  "cartDiscounts": "Discounts"
+  "cartDiscounts": "Discounts",
+  "cartStuckRemove": "Remove items",
+  "cartStuckRelocate": "Enter another location"
 }

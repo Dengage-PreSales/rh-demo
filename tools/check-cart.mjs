@@ -69,5 +69,14 @@ const noShop = await page.evaluate(() => ({
 }));
 console.log('  no shop        :', JSON.stringify(noShop));
 
+// Their two actions must do what they say.
+await page.evaluate(() => window.StoreContext.setCep('01310-100'));
+await page.waitForTimeout(2500);
+const before = await page.evaluate(() => window.Cart.lines().length);
+await page.click('#stuck-remove');
+await page.waitForTimeout(400);
+const after = await page.evaluate(() => ({ lines: window.Cart.lines().length, notice: !!document.querySelector('#cart-notice-host .notice') }));
+console.log('  remove items   :', JSON.stringify({ before, ...after }));
+
 console.log('\n  404s:', missing.length ? missing.join(', ') : '(none)');
 await browser.close();

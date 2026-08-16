@@ -702,3 +702,8 @@ body.has-drawer { overflow: hidden; }
 .stuck-list { margin: 6px 0 4px; padding-left: 18px; font-size: 13px; }
 .stuck-list li { margin: 2px 0; }
 .notice-why { font-size: 12px; color: var(--muted); }
+
+/* Their unavailable items block carries two actions under the list. */
+.notice-actions { display: flex; gap: 14px; margin-top: 8px; }
+.notice-actions .button.link { font-size: 12px; padding: 0; }
+#cart-notice .notice-why { display: block; margin-top: 2px; }

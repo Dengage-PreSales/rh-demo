@@ -126,7 +126,18 @@
             '</li>';
     }
 
-    /* The banner above the lines, and the reason this drawer exists.
+    /* The unavailable items block, and the reason this drawer exists.
+
+       NOT OURS, which is worth recording because it was briefly described as an
+       invention. Their own site carries this pattern already: its message
+       bundle defines unavailableItems.title, a forPickup description, a Remove
+       items button and an Enter another location button, alongside availability
+       badges reading Recolha em and Recolha indisponivel. This is that block,
+       with their labels in English and their two actions.
+
+       So the thing Dengage adds is not the idea that a shop cannot supply
+       something. Their storefront says that already. It is that the same answer
+       reaches a person who is not on the site.
 
        It appears only when a shop is resolved AND that shop cannot supply
        something already in the bag. Both halves matter: without the first it
@@ -144,10 +155,16 @@
 
         return '' +
             '<div class="notice" data-tone="warn" id="cart-notice">' +
-                '<strong>' + s.escapeText(
-                    t('cartStuckTitle', { store: context.storeName() })) + '</strong>' +
+                '<strong>' + s.escapeText(t('cartStuckTitle')) + '</strong>' +
+                '<span class="notice-why">' +
+                    s.escapeText(t('cartStuckWhy', { store: context.storeName() })) + '</span>' +
                 '<ul class="stuck-list">' + names + '</ul>' +
-                '<span class="notice-why">' + s.escapeText(t('cartStuckWhy')) + '</span>' +
+                '<div class="notice-actions">' +
+                    '<button type="button" class="button link" id="stuck-remove">' +
+                        s.escapeText(t('cartStuckRemove')) + '</button>' +
+                    '<button type="button" class="button link" id="stuck-relocate">' +
+                        s.escapeText(t('cartStuckRelocate')) + '</button>' +
+                '</div>' +
             '</div>';
     }
 
@@ -255,6 +272,29 @@
                 }
                 var step = event.target.getAttribute('data-step');
                 if (step) window.Cart.changeQuantity(id, Number(step));
+            });
+        }
+
+        /* Their two actions on the unavailable items block, and both do the
+           thing they say. The block is rewritten on every repaint, so these are
+           delegated from the host rather than bound to the buttons. */
+        var noticeHost = el('cart-notice-host');
+        if (noticeHost) {
+            noticeHost.addEventListener('click', function (event) {
+                if (event.target.id === 'stuck-remove') {
+                    /* Removes exactly the lines named above the button, one at
+                       a time so each leaves its own event, the same as pressing
+                       Remove on each line. */
+                    var stuck = window.Cart.unavailableHere();
+                    for (var i = 0; i < stuck.length; i += 1) window.Cart.remove(stuck[i].id);
+                    paint();
+                }
+                if (event.target.id === 'stuck-relocate') {
+                    /* Their retry button reopens the location picker, which
+                       here is the postcode gateway the storefront already has. */
+                    close();
+                    if (sf() && sf().openCep) sf().openCep();
+                }
             });
         }
 
