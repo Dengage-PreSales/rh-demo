@@ -1,0 +1,29 @@
+{
+  "note": "The postcodes this demo captures availability for. One central postcode per city. The seller counts were read from Ri Happy's own region endpoint on 16 August 2026 and are recorded here so the spread is reviewable rather than asserted.",
+  "source": "https://www.rihappy.com.br/api/checkout/pub/regions",
+  "cities": [
+    { "code": "sp",  "cep": "01310-100", "label": "Sao Paulo",      "city": "Sao Paulo",       "state": "SP", "sellersSeen": 15 },
+    { "code": "rj",  "cep": "20040-020", "label": "Rio de Janeiro", "city": "Rio de Janeiro",  "state": "RJ", "sellersSeen": 15 },
+    { "code": "cps", "cep": "13010-000", "label": "Campinas",       "city": "Campinas",        "state": "SP", "sellersSeen": 15 },
+    { "code": "for", "cep": "60010-000", "label": "Fortaleza",      "city": "Fortaleza",       "state": "CE", "sellersSeen": 14 },
+    { "code": "bh",  "cep": "30130-000", "label": "Belo Horizonte", "city": "Belo Horizonte",  "state": "MG", "sellersSeen": 13 },
+    { "code": "ssa", "cep": "40020-000", "label": "Salvador",       "city": "Salvador",        "state": "BA", "sellersSeen": 10 },
+    { "code": "cwb", "cep": "80010-000", "label": "Curitiba",       "city": "Curitiba",        "state": "PR", "sellersSeen": 9 },
+    { "code": "rec", "cep": "50010-000", "label": "Recife",         "city": "Recife",          "state": "PE", "sellersSeen": 9 },
+    { "code": "bsb", "cep": "70040-010", "label": "Brasilia",       "city": "Brasilia",        "state": "DF", "sellersSeen": 8 },
+    { "code": "poa", "cep": "90010-150", "label": "Porto Alegre",   "city": "Porto Alegre",    "state": "RS", "sellersSeen": 8 },
+    { "code": "gyn", "cep": "74003-010", "label": "Goiania",        "city": "Goiania",         "state": "GO", "sellersSeen": 7 },
+    { "code": "nat", "cep": "59012-300", "label": "Natal",          "city": "Natal",           "state": "RN", "sellersSeen": 7 },
+    { "code": "slz", "cep": "65010-000", "label": "Sao Luis",       "city": "Sao Luis",        "state": "MA", "sellersSeen": 7 },
+    { "code": "mao", "cep": "69005-040", "label": "Manaus",         "city": "Manaus",          "state": "AM", "sellersSeen": 6 },
+    { "code": "bel", "cep": "66010-000", "label": "Belem",          "city": "Belem",           "state": "PA", "sellersSeen": 6 },
+    { "code": "fln", "cep": "88010-000", "label": "Florianopolis",  "city": "Florianopolis",   "state": "SC", "sellersSeen": 6 },
+    { "code": "the", "cep": "64000-010", "label": "Teresina",       "city": "Teresina",        "state": "PI", "sellersSeen": 6 },
+    { "code": "mcz", "cep": "57020-000", "label": "Maceio",         "city": "Maceio",          "state": "AL", "sellersSeen": 5 },
+    { "code": "cgr", "cep": "79002-000", "label": "Campo Grande",   "city": "Campo Grande",    "state": "MS", "sellersSeen": 4 },
+    { "code": "cgb", "cep": "78005-000", "label": "Cuiaba",         "city": "Cuiaba",          "state": "MT", "sellersSeen": 4 },
+    { "code": "vix", "cep": "29010-000", "label": "Vitoria",        "city": "Vitoria",         "state": "ES", "sellersSeen": 2 },
+    { "code": "rbr", "cep": "69900-000", "label": "Rio Branco",     "city": "Rio Branco",      "state": "AC", "sellersSeen": 0,
+      "note": "Ri Happy has a physical store in Rio Branco, but their online fulfilment reaches no seller at this postcode. The store existing and the website being able to serve it are two different things, which is exactly the honest edge case this demo needs." }
+  ]
+}

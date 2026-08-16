@@ -14,6 +14,9 @@
    system.
    ========================================================================== */
 
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 const HOST = 'https://www.rihappy.com.br';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
            '(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
@@ -21,11 +24,20 @@ const PACE_MS = 500;
 const TIMEOUT_MS = 30000;
 const RETRIES = 3;
 
-export const CEPS = [
-    { cep: '01310-100', digits: '01310100', region: 'sp',  label: 'Sao Paulo, Avenida Paulista' },
-    { cep: '90010-150', digits: '90010150', region: 'poa', label: 'Porto Alegre, Centro' },
-    { cep: '69900-000', digits: '69900000', region: 'rb',  label: 'Rio Branco, Acre' }
-];
+/* The postcodes to capture, read from data/cities.json so the list is reviewable
+   in one place rather than buried in code. */
+export function citiesFrom(root) {
+    const path = join(root, 'data', 'cities.json');
+    const doc = JSON.parse(readFileSync(path, 'utf8'));
+    return doc.cities.map((c) => ({
+        cep: c.cep,
+        digits: c.cep.replace(/[^0-9]/g, ''),
+        region: c.code,
+        label: c.label,
+        city: c.city,
+        state: c.state
+    }));
+}
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

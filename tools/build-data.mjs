@@ -20,7 +20,7 @@
    telling customers the truth about availability.
    ========================================================================== */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { licenceOf } from './lib/licence.mjs';
@@ -64,6 +64,19 @@ function main() {
     const availability = JSON.parse(readFileSync(join(ROOT, 'data/snapshots/availability.json'), 'utf8'));
     const storeFile = JSON.parse(readFileSync(join(ROOT, 'data/stores.json'), 'utf8'));
 
+    /* Which file each photograph actually landed in. One product on their CDN is
+       a PNG served under a .jpg name, so the extension is read from what was
+       downloaded rather than assumed. */
+    const manifestPath = join(ROOT, 'data/snapshots/images-manifest.json');
+    const imageManifest = existsSync(manifestPath)
+        ? (JSON.parse(readFileSync(manifestPath, 'utf8')).images || {})
+        : {};
+    const imagePathOf = (skuId) => {
+        const entry = imageManifest[skuId];
+        if (!entry) return null;
+        return 'img/products/' + skuId + '.' + (entry.ext || 'jpg');
+    };
+
     const stores = storeFile.stores;
     const storeIndex = indexOf(stores);
     const storeById = new Map(stores.map((s) => [s.store_id, s]));
@@ -77,7 +90,11 @@ function main() {
         /* A product with no price cannot be shown honestly and a product with no
            picture cannot be shown at all. Both are dropped and counted. */
         if (typeof p.price !== 'number' || !(p.price > 0)) { dropped.push([p.skuId, 'no price']); continue; }
-        if (!Array.isArray(p.images) || !p.images.length) { dropped.push([p.skuId, 'no image']); continue; }
+        /* A product whose photograph never made it to disk is dropped, because
+           a tile with a broken frame in front of executives is worse than one
+           product fewer. */
+        const imagePath = imagePathOf(p.skuId);
+        if (!imagePath) { dropped.push([p.skuId, 'no photograph on disk']); continue; }
 
         /* A "was" price only survives when it is genuinely higher. Anything else
            would advertise a discount that does not exist. */
@@ -100,10 +117,8 @@ function main() {
             age_bracket: bracketOf(p.ageMinMonths),
             /* Local paths. The images are downloaded and committed so nothing on
                screen depends on somebody else's CDN during a sales call. */
-            image: 'img/products/' + p.skuId + '-0.jpg',
-            images: p.images.slice(0, 2).map((_, i) => 'img/products/' + p.skuId + '-' + i + '.jpg'),
-            image_count: Math.min(p.images.length, 2),
-            source_images: p.images.slice(0, 2),
+            image: imagePath,
+            image_count: 1,
             source_url: p.sourceUrl || ''
         });
     }

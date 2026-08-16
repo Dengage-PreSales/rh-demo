@@ -27,11 +27,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6m-18a",
       "ageBracket": "0-2",
-      "image": "img/products/100002050-0.jpg",
-      "images": [
-        "img/products/100002050-0.jpg",
-        "img/products/100002050-1.jpg"
-      ]
+      "image": "img/products/100002050.jpg"
     },
     {
       "id": "1002835452",
@@ -47,11 +43,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002835452-0.jpg",
-      "images": [
-        "img/products/1002835452-0.jpg",
-        "img/products/1002835452-1.jpg"
-      ]
+      "image": "img/products/1002835452.jpg"
     },
     {
       "id": "100216724",
@@ -67,11 +59,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100216724-0.jpg",
-      "images": [
-        "img/products/100216724-0.jpg",
-        "img/products/100216724-1.jpg"
-      ]
+      "image": "img/products/100216724.jpg"
     },
     {
       "id": "1003152913",
@@ -87,11 +75,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003152913-0.jpg",
-      "images": [
-        "img/products/1003152913-0.jpg",
-        "img/products/1003152913-1.jpg"
-      ]
+      "image": "img/products/1003152913.jpg"
     },
     {
       "id": "1003150653",
@@ -107,11 +91,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "4a-10a",
       "ageBracket": "3-5",
-      "image": "img/products/1003150653-0.jpg",
-      "images": [
-        "img/products/1003150653-0.jpg",
-        "img/products/1003150653-1.jpg"
-      ]
+      "image": "img/products/1003150653.jpg"
     },
     {
       "id": "1002724877",
@@ -127,11 +107,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002724877-0.jpg",
-      "images": [
-        "img/products/1002724877-0.jpg",
-        "img/products/1002724877-1.jpg"
-      ]
+      "image": "img/products/1002724877.jpg"
     },
     {
       "id": "1002994937",
@@ -147,11 +123,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "6a-10a",
       "ageBracket": "6-8",
-      "image": "img/products/1002994937-0.jpg",
-      "images": [
-        "img/products/1002994937-0.jpg",
-        "img/products/1002994937-1.jpg"
-      ]
+      "image": "img/products/1002994937.jpg"
     },
     {
       "id": "1003051830",
@@ -167,11 +139,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "12m-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1003051830-0.jpg",
-      "images": [
-        "img/products/1003051830-0.jpg",
-        "img/products/1003051830-1.jpg"
-      ]
+      "image": "img/products/1003051830.jpg"
     },
     {
       "id": "1002800281",
@@ -187,11 +155,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "5a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1002800281-0.jpg",
-      "images": [
-        "img/products/1002800281-0.jpg",
-        "img/products/1002800281-1.jpg"
-      ]
+      "image": "img/products/1002800281.jpg"
     },
     {
       "id": "100326062",
@@ -207,11 +171,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "8a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/100326062-0.jpg",
-      "images": [
-        "img/products/100326062-0.jpg",
-        "img/products/100326062-1.jpg"
-      ]
+      "image": "img/products/100326062.jpg"
     },
     {
       "id": "1003137934",
@@ -227,11 +187,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "9a-12a",
       "ageBracket": "9-12",
-      "image": "img/products/1003137934-0.jpg",
-      "images": [
-        "img/products/1003137934-0.jpg",
-        "img/products/1003137934-1.jpg"
-      ]
+      "image": "img/products/1003137934.jpg"
     },
     {
       "id": "1003139614",
@@ -247,11 +203,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "7a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003139614-0.jpg",
-      "images": [
-        "img/products/1003139614-0.jpg",
-        "img/products/1003139614-1.jpg"
-      ]
+      "image": "img/products/1003139614.jpg"
     },
     {
       "id": "100411316",
@@ -267,11 +219,7 @@
       "ageMaxMonths": 6,
       "ageDisplay": "0m-6m",
       "ageBracket": "0-2",
-      "image": "img/products/100411316-0.jpg",
-      "images": [
-        "img/products/100411316-0.jpg",
-        "img/products/100411316-1.jpg"
-      ]
+      "image": "img/products/100411316.jpg"
     },
     {
       "id": "100222379",
@@ -287,11 +235,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100222379-0.jpg",
-      "images": [
-        "img/products/100222379-0.jpg",
-        "img/products/100222379-1.jpg"
-      ]
+      "image": "img/products/100222379.jpg"
     },
     {
       "id": "1002816893",
@@ -307,11 +251,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002816893-0.jpg",
-      "images": [
-        "img/products/1002816893-0.jpg",
-        "img/products/1002816893-1.jpg"
-      ]
+      "image": "img/products/1002816893.jpg"
     },
     {
       "id": "1002111906",
@@ -327,11 +267,7 @@
       "ageMaxMonths": 48,
       "ageDisplay": "12m-4a",
       "ageBracket": "0-2",
-      "image": "img/products/1002111906-0.jpg",
-      "images": [
-        "img/products/1002111906-0.jpg",
-        "img/products/1002111906-1.jpg"
-      ]
+      "image": "img/products/1002111906.jpg"
     },
     {
       "id": "100370971",
@@ -347,11 +283,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100370971-0.jpg",
-      "images": [
-        "img/products/100370971-0.jpg",
-        "img/products/100370971-1.jpg"
-      ]
+      "image": "img/products/100370971.jpg"
     },
     {
       "id": "1002685911",
@@ -367,11 +299,7 @@
       "ageMaxMonths": 132,
       "ageDisplay": "3a-11a",
       "ageBracket": "3-5",
-      "image": "img/products/1002685911-0.jpg",
-      "images": [
-        "img/products/1002685911-0.jpg",
-        "img/products/1002685911-1.jpg"
-      ]
+      "image": "img/products/1002685911.jpg"
     },
     {
       "id": "1003055606",
@@ -387,11 +315,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "8a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003055606-0.jpg",
-      "images": [
-        "img/products/1003055606-0.jpg",
-        "img/products/1003055606-1.jpg"
-      ]
+      "image": "img/products/1003055606.jpg"
     },
     {
       "id": "1003156075",
@@ -407,11 +331,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "7a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003156075-0.jpg",
-      "images": [
-        "img/products/1003156075-0.jpg",
-        "img/products/1003156075-1.jpg"
-      ]
+      "image": "img/products/1003156075.jpg"
     },
     {
       "id": "100155359",
@@ -427,11 +347,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100155359-0.jpg",
-      "images": [
-        "img/products/100155359-0.jpg",
-        "img/products/100155359-1.jpg"
-      ]
+      "image": "img/products/100155359.jpg"
     },
     {
       "id": "1002722741",
@@ -447,11 +363,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "5a-12a",
       "ageBracket": "3-5",
-      "image": "img/products/1002722741-0.jpg",
-      "images": [
-        "img/products/1002722741-0.jpg",
-        "img/products/1002722741-1.jpg"
-      ]
+      "image": "img/products/1002722741.jpg"
     },
     {
       "id": "1002749529",
@@ -467,11 +379,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002749529-0.jpg",
-      "images": [
-        "img/products/1002749529-0.jpg",
-        "img/products/1002749529-1.jpg"
-      ]
+      "image": "img/products/1002749529.jpg"
     },
     {
       "id": "1002909752",
@@ -487,11 +395,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "13a-18a",
       "ageBracket": "13+",
-      "image": "img/products/1002909752-0.jpg",
-      "images": [
-        "img/products/1002909752-0.jpg",
-        "img/products/1002909752-1.jpg"
-      ]
+      "image": "img/products/1002909752.jpg"
     },
     {
       "id": "1003067096",
@@ -507,11 +411,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003067096-0.jpg",
-      "images": [
-        "img/products/1003067096-0.jpg",
-        "img/products/1003067096-1.jpg"
-      ]
+      "image": "img/products/1003067096.jpg"
     },
     {
       "id": "1003110418",
@@ -527,11 +427,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "10a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1003110418-0.jpg",
-      "images": [
-        "img/products/1003110418-0.jpg",
-        "img/products/1003110418-1.jpg"
-      ]
+      "image": "img/products/1003110418.jpg"
     },
     {
       "id": "1003151978",
@@ -547,11 +443,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003151978-0.jpg",
-      "images": [
-        "img/products/1003151978-0.jpg",
-        "img/products/1003151978-1.jpg"
-      ]
+      "image": "img/products/1003151978.jpg"
     },
     {
       "id": "1002844721",
@@ -567,11 +459,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1002844721-0.jpg",
-      "images": [
-        "img/products/1002844721-0.jpg",
-        "img/products/1002844721-1.jpg"
-      ]
+      "image": "img/products/1002844721.jpg"
     },
     {
       "id": "1003086132",
@@ -587,11 +475,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003086132-0.jpg",
-      "images": [
-        "img/products/1003086132-0.jpg",
-        "img/products/1003086132-1.jpg"
-      ]
+      "image": "img/products/1003086132.jpg"
     },
     {
       "id": "1003044258",
@@ -607,11 +491,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "4a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1003044258-0.jpg",
-      "images": [
-        "img/products/1003044258-0.jpg",
-        "img/products/1003044258-1.jpg"
-      ]
+      "image": "img/products/1003044258.jpg"
     },
     {
       "id": "100472896",
@@ -627,10 +507,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "12m-5a",
       "ageBracket": "0-2",
-      "image": "img/products/100472896-0.jpg",
-      "images": [
-        "img/products/100472896-0.jpg"
-      ]
+      "image": "img/products/100472896.jpg"
     },
     {
       "id": "1003055272",
@@ -646,11 +523,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1003055272-0.jpg",
-      "images": [
-        "img/products/1003055272-0.jpg",
-        "img/products/1003055272-1.jpg"
-      ]
+      "image": "img/products/1003055272.jpg"
     },
     {
       "id": "1003050062",
@@ -666,11 +539,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "2a-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1003050062-0.jpg",
-      "images": [
-        "img/products/1003050062-0.jpg",
-        "img/products/1003050062-1.jpg"
-      ]
+      "image": "img/products/1003050062.jpg"
     },
     {
       "id": "1002835147",
@@ -686,11 +555,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "6a-10a",
       "ageBracket": "6-8",
-      "image": "img/products/1002835147-0.jpg",
-      "images": [
-        "img/products/1002835147-0.jpg",
-        "img/products/1002835147-1.jpg"
-      ]
+      "image": "img/products/1002835147.jpg"
     },
     {
       "id": "1002992927",
@@ -706,11 +571,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002992927-0.jpg",
-      "images": [
-        "img/products/1002992927-0.jpg",
-        "img/products/1002992927-1.jpg"
-      ]
+      "image": "img/products/1002992927.jpg"
     },
     {
       "id": "100376692",
@@ -726,11 +587,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "2a-18a",
       "ageBracket": "0-2",
-      "image": "img/products/100376692-0.jpg",
-      "images": [
-        "img/products/100376692-0.jpg",
-        "img/products/100376692-1.jpg"
-      ]
+      "image": "img/products/100376692.jpg"
     },
     {
       "id": "1003194993",
@@ -746,11 +603,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194993-0.jpg",
-      "images": [
-        "img/products/1003194993-0.jpg",
-        "img/products/1003194993-1.jpg"
-      ]
+      "image": "img/products/1003194993.jpg"
     },
     {
       "id": "1002136986",
@@ -766,11 +619,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "13a-18a",
       "ageBracket": "13+",
-      "image": "img/products/1002136986-0.jpg",
-      "images": [
-        "img/products/1002136986-0.jpg",
-        "img/products/1002136986-1.jpg"
-      ]
+      "image": "img/products/1002136986.jpg"
     },
     {
       "id": "1003194030",
@@ -786,11 +635,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194030-0.jpg",
-      "images": [
-        "img/products/1003194030-0.jpg",
-        "img/products/1003194030-1.jpg"
-      ]
+      "image": "img/products/1003194030.jpg"
     },
     {
       "id": "1002962091",
@@ -806,11 +651,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002962091-0.jpg",
-      "images": [
-        "img/products/1002962091-0.jpg",
-        "img/products/1002962091-1.jpg"
-      ]
+      "image": "img/products/1002962091.jpg"
     },
     {
       "id": "1003140112",
@@ -826,11 +667,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003140112-0.jpg",
-      "images": [
-        "img/products/1003140112-0.jpg",
-        "img/products/1003140112-1.jpg"
-      ]
+      "image": "img/products/1003140112.jpg"
     },
     {
       "id": "1002794956",
@@ -846,11 +683,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "2a-8a",
       "ageBracket": "0-2",
-      "image": "img/products/1002794956-0.jpg",
-      "images": [
-        "img/products/1002794956-0.jpg",
-        "img/products/1002794956-1.jpg"
-      ]
+      "image": "img/products/1002794956.jpg"
     },
     {
       "id": "1003137234",
@@ -866,11 +699,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "9a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1003137234-0.jpg",
-      "images": [
-        "img/products/1003137234-0.jpg",
-        "img/products/1003137234-1.jpg"
-      ]
+      "image": "img/products/1003137234.jpg"
     },
     {
       "id": "1002996212",
@@ -886,11 +715,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002996212-0.jpg",
-      "images": [
-        "img/products/1002996212-0.jpg",
-        "img/products/1002996212-1.jpg"
-      ]
+      "image": "img/products/1002996212.jpg"
     },
     {
       "id": "1003047707",
@@ -906,11 +731,7 @@
       "ageMaxMonths": 48,
       "ageDisplay": "12m-4a",
       "ageBracket": "0-2",
-      "image": "img/products/1003047707-0.jpg",
-      "images": [
-        "img/products/1003047707-0.jpg",
-        "img/products/1003047707-1.jpg"
-      ]
+      "image": "img/products/1003047707.jpg"
     },
     {
       "id": "1002825509",
@@ -926,11 +747,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "6a-10a",
       "ageBracket": "6-8",
-      "image": "img/products/1002825509-0.jpg",
-      "images": [
-        "img/products/1002825509-0.jpg",
-        "img/products/1002825509-1.jpg"
-      ]
+      "image": "img/products/1002825509.jpg"
     },
     {
       "id": "1003051273",
@@ -946,11 +763,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "4a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1003051273-0.jpg",
-      "images": [
-        "img/products/1003051273-0.jpg",
-        "img/products/1003051273-1.jpg"
-      ]
+      "image": "img/products/1003051273.jpg"
     },
     {
       "id": "100270288",
@@ -966,11 +779,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "4a-5a",
       "ageBracket": "3-5",
-      "image": "img/products/100270288-0.jpg",
-      "images": [
-        "img/products/100270288-0.jpg",
-        "img/products/100270288-1.jpg"
-      ]
+      "image": "img/products/100270288.jpg"
     },
     {
       "id": "1003139809",
@@ -986,11 +795,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "7a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003139809-0.jpg",
-      "images": [
-        "img/products/1003139809-0.jpg",
-        "img/products/1003139809-1.jpg"
-      ]
+      "image": "img/products/1003139809.jpg"
     },
     {
       "id": "100110518",
@@ -1006,11 +811,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "8a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/100110518-0.jpg",
-      "images": [
-        "img/products/100110518-0.jpg",
-        "img/products/100110518-1.jpg"
-      ]
+      "image": "img/products/100110518.jpg"
     },
     {
       "id": "1003133650",
@@ -1026,11 +827,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003133650-0.jpg",
-      "images": [
-        "img/products/1003133650-0.jpg",
-        "img/products/1003133650-1.jpg"
-      ]
+      "image": "img/products/1003133650.jpg"
     },
     {
       "id": "1003065107",
@@ -1046,11 +843,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003065107-0.jpg",
-      "images": [
-        "img/products/1003065107-0.jpg",
-        "img/products/1003065107-1.jpg"
-      ]
+      "image": "img/products/1003065107.jpg"
     },
     {
       "id": "1003045912",
@@ -1066,11 +859,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "10a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1003045912-0.jpg",
-      "images": [
-        "img/products/1003045912-0.jpg",
-        "img/products/1003045912-1.jpg"
-      ]
+      "image": "img/products/1003045912.jpg"
     },
     {
       "id": "1003058846",
@@ -1086,11 +875,7 @@
       "ageMaxMonths": 48,
       "ageDisplay": "12m-4a",
       "ageBracket": "0-2",
-      "image": "img/products/1003058846-0.jpg",
-      "images": [
-        "img/products/1003058846-0.jpg",
-        "img/products/1003058846-1.jpg"
-      ]
+      "image": "img/products/1003058846.jpg"
     },
     {
       "id": "1002814846",
@@ -1106,11 +891,7 @@
       "ageMaxMonths": 6,
       "ageDisplay": "0m-6m",
       "ageBracket": "0-2",
-      "image": "img/products/1002814846-0.jpg",
-      "images": [
-        "img/products/1002814846-0.jpg",
-        "img/products/1002814846-1.jpg"
-      ]
+      "image": "img/products/1002814846.jpg"
     },
     {
       "id": "1002103479",
@@ -1126,11 +907,7 @@
       "ageMaxMonths": 48,
       "ageDisplay": "12m-4a",
       "ageBracket": "0-2",
-      "image": "img/products/1002103479-0.jpg",
-      "images": [
-        "img/products/1002103479-0.jpg",
-        "img/products/1002103479-1.jpg"
-      ]
+      "image": "img/products/1002103479.jpg"
     },
     {
       "id": "1003150768",
@@ -1146,11 +923,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "3m-10a",
       "ageBracket": "0-2",
-      "image": "img/products/1003150768-0.jpg",
-      "images": [
-        "img/products/1003150768-0.jpg",
-        "img/products/1003150768-1.jpg"
-      ]
+      "image": "img/products/1003150768.jpg"
     },
     {
       "id": "1003044299",
@@ -1166,11 +939,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "3a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1003044299-0.jpg",
-      "images": [
-        "img/products/1003044299-0.jpg",
-        "img/products/1003044299-1.jpg"
-      ]
+      "image": "img/products/1003044299.jpg"
     },
     {
       "id": "1002704027",
@@ -1186,11 +955,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002704027-0.jpg",
-      "images": [
-        "img/products/1002704027-0.jpg",
-        "img/products/1002704027-1.jpg"
-      ]
+      "image": "img/products/1002704027.jpg"
     },
     {
       "id": "100326061",
@@ -1206,11 +971,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100326061-0.jpg",
-      "images": [
-        "img/products/100326061-0.jpg",
-        "img/products/100326061-1.jpg"
-      ]
+      "image": "img/products/100326061.jpg"
     },
     {
       "id": "1003152564",
@@ -1226,11 +987,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "6a-10a",
       "ageBracket": "6-8",
-      "image": "img/products/1003152564-0.jpg",
-      "images": [
-        "img/products/1003152564-0.jpg",
-        "img/products/1003152564-1.jpg"
-      ]
+      "image": "img/products/1003152564.jpg"
     },
     {
       "id": "100266232",
@@ -1246,11 +1003,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100266232-0.jpg",
-      "images": [
-        "img/products/100266232-0.jpg",
-        "img/products/100266232-1.jpg"
-      ]
+      "image": "img/products/100266232.jpg"
     },
     {
       "id": "1002459051",
@@ -1266,11 +1019,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "8a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/1002459051-0.jpg",
-      "images": [
-        "img/products/1002459051-0.jpg",
-        "img/products/1002459051-1.jpg"
-      ]
+      "image": "img/products/1002459051.jpg"
     },
     {
       "id": "100292972",
@@ -1286,11 +1035,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "2a-7a",
       "ageBracket": "0-2",
-      "image": "img/products/100292972-0.jpg",
-      "images": [
-        "img/products/100292972-0.jpg",
-        "img/products/100292972-1.jpg"
-      ]
+      "image": "img/products/100292972.jpg"
     },
     {
       "id": "1002730513",
@@ -1306,11 +1051,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "4a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1002730513-0.jpg",
-      "images": [
-        "img/products/1002730513-0.jpg",
-        "img/products/1002730513-1.jpg"
-      ]
+      "image": "img/products/1002730513.jpg"
     },
     {
       "id": "100451995",
@@ -1326,11 +1067,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100451995-0.jpg",
-      "images": [
-        "img/products/100451995-0.jpg",
-        "img/products/100451995-1.jpg"
-      ]
+      "image": "img/products/100451995.jpg"
     },
     {
       "id": "1003134878",
@@ -1346,11 +1083,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "7a-8a",
       "ageBracket": "6-8",
-      "image": "img/products/1003134878-0.jpg",
-      "images": [
-        "img/products/1003134878-0.jpg",
-        "img/products/1003134878-1.jpg"
-      ]
+      "image": "img/products/1003134878.jpg"
     },
     {
       "id": "100137601",
@@ -1366,11 +1099,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100137601-0.jpg",
-      "images": [
-        "img/products/100137601-0.jpg",
-        "img/products/100137601-1.jpg"
-      ]
+      "image": "img/products/100137601.jpg"
     },
     {
       "id": "1003151979",
@@ -1386,11 +1115,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003151979-0.jpg",
-      "images": [
-        "img/products/1003151979-0.jpg",
-        "img/products/1003151979-1.jpg"
-      ]
+      "image": "img/products/1003151979.jpg"
     },
     {
       "id": "1002723753",
@@ -1406,11 +1131,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002723753-0.jpg",
-      "images": [
-        "img/products/1002723753-0.jpg",
-        "img/products/1002723753-1.jpg"
-      ]
+      "image": "img/products/1002723753.jpg"
     },
     {
       "id": "1002830189",
@@ -1426,11 +1147,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002830189-0.jpg",
-      "images": [
-        "img/products/1002830189-0.jpg",
-        "img/products/1002830189-1.jpg"
-      ]
+      "image": "img/products/1002830189.jpg"
     },
     {
       "id": "1002828403",
@@ -1446,11 +1163,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "4a-8a",
       "ageBracket": "3-5",
-      "image": "img/products/1002828403-0.jpg",
-      "images": [
-        "img/products/1002828403-0.jpg",
-        "img/products/1002828403-1.jpg"
-      ]
+      "image": "img/products/1002828403.jpg"
     },
     {
       "id": "100412539",
@@ -1466,11 +1179,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "12m-5a",
       "ageBracket": "0-2",
-      "image": "img/products/100412539-0.jpg",
-      "images": [
-        "img/products/100412539-0.jpg",
-        "img/products/100412539-1.jpg"
-      ]
+      "image": "img/products/100412539.jpg"
     },
     {
       "id": "100354084",
@@ -1486,11 +1195,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/100354084-0.jpg",
-      "images": [
-        "img/products/100354084-0.jpg",
-        "img/products/100354084-1.jpg"
-      ]
+      "image": "img/products/100354084.jpg"
     },
     {
       "id": "1003151974",
@@ -1506,11 +1211,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "4a-8a",
       "ageBracket": "3-5",
-      "image": "img/products/1003151974-0.jpg",
-      "images": [
-        "img/products/1003151974-0.jpg",
-        "img/products/1003151974-1.jpg"
-      ]
+      "image": "img/products/1003151974.jpg"
     },
     {
       "id": "1002415192",
@@ -1526,11 +1227,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1002415192-0.jpg",
-      "images": [
-        "img/products/1002415192-0.jpg",
-        "img/products/1002415192-1.jpg"
-      ]
+      "image": "img/products/1002415192.jpg"
     },
     {
       "id": "1003194320",
@@ -1546,11 +1243,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194320-0.jpg",
-      "images": [
-        "img/products/1003194320-0.jpg",
-        "img/products/1003194320-1.jpg"
-      ]
+      "image": "img/products/1003194320.jpg"
     },
     {
       "id": "100167562",
@@ -1566,10 +1259,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "2a-18a",
       "ageBracket": "0-2",
-      "image": "img/products/100167562-0.jpg",
-      "images": [
-        "img/products/100167562-0.jpg"
-      ]
+      "image": "img/products/100167562.jpg"
     },
     {
       "id": "1003194992",
@@ -1585,11 +1275,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194992-0.jpg",
-      "images": [
-        "img/products/1003194992-0.jpg",
-        "img/products/1003194992-1.jpg"
-      ]
+      "image": "img/products/1003194992.jpg"
     },
     {
       "id": "1002312637",
@@ -1605,11 +1291,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "9a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1002312637-0.jpg",
-      "images": [
-        "img/products/1002312637-0.jpg",
-        "img/products/1002312637-1.jpg"
-      ]
+      "image": "img/products/1002312637.jpg"
     },
     {
       "id": "1003194016",
@@ -1625,11 +1307,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194016-0.jpg",
-      "images": [
-        "img/products/1003194016-0.jpg",
-        "img/products/1003194016-1.jpg"
-      ]
+      "image": "img/products/1003194016.jpg"
     },
     {
       "id": "1003154943",
@@ -1645,11 +1323,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "12m-9a",
       "ageBracket": "0-2",
-      "image": "img/products/1003154943-0.jpg",
-      "images": [
-        "img/products/1003154943-0.jpg",
-        "img/products/1003154943-1.jpg"
-      ]
+      "image": "img/products/1003154943.jpg"
     },
     {
       "id": "1003054887",
@@ -1665,11 +1339,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "6a-10a",
       "ageBracket": "6-8",
-      "image": "img/products/1003054887-0.jpg",
-      "images": [
-        "img/products/1003054887-0.jpg",
-        "img/products/1003054887-1.jpg"
-      ]
+      "image": "img/products/1003054887.jpg"
     },
     {
       "id": "1002794399",
@@ -1685,11 +1355,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1002794399-0.jpg",
-      "images": [
-        "img/products/1002794399-0.jpg",
-        "img/products/1002794399-1.jpg"
-      ]
+      "image": "img/products/1002794399.jpg"
     },
     {
       "id": "100154823",
@@ -1705,11 +1371,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "4a-10a",
       "ageBracket": "3-5",
-      "image": "img/products/100154823-0.jpg",
-      "images": [
-        "img/products/100154823-0.jpg",
-        "img/products/100154823-1.jpg"
-      ]
+      "image": "img/products/100154823.jpg"
     },
     {
       "id": "1003156001",
@@ -1725,11 +1387,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "4a-9a",
       "ageBracket": "3-5",
-      "image": "img/products/1003156001-0.jpg",
-      "images": [
-        "img/products/1003156001-0.jpg",
-        "img/products/1003156001-1.jpg"
-      ]
+      "image": "img/products/1003156001.jpg"
     },
     {
       "id": "1003047706",
@@ -1745,11 +1403,7 @@
       "ageMaxMonths": 6,
       "ageDisplay": "0m-6m",
       "ageBracket": "0-2",
-      "image": "img/products/1003047706-0.jpg",
-      "images": [
-        "img/products/1003047706-0.jpg",
-        "img/products/1003047706-1.jpg"
-      ]
+      "image": "img/products/1003047706.jpg"
     },
     {
       "id": "1002731188",
@@ -1765,11 +1419,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002731188-0.jpg",
-      "images": [
-        "img/products/1002731188-0.jpg",
-        "img/products/1002731188-1.jpg"
-      ]
+      "image": "img/products/1002731188.jpg"
     },
     {
       "id": "100001810",
@@ -1785,10 +1435,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100001810-0.jpg",
-      "images": [
-        "img/products/100001810-0.jpg"
-      ]
+      "image": "img/products/100001810.jpg"
     },
     {
       "id": "100184971",
@@ -1804,11 +1451,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "2a-8a",
       "ageBracket": "0-2",
-      "image": "img/products/100184971-0.jpg",
-      "images": [
-        "img/products/100184971-0.jpg",
-        "img/products/100184971-1.jpg"
-      ]
+      "image": "img/products/100184971.png"
     },
     {
       "id": "1003109693",
@@ -1824,11 +1467,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "7a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003109693-0.jpg",
-      "images": [
-        "img/products/1003109693-0.jpg",
-        "img/products/1003109693-1.jpg"
-      ]
+      "image": "img/products/1003109693.jpg"
     },
     {
       "id": "100103329",
@@ -1844,10 +1483,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "6a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/100103329-0.jpg",
-      "images": [
-        "img/products/100103329-0.jpg"
-      ]
+      "image": "img/products/100103329.jpg"
     },
     {
       "id": "1003133630",
@@ -1863,11 +1499,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003133630-0.jpg",
-      "images": [
-        "img/products/1003133630-0.jpg",
-        "img/products/1003133630-1.jpg"
-      ]
+      "image": "img/products/1003133630.jpg"
     },
     {
       "id": "1003067242",
@@ -1883,11 +1515,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003067242-0.jpg",
-      "images": [
-        "img/products/1003067242-0.jpg",
-        "img/products/1003067242-1.jpg"
-      ]
+      "image": "img/products/1003067242.jpg"
     },
     {
       "id": "1003045917",
@@ -1903,11 +1531,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "10a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1003045917-0.jpg",
-      "images": [
-        "img/products/1003045917-0.jpg",
-        "img/products/1003045917-1.jpg"
-      ]
+      "image": "img/products/1003045917.jpg"
     },
     {
       "id": "1002698898",
@@ -1923,11 +1547,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "2a-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1002698898-0.jpg",
-      "images": [
-        "img/products/1002698898-0.jpg",
-        "img/products/1002698898-1.jpg"
-      ]
+      "image": "img/products/1002698898.jpg"
     },
     {
       "id": "1002788614",
@@ -1943,11 +1563,7 @@
       "ageMaxMonths": 24,
       "ageDisplay": "3m-2a",
       "ageBracket": "0-2",
-      "image": "img/products/1002788614-0.jpg",
-      "images": [
-        "img/products/1002788614-0.jpg",
-        "img/products/1002788614-1.jpg"
-      ]
+      "image": "img/products/1002788614.jpg"
     },
     {
       "id": "1002128253",
@@ -1963,11 +1579,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002128253-0.jpg",
-      "images": [
-        "img/products/1002128253-0.jpg",
-        "img/products/1002128253-1.jpg"
-      ]
+      "image": "img/products/1002128253.jpg"
     },
     {
       "id": "1003051355",
@@ -1983,11 +1595,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1003051355-0.jpg",
-      "images": [
-        "img/products/1003051355-0.jpg",
-        "img/products/1003051355-1.jpg"
-      ]
+      "image": "img/products/1003051355.jpg"
     },
     {
       "id": "1002838608",
@@ -2003,11 +1611,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002838608-0.jpg",
-      "images": [
-        "img/products/1002838608-0.jpg",
-        "img/products/1002838608-1.jpg"
-      ]
+      "image": "img/products/1002838608.jpg"
     },
     {
       "id": "1002767370",
@@ -2023,11 +1627,7 @@
       "ageMaxMonths": 132,
       "ageDisplay": "3a-11a",
       "ageBracket": "3-5",
-      "image": "img/products/1002767370-0.jpg",
-      "images": [
-        "img/products/1002767370-0.jpg",
-        "img/products/1002767370-1.jpg"
-      ]
+      "image": "img/products/1002767370.jpg"
     },
     {
       "id": "1002999968",
@@ -2043,11 +1643,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "8a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/1002999968-0.jpg",
-      "images": [
-        "img/products/1002999968-0.jpg",
-        "img/products/1002999968-1.jpg"
-      ]
+      "image": "img/products/1002999968.jpg"
     },
     {
       "id": "1003139611",
@@ -2063,11 +1659,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "8a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003139611-0.jpg",
-      "images": [
-        "img/products/1003139611-0.jpg",
-        "img/products/1003139611-1.jpg"
-      ]
+      "image": "img/products/1003139611.jpg"
     },
     {
       "id": "1002733220",
@@ -2083,11 +1675,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002733220-0.jpg",
-      "images": [
-        "img/products/1002733220-0.jpg",
-        "img/products/1002733220-1.jpg"
-      ]
+      "image": "img/products/1002733220.jpg"
     },
     {
       "id": "1002175945",
@@ -2103,11 +1691,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002175945-0.jpg",
-      "images": [
-        "img/products/1002175945-0.jpg",
-        "img/products/1002175945-1.jpg"
-      ]
+      "image": "img/products/1002175945.jpg"
     },
     {
       "id": "1002388260",
@@ -2123,11 +1707,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002388260-0.jpg",
-      "images": [
-        "img/products/1002388260-0.jpg",
-        "img/products/1002388260-1.jpg"
-      ]
+      "image": "img/products/1002388260.jpg"
     },
     {
       "id": "100166885",
@@ -2143,11 +1723,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100166885-0.jpg",
-      "images": [
-        "img/products/100166885-0.jpg",
-        "img/products/100166885-1.jpg"
-      ]
+      "image": "img/products/100166885.jpg"
     },
     {
       "id": "1002991579",
@@ -2163,11 +1739,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "8a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/1002991579-0.jpg",
-      "images": [
-        "img/products/1002991579-0.jpg",
-        "img/products/1002991579-1.jpg"
-      ]
+      "image": "img/products/1002991579.jpg"
     },
     {
       "id": "1002722731",
@@ -2183,11 +1755,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "7a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1002722731-0.jpg",
-      "images": [
-        "img/products/1002722731-0.jpg",
-        "img/products/1002722731-1.jpg"
-      ]
+      "image": "img/products/1002722731.jpg"
     },
     {
       "id": "1003135703",
@@ -2203,11 +1771,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "6a-7a",
       "ageBracket": "6-8",
-      "image": "img/products/1003135703-0.jpg",
-      "images": [
-        "img/products/1003135703-0.jpg",
-        "img/products/1003135703-1.jpg"
-      ]
+      "image": "img/products/1003135703.jpg"
     },
     {
       "id": "1003191642",
@@ -2223,11 +1787,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003191642-0.jpg",
-      "images": [
-        "img/products/1003191642-0.jpg",
-        "img/products/1003191642-1.jpg"
-      ]
+      "image": "img/products/1003191642.jpg"
     },
     {
       "id": "1002888229",
@@ -2243,11 +1803,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1002888229-0.jpg",
-      "images": [
-        "img/products/1002888229-0.jpg",
-        "img/products/1002888229-1.jpg"
-      ]
+      "image": "img/products/1002888229.jpg"
     },
     {
       "id": "100270916",
@@ -2263,11 +1819,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100270916-0.jpg",
-      "images": [
-        "img/products/100270916-0.jpg",
-        "img/products/100270916-1.jpg"
-      ]
+      "image": "img/products/100270916.jpg"
     },
     {
       "id": "1003164314",
@@ -2283,11 +1835,7 @@
       "ageMaxMonths": 132,
       "ageDisplay": "4a-11a",
       "ageBracket": "3-5",
-      "image": "img/products/1003164314-0.jpg",
-      "images": [
-        "img/products/1003164314-0.jpg",
-        "img/products/1003164314-1.jpg"
-      ]
+      "image": "img/products/1003164314.jpg"
     },
     {
       "id": "1003051453",
@@ -2303,11 +1851,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "12m-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1003051453-0.jpg",
-      "images": [
-        "img/products/1003051453-0.jpg",
-        "img/products/1003051453-1.jpg"
-      ]
+      "image": "img/products/1003051453.jpg"
     },
     {
       "id": "100354033",
@@ -2323,11 +1867,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/100354033-0.jpg",
-      "images": [
-        "img/products/100354033-0.jpg",
-        "img/products/100354033-1.jpg"
-      ]
+      "image": "img/products/100354033.jpg"
     },
     {
       "id": "1002833280",
@@ -2343,11 +1883,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "2a-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1002833280-0.jpg",
-      "images": [
-        "img/products/1002833280-0.jpg",
-        "img/products/1002833280-1.jpg"
-      ]
+      "image": "img/products/1002833280.jpg"
     },
     {
       "id": "1002415232",
@@ -2363,11 +1899,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "3a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1002415232-0.jpg",
-      "images": [
-        "img/products/1002415232-0.jpg",
-        "img/products/1002415232-1.jpg"
-      ]
+      "image": "img/products/1002415232.jpg"
     },
     {
       "id": "1003193757",
@@ -2383,11 +1915,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003193757-0.jpg",
-      "images": [
-        "img/products/1003193757-0.jpg",
-        "img/products/1003193757-1.jpg"
-      ]
+      "image": "img/products/1003193757.jpg"
     },
     {
       "id": "100224362",
@@ -2403,11 +1931,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "6a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/100224362-0.jpg",
-      "images": [
-        "img/products/100224362-0.jpg",
-        "img/products/100224362-1.jpg"
-      ]
+      "image": "img/products/100224362.jpg"
     },
     {
       "id": "1003194986",
@@ -2423,11 +1947,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194986-0.jpg",
-      "images": [
-        "img/products/1003194986-0.jpg",
-        "img/products/1003194986-1.jpg"
-      ]
+      "image": "img/products/1003194986.jpg"
     },
     {
       "id": "1002515425",
@@ -2443,11 +1963,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1002515425-0.jpg",
-      "images": [
-        "img/products/1002515425-0.jpg",
-        "img/products/1002515425-1.jpg"
-      ]
+      "image": "img/products/1002515425.jpg"
     },
     {
       "id": "1003194015",
@@ -2463,11 +1979,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194015-0.jpg",
-      "images": [
-        "img/products/1003194015-0.jpg",
-        "img/products/1003194015-1.jpg"
-      ]
+      "image": "img/products/1003194015.jpg"
     },
     {
       "id": "1003154975",
@@ -2483,11 +1995,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "12m-9a",
       "ageBracket": "0-2",
-      "image": "img/products/1003154975-0.jpg",
-      "images": [
-        "img/products/1003154975-0.jpg",
-        "img/products/1003154975-1.jpg"
-      ]
+      "image": "img/products/1003154975.jpg"
     },
     {
       "id": "1003192439",
@@ -2503,11 +2011,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003192439-0.jpg",
-      "images": [
-        "img/products/1003192439-0.jpg",
-        "img/products/1003192439-1.jpg"
-      ]
+      "image": "img/products/1003192439.jpg"
     },
     {
       "id": "1003054900",
@@ -2523,11 +2027,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "2a-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1003054900-0.jpg",
-      "images": [
-        "img/products/1003054900-0.jpg",
-        "img/products/1003054900-1.jpg"
-      ]
+      "image": "img/products/1003054900.jpg"
     },
     {
       "id": "1003044980",
@@ -2543,11 +2043,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "9a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1003044980-0.jpg",
-      "images": [
-        "img/products/1003044980-0.jpg",
-        "img/products/1003044980-1.jpg"
-      ]
+      "image": "img/products/1003044980.jpg"
     },
     {
       "id": "1003002974",
@@ -2563,11 +2059,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003002974-0.jpg",
-      "images": [
-        "img/products/1003002974-0.jpg",
-        "img/products/1003002974-1.jpg"
-      ]
+      "image": "img/products/1003002974.jpg"
     },
     {
       "id": "1002968482",
@@ -2583,11 +2075,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002968482-0.jpg",
-      "images": [
-        "img/products/1002968482-0.jpg",
-        "img/products/1002968482-1.jpg"
-      ]
+      "image": "img/products/1002968482.jpg"
     },
     {
       "id": "1002835548",
@@ -2603,11 +2091,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "12m-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1002835548-0.jpg",
-      "images": [
-        "img/products/1002835548-0.jpg",
-        "img/products/1002835548-1.jpg"
-      ]
+      "image": "img/products/1002835548.jpg"
     },
     {
       "id": "1003046904",
@@ -2623,11 +2107,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003046904-0.jpg",
-      "images": [
-        "img/products/1003046904-0.jpg",
-        "img/products/1003046904-1.jpg"
-      ]
+      "image": "img/products/1003046904.jpg"
     },
     {
       "id": "1003151993",
@@ -2643,11 +2123,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003151993-0.jpg",
-      "images": [
-        "img/products/1003151993-0.jpg",
-        "img/products/1003151993-1.jpg"
-      ]
+      "image": "img/products/1003151993.jpg"
     },
     {
       "id": "1003159339",
@@ -2663,11 +2139,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "7a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003159339-0.jpg",
-      "images": [
-        "img/products/1003159339-0.jpg",
-        "img/products/1003159339-1.jpg"
-      ]
+      "image": "img/products/1003159339.jpg"
     },
     {
       "id": "1003150375",
@@ -2683,11 +2155,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "8a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003150375-0.jpg",
-      "images": [
-        "img/products/1003150375-0.jpg",
-        "img/products/1003150375-1.jpg"
-      ]
+      "image": "img/products/1003150375.jpg"
     },
     {
       "id": "1003059823",
@@ -2703,11 +2171,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "10a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1003059823-0.jpg",
-      "images": [
-        "img/products/1003059823-0.jpg",
-        "img/products/1003059823-1.jpg"
-      ]
+      "image": "img/products/1003059823.jpg"
     },
     {
       "id": "1002827778",
@@ -2723,11 +2187,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "2a-18a",
       "ageBracket": "0-2",
-      "image": "img/products/1002827778-0.jpg",
-      "images": [
-        "img/products/1002827778-0.jpg",
-        "img/products/1002827778-1.jpg"
-      ]
+      "image": "img/products/1002827778.jpg"
     },
     {
       "id": "1003045916",
@@ -2743,11 +2203,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "10a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1003045916-0.jpg",
-      "images": [
-        "img/products/1003045916-0.jpg",
-        "img/products/1003045916-1.jpg"
-      ]
+      "image": "img/products/1003045916.jpg"
     },
     {
       "id": "1002312605",
@@ -2763,11 +2219,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "2a-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1002312605-0.jpg",
-      "images": [
-        "img/products/1002312605-0.jpg",
-        "img/products/1002312605-1.jpg"
-      ]
+      "image": "img/products/1002312605.jpg"
     },
     {
       "id": "1003017287",
@@ -2783,11 +2235,7 @@
       "ageMaxMonths": 18,
       "ageDisplay": "0m-18m",
       "ageBracket": "0-2",
-      "image": "img/products/1003017287-0.jpg",
-      "images": [
-        "img/products/1003017287-0.jpg",
-        "img/products/1003017287-1.jpg"
-      ]
+      "image": "img/products/1003017287.jpg"
     },
     {
       "id": "1002800242",
@@ -2803,11 +2251,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002800242-0.jpg",
-      "images": [
-        "img/products/1002800242-0.jpg",
-        "img/products/1002800242-1.jpg"
-      ]
+      "image": "img/products/1002800242.jpg"
     },
     {
       "id": "1002693667",
@@ -2823,10 +2267,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "3a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1002693667-0.jpg",
-      "images": [
-        "img/products/1002693667-0.jpg"
-      ]
+      "image": "img/products/1002693667.jpg"
     },
     {
       "id": "100127301",
@@ -2842,10 +2283,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100127301-0.jpg",
-      "images": [
-        "img/products/100127301-0.jpg"
-      ]
+      "image": "img/products/100127301.jpg"
     },
     {
       "id": "1002750567",
@@ -2861,11 +2299,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "3a-10a",
       "ageBracket": "3-5",
-      "image": "img/products/1002750567-0.jpg",
-      "images": [
-        "img/products/1002750567-0.jpg",
-        "img/products/1002750567-1.jpg"
-      ]
+      "image": "img/products/1002750567.jpg"
     },
     {
       "id": "1002376756",
@@ -2881,11 +2315,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "6a-10a",
       "ageBracket": "6-8",
-      "image": "img/products/1002376756-0.jpg",
-      "images": [
-        "img/products/1002376756-0.jpg",
-        "img/products/1002376756-1.jpg"
-      ]
+      "image": "img/products/1002376756.jpg"
     },
     {
       "id": "1002787831",
@@ -2901,11 +2331,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "13a-18a",
       "ageBracket": "13+",
-      "image": "img/products/1002787831-0.jpg",
-      "images": [
-        "img/products/1002787831-0.jpg",
-        "img/products/1002787831-1.jpg"
-      ]
+      "image": "img/products/1002787831.jpg"
     },
     {
       "id": "1003055395",
@@ -2921,10 +2347,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003055395-0.jpg",
-      "images": [
-        "img/products/1003055395-0.jpg"
-      ]
+      "image": "img/products/1003055395.jpg"
     },
     {
       "id": "1002176470",
@@ -2940,11 +2363,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1002176470-0.jpg",
-      "images": [
-        "img/products/1002176470-0.jpg",
-        "img/products/1002176470-1.jpg"
-      ]
+      "image": "img/products/1002176470.jpg"
     },
     {
       "id": "100291506",
@@ -2960,11 +2379,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "4a-9a",
       "ageBracket": "3-5",
-      "image": "img/products/100291506-0.jpg",
-      "images": [
-        "img/products/100291506-0.jpg",
-        "img/products/100291506-1.jpg"
-      ]
+      "image": "img/products/100291506.jpg"
     },
     {
       "id": "1003045919",
@@ -2980,11 +2395,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "4a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1003045919-0.jpg",
-      "images": [
-        "img/products/1003045919-0.jpg",
-        "img/products/1003045919-1.jpg"
-      ]
+      "image": "img/products/1003045919.jpg"
     },
     {
       "id": "1002804178",
@@ -3000,11 +2411,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "8a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/1002804178-0.jpg",
-      "images": [
-        "img/products/1002804178-0.jpg",
-        "img/products/1002804178-1.jpg"
-      ]
+      "image": "img/products/1002804178.jpg"
     },
     {
       "id": "100000048",
@@ -3020,11 +2427,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100000048-0.jpg",
-      "images": [
-        "img/products/100000048-0.jpg",
-        "img/products/100000048-1.jpg"
-      ]
+      "image": "img/products/100000048.jpg"
     },
     {
       "id": "1002975598",
@@ -3040,11 +2443,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "6a-10a",
       "ageBracket": "6-8",
-      "image": "img/products/1002975598-0.jpg",
-      "images": [
-        "img/products/1002975598-0.jpg",
-        "img/products/1002975598-1.jpg"
-      ]
+      "image": "img/products/1002975598.jpg"
     },
     {
       "id": "1003147426",
@@ -3060,11 +2459,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003147426-0.jpg",
-      "images": [
-        "img/products/1003147426-0.jpg",
-        "img/products/1003147426-1.jpg"
-      ]
+      "image": "img/products/1003147426.jpg"
     },
     {
       "id": "1003056186",
@@ -3080,11 +2475,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "6a-9a",
       "ageBracket": "6-8",
-      "image": "img/products/1003056186-0.jpg",
-      "images": [
-        "img/products/1003056186-0.jpg",
-        "img/products/1003056186-1.jpg"
-      ]
+      "image": "img/products/1003056186.jpg"
     },
     {
       "id": "100172847",
@@ -3100,10 +2491,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100172847-0.jpg",
-      "images": [
-        "img/products/100172847-0.jpg"
-      ]
+      "image": "img/products/100172847.jpg"
     },
     {
       "id": "1003194231",
@@ -3119,11 +2507,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194231-0.jpg",
-      "images": [
-        "img/products/1003194231-0.jpg",
-        "img/products/1003194231-1.jpg"
-      ]
+      "image": "img/products/1003194231.jpg"
     },
     {
       "id": "100412540",
@@ -3139,11 +2523,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "12m-5a",
       "ageBracket": "0-2",
-      "image": "img/products/100412540-0.jpg",
-      "images": [
-        "img/products/100412540-0.jpg",
-        "img/products/100412540-1.jpg"
-      ]
+      "image": "img/products/100412540.jpg"
     },
     {
       "id": "1003055271",
@@ -3159,11 +2539,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1003055271-0.jpg",
-      "images": [
-        "img/products/1003055271-0.jpg",
-        "img/products/1003055271-1.jpg"
-      ]
+      "image": "img/products/1003055271.jpg"
     },
     {
       "id": "1002975096",
@@ -3179,11 +2555,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1002975096-0.jpg",
-      "images": [
-        "img/products/1002975096-0.jpg",
-        "img/products/1002975096-1.jpg"
-      ]
+      "image": "img/products/1002975096.jpg"
     },
     {
       "id": "100366877",
@@ -3199,11 +2571,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/100366877-0.jpg",
-      "images": [
-        "img/products/100366877-0.jpg",
-        "img/products/100366877-1.jpg"
-      ]
+      "image": "img/products/100366877.jpg"
     },
     {
       "id": "1003191926",
@@ -3219,11 +2587,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003191926-0.jpg",
-      "images": [
-        "img/products/1003191926-0.jpg",
-        "img/products/1003191926-1.jpg"
-      ]
+      "image": "img/products/1003191926.jpg"
     },
     {
       "id": "100223887",
@@ -3239,11 +2603,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "6a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/100223887-0.jpg",
-      "images": [
-        "img/products/100223887-0.jpg",
-        "img/products/100223887-1.jpg"
-      ]
+      "image": "img/products/100223887.jpg"
     },
     {
       "id": "1003194982",
@@ -3259,11 +2619,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194982-0.jpg",
-      "images": [
-        "img/products/1003194982-0.jpg",
-        "img/products/1003194982-1.jpg"
-      ]
+      "image": "img/products/1003194982.jpg"
     },
     {
       "id": "1003195516",
@@ -3279,11 +2635,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003195516-0.jpg",
-      "images": [
-        "img/products/1003195516-0.jpg",
-        "img/products/1003195516-1.jpg"
-      ]
+      "image": "img/products/1003195516.jpg"
     },
     {
       "id": "1003194005",
@@ -3299,11 +2651,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194005-0.jpg",
-      "images": [
-        "img/products/1003194005-0.jpg",
-        "img/products/1003194005-1.jpg"
-      ]
+      "image": "img/products/1003194005.jpg"
     },
     {
       "id": "1003154942",
@@ -3319,11 +2667,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "12m-9a",
       "ageBracket": "0-2",
-      "image": "img/products/1003154942-0.jpg",
-      "images": [
-        "img/products/1003154942-0.jpg",
-        "img/products/1003154942-1.jpg"
-      ]
+      "image": "img/products/1003154942.jpg"
     },
     {
       "id": "1003192438",
@@ -3339,11 +2683,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003192438-0.jpg",
-      "images": [
-        "img/products/1003192438-0.jpg",
-        "img/products/1003192438-1.jpg"
-      ]
+      "image": "img/products/1003192438.jpg"
     },
     {
       "id": "1003054899",
@@ -3359,11 +2699,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "2a-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1003054899-0.jpg",
-      "images": [
-        "img/products/1003054899-0.jpg",
-        "img/products/1003054899-1.jpg"
-      ]
+      "image": "img/products/1003054899.jpg"
     },
     {
       "id": "1003137061",
@@ -3379,11 +2715,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "4a-8a",
       "ageBracket": "3-5",
-      "image": "img/products/1003137061-0.jpg",
-      "images": [
-        "img/products/1003137061-0.jpg",
-        "img/products/1003137061-1.jpg"
-      ]
+      "image": "img/products/1003137061.jpg"
     },
     {
       "id": "1002959277",
@@ -3399,11 +2731,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1002959277-0.jpg",
-      "images": [
-        "img/products/1002959277-0.jpg",
-        "img/products/1002959277-1.jpg"
-      ]
+      "image": "img/products/1002959277.jpg"
     },
     {
       "id": "100130976",
@@ -3419,11 +2747,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/100130976-0.jpg",
-      "images": [
-        "img/products/100130976-0.jpg",
-        "img/products/100130976-1.jpg"
-      ]
+      "image": "img/products/100130976.jpg"
     },
     {
       "id": "1002835648",
@@ -3439,11 +2763,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "4a-8a",
       "ageBracket": "3-5",
-      "image": "img/products/1002835648-0.jpg",
-      "images": [
-        "img/products/1002835648-0.jpg",
-        "img/products/1002835648-1.jpg"
-      ]
+      "image": "img/products/1002835648.jpg"
     },
     {
       "id": "1002800279",
@@ -3459,11 +2779,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "5a-18a",
       "ageBracket": "3-5",
-      "image": "img/products/1002800279-0.jpg",
-      "images": [
-        "img/products/1002800279-0.jpg",
-        "img/products/1002800279-1.jpg"
-      ]
+      "image": "img/products/1002800279.jpg"
     },
     {
       "id": "1002836835",
@@ -3479,11 +2795,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1002836835-0.jpg",
-      "images": [
-        "img/products/1002836835-0.jpg",
-        "img/products/1002836835-1.jpg"
-      ]
+      "image": "img/products/1002836835.jpg"
     },
     {
       "id": "1003048384",
@@ -3499,11 +2811,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "7a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003048384-0.jpg",
-      "images": [
-        "img/products/1003048384-0.jpg",
-        "img/products/1003048384-1.jpg"
-      ]
+      "image": "img/products/1003048384.jpg"
     },
     {
       "id": "1002759110",
@@ -3519,11 +2827,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "8a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/1002759110-0.jpg",
-      "images": [
-        "img/products/1002759110-0.jpg",
-        "img/products/1002759110-1.jpg"
-      ]
+      "image": "img/products/1002759110.jpg"
     },
     {
       "id": "1003161872",
@@ -3539,11 +2843,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "4a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003161872-0.jpg",
-      "images": [
-        "img/products/1003161872-0.jpg",
-        "img/products/1003161872-1.jpg"
-      ]
+      "image": "img/products/1003161872.jpg"
     },
     {
       "id": "1003065109",
@@ -3559,11 +2859,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003065109-0.jpg",
-      "images": [
-        "img/products/1003065109-0.jpg",
-        "img/products/1003065109-1.jpg"
-      ]
+      "image": "img/products/1003065109.jpg"
     },
     {
       "id": "1003194647",
@@ -3579,11 +2875,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003194647-0.jpg",
-      "images": [
-        "img/products/1003194647-0.jpg",
-        "img/products/1003194647-1.jpg"
-      ]
+      "image": "img/products/1003194647.jpg"
     },
     {
       "id": "1003151976",
@@ -3599,11 +2891,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "2a-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1003151976-0.jpg",
-      "images": [
-        "img/products/1003151976-0.jpg",
-        "img/products/1003151976-1.jpg"
-      ]
+      "image": "img/products/1003151976.jpg"
     },
     {
       "id": "1002342677",
@@ -3619,11 +2907,7 @@
       "ageMaxMonths": 18,
       "ageDisplay": "3m-18m",
       "ageBracket": "0-2",
-      "image": "img/products/1002342677-0.jpg",
-      "images": [
-        "img/products/1002342677-0.jpg",
-        "img/products/1002342677-1.jpg"
-      ]
+      "image": "img/products/1002342677.jpg"
     },
     {
       "id": "1003152896",
@@ -3639,11 +2923,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003152896-0.jpg",
-      "images": [
-        "img/products/1003152896-0.jpg",
-        "img/products/1003152896-1.jpg"
-      ]
+      "image": "img/products/1003152896.jpg"
     },
     {
       "id": "100168636",
@@ -3659,11 +2939,7 @@
       "ageMaxMonths": 120,
       "ageDisplay": "4a-10a",
       "ageBracket": "3-5",
-      "image": "img/products/100168636-0.jpg",
-      "images": [
-        "img/products/100168636-0.jpg",
-        "img/products/100168636-1.jpg"
-      ]
+      "image": "img/products/100168636.jpg"
     },
     {
       "id": "1003050403",
@@ -3679,11 +2955,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "4a-9a",
       "ageBracket": "3-5",
-      "image": "img/products/1003050403-0.jpg",
-      "images": [
-        "img/products/1003050403-0.jpg",
-        "img/products/1003050403-1.jpg"
-      ]
+      "image": "img/products/1003050403.jpg"
     },
     {
       "id": "1002903751",
@@ -3699,11 +2971,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1002903751-0.jpg",
-      "images": [
-        "img/products/1002903751-0.jpg",
-        "img/products/1002903751-1.jpg"
-      ]
+      "image": "img/products/1002903751.jpg"
     },
     {
       "id": "1002969227",
@@ -3719,11 +2987,7 @@
       "ageMaxMonths": 144,
       "ageDisplay": "8a-12a",
       "ageBracket": "6-8",
-      "image": "img/products/1002969227-0.jpg",
-      "images": [
-        "img/products/1002969227-0.jpg",
-        "img/products/1002969227-1.jpg"
-      ]
+      "image": "img/products/1002969227.jpg"
     },
     {
       "id": "1002699797",
@@ -3739,11 +3003,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "10a-18a",
       "ageBracket": "9-12",
-      "image": "img/products/1002699797-0.jpg",
-      "images": [
-        "img/products/1002699797-0.jpg",
-        "img/products/1002699797-1.jpg"
-      ]
+      "image": "img/products/1002699797.jpg"
     },
     {
       "id": "1003055382",
@@ -3759,10 +3019,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003055382-0.jpg",
-      "images": [
-        "img/products/1003055382-0.jpg"
-      ]
+      "image": "img/products/1003055382.jpg"
     },
     {
       "id": "1002162974",
@@ -3778,11 +3035,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1002162974-0.jpg",
-      "images": [
-        "img/products/1002162974-0.jpg",
-        "img/products/1002162974-1.jpg"
-      ]
+      "image": "img/products/1002162974.jpg"
     },
     {
       "id": "100426092",
@@ -3798,11 +3051,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100426092-0.jpg",
-      "images": [
-        "img/products/100426092-0.jpg",
-        "img/products/100426092-1.jpg"
-      ]
+      "image": "img/products/100426092.jpg"
     },
     {
       "id": "1003009628",
@@ -3818,11 +3067,7 @@
       "ageMaxMonths": 84,
       "ageDisplay": "3a-7a",
       "ageBracket": "3-5",
-      "image": "img/products/1003009628-0.jpg",
-      "images": [
-        "img/products/1003009628-0.jpg",
-        "img/products/1003009628-1.jpg"
-      ]
+      "image": "img/products/1003009628.jpg"
     },
     {
       "id": "100137590",
@@ -3838,11 +3083,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100137590-0.jpg",
-      "images": [
-        "img/products/100137590-0.jpg",
-        "img/products/100137590-1.jpg"
-      ]
+      "image": "img/products/100137590.jpg"
     },
     {
       "id": "1002836222",
@@ -3858,11 +3099,7 @@
       "ageMaxMonths": 132,
       "ageDisplay": "7a-11a",
       "ageBracket": "6-8",
-      "image": "img/products/1002836222-0.jpg",
-      "images": [
-        "img/products/1002836222-0.jpg",
-        "img/products/1002836222-1.jpg"
-      ]
+      "image": "img/products/1002836222.jpg"
     },
     {
       "id": "1003152914",
@@ -3878,11 +3115,7 @@
       "ageMaxMonths": 60,
       "ageDisplay": "12m-5a",
       "ageBracket": "0-2",
-      "image": "img/products/1003152914-0.jpg",
-      "images": [
-        "img/products/1003152914-0.jpg",
-        "img/products/1003152914-1.jpg"
-      ]
+      "image": "img/products/1003152914.jpg"
     },
     {
       "id": "1003172490",
@@ -3898,11 +3131,7 @@
       "ageMaxMonths": 216,
       "ageDisplay": "6a-18a",
       "ageBracket": "6-8",
-      "image": "img/products/1003172490-0.jpg",
-      "images": [
-        "img/products/1003172490-0.jpg",
-        "img/products/1003172490-1.jpg"
-      ]
+      "image": "img/products/1003172490.jpg"
     },
     {
       "id": "100583398",
@@ -3918,10 +3147,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/100583398-0.jpg",
-      "images": [
-        "img/products/100583398-0.jpg"
-      ]
+      "image": "img/products/100583398.jpg"
     },
     {
       "id": "1002833457",
@@ -3937,11 +3163,7 @@
       "ageMaxMonths": 96,
       "ageDisplay": "4a-8a",
       "ageBracket": "3-5",
-      "image": "img/products/1002833457-0.jpg",
-      "images": [
-        "img/products/1002833457-0.jpg",
-        "img/products/1002833457-1.jpg"
-      ]
+      "image": "img/products/1002833457.jpg"
     },
     {
       "id": "1003192641",
@@ -3957,11 +3179,7 @@
       "ageMaxMonths": null,
       "ageDisplay": "",
       "ageBracket": null,
-      "image": "img/products/1003192641-0.jpg",
-      "images": [
-        "img/products/1003192641-0.jpg",
-        "img/products/1003192641-1.jpg"
-      ]
+      "image": "img/products/1003192641.jpg"
     },
     {
       "id": "1003051472",
@@ -3977,11 +3195,7 @@
       "ageMaxMonths": 108,
       "ageDisplay": "4a-9a",
       "ageBracket": "3-5",
-      "image": "img/products/1003051472-0.jpg",
-      "images": [
-        "img/products/1003051472-0.jpg",
-        "img/products/1003051472-1.jpg"
-      ]
+      "image": "img/products/1003051472.jpg"
     },
     {
       "id": "1003061087",
@@ -3997,11 +3211,7 @@
       "ageMaxMonths": 72,
       "ageDisplay": "2a-6a",
       "ageBracket": "0-2",
-      "image": "img/products/1003061087-0.jpg",
-      "images": [
-        "img/products/1003061087-0.jpg",
-        "img/products/1003061087-1.jpg"
-      ]
+      "image": "img/products/1003061087.jpg"
     }
   ]
 }

@@ -1,0 +1,806 @@
+{
+  "note": "Which source photograph each committed file came from, so a re-run only fetches what changed.",
+  "images": {
+    "100000048": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/4135111/100000048_1.jpg?v=637921257852070000",
+      "bytes": 40613
+    },
+    "100001810": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/338641/Carrinho-Hot-Wheels---Veiculos-Basicos--unidade----Mattel.jpg?v=636408161306030000",
+      "bytes": 33643
+    },
+    "100002050": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/4124363/100002050_1.jpg?v=637919391828170000",
+      "bytes": 26386
+    },
+    "100103329": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/387299/Jogo-Eu-Sou-Cartas-Novas---Jogo-com-App_Frente.jpg?v=636963804923670000",
+      "bytes": 55151
+    },
+    "100110518": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1317329/Jogo-Detetive-com-App---Estrela_Frente.jpg?v=637539374373670000",
+      "bytes": 39005
+    },
+    "100127301": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/339333/Caixa-Registradora---Creative-Fun---Rosa---Multikids.jpg?v=636416684191430000",
+      "bytes": 24660
+    },
+    "100130976": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6847104/Xilofone-para-Bebes---Fisher-Price---Colorido-0.jpg?v=639001504316170000",
+      "bytes": 19710
+    },
+    "100137590": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/332649/jogo-tapa-certo-animais-estrela-1201609200045_Embalagem.jpg?v=636328755523370000",
+      "bytes": 29504
+    },
+    "100137601": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/3545489/100137601_1.jpg?v=637890041678200000",
+      "bytes": 31413
+    },
+    "100154823": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/3760841/100154823_1.jpg?v=637893173603400000",
+      "bytes": 51144
+    },
+    "100155359": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1333625/jogo-batalha-naval-novo-grow-1853_Frente.jpg?v=637545453449930000",
+      "bytes": 46918
+    },
+    "100166885": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/381568/conjunto-sala-de-jantar-classica-15-pecas-sylvanian-families-epoch-5340_frente.jpg?v=636924227628970000",
+      "bytes": 55440
+    },
+    "100167562": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/382215/jogo-de-boliche-com-6-pinos-e-2-bolas-cardoso-7001_frente.jpg?v=636930014899770000",
+      "bytes": 23722
+    },
+    "100168636": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/390854/Cozinha-Portatil-e-Acessorios---Fan-Fun.jpg?v=636995936086670000",
+      "bytes": 28319
+    },
+    "100172847": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/4530951/100172847_1.jpg?v=637955944216270000",
+      "bytes": 13154
+    },
+    "100184971": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/4912807/100184971_1.jpg?v=638018919603830000",
+      "bytes": 42386,
+      "ext": "png"
+    },
+    "100216724": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5466284/Chocalho---Amiguinho-Maluquinho---1-peca---Minimi-0.jpg?v=638116386964700000",
+      "bytes": 19749
+    },
+    "100222379": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5904171/Bumbo---Patrulha-Canina---Elka-0.jpg?v=638307729974970000",
+      "bytes": 41769
+    },
+    "100223887": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5787773/Pogobol---Roxo-e-Verde---Estrela-0.jpg?v=638231427255400000",
+      "bytes": 25785
+    },
+    "100224362": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5790935/Pogobol---Amarelo-e-Laranja---Estrela-0.jpg?v=638234599875800000",
+      "bytes": 17448
+    },
+    "100266232": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5915416/Laptop-de-Atividades---Barbie---Bilingue---Candide-0.jpg?v=638314424634600000",
+      "bytes": 39123
+    },
+    "100270288": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6047700/Figura-de-Acao---24-Cm---Disney---Marvel---Avenges---Homem-Aranha---Hasbro-0.jpg?v=638369664618970000",
+      "bytes": 20134
+    },
+    "100270916": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/789785/Sabre-de-Luz---Disney---Star-Wars---Forca-FX-Conde-Dookan---Hasbro-0.jpg?v=637366441517070000",
+      "bytes": 7606
+    },
+    "100291506": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7324928/Veiculo-de-Controle-Remoto---Barbie---Glamour-Flip---Modelos-Sortidos---Candide-0.jpg?v=638738484949330000",
+      "bytes": 21588
+    },
+    "100292972": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8211020/Carrinho-de-Boneca---Ninos---64cm---Sortido---Cotiplas-0.jpg?v=638819279384030000",
+      "bytes": 19675
+    },
+    "100326061": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/4718787/Lancador-De-Dardos---Nerf---Elite-20---Volt-SD-1---Hasbro-0.jpg?v=637987785059870000",
+      "bytes": 24020
+    },
+    "100326062": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6441948/Lancador-De-Dardos---Nerf---Elite-20---Commander---Hasbro-0.jpg?v=638612471956470000",
+      "bytes": 21410
+    },
+    "100354033": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8445519/Skate-Com-Acessorios---Barbie---Modelos-Sortidos---Fun-0.jpg?v=638870641746430000",
+      "bytes": 45588
+    },
+    "100354084": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9115262/Skate-Com-Acessorios---Hot-Wheels----Modelos-Sortidos---Fun-0.jpg?v=638947812702630000",
+      "bytes": 43901
+    },
+    "100366877": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9119437/Patins-Ajustavel-com-Acessorios---Patrulha-Canina---29-a-32---Fun-0.jpg?v=638948554197630000",
+      "bytes": 44273
+    },
+    "100370971": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1200548/Sylvian-Families---Van-Piquenique-Da-Familia---Epoch-0.jpg?v=637514377244730000",
+      "bytes": 30605
+    },
+    "100376692": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1226228/Barraca---Barbie---50-bolinhas---Fun-Brinquedos-0.jpg?v=637516714272170000",
+      "bytes": 49756
+    },
+    "100411316": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9114454/Laptop---Patrulha-Canina---Bilingue---Modelos-Sortidos---Candide-0.jpg?v=638947694655270000",
+      "bytes": 30486
+    },
+    "100412539": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1391383/Bicicleta-Aro-12----Arco-Iris-Branco-e-Pink---TK3-Track-0.jpg?v=637570599342300000",
+      "bytes": 28812
+    },
+    "100412540": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1391409/Bicicleta-Aro-12---Arco-Iris-Vermelho-e-Azul---TK3-Track-0.jpg?v=637570602650470000",
+      "bytes": 32257
+    },
+    "100426092": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1394150/Carrinho-de-Boneca---Confort-Baby---Samba-Toys-2.jpg?v=637572203249500000",
+      "bytes": 26530
+    },
+    "100451995": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6373965/jogo-imagem-e-acao-junior-448-pecas-grow_frente.jpg?v=638581373857330000",
+      "bytes": 56197
+    },
+    "100472896": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/1897470/Bicicleta---Aro-16---Dino---Infantil---Tk3-Track---Prata-e-Laranja-0.jpg?v=637686221054100000",
+      "bytes": 34634
+    },
+    "100583398": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5234653/Fantasia-Infantil---Harry-Potter---Tamanho-M---Novabrink-0.jpg?v=638064461993300000",
+      "bytes": 19457
+    },
+    "1002103479": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6765712/Massinha-de-Modelar---Play-Doh---Pet-Shop---Veterinario---Hasbro-0.jpg?v=638639515078500000",
+      "bytes": 56488
+    },
+    "1002111906": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6765804/Boneco-Articulado---Disney---Marvel---Amazing-Friends---Homem-Aranha---Hasbro-0.jpg?v=638639552792270000",
+      "bytes": 20960
+    },
+    "1002128253": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6406147/Massa-de-Modelar---Play-Doh---Mini-Sorveteria-Divertida-com-2-Cores-de-Massinha---Hasbro-0.jpg?v=638606352461770000",
+      "bytes": 40578
+    },
+    "1002136986": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/2540214/Jogo-PS5---Uncharted---Colecao-Legado-dos-Ladroes---Sony-0.jpg?v=637810778899100000",
+      "bytes": 43451
+    },
+    "1002162974": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9741046/Conjunto---Relogio-Personalizado---FanFun-0.jpg?v=639071945117230000",
+      "bytes": 40514
+    },
+    "1002175945": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/4773192/FAF-CABELOS-CUSTOMIZADOS-0.jpg?v=637994820516200000",
+      "bytes": 33807
+    },
+    "1002176470": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7472706/Conjunto---Cabelos-Rainbow---Giz-Colorido---Fanfun-0.jpg?v=638754961693400000",
+      "bytes": 38948
+    },
+    "1002312605": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6416733/Triciclo-Infantil---Europa---Bandeirante---Vermelho-0.jpg?v=638610519110970000",
+      "bytes": 15413
+    },
+    "1002312637": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/3026586/Jogo-PS4---Sony---Kena-Brigde-of-Spirits-0.jpg?v=637853046380200000",
+      "bytes": 45520
+    },
+    "1002342677": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6416825/Conjunto-de-Mordedores-com-Chocalho---Toyster---BDA---Meu-Primeiro-Kit---Colorido-0.jpg?v=638610526914000000",
+      "bytes": 33512
+    },
+    "1002376756": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6786880/Lancador-de-Agua---Nerf-Super-Soaker---Torrent---Capacidade-236ml---Hasbro-0.jpg?v=638641840218830000",
+      "bytes": 19055
+    },
+    "1002388260": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/3901155/Boneca-e-Acessorios---Barbie---Passeio-De-Bicicleta---18cm---Mattel-0.jpg?v=637897910445000000",
+      "bytes": 22859
+    },
+    "1002415192": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9059631/Patins---Barbie---Dreamtopia---Tamanho-29-a-32---Fun---Rosa-0.jpg?v=638942593755600000",
+      "bytes": 32674
+    },
+    "1002415232": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9059634/Patins---Hot-Wheels---Ajustavel---Tamanho-33-a-36---Fun---Azul-0.jpg?v=638942594130270000",
+      "bytes": 29970
+    },
+    "1002459051": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6196797/Conjunto-De-Pintura-Para-Unhas---Cool-Maker---Go-Glam-U-Nique-Nail-Salon---Sunny-0.jpg?v=638452681783330000",
+      "bytes": 78895
+    },
+    "1002515425": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/4814647/Jogo-PS5---Playstation---Resident-Evil-Village---Gold-Edition---Azul---Solutions-2-Go-0.jpg?v=638005688957000000",
+      "bytes": 44642
+    },
+    "1002685911": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6490109/Sylvanian-Families---Conjunto-A-Primeira-Casa---Epoch-0.jpg?v=638621170514730000",
+      "bytes": 38275
+    },
+    "1002693667": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6356493/Jogo-De-Cha---18-Pecas---Fanfun-0.jpg?v=638570142706670000",
+      "bytes": 27221
+    },
+    "1002698898": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9491865/Mini-Veiculo-Eletrico---Hello-Kitty---6V---Lambreta---Bandeirante---Rosa-0.jpg?v=639002951255730000",
+      "bytes": 28070
+    },
+    "1002699797": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8314409/Quebra-Cabeca---500-Pecas-Nano---Colecao-Obras-de-Arte---Van-Gogh--A-Noite-Estrelada---Toyster-0.jpg?v=638840375863370000",
+      "bytes": 39088
+    },
+    "1002704027": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5827000/Brinquedo-Musical-Infantil---Patrulha-Canina---Piano-Xilofone---Yes-Toys-0.jpg?v=638264152383930000",
+      "bytes": 33336
+    },
+    "1002722731": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5756597/Jogo-Classico---Stop----2-a-4-Jogadores---Nig-Brinquedos-0.jpg?v=638204634629300000",
+      "bytes": 30112
+    },
+    "1002722741": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5757713/Jogo-Educativo---O-Show-da-Luna---Laboratorio-Criativo---Nig-Brinquedos-0.jpg?v=638206250317000000",
+      "bytes": 26159
+    },
+    "1002723753": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5762869/Fantasia---Disney-Princesa---A-Pequena-Sereia-Ariel---Tamanho-M---Novabrink-0.jpg?v=638209902103570000",
+      "bytes": 17928
+    },
+    "1002724877": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5827056/Brinquedo-De-Atividades---Projetor-De-Pintura---Galinha-Pintadinha---Yes-Toys-0.jpg?v=638264154246030000",
+      "bytes": 20704
+    },
+    "1002730513": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7126110/Playset---Barbie---Casa-De-Bonecas-Dos-Sonhos---Mattel-0.jpg?v=638853288382530000",
+      "bytes": 29906
+    },
+    "1002731188": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9040762/Pelucia---Serie-Bluey---Modelos-Sortidos---Candide-0.jpg?v=638939077832800000",
+      "bytes": 22711
+    },
+    "1002733220": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5826500/Laptop-Infantil---C--Tela-Incorp---Sonic---Minigame---Candide-0.jpg?v=638264133004000000",
+      "bytes": 46582
+    },
+    "1002749529": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5904211/jogo-de-tabuleiro--war-o-jogo-da-estrategia-grow_frente.jpg?v=638308073173030000",
+      "bytes": 51491
+    },
+    "1002750567": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6240706/Brinquedo-Musical---Patrulha-Canina---Boombox-Karaoke---Candide-0.jpg?v=638489724761130000",
+      "bytes": 25640
+    },
+    "1002759110": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6120818/Jogo-de-Tabuleiro---Bloqueio---Preto---Grow-0.jpg?v=638417163868400000",
+      "bytes": 51776
+    },
+    "1002767370": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/5993696/Conjunto-Musical---Disney---Frozen---Boombox-Karaoke---Candide-0.jpg?v=638350599089670000",
+      "bytes": 19234
+    },
+    "1002787831": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6109868/Quebra-Cabeca---1500-Pecas---Por-do-Sol-em-Praga---Grow-0.jpg?v=638415250633300000",
+      "bytes": 51262
+    },
+    "1002788614": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7502404/Mordedor---Sensimals---Modelos-Sortidos---Fisher-Price-0.jpg?v=638756852404000000",
+      "bytes": 16016
+    },
+    "1002794399": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8452637/Mochila-Pelucia---Patrulha-Canina---Skye---Candide-0.jpg?v=638871627370300000",
+      "bytes": 37933
+    },
+    "1002794956": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8442190/Mochila-Pelucia---Hello-Kitty---Candide-0.jpg?v=638870018263030000",
+      "bytes": 23184
+    },
+    "1002800242": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6545640/Conjunto-de-Massa-de-Modelar---Play-Doh---Smoothies-Coloridos---Playset---5-Potes---Hasbro-0.jpg?v=638623645318830000",
+      "bytes": 37716
+    },
+    "1002800279": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6152203/Carrinho-com-Controle-Remoto---Batman---Smart-Driver---Candide-0.jpg?v=638436026360000000",
+      "bytes": 26215
+    },
+    "1002800281": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7158408/Carrinho-com-Controle-Remoto---Marvel---Homem-Aranha---Autoracing---Candide-0.jpg?v=638717857677200000",
+      "bytes": 30496
+    },
+    "1002804178": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6471031/Jogo-de-Acao---Cai-Nao-Cai---Tetris---Estrela-0.jpg?v=638620964495870000",
+      "bytes": 49602
+    },
+    "1002814846": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7112740/Conjunto-de-Mordedores---Disney-Baby---Meu-Primeiro-Kit---Bda---Toyster-0.jpg?v=638696329877770000",
+      "bytes": 34605
+    },
+    "1002816893": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6244175/Boneca-Articulada---Baby-Alive---Brincando-de-Spa-Loira---Hasbro-0.jpg?v=638495018892900000",
+      "bytes": 31527
+    },
+    "1002825509": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6766917/Pelucia---Furby-Furblets---Modelos-Unitarios-Sortidos---Hasbro-0.jpg?v=638639908975370000",
+      "bytes": 28013
+    },
+    "1002827778": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6305148/Topper-Unitario---Patrulha-Canina---Skye---Estrela-0.jpg?v=638536257275900000",
+      "bytes": 7100
+    },
+    "1002828403": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6772718/Mascara---Jurassic-World---Dominion---Dinossauro---Modelos-Unitarios-Sortidos---Mattel--0.jpg?v=638640815396700000",
+      "bytes": 34623
+    },
+    "1002830189": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6461310/17256548913510.jpg?v=638620924169700000",
+      "bytes": 12565
+    },
+    "1002833280": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9330458/Patinete-Com-Led---Disney----Stitch---Azul---Bbr-Toys-0.jpg?v=638977882840130000",
+      "bytes": 15207
+    },
+    "1002833457": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6746151/Sabre-de-Luz---Star-Wars---Lightsaber-Forge---Cavaleiro-Jedi-Yord---Hasbro-0.jpg?v=638635896836400000",
+      "bytes": 10495
+    },
+    "1002835147": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8875450/Patins---Barbie---04-Rodas---Tamanho-33-34---Branco---Fun--0.jpg?v=638925265462800000",
+      "bytes": 24865
+    },
+    "1002835452": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8708635/Mini-Veiculo-Eletrico---Audi-RS-E-Tron-GT---Branco---12V---Bandeirante-0.jpg?v=638907158848330000",
+      "bytes": 20014
+    },
+    "1002835548": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6342334/Pelucia---Minnie---C-luz-e-Som---Vestido-Rosa---Multikids-0.jpg?v=638555205366170000",
+      "bytes": 23406
+    },
+    "1002835648": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9057457/Pelucia---Little-Live-Pets---Meu-Baby-Macaquinho---Fun-0.jpg?v=638942521284000000",
+      "bytes": 28557
+    },
+    "1002836222": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6346489/Mesa-Para-Jogo-de-Botao---Sportv---Xalingo-0.jpg?v=639192900880470000",
+      "bytes": 15452
+    },
+    "1002836835": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9056769/Figura-Interativa---Senhor-Cabeca-De-Batata---Hasbro-0.jpg?v=638942340165800000",
+      "bytes": 22627
+    },
+    "1002838608": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6656766/Brincando-de-Ser---Caixa-Registradora-Unique---Barbie---Fun-0.jpg?v=638629799747000000",
+      "bytes": 32725
+    },
+    "1002844721": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6845006/Fantasia-Infantil-Classica---Batman---Tamanho-P---Novabrink-0.jpg?v=638653197177570000",
+      "bytes": 18232
+    },
+    "1002888229": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/6759537/Fantasia-Infantil---Moana-2---Tam-P---Princesas-Disney---Novabrink-0.jpg?v=638639001589630000",
+      "bytes": 22634
+    },
+    "1002903751": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8875531/Aparelho-de-Karaoke---Boombox---Infantil---Bluey---Candide-0.jpg?v=638925276725770000",
+      "bytes": 22675
+    },
+    "1002909752": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8170391/Boneco---Funko-POP-Racing---Mclaren---Ayrton-Senna---Candide-0.jpg?v=638805127649070000",
+      "bytes": 38659
+    },
+    "1002959277": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7224606/Boneca-Bebe-com-Acessorios---Baby-Alive---Festa-do-Cha-Borbulhante---Hasbro-0.jpg?v=638727358664130000",
+      "bytes": 31475
+    },
+    "1002962091": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8374716/Conjunto-de-Carimbo-e-Caderno---Melissa---Doug---Cachorro---Sunny-0.jpg?v=638857337462600000",
+      "bytes": 37062
+    },
+    "1002968482": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8342464/Lousa-Magica-Magnetica---Desenha-Comigo---Sortida---Fisher-Price-0.jpg?v=638845885307630000",
+      "bytes": 25749
+    },
+    "1002969227": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8814638/Lancador-de-Dardos---Nerf---Series-Purestrike---2-Dardos-Oficiais-N1---Hasbro-0.jpg?v=638918268756000000",
+      "bytes": 29892
+    },
+    "1002975096": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8708654/Skatenet---Led-Pro---Dobravel---Rosa---Bandeirante-0.jpg?v=638907160649570000",
+      "bytes": 10056
+    },
+    "1002975598": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7532585/Jogo-de-Anatomia---Operando---A-partir-de-01-Jogador---Hasbro-0.jpg?v=638760927621300000",
+      "bytes": 37310
+    },
+    "1002991579": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/7859804/Jogo-de-Raciocinio-Logico---Jogo-Senha---Grow-0.jpg?v=638774929866230000",
+      "bytes": 26606
+    },
+    "1002992927": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8114051/Bola-de-Futebol-Infantil---Fun-Kids---T50-XXIV---Penalty-0.jpg?v=638792118822300000",
+      "bytes": 36212
+    },
+    "1002994937": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8049701/Conjunto-de-Artes---2-Mini-Pelucia---Surpresa---Para-Pintar---Airbrush---Fun-0.jpg?v=638785288665170000",
+      "bytes": 46857
+    },
+    "1002996212": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8078661/Boneca---Baby-Alive---Festinha-do-Cha---Loira---Hasbro-0.jpg?v=638787638082700000",
+      "bytes": 35594
+    },
+    "1002999968": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8366646/Beyblade---Conjunto-Inicial---Modelos-Sortidos---Hasbro-0.jpg?v=638854341232670000",
+      "bytes": 40993
+    },
+    "1003002974": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9738590/Boneca-Articulada---Emilly-Vick---Rosa---Novabrink-0.jpg?v=639071096259530000",
+      "bytes": 18944
+    },
+    "1003009628": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8190048/Mini-Playset---Polly-Pocket---Compacto-Revel---Comidinha-Rapida---Mattel-0.jpg?v=638811808945670000",
+      "bytes": 33606
+    },
+    "1003017287": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8280574/Teclado-Musical-Com-Mordedor---Disney-Baby---Yestoys-0.jpg?v=638835182172770000",
+      "bytes": 26773
+    },
+    "1003044258": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8342999/Mascara---Jurassic-World---Dinossauro---Mattel---Modelos-Unitarios-Sortidos-0.jpg?v=638846377394570000",
+      "bytes": 30613
+    },
+    "1003044299": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8342265/Projetor-De-Desenhos---Barbie---Rosa---Multikids-0.jpg?v=639192888250070000",
+      "bytes": 15242
+    },
+    "1003044980": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8346654/LEGO---Speed-Champions---Honda-S2000-de-2-Fast-2-Furious---77241-0.jpg?v=639223309970270000",
+      "bytes": 63696
+    },
+    "1003045912": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9859888/Blocos-De-Montar---Mattel---Custom-68-Camaro-0.jpg?v=639110840747600000",
+      "bytes": 52969
+    },
+    "1003045916": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9859814/Blocos-De-Montar---Mattel---90-Acura-NSX-0.jpg?v=639110836087130000",
+      "bytes": 55053
+    },
+    "1003045917": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9859892/Blocos-De-Montar---Mattel---Corvette-Grand-Sport-0.jpg?v=639110840881670000",
+      "bytes": 51059
+    },
+    "1003045919": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8352562/Playset-E-Mini-Bonecas---Polly-Pocket---Estojo-Gabby-S-Dollhouse---Mattel-0.jpg?v=638848442088900000",
+      "bytes": 34640
+    },
+    "1003046904": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9277021/Pista-De-Percurso---Hot-Wheels---Loja-De-Doces---City---Mattel-0.jpg?v=638966767552370000",
+      "bytes": 50755
+    },
+    "1003047706": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8499649/Brinquedo-Interativo---Minimi---Centopeia-Pula-Pula---Modelos-Sortidos---Jxp-Brink-0.jpg?v=638881157507870000",
+      "bytes": 24219
+    },
+    "1003047707": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8499652/Brinquedo-Interativo---Minimi---Casinha-Pets---Modelos-Sortidos---Jxp-Brink-0.jpg?v=638881157566900000",
+      "bytes": 26201
+    },
+    "1003048384": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9323680/Jogo-De-Cartas---Pokemon---ME02---Blister-Triplo---Copag-0.jpg?v=638975322964930000",
+      "bytes": 49694
+    },
+    "1003050062": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8379724/Patinete---Decorado---Cardoso---Rosa-0.jpg?v=638858655225030000",
+      "bytes": 13071
+    },
+    "1003050403": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8697681/Radio-Comunicadores---Homem-Aranha---Candide-0.jpg?v=638906259659700000",
+      "bytes": 26576
+    },
+    "1003051273": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8389117/Carro-De-Corrida---Hot-Whells---Sprint-1-24-Rc---2-Canais---Vermelho-0.jpg?v=638863723830000000",
+      "bytes": 28311
+    },
+    "1003051355": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8391114/Conjunto-De-Acessorios---Barbie---Pic-Nic-No-Parque---Elka-0.jpg?v=638864576671300000",
+      "bytes": 34926
+    },
+    "1003051453": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9258822/EXCLUSIVO---Bicicleta---Aro-14---Barbie---Bandeirante-0.jpg?v=638962142528230000",
+      "bytes": 24231
+    },
+    "1003051472": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9252166/EXCLUSIVO---Bicicleta---Hot-Whells---Aro-14---Bandeirante-0.jpg?v=638960404957370000",
+      "bytes": 25475
+    },
+    "1003051830": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8413272/Guitarra-Eletronica---Galinha-Pintadinha---Com-Som-E-Luz---Yes-Toys-0.jpg?v=638865434416770000",
+      "bytes": 18297
+    },
+    "1003054887": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8438761/Conjunto-Album-E-Figurinhas---Formula-1---2024---Topps-0.jpg?v=638869024146300000",
+      "bytes": 52506
+    },
+    "1003054899": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8706114/Mochila---Pokemon---Squirtle---Bbr-Toys-0.jpg?v=638906940303700000",
+      "bytes": 26145
+    },
+    "1003054900": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8708908/Mochila---Pokemon---Pikachu---Bbr-Toys-0.jpg?v=638907186569000000",
+      "bytes": 17466
+    },
+    "1003055271": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9252172/Skatenet---Princesas---Bandeirante-0.jpg?v=638960405315670000",
+      "bytes": 13249
+    },
+    "1003055272": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9252186/Skatenet---Homem-Aranha---Bandeirante-0.jpg?v=638960406495200000",
+      "bytes": 14500
+    },
+    "1003055382": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8709062/Minigame-Portatil---Sonic---Candide-0.jpg?v=638907210794430000",
+      "bytes": 27113
+    },
+    "1003055395": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8697695/Minigame-Portatil---Marvel---Homem-Aranha---Candide-0.jpg?v=638906261209900000",
+      "bytes": 31887
+    },
+    "1003055606": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10131990/Jogo-De-Acao---Tapalavras---Multikids-0.jpg?v=639213667137830000",
+      "bytes": 44223
+    },
+    "1003056186": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9569719/Fantasia---A-Casa-Magica-Da-Gabby---Novabrink---Tam-M-0.jpg?v=639023758156570000",
+      "bytes": 18189
+    },
+    "1003058846": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9252150/EXCLUSIVO---Bicicleta-De-Equilibrio---Fisher-Price---Baby-0.jpg?v=638960403910070000",
+      "bytes": 20666
+    },
+    "1003059823": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8572027/Boneco-Funko-Pop---Harry-Potter---Harry-No-Quadribol---Candide-0.jpg?v=638893026521400000",
+      "bytes": 23574
+    },
+    "1003061087": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/8600231/Meu-Primeiro-Skatenet---Rosa---Bandeirante-0.jpg?v=638896527890700000",
+      "bytes": 10088
+    },
+    "1003065107": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9112717/EXCLUSIVO--Chaveiro-Miniatura-Colecionavel---Cutie---Twist---Barbie-0.jpg?v=638947489537670000",
+      "bytes": 13369
+    },
+    "1003065109": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9112140/EXCLUSIVO--Chaveiro-Miniatura-Colecionavel---Rock-a-Stack---Fisher-Price-0.jpg?v=638947450495330000",
+      "bytes": 12189
+    },
+    "1003067096": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9112719/EXCLUSIVO--Chaveiro-Miniatura-Colecionavel---Glasses-Up---Barbie-0.jpg?v=638947489988830000",
+      "bytes": 14931
+    },
+    "1003067242": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9113125/EXCLUSIVO--Chaveiro-Miniatura-Colecionavel---Bone-Shaker---Hot-Wheels-0.jpg?v=638947522068030000",
+      "bytes": 19720
+    },
+    "1003086132": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9050747/17583788100375.jpg?v=638941549913230000",
+      "bytes": 16419
+    },
+    "1003109693": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9476344/Jogo-De-Cartas---Pokemon---Mega-Kangaskhan-Ex----Copag-0.jpg?v=638998105068530000",
+      "bytes": 62276
+    },
+    "1003110418": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9859896/Blocos-De-Montar---Hot-Wheels---Brick-Shop---94-Audi-Avant-RS2---Mattel-0.jpg?v=639110841219370000",
+      "bytes": 44285
+    },
+    "1003133630": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9543242/PRE-VENDA--Boneco---Funko-Pop---Guerreiras-Do-K-Pop---Rumi---Candide-0.jpg?v=639015824302100000",
+      "bytes": 36093
+    },
+    "1003133650": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9543264/PRE-VENDA--Boneco---Funko-Pop---Guerreiras-Do-K-Pop---Zoey---Candide-0.jpg?v=639015855613400000",
+      "bytes": 35345
+    },
+    "1003134878": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9477883/Jogo-de-Cartas---Uno---Original---Mattel-0.jpg?v=638998476196700000",
+      "bytes": 26847
+    },
+    "1003135703": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9488838/Jogo-Educativo---Cartas-Geniais---Bandeiras-do-Mundo---Toyster-0.jpg?v=639001954936300000",
+      "bytes": 24505
+    },
+    "1003137061": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9520445/LEGO---Spidey---Spidey-Em-Sua-Motocicleta-Vs-Rhino---11206-0.jpg?v=639010520269530000",
+      "bytes": 49929
+    },
+    "1003137234": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9520258/LEGO---Disney---Speed-Champions---Relampago-Mcqueen---77255-0.jpg?v=639010518869170000",
+      "bytes": 55714
+    },
+    "1003137934": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9542678/LEGO---Speed-Champions---Maquina-do-Tempo-De-Volta-Para-O-Futuro---77256-0.jpg?v=639015781342100000",
+      "bytes": 53547
+    },
+    "1003139611": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9662777/Quebra-Cabeca---Panorama---Guerreiras-Do-K-Pop---350-Pecas---Grow-0.jpg?v=639050604670000000",
+      "bytes": 42796
+    },
+    "1003139614": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9662489/Quebra-Cabeca---Guerreiras-Do-K-Pop---200-Pecas---Grow-0.jpg?v=639050490759830000",
+      "bytes": 36827
+    },
+    "1003139809": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9913372/Jogo-de-Cartas---Pokemon---ME03---Blister-Unitario---Copag---Modelos-Unitarios-Sortidos-0.jpg?v=639143854287670000",
+      "bytes": 27222
+    },
+    "1003140112": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10007700/Box-Caixa-Premium---Fifa---Copa-Do-Mundo-2026---Album-Capa-Dura-Ouro-Com-350-Figurinhas---Panini-0.jpg?v=639166927682130000",
+      "bytes": 37272
+    },
+    "1003147426": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9720959/17648398718561.jpg?v=639064318366770000",
+      "bytes": 32538
+    },
+    "1003150375": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9781436/Jogo-De-Tabuleiro---Monopoly---FIFA---Copa-Do-Mundo---Hasbro-0.jpg?v=639114478876730000",
+      "bytes": 51121
+    },
+    "1003150653": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9789112/Sylvanian-Families---Serie-Dos-Bebes-Com-Fantasias-De-Fadas-Do-Bosque---Surpresa---Epoch-0.jpg?v=639088357341970000",
+      "bytes": 27354
+    },
+    "1003150768": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9792291/Sylvanian-Families---Gemeos-Urso-Biscoito---Epoch-0.jpg?v=639089248772500000",
+      "bytes": 25887
+    },
+    "1003151974": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9808931/-Patinete---Skatenet---Led---Dobravel---Bandeirante-0.jpg?v=639148106558430000",
+      "bytes": 12089
+    },
+    "1003151976": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9808917/Mini-Veiculo---Moto---Street-Eletrica---6V---Bandeirante-0.jpg?v=639148115468300000",
+      "bytes": 24177
+    },
+    "1003151978": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9810882/Mini-Brands---Fill-The-Fridge---Mini-Minis---Refil-Mini-Geladeira---Candide-0.jpg?v=639129081596600000",
+      "bytes": 32724
+    },
+    "1003151979": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9911538/-Geladeira---Mini-Brands---Fill-The-Fridge---Mini-Minis---Candide-0.jpg?v=639131498781700000",
+      "bytes": 33176
+    },
+    "1003151993": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9985302/Boneco-Articulado---Disney---Pixar---Toy-Story-5---Modelos-Unitarios---Sortidos---Mattel-0.jpg?v=639147943758270000",
+      "bytes": 30473
+    },
+    "1003152564": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9972430/Quebra-Cabeca---Disney---Pixar---Toy-Story-5---100-Pecas---Toyster-0.jpg?v=639142170233630000",
+      "bytes": 40948
+    },
+    "1003152896": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9821089/Decore-Sua-Luminaria---Style-4-Ever---Unicornio-Kawaii---Fun-0.jpg?v=639099575733200000",
+      "bytes": 42175
+    },
+    "1003152913": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9821100/Conjunto-De-Acessorios---Fabrica-Faca-Seu-Squishy---Fun-0.jpg?v=639099576193000000",
+      "bytes": 43522
+    },
+    "1003152914": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9972422/Jogo-De-Memoria---Disney---Pixar---Toy-Story-5---Toyster-0.jpg?v=639142169422530000",
+      "bytes": 41942
+    },
+    "1003154942": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9847297/Livro-Magnetico-Infantil---Historias-Magneticas---A-Festa-Dos-Animais---Janod-0.jpg?v=639106576997900000",
+      "bytes": 33923
+    },
+    "1003154943": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9847275/Livro-Magnetico-Infantil---Historias-Magneticas---Dinossauros---Janod-0.jpg?v=639106575196500000",
+      "bytes": 30200
+    },
+    "1003154975": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9847290/Livro-Magnetico-Infantil---Historias-Magneticas---Pets---Janod-0.jpg?v=639106576435000000",
+      "bytes": 31041
+    },
+    "1003156001": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9977087/Boneca-Musical---Dos-Rosa---Emilly-Vick---Novabrink-0.jpg?v=639143703403930000",
+      "bytes": 19964
+    },
+    "1003156075": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9985586/Jogo-De-Cartas---Pokemon---ME04---Blister-Unitario---Copag-0.jpg?v=639150470863000000",
+      "bytes": 28012
+    },
+    "1003159339": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9909318/Jogo-De-Cartas---Pokemon-TCG---ME04---Blister-Triplo---Copag-0.jpg?v=639147879034570000",
+      "bytes": 51771
+    },
+    "1003161872": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9944847/Boneco---Funko-Pop---One-Piece---Live-Action---Monkey-D-Luffy---Candide-0.jpg?v=639137617680200000",
+      "bytes": 33506
+    },
+    "1003164314": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/9944820/Oculos-De-Sol---Disney---Princesas---Toyng-0.jpg?v=639137613848500000",
+      "bytes": 11959
+    },
+    "1003172490": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10127726/Mini-Brands---Magic-Cook---Kitchen---Candide-0.jpg?v=639207836066430000",
+      "bytes": 31438
+    },
+    "1003191642": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10123705/17839684425021.jpg?v=639205147996730000",
+      "bytes": 40349
+    },
+    "1003191926": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10124903/17762450812770.jpg?v=639205150714070000",
+      "bytes": 35600
+    },
+    "1003192438": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10127365/17847422016246.jpg?v=639207576171970000",
+      "bytes": 31817
+    },
+    "1003192439": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10127372/17847371576651.jpg?v=639207576651530000",
+      "bytes": 31948
+    },
+    "1003192641": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10128827/17851642576938.jpg?v=639208547986200000",
+      "bytes": 47485
+    },
+    "1003193757": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10134615/17854190587424.jpg?v=639214669661570000",
+      "bytes": 9028
+    },
+    "1003194005": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10135935/17857885014250.jpg?v=639215377084300000",
+      "bytes": 34740
+    },
+    "1003194015": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10135994/17857892916844.jpg?v=639215379915470000",
+      "bytes": 41294
+    },
+    "1003194016": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10135999/17857892975109.jpg?v=639215380145000000",
+      "bytes": 38680
+    },
+    "1003194030": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10136062/17857903871402.jpg?v=639215383990000000",
+      "bytes": 26411
+    },
+    "1003194231": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10137639/17860263002156.jpg?v=639217202671300000",
+      "bytes": 24667
+    },
+    "1003194320": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10138004/17860398777714.jpg?v=639217316876470000",
+      "bytes": 52303
+    },
+    "1003194647": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10140556/17859358250243.jpg?v=639219921699700000",
+      "bytes": 50337
+    },
+    "1003194982": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10142916/17864597640744.jpg?v=639221192508930000",
+      "bytes": 23538
+    },
+    "1003194986": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10142929/17864601840785.jpg?v=639221192515970000",
+      "bytes": 23707
+    },
+    "1003194992": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10142949/17864606489274.jpg?v=639221192531230000",
+      "bytes": 30576
+    },
+    "1003194993": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10142982/17864601175104.jpg?v=639221192547770000",
+      "bytes": 24224
+    },
+    "1003195516": {
+      "source": "https://rihappy.vteximg.com.br/arquivos/ids/10149131/17860252414508.jpg?v=639224308418430000",
+      "bytes": 69326
+    }
+  }
+}

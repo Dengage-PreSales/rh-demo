@@ -3,7 +3,28 @@
   "note": "For each product, the shops that can hand it over. Any other shop in a captured region is known not to have it. No unit counts exist here because their checkout publishes none.",
   "regions": [
     "poa",
-    "sp"
+    "sp",
+    "other",
+    "cps",
+    "rj",
+    "bh",
+    "bsb",
+    "gyn",
+    "vix",
+    "cwb",
+    "fln",
+    "ssa",
+    "rec",
+    "for",
+    "nat",
+    "mcz",
+    "slz",
+    "the",
+    "mao",
+    "bel",
+    "rbr",
+    "cgb",
+    "cgr"
   ],
   "carriedBy": {
     "100000048": [
@@ -17,7 +38,7 @@
       "sp-mooca-plaza",
       "sp-villa-lobos",
       "sp-metro-tatuape",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-carlos-gomes"
     ],
     "100001810": [
@@ -31,9 +52,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100002050": [
@@ -48,9 +69,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100103329": [
@@ -65,9 +86,9 @@
       "sp-bourbon-sp",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100110518": [
@@ -81,9 +102,9 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100127301": [
@@ -97,9 +118,9 @@
       "sp-praca-da-moca",
       "sp-raposo",
       "sp-internacional-guarulhos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100130976": [
       "sp-eldorado",
@@ -112,9 +133,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100137590": [
@@ -128,9 +149,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100137601": [
@@ -144,9 +165,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100154823": [
@@ -160,9 +181,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100155359": [
@@ -177,9 +198,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100166885": [
@@ -193,11 +214,11 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices"
+      "poa-praia-de-belas"
     ],
     "100167562": [
       "sp-tiete-plaza",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
@@ -206,9 +227,9 @@
       "sp-praca-da-moca",
       "sp-internacional-guarulhos",
       "sp-golden-square",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100168636": [
       "sp-eldorado",
@@ -221,7 +242,7 @@
       "sp-miruna",
       "sp-villa-lobos",
       "sp-morumbi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "100172847": [
@@ -251,9 +272,9 @@
       "sp-villa-lobos",
       "sp-metro-tatuape",
       "sp-morumbi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100222379": [
       "sp-eldorado",
@@ -266,25 +287,25 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100223887": [
-      "sp-center-penha",
+      "sp-penha",
       "sp-metro-itaquera",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100224362": [
       "sp-ibirapuera",
-      "sp-center-penha",
+      "sp-penha",
       "sp-grand-plaza",
       "sp-raposo",
       "sp-golden-square",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100266232": [
@@ -298,9 +319,9 @@
       "sp-mooca-plaza",
       "sp-villa-lobos",
       "sp-morumbi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100270288": [
       "sp-eldorado",
@@ -314,9 +335,9 @@
       "sp-avenida-reboucas",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100291506": [
@@ -330,9 +351,9 @@
       "sp-morumbi",
       "sp-analia-franco",
       "sp-santana-parque",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100292972": [
       "sp-vila-mariana",
@@ -346,7 +367,7 @@
       "sp-metro-tucuruvi",
       "sp-jardim-sul",
       "sp-morumbi-town",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "100326061": [
@@ -360,9 +381,9 @@
       "sp-iguatemi-jk",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100326062": [
@@ -376,7 +397,7 @@
       "sp-morumbi",
       "sp-santana-parque",
       "sp-metro-tucuruvi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
       "poa-bourbon-carlos-gomes"
     ],
@@ -392,9 +413,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100354084": [
@@ -420,13 +441,13 @@
       "sp-morumbi",
       "sp-analia-franco",
       "sp-santana-parque",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100370971": [
       "sp-metro-tatuape",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-uniao-de-osasco",
       "sp-sp-market",
@@ -434,9 +455,9 @@
       "sp-granja-vianna",
       "sp-metro-itaquera",
       "sp-iguatemi-alphaville",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100376692": [
       "sp-eldorado",
@@ -450,9 +471,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100411316": [
@@ -466,8 +487,8 @@
       "sp-villa-lobos",
       "sp-metro-tatuape",
       "sp-morumbi",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul"
+      "poa-praia-de-belas",
+      "poa-barra-sul"
     ],
     "100412539": [
       "sp-eldorado",
@@ -480,9 +501,9 @@
       "sp-iguatemi-jk",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100412540": [
@@ -496,14 +517,14 @@
       "sp-iguatemi-jk",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100426092": [
       "sp-raposo",
-      "poa-praia-de-belas-prime-offices"
+      "poa-praia-de-belas"
     ],
     "100451995": [
       "sp-eldorado",
@@ -516,9 +537,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "100472896": [
@@ -532,9 +553,9 @@
       "sp-miruna",
       "sp-villa-lobos",
       "sp-morumbi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "100583398": [
       "sp-eldorado",
@@ -548,7 +569,7 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-carlos-gomes"
     ],
     "1002103479": [
@@ -563,9 +584,9 @@
       "sp-avenida-reboucas",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002111906": [
@@ -579,8 +600,8 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002128253": [
@@ -594,7 +615,7 @@
       "sp-iguatemi-jk",
       "sp-villa-lobos",
       "sp-morumbi",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002136986": [
@@ -612,21 +633,21 @@
       "sp-bourbon-sp",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002175945": [
       "sp-augusta",
       "sp-joao-cachoeira",
-      "sp-center-penha",
+      "sp-penha",
       "sp-praca-da-moca",
       "sp-tambore",
       "sp-raposo",
       "sp-metro-itaquera",
       "sp-golden-square",
-      "poa-praia-de-belas-prime-offices"
+      "poa-praia-de-belas"
     ],
     "1002176470": [
       "sp-eldorado",
@@ -639,9 +660,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002312605": [
@@ -654,7 +675,7 @@
       "sp-mooca-plaza",
       "sp-tiete-plaza",
       "sp-jardim-sul",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
       "poa-bourbon-carlos-gomes"
     ],
@@ -670,7 +691,7 @@
       "sp-villa-lobos",
       "sp-morumbi",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002376756": [
@@ -678,7 +699,7 @@
       "sp-villa-lobos",
       "sp-metro-tatuape",
       "sp-tiete-plaza",
-      "sp-center-penha",
+      "sp-penha",
       "sp-santana-parque",
       "sp-sp-market",
       "sp-praca-da-moca",
@@ -696,9 +717,9 @@
       "sp-avenida-reboucas",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1002415232": [
       "sp-vila-mariana",
@@ -712,7 +733,7 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
       "poa-bourbon-carlos-gomes"
     ],
@@ -727,9 +748,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002693667": [
@@ -743,9 +764,9 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002698898": [
@@ -759,9 +780,9 @@
       "sp-villa-lobos",
       "sp-tiete-plaza",
       "sp-santana-parque",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002699797": [
@@ -775,7 +796,7 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
       "poa-bourbon-carlos-gomes"
     ],
@@ -791,9 +812,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002722731": [
@@ -807,9 +828,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002722741": [
@@ -824,9 +845,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002723753": [
@@ -849,13 +870,13 @@
       "sp-villa-lobos",
       "sp-analia-franco",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-uniao-de-osasco",
       "sp-jardim-sul",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1002730513": [
       "sp-eldorado",
@@ -868,9 +889,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002731188": [
@@ -885,9 +906,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002733220": [
@@ -901,8 +922,8 @@
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-analia-franco",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul"
+      "poa-praia-de-belas",
+      "poa-barra-sul"
     ],
     "1002749529": [
       "sp-eldorado",
@@ -915,9 +936,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002750567": [
@@ -932,7 +953,7 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1002759110": [
@@ -947,8 +968,8 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002767370": [
@@ -962,9 +983,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-mooca-plaza",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1002787831": [
       "sp-vila-mariana",
@@ -977,9 +998,9 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002788614": [
@@ -1027,9 +1048,9 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002800279": [
@@ -1043,9 +1064,9 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1002800281": [
       "sp-eldorado",
@@ -1058,7 +1079,7 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-mooca-plaza",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
       "poa-bourbon-carlos-gomes"
     ],
@@ -1074,8 +1095,8 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002814846": [
@@ -1089,7 +1110,7 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1002816893": [
@@ -1103,9 +1124,9 @@
       "sp-metro-tatuape",
       "sp-morumbi",
       "sp-analia-franco",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1002825509": [
       "sp-eldorado",
@@ -1118,9 +1139,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002827778": [
@@ -1132,11 +1153,11 @@
       "sp-tiete-plaza",
       "sp-analia-franco",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-jardim-sul",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1002828403": [
       "sp-iguatemi-sao-paulo",
@@ -1146,15 +1167,15 @@
       "sp-grand-plaza",
       "sp-tambore",
       "sp-mogi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1002833280": [
-      "sp-center-penha",
+      "sp-penha",
       "sp-uniao-de-osasco",
       "sp-metro-tucuruvi",
       "sp-internacional-guarulhos",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002835147": [
@@ -1169,9 +1190,9 @@
       "sp-bourbon-sp",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002835452": [
@@ -1181,11 +1202,11 @@
       "sp-miruna",
       "sp-tiete-plaza",
       "sp-morumbi",
-      "sp-center-penha",
+      "sp-penha",
       "sp-santana-parque",
       "sp-metro-tucuruvi",
       "sp-jardim-sul",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1002835548": [
@@ -1199,14 +1220,14 @@
       "sp-morumbi",
       "sp-analia-franco",
       "sp-santana-parque",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002835648": [
       "sp-tambore",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
       "poa-bourbon-carlos-gomes"
     ],
@@ -1233,9 +1254,9 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002838608": [
@@ -1249,9 +1270,9 @@
       "sp-miruna",
       "sp-villa-lobos",
       "sp-morumbi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002844721": [
@@ -1265,7 +1286,7 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-carlos-gomes"
     ],
     "1002888229": [
@@ -1279,7 +1300,7 @@
       "sp-leste-aricanduva",
       "sp-interlagos",
       "sp-uniao-de-osasco",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-carlos-gomes"
     ],
     "1002903751": [
@@ -1318,9 +1339,9 @@
       "sp-avenida-reboucas",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002962091": [
@@ -1333,9 +1354,9 @@
       "sp-tambore",
       "sp-iguatemi-alphaville",
       "sp-mogi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002968482": [
@@ -1374,9 +1395,9 @@
       "sp-bourbon-sp",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002975598": [
@@ -1391,9 +1412,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-mooca-plaza",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002991579": [
@@ -1408,13 +1429,13 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002992927": [
-      "sp-center-penha",
+      "sp-penha",
       "sp-grand-plaza",
       "sp-morumbi-town",
       "sp-metro-itaquera"
@@ -1430,9 +1451,9 @@
       "sp-morumbi",
       "sp-analia-franco",
       "sp-leste-aricanduva",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1002996212": [
       "sp-eldorado",
@@ -1446,9 +1467,9 @@
       "sp-avenida-reboucas",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1002999968": [
@@ -1463,9 +1484,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003002974": [
@@ -1479,9 +1500,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003009628": [
@@ -1496,9 +1517,9 @@
       "sp-iguatemi-jk",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003017287": [
@@ -1512,9 +1533,9 @@
       "sp-tiete-plaza",
       "sp-analia-franco",
       "sp-metro-tucuruvi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1003044258": [
       "sp-eldorado",
@@ -1527,21 +1548,21 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003044299": [
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-grand-plaza",
       "sp-raposo",
       "sp-internacional-guarulhos",
       "sp-morumbi-town",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003044980": [
@@ -1555,16 +1576,16 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003045912": [
       "sp-joao-cachoeira",
       "sp-bourbon-sp",
       "sp-villa-lobos",
-      "sp-center-penha",
+      "sp-penha",
       "sp-uniao-de-osasco",
       "sp-grand-plaza",
       "sp-tambore",
@@ -1583,9 +1604,9 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003045917": [
@@ -1599,12 +1620,12 @@
       "sp-bourbon-sp",
       "sp-miruna",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
       "poa-bourbon-carlos-gomes"
     ],
     "1003045919": [
-      "sp-center-penha"
+      "sp-penha"
     ],
     "1003046904": [
       "sp-eldorado",
@@ -1617,23 +1638,23 @@
       "sp-analia-franco",
       "sp-leste-aricanduva",
       "sp-morumbi-town",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003047706": [
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
       "sp-metro-tucuruvi",
       "sp-sp-market",
       "sp-praca-da-moca",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1003047707": [
@@ -1641,13 +1662,13 @@
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
       "sp-metro-tucuruvi",
       "sp-sp-market",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1003048384": [
@@ -1661,14 +1682,14 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-villa-lobos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003050062": [
       "sp-metro-tatuape",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
@@ -1676,8 +1697,8 @@
       "sp-raposo",
       "sp-granja-vianna",
       "sp-golden-square",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul"
+      "poa-praia-de-belas",
+      "poa-barra-sul"
     ],
     "1003050403": [
       "sp-patio-higienopolis",
@@ -1690,9 +1711,9 @@
       "sp-analia-franco",
       "sp-leste-aricanduva",
       "sp-jardim-sul",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003051273": [
@@ -1706,24 +1727,24 @@
       "sp-villa-lobos",
       "sp-metro-tatuape",
       "sp-morumbi",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1003051355": [
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
       "sp-metro-tucuruvi",
       "sp-sp-market",
       "sp-praca-da-moca",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1003051453": [
       "sp-eldorado",
@@ -1736,9 +1757,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003051472": [
@@ -1752,9 +1773,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003051830": [
@@ -1769,7 +1790,7 @@
       "sp-villa-lobos",
       "sp-morumbi",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1003054887": [
       "sp-patio-higienopolis",
@@ -1850,9 +1871,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003056186": [
@@ -1866,7 +1887,7 @@
       "sp-tiete-plaza",
       "sp-morumbi",
       "sp-analia-franco",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-carlos-gomes"
     ],
     "1003058846": [
@@ -1880,9 +1901,9 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003059823": [
@@ -1894,14 +1915,14 @@
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
       "sp-sp-market",
       "sp-praca-da-moca",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul"
+      "poa-praia-de-belas",
+      "poa-barra-sul"
     ],
     "1003065107": [
       "sp-eldorado",
@@ -1915,9 +1936,9 @@
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003065109": [
@@ -1932,9 +1953,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003067096": [
@@ -1949,9 +1970,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul"
+      "poa-barra-sul"
     ],
     "1003067242": [
       "sp-eldorado",
@@ -1965,9 +1986,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003109693": [
@@ -1982,9 +2003,9 @@
       "sp-bourbon-sp",
       "sp-miruna",
       "sp-leste-aricanduva",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003110418": [
@@ -1998,8 +2019,8 @@
       "sp-miruna",
       "sp-villa-lobos",
       "sp-metro-tatuape",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003133630": [
@@ -2016,7 +2037,7 @@
       "sp-villa-lobos",
       "sp-morumbi",
       "sp-iguatemi-alphaville",
-      "poa-praia-de-belas-prime-offices"
+      "poa-praia-de-belas"
     ],
     "1003134878": [
       "sp-eldorado",
@@ -2029,8 +2050,8 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003135703": [
@@ -2044,8 +2065,8 @@
       "sp-miruna",
       "sp-morumbi",
       "sp-analia-franco",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003137061": [
@@ -2059,7 +2080,7 @@
       "sp-interlagos",
       "sp-tambore",
       "sp-granja-vianna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1003137234": [
@@ -2074,7 +2095,7 @@
       "sp-miruna",
       "sp-villa-lobos",
       "sp-interlagos",
-      "poa-praia-de-belas-prime-offices"
+      "poa-praia-de-belas"
     ],
     "1003137934": [
       "sp-augusta",
@@ -2099,9 +2120,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003139614": [
@@ -2115,9 +2136,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003139809": [
@@ -2132,9 +2153,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003140112": [
@@ -2148,10 +2169,10 @@
       "sp-miruna",
       "sp-villa-lobos",
       "sp-metro-tatuape",
-      "sp-center-penha",
+      "sp-penha",
       "sp-jardim-sul",
       "sp-morumbi-town",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-carlos-gomes"
     ],
     "1003150768": [
@@ -2165,8 +2186,8 @@
       "sp-bourbon-sp",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul",
+      "poa-praia-de-belas",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003151974": [
@@ -2181,9 +2202,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003151976": [
@@ -2197,9 +2218,9 @@
       "sp-otto-baumgart",
       "sp-avenida-reboucas",
       "sp-mooca-plaza",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003151978": [
@@ -2217,8 +2238,8 @@
       "sp-bourbon-sp",
       "sp-mooca-plaza",
       "sp-miruna",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul"
+      "poa-praia-de-belas",
+      "poa-barra-sul"
     ],
     "1003151993": [
       "sp-eldorado",
@@ -2231,9 +2252,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003152564": [
@@ -2247,9 +2268,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003152896": [
@@ -2262,8 +2283,8 @@
       "sp-tambore",
       "sp-internacional-guarulhos",
       "sp-granja-vianna",
-      "poa-praia-de-belas-prime-offices",
-      "poa-baby-barra-sul"
+      "poa-praia-de-belas",
+      "poa-barra-sul"
     ],
     "1003152913": [
       "sp-mooca-plaza",
@@ -2275,7 +2296,7 @@
       "sp-uniao-de-osasco",
       "sp-grand-plaza",
       "sp-internacional-guarulhos",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa"
     ],
     "1003152914": [
@@ -2289,16 +2310,16 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003154942": [
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
@@ -2310,7 +2331,7 @@
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
@@ -2322,7 +2343,7 @@
       "sp-metro-tatuape",
       "sp-tiete-plaza",
       "sp-leste-aricanduva",
-      "sp-center-penha",
+      "sp-penha",
       "sp-interlagos",
       "sp-santana-parque",
       "sp-uniao-de-osasco",
@@ -2342,9 +2363,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003156075": [
@@ -2359,9 +2380,9 @@
       "sp-avenida-reboucas",
       "sp-iguatemi-jk",
       "sp-bourbon-sp",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003159339": [
@@ -2377,7 +2398,7 @@
       "sp-iguatemi-jk",
       "sp-miruna",
       "poa-bourbon-ipiranga-poa",
-      "poa-baby-barra-sul",
+      "poa-barra-sul",
       "poa-bourbon-carlos-gomes"
     ],
     "1003161872": [
@@ -2391,7 +2412,7 @@
       "sp-mooca-plaza",
       "sp-miruna",
       "sp-uniao-de-osasco",
-      "poa-praia-de-belas-prime-offices",
+      "poa-praia-de-belas",
       "poa-bourbon-carlos-gomes"
     ],
     "1003164314": [

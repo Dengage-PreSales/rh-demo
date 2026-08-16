@@ -20,7 +20,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CEPS, productById, simulate, regionsFor } from './lib/vtex.mjs';
+import { citiesFrom, productById, simulate, regionsFor } from './lib/vtex.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SNAPSHOTS = join(ROOT, 'data', 'snapshots');
@@ -173,7 +173,7 @@ async function captureCatalogue(list) {
     return { products, missing };
 }
 
-async function captureAvailability(list) {
+async function captureAvailability(list, CEPS) {
     const regions = [];
     for (const target of CEPS) {
         const found = await regionsFor(target.cep);
@@ -233,6 +233,7 @@ async function main() {
     mkdirSync(SNAPSHOTS, { recursive: true });
 
     const list = roster();
+    const CEPS = citiesFrom(ROOT);
     console.error('Ri Happy capture: ' + list.length + ' products, ' + CEPS.length + ' postcodes\n');
 
     if (wantCatalogue) {
@@ -251,7 +252,7 @@ async function main() {
 
     if (wantAvailability) {
         console.error('Availability');
-        const result = await captureAvailability(list);
+        const result = await captureAvailability(list, CEPS);
         writeFileSync(join(SNAPSHOTS, 'availability.json'), JSON.stringify({
             capturedAt: stamp(),
             source: 'rihappy.com.br checkout simulation',
