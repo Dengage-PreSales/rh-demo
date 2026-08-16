@@ -1,0 +1,107 @@
+<!-- ==========================================================================
+     TOKYO AGAINST MUMBAI, measured from Dengage.
+
+     WHY THIS EXISTS
+
+     The live call to our Tokyo project succeeds roughly half the time. The
+     query itself runs in 1.4 milliseconds with the right index already in
+     place, so there is nothing left to optimise: the whole cost is the journey,
+     and fresh connections vary between 0.44 and 1.37 seconds while Dengage
+     stops waiting somewhere inside that range.
+
+     Mumbai is roughly half the distance from Dengage's servers, so it ought to
+     help. Ought to is not evidence, and inferring from a build machine is
+     exactly the mistake that produced a workaround nobody asked for. So this
+     measures it from Dengage.
+
+     WHAT I ALREADY KNOW, AND IT CUTS AGAINST THE IDEA
+
+     From this build machine the two regions answer in almost the same time,
+     about 0.83 seconds each. Either this machine sits equidistant from both, or
+     a large part of that second is Supabase's own overhead rather than
+     distance. If it is overhead, Mumbai will not help Dengage either and we
+     stay where we are. The result decides it, not the theory.
+
+     THREE CALLS EACH, NOT ONE
+
+     A single call per region would prove nothing when the success rate is
+     around half: one success or one failure is within chance either way. Three
+     each gives a count worth reading.
+
+     CREATE TWO ENDPOINTS, both GET, no headers:
+
+       rh_tokyo_probe
+         https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_ping?apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK
+
+       rh_mumbai_probe
+         https://klfxfzqhtykuyifllzbn.supabase.co/rest/v1/rpc/rh_latency_probe?apikey=sb_publishable_la43N_XJW4xEwB9R32yxVw_Subr2V3l
+
+     Then send this to yourself once and screenshot the counts.
+     ========================================================================== -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f2f4f5;">
+
+{% var tOk = 0; var tFail = 0; var tErr = ''; %}
+{% try { if (JSON.parse($CustomApi.rh_tokyo_probe()).ok) { tOk = tOk + 1; } } catch (e) { tFail = tFail + 1; tErr = String(e); } %}
+{% try { if (JSON.parse($CustomApi.rh_tokyo_probe()).ok) { tOk = tOk + 1; } } catch (e) { tFail = tFail + 1; tErr = String(e); } %}
+{% try { if (JSON.parse($CustomApi.rh_tokyo_probe()).ok) { tOk = tOk + 1; } } catch (e) { tFail = tFail + 1; tErr = String(e); } %}
+
+{% var mOk = 0; var mFail = 0; var mErr = ''; var mRegion = ''; %}
+{% try { var m1 = JSON.parse($CustomApi.rh_mumbai_probe()); if (m1.ok) { mOk = mOk + 1; mRegion = m1.region; } } catch (e) { mFail = mFail + 1; mErr = String(e); } %}
+{% try { if (JSON.parse($CustomApi.rh_mumbai_probe()).ok) { mOk = mOk + 1; } } catch (e) { mFail = mFail + 1; mErr = String(e); } %}
+{% try { if (JSON.parse($CustomApi.rh_mumbai_probe()).ok) { mOk = mOk + 1; } } catch (e) { mFail = mFail + 1; mErr = String(e); } %}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f4f5;">
+<tr><td align="center" style="padding:24px 12px;">
+<table width="620" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:12px;font-family:Arial,Helvetica,sans-serif;color:#3f3f40;">
+
+  <tr><td style="padding:20px 24px;background:#FCF708;border-radius:12px 12px 0 0;">
+    <div style="font-size:18px;font-weight:bold;">Does a nearer database help?</div>
+    <div style="font-size:12px;">Three calls to each region. The counts are the answer.</div>
+  </td></tr>
+
+  <tr><td style="padding:20px 24px 8px;">
+    <table width="100%" cellpadding="10" cellspacing="0" border="0" style="font-size:13px;">
+      <tr style="background:#f6f7f8;">
+        <td width="40%"><b>Tokyo</b><br><span style="color:#727273;font-size:11px;">where everything lives today</span></td>
+        <td>
+          answered <b style="font-size:20px;">{%= tOk %}</b> of 3<br>
+          <span style="font-size:11px;color:#727273;">{%= tErr %}</span>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Mumbai</b><br><span style="color:#727273;font-size:11px;">roughly half the distance</span></td>
+        <td>
+          answered <b style="font-size:20px;">{%= mOk %}</b> of 3<br>
+          <span style="font-size:11px;color:#727273;">{%= mRegion %} {%= mErr %}</span>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:8px 24px 24px;">
+    <div style="font-size:12px;color:#727273;line-height:1.55;background:#f6f7f8;padding:12px;border-radius:6px;">
+      <b>Reading it.</b><br>
+      Mumbai clearly ahead, for instance three against one, means moving the
+      data there makes the email live every time and the stock change shows up
+      in the email as well as on the website.<br><br>
+      Both similar and both patchy means the cost is not distance but the
+      database service itself, so moving would gain nothing. We stay in Tokyo,
+      the email keeps its safety net, and the stock change stays a website
+      scene.<br><br>
+      Both at three of three means the earlier failures were load at the time
+      rather than anything structural, and the whole worry goes away.
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:14px 24px;background:#f6f7f8;border-radius:0 0 12px 12px;font-size:11px;color:#727273;">
+    Ri Happy demo build. A test message.
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

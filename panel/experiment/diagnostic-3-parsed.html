@@ -28,13 +28,26 @@
          discovered on the day. If the live call is slow, the stored answer is
          used, and the message says which one it served so nothing is hidden.
 
-     CREATE ONE ENDPOINT FIRST, if it does not exist yet:
+     CREATE TWO ENDPOINTS FIRST, both GET, no headers:
 
        rh_email
-         GET  https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_email?cep=$$param(1)&sku=$$param(2)&n=$$param(3)&apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK
+         https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_email?cep=$$param(1)&sku=$$param(2)&n=$$param(3)&apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK
 
-     rh_cdn_ping already exists from the timeout experiment and is reused here
-     as the safety net, so nothing else is needed.
+       rh_store_offer
+         https://dengage-presales.github.io/rh-demo/offer/store/$$param(1).json
+
+     WHAT THE FIRST RUN OF THIS FILE EXPOSED, now fixed
+
+     The Sao Paulo call timed out and the safety net fetched the wrong thing: a
+     generic answer belonging to no shop, so the panel showed no shop name, a
+     count of zero, and then declared the toy unavailable at a shop it had never
+     resolved. Three faults in one, all mine.
+
+     The net now fetches that shop's own cached answer through rh_store_offer,
+     so a timeout produces the right shop rather than a generic one. Nothing
+     claims anything about availability unless a shop was actually resolved. And
+     the panels are labelled by postcode rather than by contact, because both
+     postcodes are hardcoded here and this is one message, not two.
 
      Only two live calls, deliberately. The margin is under a second and there is
      no reason to spend it proving the same thing three times.
@@ -47,7 +60,7 @@
 {% var spRaw = null; var sp = null; var spErr = ''; var spFrom = ''; %}
 {% try { spRaw = $CustomApi.rh_email('01310-100', '100184971', '3'); } catch (e) { spErr = String(e); } %}
 {% try { if (spRaw) { sp = (typeof spRaw === 'string') ? JSON.parse(spRaw) : spRaw; spFrom = 'live'; } } catch (e) { spErr = spErr + ' parse: ' + String(e); } %}
-{% try { if (!sp) { var f = $CustomApi.rh_cdn_ping(); sp = (typeof f === 'string') ? JSON.parse(f) : f; spFrom = 'stored answer'; } } catch (e) { spErr = spErr + ' fallback: ' + String(e); } %}
+{% try { if (!sp) { var f = $CustomApi.rh_store_offer('sp-pb-eldorado'); sp = (typeof f === 'string') ? JSON.parse(f) : f; spFrom = 'stored answer for this shop'; } } catch (e) { spErr = spErr + ' fallback: ' + String(e); } %}
 
 {% var poaRaw = null; var poa = null; var poaErr = ''; var poaFrom = ''; %}
 {% try { poaRaw = $CustomApi.rh_email('90010-150', '100184971', '3'); } catch (e) { poaErr = String(e); } %}
@@ -70,9 +83,9 @@
   </td></tr>
 
   <tr><td style="padding:10px 24px 4px;">
-    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">Contact A, Sao Paulo 01310-100</div>
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">Postcode A, Sao Paulo 01310-100</div>
     <div style="font-size:12px;color:#727273;padding-bottom:8px;">
-      shop: {%= sp ? sp.storeName : '' %} &nbsp; of {%= sp ? sp.storeCount : '' %} serving this postcode
+      {%= sp && sp.storeName ? 'shop: ' + sp.storeName + ', one of ' + sp.storeCount + ' serving this postcode' : 'no shop resolved for this postcode' %}
     </div>
     {% if (sp && sp.hero) { %}
       <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #e6e6e6;border-radius:8px;">
@@ -83,8 +96,8 @@
           <td style="padding:10px;font-size:13px;">
             <div style="font-weight:bold;">{%= sp.hero.name %}</div>
             <div style="font-size:17px;font-weight:bold;padding-top:4px;">R$ {%= sp.hero.price %}</div>
-            <div style="font-size:12px;padding-top:6px;color:{%= sp.hero.available ? '#2E7D32' : '#C62828' %};">
-              {%= sp.hero.available ? 'Collect at this shop' : 'Not available at this shop' %}
+            <div style="font-size:12px;padding-top:6px;color:{%= sp.storeName ? (sp.hero.available ? '#2E7D32' : '#C62828') : '#727273' %};">
+              {%= sp.storeName ? (sp.hero.available ? 'Collect at this shop' : 'Not available at this shop') : 'No shop resolved, so nothing is claimed about availability' %}
             </div>
           </td>
         </tr>
@@ -93,9 +106,9 @@
   </td></tr>
 
   <tr><td style="padding:16px 24px 4px;">
-    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">Contact B, Porto Alegre 90010-150</div>
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">Postcode B, Porto Alegre 90010-150</div>
     <div style="font-size:12px;color:#727273;padding-bottom:8px;">
-      shop: {%= poa ? poa.storeName : '' %} &nbsp; of {%= poa ? poa.storeCount : '' %} serving this postcode
+      {%= poa && poa.storeName ? 'shop: ' + poa.storeName + ', one of ' + poa.storeCount + ' serving this postcode' : 'no shop resolved for this postcode' %}
     </div>
     {% if (poa && poa.hero) { %}
       <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #e6e6e6;border-radius:8px;">
@@ -106,8 +119,8 @@
           <td style="padding:10px;font-size:13px;">
             <div style="font-weight:bold;">{%= poa.hero.name %}</div>
             <div style="font-size:17px;font-weight:bold;padding-top:4px;">R$ {%= poa.hero.price %}</div>
-            <div style="font-size:12px;padding-top:6px;color:{%= poa.hero.available ? '#2E7D32' : '#C62828' %};">
-              {%= poa.hero.available ? 'Collect at this shop' : 'Not available at this shop' %}
+            <div style="font-size:12px;padding-top:6px;color:{%= poa.storeName ? (poa.hero.available ? '#2E7D32' : '#C62828') : '#727273' %};">
+              {%= poa.storeName ? (poa.hero.available ? 'Collect at this shop' : 'Not available at this shop') : 'No shop resolved, so nothing is claimed about availability' %}
             </div>
           </td>
         </tr>
