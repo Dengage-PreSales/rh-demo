@@ -128,6 +128,7 @@
                button and the count badge that the header set up. */
             if (window.CartDrawer) window.CartDrawer.wire();
             if (window.CheckoutView) window.CheckoutView.wire();
+            if (window.SearchPanel) window.SearchPanel.wire();
             window.Storefront.paintChip();
 
             window.StoreContext.onChange(function () {

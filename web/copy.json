@@ -112,5 +112,8 @@
   "checkoutDone": "Order placed",
   "checkoutDonePickup": "Ready to collect at {store}.",
   "checkoutDoneDelivery": "On its way to your address.",
-  "checkoutCloseDone": "Continue shopping"
+  "checkoutCloseDone": "Continue shopping",
+  "searchEmpty": "No results found",
+  "searchTooShort": "Your search term is too short",
+  "searchFor": "Search for {term}"
 }
