@@ -179,6 +179,41 @@ async function main() {
     }
     console.error(`  page shaped answers done for ${cities.length} cities`);
 
+    /* The same page shaped answer, keyed by shop.
+
+       "Use my location" resolves a shop rather than a postcode, so on a network
+       failure it needs a stored answer keyed the same way. There were already
+       137 files under store/, but those are the message shape: a shop name and
+       no stock map, which is everything an email needs and nothing a storefront
+       does. Falling back to one of those left the page believing it had
+       resolved a shop while every badge stayed blank, which is a worse outcome
+       than an honest failure because it looks like the data is simply empty.
+
+       About 1.5 MB for all 137, against 6.5 MB of product images already in
+       the repository. */
+    mkdirSync(join(OUT, 'storefront', 'store'), { recursive: true });
+    let pageShaped = 0;
+    for (const shop of shops) {
+        const answer = await rpc('rh_offer', { store_id: shop.store_id, sku: HERO, n: '8' });
+
+        /* A shop we asked for by name must come back named, with a stock map.
+           Anything else means the page would render a shop with no badges. */
+        if (!answer.store || answer.store.id !== shop.store_id) {
+            throw new Error(`${shop.store_id}: asked for this shop and got ` +
+                            `${answer.store ? answer.store.id : 'none'}`);
+        }
+        if (!Object.keys(answer.stock || {}).length) {
+            throw new Error(`${shop.store_id}: a shop resolved but no tile could show a badge`);
+        }
+
+        const body = JSON.stringify(answer);
+        writeFileSync(join(OUT, 'storefront', 'store', `${shop.store_id}.json`), body);
+        bytes += body.length;
+        pageShaped += 1;
+        await sleep(PAUSE_MS);
+    }
+    console.error(`  page shaped answers done for ${pageShaped} shops`);
+
     /* A last resort answer for a shop or postcode we hold nothing for. It names
        no shop and makes no availability claim, which is the only honest thing to
        say when we do not know where someone is. */

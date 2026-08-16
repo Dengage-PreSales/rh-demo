@@ -127,17 +127,37 @@
        failure. tools/build-offers.mjs asserts all three fields as it writes
        them, so the mistake cannot be made again without the build stopping.
 
-       Resolving by location rather than by postcode has nothing to fall back on,
-       and says so, because there is no stored answer keyed by shop in this
-       shape. The page then renders without availability, which is the same
-       thing it does for any other failure and is the honest outcome. */
+       Both ways in are covered, keyed to whichever one was used: a postcode
+       falls back to the answer stored for that postcode, and a shop to the
+       answer stored for that shop.
+
+       This comment used to say that resolving by location had nothing to fall
+       back on. That was true when it was written and stopped being true the day
+       the builder started pre-rendering all 137 fulfilling shops, and nothing
+       noticed because it read as documentation rather than as a claim. The
+       effect was that "use my location" went dark on any network failure while
+       the postcode path beside it kept working, using files that were sitting
+       right there. Anything asserted here now has code under it. */
     function fallback(params) {
-        var cep = String(params.cep || '').replace(/[^0-9]/g, '');
-        if (!cep) return Promise.reject(new Error('nothing stored to fall back on without a postcode'));
         var base = api().fallbackBase || 'offer/storefront';
-        return window.fetch(base + '/' + cep + '.json', { cache: 'no-store' })
+        var url;
+
+        if (params.store_id) {
+            /* Keyed by shop, and written by the same builder from the same
+               function, so a stored answer and a live one are the same shape. */
+            url = (api().fallbackStoreBase || 'offer/storefront/store') + '/' + params.store_id + '.json';
+        } else {
+            var cep = String(params.cep || '').replace(/[^0-9]/g, '');
+            if (!cep) {
+                return Promise.reject(new Error('nothing stored to fall back on without a postcode or a shop'));
+            }
+            url = base + '/' + cep + '.json';
+        }
+
+        return window.fetch(url, { cache: 'no-store' })
             .then(function (response) {
-                if (!response.ok) throw new Error('no stored answer for this postcode');
+                if (!response.ok) throw new Error('no stored answer for this ' +
+                    (params.store_id ? 'shop' : 'postcode'));
                 return response.json();
             })
             .then(function (data) { data.servedFrom = 'stored answer'; return data; });

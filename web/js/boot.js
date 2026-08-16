@@ -86,9 +86,22 @@
             window.DEMO_CONFIG = config;
             window.DEMO_COPY = copy;
             /* Used only to pick the nearest shop from a browser position, which
-               needs no network call. */
+               needs no network call.
+
+               FULFILLING SHOPS ONLY, and this filter is the whole point of the
+               list rather than a detail. 78 of the 215 shops we hold are ones
+               their own checkout never offered for collection at any postcode
+               we tested, and every one of them still carries a full stock map.
+               Without the filter, pressing "use my location" anywhere near one
+               of those 78 resolved it and the storefront then answered every
+               availability question about a shop that does not fulfil. The
+               postcode path never had this problem because rh_offer selects on
+               is_pickup itself. Two paths, one of them filtering and the other
+               not, is how a demo ends up contradicting the real storefront in
+               front of the people who know it best. */
             window.STORE_DIRECTORY = (results[2].stores || []).filter(function (s) {
-                return typeof s.lat === 'number' && typeof s.lng === 'number';
+                return s.is_pickup === true &&
+                       typeof s.lat === 'number' && typeof s.lng === 'number';
             }).map(function (s) {
                 return { id: s.store_id, name: s.name, lat: s.lat, lng: s.lng };
             });
