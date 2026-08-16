@@ -1,0 +1,115 @@
+<!-- ==========================================================================
+     THE TIMEOUT EXPERIMENT.
+
+     One send answers two questions that everything on the email side rests on,
+     and that are currently assumed rather than proven:
+
+       does the Custom API feature work at all with endpoints we created
+       how long is Dengage actually willing to wait
+
+     Four calls, in increasing duration. Each prints its answer or the real error
+     text. Every call is wrapped so that one failure cannot stop the others or
+     stop the message arriving.
+
+       row 1  our own site, about 0.2 s          the control
+       row 2  Supabase doing nothing, about 1.6 s   almost all of it is the trip
+       row 3  Supabase sleeping 1 s, about 2.6 s
+       row 4  Supabase sleeping 2 s, about 2.9 s    near the Supabase ceiling
+
+     There is no five second rung on purpose. Supabase refuses its own queries at
+     about three seconds, so anything longer fails on our side and would tell us
+     nothing about Dengage.
+
+     CREATE THE FOUR ENDPOINTS FIRST. They are listed in README.md beside this
+     file. If an endpoint does not exist, its row will say so plainly, which is
+     itself a useful signal rather than a broken test.
+     ========================================================================== -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f2f4f5;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f4f5;">
+<tr><td align="center" style="padding:24px 12px;">
+<table width="660" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:12px;font-family:Arial,Helvetica,sans-serif;color:#3f3f40;">
+
+  <tr><td style="padding:20px 24px;background:#FCF708;border-radius:12px 12px 0 0;">
+    <div style="font-size:18px;font-weight:bold;">How long will Dengage wait?</div>
+    <div style="font-size:12px;">Four calls of increasing duration. The first one that fails marks the limit.</div>
+  </td></tr>
+
+  {% var cdnErr = ''; var cdn = null; %}
+  {% try { cdn = $CustomApi.rh_cdn_ping(); } catch (e) { cdnErr = String(e); } %}
+
+  {% var s0Err = ''; var s0 = null; %}
+  {% try { s0 = $CustomApi.rh_sleep_0(); } catch (e) { s0Err = String(e); } %}
+
+  {% var s1Err = ''; var s1 = null; %}
+  {% try { s1 = $CustomApi.rh_sleep_1(); } catch (e) { s1Err = String(e); } %}
+
+  {% var s2Err = ''; var s2 = null; %}
+  {% try { s2 = $CustomApi.rh_sleep_2(); } catch (e) { s2Err = String(e); } %}
+
+  <tr><td style="padding:18px 24px 6px;">
+    <table width="100%" cellpadding="8" cellspacing="0" border="0" style="font-size:12px;">
+
+      <tr style="background:#f6f7f8;">
+        <td width="34%"><b>1. Our own site</b><br><span style="color:#727273;">about 0.2 s</span></td>
+        <td>
+          answered: [{%= cdn ? 'YES' : 'no' %}]<br>
+          type: [{%= typeof cdn %}]<br>
+          a real field from it: [{%= cdn ? cdn.resolved : '' %}]<br>
+          error: [{%= cdnErr %}]
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>2. Supabase, no delay</b><br><span style="color:#727273;">about 1.6 s, nearly all of it the trip</span></td>
+        <td>
+          answered: [{%= s0 ? 'YES' : 'no' %}]<br>
+          server work: [{%= s0 ? s0.actuallyTook : '' %}]<br>
+          error: [{%= s0Err %}]
+        </td>
+      </tr>
+
+      <tr style="background:#f6f7f8;">
+        <td><b>3. Supabase, 1 second</b><br><span style="color:#727273;">about 2.6 s</span></td>
+        <td>
+          answered: [{%= s1 ? 'YES' : 'no' %}]<br>
+          server work: [{%= s1 ? s1.actuallyTook : '' %}]<br>
+          error: [{%= s1Err %}]
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>4. Supabase, 2 seconds</b><br><span style="color:#727273;">about 2.9 s, near the Supabase ceiling</span></td>
+        <td>
+          answered: [{%= s2 ? 'YES' : 'no' %}]<br>
+          server work: [{%= s2 ? s2.actuallyTook : '' %}]<br>
+          error: [{%= s2Err %}]
+        </td>
+      </tr>
+
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:6px 24px 22px;">
+    <div style="font-size:12px;color:#727273;line-height:1.5;background:#f6f7f8;padding:12px;border-radius:6px;">
+      <b>Reading it.</b> If row 1 works and row 2 works, live Supabase is viable
+      from Dengage and the email goes back onto it, which also means a stock
+      change appears in the email and not only on the website. If row 1 works and
+      row 2 fails, Supabase is unreachable for a reason other than how long it
+      takes, and that needs investigating rather than working around. If row 1
+      fails too, the endpoint feature itself is not working with endpoints we
+      created, and that is a question for the product team.
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:14px 24px;background:#f6f7f8;border-radius:0 0 12px 12px;font-size:11px;color:#727273;">
+    Ri Happy demo build. A test message, safe to ignore if it reaches you by mistake.
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
