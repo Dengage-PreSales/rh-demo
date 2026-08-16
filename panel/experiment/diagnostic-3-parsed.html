@@ -1,0 +1,158 @@
+<!-- ==========================================================================
+     DIAGNOSTIC 3. The first one that should show real values.
+
+     WHAT THE TIMEOUT EXPERIMENT SETTLED
+
+       The Custom API feature works with our endpoints.
+       Supabase is reachable from Dengage. A plain call succeeded.
+       Dengage stops waiting somewhere under one second above that, because
+         adding a single second to the same call made it fail.
+       And the thing that had been quietly breaking everything:
+         $CustomApi returns the response body as TEXT, not as an object.
+
+     That last one is why every field in the previous two diagnostics came back
+     empty even on the rows that said YES. The working example in this account
+     always parsed with JSON.parse when it saw a string, and I read that line
+     early on without drawing the conclusion from it.
+
+     So everything from here parses first:
+
+         var data = JSON.parse($CustomApi.rh_email(...));
+
+     WHAT THIS ONE PROVES
+
+       Real values: a real shop name, a real toy, a real price.
+       The two contact scene: the same toy, available in Sao Paulo and not in
+         Porto Alegre, with a replacement chosen by the substitution rule.
+       The safety net the real email will carry, tested here rather than
+         discovered on the day. If the live call is slow, the stored answer is
+         used, and the message says which one it served so nothing is hidden.
+
+     CREATE ONE ENDPOINT FIRST, if it does not exist yet:
+
+       rh_email
+         GET  https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_email?cep=$$param(1)&sku=$$param(2)&n=$$param(3)&apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK
+
+     rh_cdn_ping already exists from the timeout experiment and is reused here
+     as the safety net, so nothing else is needed.
+
+     Only two live calls, deliberately. The margin is under a second and there is
+     no reason to spend it proving the same thing three times.
+     ========================================================================== -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f2f4f5;">
+
+{% var spRaw = null; var sp = null; var spErr = ''; var spFrom = ''; %}
+{% try { spRaw = $CustomApi.rh_email('01310-100', '100184971', '3'); } catch (e) { spErr = String(e); } %}
+{% try { if (spRaw) { sp = (typeof spRaw === 'string') ? JSON.parse(spRaw) : spRaw; spFrom = 'live'; } } catch (e) { spErr = spErr + ' parse: ' + String(e); } %}
+{% try { if (!sp) { var f = $CustomApi.rh_cdn_ping(); sp = (typeof f === 'string') ? JSON.parse(f) : f; spFrom = 'stored answer'; } } catch (e) { spErr = spErr + ' fallback: ' + String(e); } %}
+
+{% var poaRaw = null; var poa = null; var poaErr = ''; var poaFrom = ''; %}
+{% try { poaRaw = $CustomApi.rh_email('90010-150', '100184971', '3'); } catch (e) { poaErr = String(e); } %}
+{% try { if (poaRaw) { poa = (typeof poaRaw === 'string') ? JSON.parse(poaRaw) : poaRaw; poaFrom = 'live'; } } catch (e) { poaErr = poaErr + ' parse: ' + String(e); } %}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f4f5;">
+<tr><td align="center" style="padding:24px 12px;">
+<table width="680" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:12px;font-family:Arial,Helvetica,sans-serif;color:#3f3f40;">
+
+  <tr><td style="padding:20px 24px;background:#FCF708;border-radius:12px 12px 0 0;">
+    <div style="font-size:18px;font-weight:bold;">One toy, two postcodes, one campaign</div>
+    <div style="font-size:12px;">If the two panels below differ, Use Case 1 works.</div>
+  </td></tr>
+
+  <tr><td style="padding:16px 24px 4px;">
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      Sao Paulo: served from [{%= spFrom %}] parsed as [{%= typeof sp %}] error [{%= spErr %}]<br>
+      Porto Alegre: served from [{%= poaFrom %}] parsed as [{%= typeof poa %}] error [{%= poaErr %}]
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:10px 24px 4px;">
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">Contact A, Sao Paulo 01310-100</div>
+    <div style="font-size:12px;color:#727273;padding-bottom:8px;">
+      shop: {%= sp ? sp.storeName : '' %} &nbsp; of {%= sp ? sp.storeCount : '' %} serving this postcode
+    </div>
+    {% if (sp && sp.hero) { %}
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #e6e6e6;border-radius:8px;">
+        <tr>
+          <td width="130" style="padding:10px;">
+            <img src="{%= sp.hero.image_url %}" width="110" alt="" style="display:block;border-radius:6px;">
+          </td>
+          <td style="padding:10px;font-size:13px;">
+            <div style="font-weight:bold;">{%= sp.hero.name %}</div>
+            <div style="font-size:17px;font-weight:bold;padding-top:4px;">R$ {%= sp.hero.price %}</div>
+            <div style="font-size:12px;padding-top:6px;color:{%= sp.hero.available ? '#2E7D32' : '#C62828' %};">
+              {%= sp.hero.available ? 'Collect at this shop' : 'Not available at this shop' %}
+            </div>
+          </td>
+        </tr>
+      </table>
+    {% } %}
+  </td></tr>
+
+  <tr><td style="padding:16px 24px 4px;">
+    <div style="font-size:15px;font-weight:bold;padding-bottom:6px;">Contact B, Porto Alegre 90010-150</div>
+    <div style="font-size:12px;color:#727273;padding-bottom:8px;">
+      shop: {%= poa ? poa.storeName : '' %} &nbsp; of {%= poa ? poa.storeCount : '' %} serving this postcode
+    </div>
+    {% if (poa && poa.hero) { %}
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #e6e6e6;border-radius:8px;">
+        <tr>
+          <td width="130" style="padding:10px;">
+            <img src="{%= poa.hero.image_url %}" width="110" alt="" style="display:block;border-radius:6px;">
+          </td>
+          <td style="padding:10px;font-size:13px;">
+            <div style="font-weight:bold;">{%= poa.hero.name %}</div>
+            <div style="font-size:17px;font-weight:bold;padding-top:4px;">R$ {%= poa.hero.price %}</div>
+            <div style="font-size:12px;padding-top:6px;color:{%= poa.hero.available ? '#2E7D32' : '#C62828' %};">
+              {%= poa.hero.available ? 'Collect at this shop' : 'Not available at this shop' %}
+            </div>
+          </td>
+        </tr>
+      </table>
+    {% } %}
+
+    {% if (poa && poa.substitute) { %}
+      <div style="border:2px solid #DD1659;border-radius:8px;padding:12px;margin-top:10px;">
+        <div style="font-size:13px;font-weight:bold;padding-bottom:2px;">
+          Not available at that shop. The closest thing it can hand over today:
+        </div>
+        <div style="font-size:11px;color:#727273;padding-bottom:10px;">
+          chosen because: {%= poa.substituteReason %}
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td width="110" style="padding-right:10px;">
+              <img src="{%= poa.substitute.image_url %}" width="100" alt="" style="display:block;border-radius:6px;">
+            </td>
+            <td style="font-size:13px;">
+              <div style="font-weight:bold;">{%= poa.substitute.name %}</div>
+              <div style="font-size:16px;font-weight:bold;padding-top:4px;">R$ {%= poa.substitute.price %}</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    {% } %}
+  </td></tr>
+
+  <tr><td style="padding:14px 24px 24px;">
+    <div style="font-size:12px;color:#727273;line-height:1.5;background:#f6f7f8;padding:12px;border-radius:6px;">
+      <b>What good looks like.</b> Both panels show a real toy with a real price
+      and a real shop name. Contact A can collect it. Contact B cannot, and is
+      offered a different toy with a reason. Same campaign, same block of
+      content, two different messages. If both say served from live, the email
+      is reading the store inventory at the moment of sending.
+    </div>
+  </td></tr>
+
+  <tr><td style="padding:14px 24px;background:#f6f7f8;border-radius:0 0 12px 12px;font-size:11px;color:#727273;">
+    Ri Happy demo build. A test message.
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
