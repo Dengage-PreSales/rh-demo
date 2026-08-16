@@ -55,9 +55,15 @@ function matchKey(name) {
         .trim();
 }
 
+/* The banner is part of the identity, not noise to strip.
+   Ri Happy and PBKIDS both trade inside several of the same shopping centres,
+   for example RioMar Fortaleza and BH Shopping. Stripping the banner collapsed
+   those pairs into one id and silently dropped the second shop's stock, which
+   cost about 370 real availability answers before it was caught. */
 function slugOf(region, name) {
-    const base = matchKey(name).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 30);
-    return region + '-' + (base || 'store');
+    const base = matchKey(name).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 26);
+    const banner = /pbkids|pb kids/i.test(name) ? 'pb-' : '';
+    return region + '-' + banner + (base || 'store');
 }
 
 function bannerOf(name) {

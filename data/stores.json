@@ -1,9 +1,9 @@
 {
   "note": "Canonical stores. Names are as Ri Happy checkout returns them where stock was captured, and as their published store list names them otherwise. carries_stock false means this shop is on the map but no availability was ever captured for it, so it makes no availability claim anywhere.",
   "source": "data/stores-source.csv (Ri Happy published list) joined to data/snapshots/store-names.json (their checkout)",
-  "storeCount": 211,
-  "withStock": 133,
-  "located": 198,
+  "storeCount": 215,
+  "withStock": 137,
+  "located": 202,
   "stores": [
     {
       "store_id": "poa-praia-de-belas",
@@ -150,7 +150,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "cwb-park-barigui",
+      "store_id": "cwb-pb-park-barigui",
       "name": "PBKIDS PARK SHOPPING BARIGUI - Loja Parceira",
       "published_name": "",
       "region_code": "cwb",
@@ -312,7 +312,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "cps-parque-dom-pedro",
+      "store_id": "cps-pb-parque-dom-pedro",
       "name": "PBKIDS SHOPPING PARQUE DOM PEDRO - Loja Parceira",
       "published_name": "",
       "region_code": "cps",
@@ -474,7 +474,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "sp-eldorado",
+      "store_id": "sp-pb-eldorado",
       "name": "PBKIDS SHOPPING ELDORADO - Loja Parceira",
       "published_name": "Ri Happy Shopping Eldorado",
       "region_code": "sp",
@@ -510,7 +510,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "ssa-barra",
+      "store_id": "ssa-pb-barra",
       "name": "PBKIDS SHOPPING BARRA - Loja Parceira",
       "published_name": "Ri Happy Shopping Barra",
       "region_code": "ssa",
@@ -654,6 +654,24 @@
       "position_source": "openstreetmap"
     },
     {
+      "store_id": "bh-pb-bh",
+      "name": "PBKIDS BH SHOPPING - Loja Parceira",
+      "published_name": "Ri Happy BH Shopping",
+      "region_code": "bh",
+      "region_label": "Belo Horizonte",
+      "city": "Belo Horizonte",
+      "state": "MG",
+      "address": "Rod. BR 356, 3049",
+      "mall": "SHOPPING",
+      "banner": "PBKIDS",
+      "rank": 5,
+      "seen_count": 109,
+      "carries_stock": true,
+      "lat": -19.9754,
+      "lng": -43.9452,
+      "position_source": "ri happy published store list"
+    },
+    {
       "store_id": "poa-barra-sul",
       "name": "Ri Happy Baby Barra Shopping Sul",
       "published_name": "",
@@ -762,6 +780,24 @@
       "position_source": "ri happy published store list"
     },
     {
+      "store_id": "for-pb-riomar-fortaleza",
+      "name": "PBKIDS RIOMAR FORTALEZA - Loja Parceira",
+      "published_name": "Ri Happy RioMar Fortaleza",
+      "region_code": "for",
+      "region_label": "Fortaleza",
+      "city": "Fortaleza",
+      "state": "CE",
+      "address": "Rua Des. Lauro Nogueira, 1500",
+      "mall": "",
+      "banner": "PBKIDS",
+      "rank": 2,
+      "seen_count": 107,
+      "carries_stock": true,
+      "lat": -3.7423,
+      "lng": -38.4721,
+      "position_source": "ri happy published store list"
+    },
+    {
       "store_id": "sp-iguatemi-sao-paulo",
       "name": "Ri Happy Iguatemi São Paulo",
       "published_name": "Ri Happy Shopping Iguatemi São Paulo",
@@ -798,7 +834,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "for-iguatemi-fortaleza",
+      "store_id": "for-pb-iguatemi-fortaleza",
       "name": "PBKIDS IGUATEMI FORTALEZA - Loja Parceira",
       "published_name": "",
       "region_code": "for",
@@ -1068,7 +1104,7 @@
       "position_source": "none, needs an address"
     },
     {
-      "store_id": "ssa-bela-vista",
+      "store_id": "ssa-pb-bela-vista",
       "name": "PBKIDS SHOPPING BELA VISTA - Loja Parceira",
       "published_name": "Ri Happy Shopping Bela Vista",
       "region_code": "ssa",
@@ -1104,7 +1140,7 @@
       "position_source": "none, needs an address"
     },
     {
-      "store_id": "mao-manauara",
+      "store_id": "mao-pb-manauara",
       "name": "PBKIDS MANAUARA SHOPPING - Loja Parceira",
       "published_name": "Ri Happy Manauara Shopping",
       "region_code": "mao",
@@ -1194,7 +1230,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "sp-ibirapuera",
+      "store_id": "sp-pb-ibirapuera",
       "name": "PBKIDS SHOPPING IBIRAPUERA - Loja Parceira",
       "published_name": "Ri Happy Shopping Ibirapuera",
       "region_code": "sp",
@@ -1230,7 +1266,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "mao-amazonas",
+      "store_id": "mao-pb-amazonas",
       "name": "PBKIDS AMAZONAS SHOPPING - Loja Parceira",
       "published_name": "Ri Happy Amazonas Shopping",
       "region_code": "mao",
@@ -1338,7 +1374,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "sp-avenida-reboucas",
+      "store_id": "sp-pb-avenida-reboucas",
       "name": "PBKIDS AVENIDA REBOUÇAS - Loja Parceira",
       "published_name": "",
       "region_code": "sp",
@@ -1392,7 +1428,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "ssa-paralela",
+      "store_id": "ssa-pb-paralela",
       "name": "PBKIDS SHOPPING PARALELA - Loja Parceira",
       "published_name": "",
       "region_code": "ssa",
@@ -1428,7 +1464,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "sp-iguatemi-jk",
+      "store_id": "sp-pb-iguatemi-jk",
       "name": "PBKIDS IGUATEMI JK - Loja Parceira",
       "published_name": "",
       "region_code": "sp",
@@ -1444,6 +1480,24 @@
       "lat": -23.5913636,
       "lng": -46.6897659,
       "position_source": "openstreetmap"
+    },
+    {
+      "store_id": "rec-pb-recife",
+      "name": "PBKIDS SHOPPING RECIFE - Loja Parceira",
+      "published_name": "Ri Happy Shopping Center Recife",
+      "region_code": "rec",
+      "region_label": "Recife",
+      "city": "Recife",
+      "state": "PE",
+      "address": "Rua Padre Carapuceiro, 777",
+      "mall": "SHOPPING RECIFE",
+      "banner": "PBKIDS",
+      "rank": 5,
+      "seen_count": 87,
+      "carries_stock": true,
+      "lat": -8.1189,
+      "lng": -34.9038,
+      "position_source": "ri happy published store list"
     },
     {
       "store_id": "for-north-joquei",
@@ -1482,7 +1536,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "cwb-mueller",
+      "store_id": "cwb-pb-mueller",
       "name": "PBKIDS SHOPPING MUELLER - Loja Parceira",
       "published_name": "Ri Happy Shopping Mueller",
       "region_code": "cwb",
@@ -1518,7 +1572,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "for-riomar-kennedy",
+      "store_id": "for-pb-riomar-kennedy",
       "name": "PBKIDS RIOMAR KENNEDY - Loja Parceira",
       "published_name": "Ri Happy RioMar Kennedy",
       "region_code": "for",
@@ -1590,7 +1644,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "cwb-patio-batel",
+      "store_id": "cwb-pb-patio-batel",
       "name": "PBKIDS PÁTIO BATEL - Loja Parceira",
       "published_name": "",
       "region_code": "cwb",
@@ -1662,7 +1716,7 @@
       "position_source": "none, needs an address"
     },
     {
-      "store_id": "bh-diamond-mall",
+      "store_id": "bh-pb-diamond-mall",
       "name": "PBKIDS DIAMOND MALL - Loja Parceira",
       "published_name": "",
       "region_code": "bh",
@@ -1698,7 +1752,7 @@
       "position_source": "none, needs an address"
     },
     {
-      "store_id": "for-del-paseo",
+      "store_id": "for-pb-del-paseo",
       "name": "PBKIDS SHOPPING DEL PASEO - Loja Parceira",
       "published_name": "",
       "region_code": "for",
@@ -1734,7 +1788,25 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "rec-plaza-casa-forte",
+      "store_id": "rec-pb-riomar-recife",
+      "name": "PBKIDS RIOMAR RECIFE - Loja Parceira",
+      "published_name": "Ri Happy RioMar Recife",
+      "region_code": "rec",
+      "region_label": "Recife",
+      "city": "Recife",
+      "state": "PE",
+      "address": "Av. República do Líbano, 251",
+      "mall": "",
+      "banner": "PBKIDS",
+      "rank": 6,
+      "seen_count": 69,
+      "carries_stock": true,
+      "lat": -8.0863,
+      "lng": -34.8946,
+      "position_source": "ri happy published store list"
+    },
+    {
+      "store_id": "rec-pb-plaza-casa-forte",
       "name": "PBKIDS PLAZA CASA FORTE - Loja Parceira",
       "published_name": "",
       "region_code": "rec",
@@ -1752,7 +1824,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "sp-mooca-plaza",
+      "store_id": "sp-pb-mooca-plaza",
       "name": "PBKIDS MOOCA PLAZA SHOPPING - Loja Parceira",
       "published_name": "",
       "region_code": "sp",
@@ -1878,7 +1950,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "rj-rio-design",
+      "store_id": "rj-pb-rio-design",
       "name": "PBKIDS SHOPPING RIO DESIGN - Loja Parceira",
       "published_name": "",
       "region_code": "rj",
@@ -1968,7 +2040,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "sp-morumbi",
+      "store_id": "sp-pb-morumbi",
       "name": "PBKIDS MORUMBI SHOPPING - Loja Parceira",
       "published_name": "Ri Happy Morumbi Shopping",
       "region_code": "sp",
@@ -2022,7 +2094,7 @@
       "position_source": "none, needs an address"
     },
     {
-      "store_id": "sp-analia-franco",
+      "store_id": "sp-pb-analia-franco",
       "name": "PBKIDS SHOPPING ANÁLIA FRANCO - Loja Parceira",
       "published_name": "Ri Happy Shopping Anália Franco",
       "region_code": "sp",
@@ -2094,7 +2166,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "sp-santana-parque",
+      "store_id": "sp-pb-santana-parque",
       "name": "PBKIDS SANTANA PARQUE SHOPPING - Loja Parceira",
       "published_name": "",
       "region_code": "sp",
@@ -2220,7 +2292,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "sp-tambore",
+      "store_id": "sp-pb-tambore",
       "name": "PBKIDS SHOPPING TAMBORÉ - Loja Parceira",
       "published_name": "Ri Happy Shopping Tamboré",
       "region_code": "sp",
@@ -2238,7 +2310,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "sp-jardim-sul",
+      "store_id": "sp-pb-jardim-sul",
       "name": "PBKIDS SHOPPING JARDIM SUL - Loja Parceira",
       "published_name": "Ri Happy Shopping Jardim Sul",
       "region_code": "sp",
@@ -2310,7 +2382,7 @@
       "position_source": "openstreetmap"
     },
     {
-      "store_id": "sp-granja-vianna",
+      "store_id": "sp-pb-granja-vianna",
       "name": "PBKIDS SHOPPING GRANJA VIANNA - Loja Parceira",
       "published_name": "",
       "region_code": "sp",
@@ -2346,7 +2418,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "sp-iguatemi-alphaville",
+      "store_id": "sp-pb-iguatemi-alphaville",
       "name": "PBKIDS IGUATEMI ALPHAVILLE - Loja Parceira",
       "published_name": "Ri Happy Iguatemi Alphaville",
       "region_code": "sp",
@@ -2364,7 +2436,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "sp-golden-square",
+      "store_id": "sp-pb-golden-square",
       "name": "PBKIDS GOLDEN SQUARE SHOPPING - Loja Parceira",
       "published_name": "Ri Happy Golden Square Shopping",
       "region_code": "sp",
@@ -2904,7 +2976,7 @@
       "position_source": "ri happy published store list"
     },
     {
-      "store_id": "other-iguatemi-sao-jose-do-rio-preto",
+      "store_id": "other-iguatemi-sao-jose-do-rio-p",
       "name": "Ri Happy Iguatemi São José do Rio Preto",
       "published_name": "Ri Happy Iguatemi São José do Rio Preto",
       "region_code": "other",
