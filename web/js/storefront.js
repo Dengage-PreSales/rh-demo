@@ -214,6 +214,8 @@
     /* Age chips, mirroring their "gift by age" navigation                 */
 
     var activeAge = null;
+    var activeDepartment = null;
+    var outletOnly = false;
 
     function ageChips(host) {
         if (!host) return;
@@ -244,6 +246,17 @@
 
     function visibleProducts() {
         var list = window.Catalog.all();
+        /* Their department, from the catalogue's own values rather than a list
+           written here, so it cannot drift from what was captured. */
+        if (activeDepartment) {
+            list = list.filter(function (p) { return p.department === activeDepartment; });
+        }
+        /* Outlet is a real discount or it is nothing. catalog.js already drops
+           any list price that is not genuinely higher, so this cannot select a
+           product whose saving was invented. */
+        if (outletOnly) {
+            list = list.filter(function (p) { return !!p.listPrice; });
+        }
         if (activeAge) {
             var chip = (config.ageChips || []).filter(function (c) { return c.id === activeAge; })[0];
             if (chip) list = list.filter(function (p) { return matchesAge(p, chip); });
@@ -295,6 +308,11 @@
         setAge: function (id) { activeAge = id; },
         activeAge: function () { return activeAge; },
         setAvailableOnly: function (value) { availableOnly = !!value; },
+        availableOnly: function () { return availableOnly; },
+        setDepartment: function (name) { activeDepartment = name || null; },
+        activeDepartment: function () { return activeDepartment; },
+        setOutlet: function (value) { outletOnly = !!value; },
+        outletOnly: function () { return outletOnly; },
 
         wire: function () {
             document.addEventListener('click', function (event) {

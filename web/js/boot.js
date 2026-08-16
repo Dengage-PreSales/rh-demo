@@ -131,6 +131,7 @@
             if (window.SearchPanel) window.SearchPanel.wire();
             if (window.Account) window.Account.wire();
             if (window.Wishlist) window.Wishlist.wire();
+            if (window.Nav && pageType === 'home') window.Nav.wire();
             window.Storefront.paintChip();
 
             window.StoreContext.onChange(function () {

@@ -65,15 +65,21 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
     </div>
 
     <nav class="header-nav">
-      <a href="index.html" aria-current="true" data-copy="navAll">All departments</a>
-      <a href="#by-age" data-copy="navByAge">Gift by age</a>
-      <a href="#all" data-copy="navNew">News</a>
-      <a href="#all" data-copy="navGiftCard">Gift Card</a>
-      <a href="#all" data-copy="navImported">Imported</a>
-      <a href="#all" data-copy="navPickup">Pick up in store</a>
-      <a href="#all" data-copy="navExclusive">Exclusive</a>
-      <a href="#all" data-copy="navInStore">In-store event</a>
-      <a class="pill" href="#all" data-copy="navOutlet">OUTLET</a>
+      <!-- Four of their nine items, the four the capture can back. News, Gift
+           Card, Imported, Exclusive and In-store event are removed rather than
+           left pointing at nothing: no field we captured supports them, and a
+           link that ignores a click is the defect, not the absent one. -->
+      <a href="#" data-nav="all" aria-current="true" data-copy="navAll">All departments</a>
+      <div class="nav-departments">
+        <a href="#" data-nav="departments">
+          <span id="nav-departments-label" data-default="Departments">Departments</span>
+          <span aria-hidden="true">&#9662;</span>
+        </a>
+        <div class="nav-menu" id="nav-departments-menu" hidden></div>
+      </div>
+      <a href="#by-age" data-nav="age" data-copy="navByAge">Gift by age</a>
+      <a href="#" data-nav="pickup" data-copy="navPickup">Pick up in store</a>
+      <a class="pill" href="#" data-nav="outlet" data-copy="navOutlet">OUTLET</a>
     </nav>
   </div>
 </header>
@@ -275,6 +281,7 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
 <script src="js/search.js"></script>
 <script src="js/account.js"></script>
 <script src="js/wishlist.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/boot.js"></script>
 <script>
 window.RhBoot.boot('home').then(function () {
