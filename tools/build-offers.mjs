@@ -120,6 +120,20 @@ async function main() {
 
     for (const city of cities) {
         const answer = await rpc('rh_email', { cep: city.cep, sku: HERO, n: '3' });
+
+        /* Availability has three states and the third is the one that gets
+           lost: true and false both mean somebody was asked, null means no
+           shop resolved so nobody was. rh_offer used to return false for the
+           third, which reads as "we checked and it is not there" about a real
+           toy nobody checked. Vitoria and Rio Branco are the two postcodes that
+           hit it. Asserting here means a stored answer can never carry the
+           claim even if the function regresses. */
+        if (answer.resolved !== 'store' && answer.hero &&
+            answer.hero.available !== null && answer.hero.available !== undefined) {
+            throw new Error(`${city.cep}: no shop resolved, yet it claims availability ` +
+                            `is ${answer.hero.available}`);
+        }
+
         const body = JSON.stringify(answer);
         writeFileSync(join(OUT, 'cep', `${city.cep}.json`), body);
         bytes += body.length;

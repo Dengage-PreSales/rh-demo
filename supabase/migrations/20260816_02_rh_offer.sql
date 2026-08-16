@@ -246,8 +246,30 @@ begin
             'image_url', v_hero.image_url,
             'page_url', v_hero.page_url,
             'category', v_hero.category,
-            -- Only ever true when we hold a captured row saying so.
-            'available', coalesce(v_hero_state, 'unknown') = 'available'
+            -- Three states, not two, and the third is the one that matters.
+            --
+            -- true   we hold a captured row saying this shop has it
+            -- false  we hold a captured row saying it does not
+            -- null   no shop resolved, so nobody has been asked
+            --
+            -- The old expression collapsed the third into the second. Vitoria
+            -- and Rio Branco have one Ri Happy branch each that their own
+            -- checkout never offers for collection, so nothing serves those
+            -- postcodes and v_hero_state is never set. It still returned false,
+            -- which reads as "we checked and it is not there" about a real toy
+            -- nobody checked. That is a claim we invented, and it is the same
+            -- fault that once had a message declare a toy unavailable at a shop
+            -- it had never resolved. That was patched in the template by
+            -- guarding on the shop name, which left this source intact for
+            -- every later reader to inherit.
+            --
+            -- Whatever consumes this must treat null as say nothing rather than
+            -- as false. The storefront already does: availability.js badges only
+            -- when a shop is resolved and a captured answer exists.
+            'available', case
+                when v_store.store_id is null then null
+                else coalesce(v_hero_state, 'unknown') = 'available'
+            end
         ) end,
         'substitute', v_sub,
         'substituteReason', v_reason,

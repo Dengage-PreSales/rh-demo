@@ -87,7 +87,7 @@
 {% try { var d8 = JSON.parse($CustomApi.rh_email('59012-300', '100184971', '3')); r8 = d8.storeName ? d8.storeName : 'no shop'; n8 = String(d8.storeCount); ok = ok + 1; } catch (e) { r8 = 'FAILED ' + String(e); bad = bad + 1; } %}
 
 {% var r9 = ''; var n9 = ''; var claim9 = ''; %}
-{% try { var d9 = JSON.parse($CustomApi.rh_email('29010-000', '100184971', '3')); r9 = d9.storeName ? d9.storeName : 'no shop, which is correct here'; n9 = String(d9.storeCount); claim9 = d9.hero ? ('IT STILL MADE A CLAIM: ' + String(d9.hero.available)) : 'claims nothing, which is right'; ok = ok + 1; } catch (e) { r9 = 'FAILED ' + String(e); bad = bad + 1; } %}
+{% try { var d9 = JSON.parse($CustomApi.rh_email('29010-000', '100184971', '3')); r9 = d9.storeName ? d9.storeName : 'no shop, which is correct here'; n9 = String(d9.storeCount); claim9 = (d9.hero && d9.hero.available !== null && d9.hero.available !== undefined) ? ('IT STILL MADE A CLAIM: ' + String(d9.hero.available)) : 'claims nothing about stock, which is right'; ok = ok + 1; } catch (e) { r9 = 'FAILED ' + String(e); bad = bad + 1; } %}
 
 {% var netShop = ''; var netErr = ''; %}
 {% try { var net = JSON.parse($CustomApi.rh_store_offer('sp-pb-eldorado')); netShop = net.storeName ? net.storeName : 'no shop in the stored answer'; } catch (e) { netErr = String(e); } %}
