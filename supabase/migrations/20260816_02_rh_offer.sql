@@ -26,7 +26,13 @@ create or replace function public.rh_offer(
     cep      text default null,
     store_id text default null,
     sku      text default null,
-    n        integer default 4
+    -- Text rather than integer, and this is not a style choice. PostgREST binds
+    -- query string parameters by declared type, so an empty n, which is what a
+    -- merge tag that resolved to nothing produces, was rejected before this
+    -- function ever ran: 400, invalid input syntax for type integer. A send
+    -- cannot fail because a field was blank, so every parameter arrives as text
+    -- and is parsed below where a bad value can be handled rather than thrown.
+    n        text default null
 )
 returns jsonb
 language plpgsql
@@ -46,16 +52,26 @@ declare
     v_stock    jsonb := '{}'::jsonb;
     v_stores   jsonb := '[]'::jsonb;
     v_resolved text;
-    v_limit    integer := least(greatest(coalesce(n, 4), 1), 12);
+    v_limit    integer;
+    v_sku      text;
+    v_store_in text;
 begin
+    -- Anything that is not a run of digits becomes the default rather than an
+    -- error. A blank, a stray space or a merge tag that failed to resolve all
+    -- land here, and none of them should be able to break a send.
+    v_limit := coalesce(nullif(regexp_replace(coalesce(n, ''), '[^0-9]', '', 'g'), '')::integer, 4);
+    v_limit := least(greatest(v_limit, 1), 12);
+
+    v_sku      := nullif(btrim(coalesce(sku, '')), '');
+    v_store_in := nullif(btrim(coalesce(store_id, '')), '');
     -- ------------------------------------------------------------------
     -- 1. Postcode to region. Punctuation is stripped because a person types
     --    01310-100, 01310100 or "01310 100" and all three mean the same shop.
     -- ------------------------------------------------------------------
     v_digits := regexp_replace(coalesce(cep, ''), '[^0-9]', '', 'g');
 
-    if store_id is not null and store_id <> '' then
-        select * into v_store from public.rh_store s where s.store_id = rh_offer.store_id;
+    if v_store_in is not null then
+        select * into v_store from public.rh_store s where s.store_id = v_store_in;
     elsif length(v_digits) >= 5 then
         -- Exact postcode first, then the longest prefix that matches. Longest
         -- wins so a specific rule can always override a broad one.
@@ -99,8 +115,8 @@ begin
     -- ------------------------------------------------------------------
     -- 3. The hero, when one was asked for.
     -- ------------------------------------------------------------------
-    if sku is not null and sku <> '' then
-        select * into v_hero from public.rh_product p where p.sku_id = sku and p.is_active;
+    if v_sku is not null then
+        select * into v_hero from public.rh_product p where p.sku_id = v_sku and p.is_active;
     end if;
 
     if v_hero.sku_id is not null and v_store.store_id is not null then
@@ -285,4 +301,4 @@ comment on function public.rh_offer(text, text, text, integer) is
 
 -- The publishable (anon) key is what the storefront and the panel present. It
 -- may call this function and nothing else that writes.
-grant execute on function public.rh_offer(text, text, text, integer) to anon, authenticated;
+grant execute on function public.rh_offer(text, text, text, text) to anon, authenticated;
