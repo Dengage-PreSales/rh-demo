@@ -118,3 +118,76 @@ The response is the JSON object itself, not wrapped in an array, so
 
 `hero.available` is only ever true when we hold a captured answer saying so.
 Unknown is treated as not available, never the other way round.
+
+---
+
+## 4. `rh_ping` — fault isolation only
+
+| Field | Value |
+|---|---|
+| **Name** | `rh_ping` |
+| **Method** | `GET` |
+| **Url** | `https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_ping?apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK` |
+| **Headers** | none |
+
+Returns 26 bytes and nothing else. It exists so that a failure cannot be blamed
+on the size of the response.
+
+---
+
+## 5. `rh_email` — the one messages should actually use
+
+| Field | Value |
+|---|---|
+| **Name** | `rh_email` |
+| **Method** | `GET` |
+| **Url** | `https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_email?cep=$$param(1)&sku=$$param(2)&n=$$param(3)&apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK` |
+| **Headers** | none |
+
+Called as `$CustomApi.rh_email(cep, sku, count)`, the same three parameters as
+`rh_offer`.
+
+**Why a second endpoint rather than reusing `rh_offer`.** `rh_offer` answers the
+storefront, which wants one call to paint every tile, so it carries the
+availability of all 200 products at the shop plus the full shop list. That is
+12.7 kilobytes, of which **83 percent is data a message never reads**, and it is
+fetched once per recipient at send time. `rh_email` runs the same resolution and
+the same substitution and returns about 2 kilobytes.
+
+Measured on 16 August 2026:
+
+| | Bytes |
+|---|---|
+| `rh_offer`, what the first diagnostic called | 12,690 |
+| `rh_email`, Sao Paulo | 1,959 |
+| `rh_email`, Porto Alegre with a substitution | 2,388 |
+| `rh_ping` | 26 |
+
+What it returns, flattened so a message can read it without digging:
+
+```json
+{
+  "ok": true,
+  "resolved": "store",
+  "cep": "01310100",
+  "region": "Sao Paulo",
+  "storeName": "PBKIDS SHOPPING ELDORADO - Loja Parceira",
+  "storeId": "sp-pb-eldorado",
+  "storeCount": 37,
+  "hero":       { "sku_id": "100184971", "name": "...", "price": 99.99, "image_url": "...", "page_url": "...", "available": true },
+  "substitute": { "sku_id": "...", "name": "...", "price": 87.99, "image_url": "...", "page_url": "..." },
+  "substituteReason": "same_licence",
+  "offers": [ "...three of them..." ],
+  "generatedAt": "2026-08-16T14:05:00Z"
+}
+```
+
+**The two contact scene, verified against live data.** One campaign, the same
+Spider-Man figure, two postcodes:
+
+| | Sao Paulo 01310-100 | Porto Alegre 90010-150 |
+|---|---|---|
+| shop | PBKIDS Shopping Eldorado | Ri Happy Praia de Belas |
+| hero available | **true** | **false** |
+| offered instead | nothing needed | **Amazing Spider-Man figure** |
+| reason | | `same_licence` |

@@ -1,0 +1,165 @@
+<!-- ==========================================================================
+     DIAGNOSTIC 2. Sent after the first one proved three things and failed on
+     the fourth.
+
+     WHAT THE FIRST ONE SETTLED
+
+       $Contact.columnName is the right way to read a contact field. It returned
+         a real contact key, so the syntax is not in question any more.
+       Curly brace tags are not substituted. They arrived as literal text.
+       There is no postcode column on the contact. There is nearest_store,
+         city, store_name and preferred_branch.
+
+     WHAT IT DID NOT SETTLE, AND WHY THIS EXISTS
+
+     $CustomApi.rh_offer_fixed() came back empty even though the endpoint was
+     created correctly. The first diagnostic wrapped that call in a try and
+     threw the error away, which was a mistake: it told us the call failed and
+     nothing about why.
+
+     Three explanations are open, and this send separates them:
+
+       1. The response was too big. rh_offer returns 12.7 kilobytes, of which
+          83 percent is a per product stock map and a shop list that a message
+          never uses. Section 1 calls rh_ping, which returns 26 bytes. If the
+          small one works and the big one does not, that is the answer.
+       2. The response arrives as text rather than as an object. The working
+          example in this account parses with JSON.parse when it sees a string,
+          which suggests it can happen. Section 4 prints the type.
+       3. Something else, in which case section 5 prints the actual error text
+          rather than discarding it.
+
+     CREATE THESE TWO ENDPOINTS FIRST
+
+       rh_ping
+         GET  https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_ping?apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK
+
+       rh_email
+         GET  https://raextqlludkagdntyzwn.supabase.co/rest/v1/rpc/rh_email?cep=$$param(1)&sku=$$param(2)&n=$$param(3)&apikey=sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK
+
+     Then paste this whole file into Content, Email, Code Editor, and send it to
+     yourself. Every error is caught and printed rather than swallowed, so it
+     cannot fail to arrive.
+     ========================================================================== -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f2f4f5;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f4f5;">
+<tr><td align="center" style="padding:24px 12px;">
+<table width="660" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:12px;font-family:Arial,Helvetica,sans-serif;color:#3f3f40;">
+
+  <tr><td style="padding:20px 24px;background:#FCF708;border-radius:12px 12px 0 0;">
+    <div style="font-size:18px;font-weight:bold;">Ri Happy demo: diagnostic 2</div>
+    <div style="font-size:12px;">Isolating why the endpoint call came back empty.</div>
+  </td></tr>
+
+  <!-- 1. The smallest possible call. 26 bytes. -->
+  <tr><td style="padding:18px 24px 4px;">
+    <div style="font-size:14px;font-weight:bold;">1. Tiny response, 26 bytes</div>
+    <div style="font-size:11px;color:#727273;padding-bottom:6px;">
+      If this works and section 3 does not, response size is the cause.
+    </div>
+    {% var pingErr = ''; var ping = null; %}
+    {% try { ping = $CustomApi.rh_ping(); } catch (e) { pingErr = String(e); } %}
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      type: [{%= typeof ping %}]<br>
+      raw: [{%= String(ping) %}]<br>
+      ok field: [{%= ping ? ping.ok : '' %}]<br>
+      error: [{%= pingErr %}]
+    </div>
+  </td></tr>
+
+  <!-- 2. The message sized call. About 2 kilobytes. -->
+  <tr><td style="padding:12px 24px 4px;">
+    <div style="font-size:14px;font-weight:bold;">2. Message sized response, about 2 KB</div>
+    <div style="font-size:11px;color:#727273;padding-bottom:6px;">
+      This is the one the real email will use. Sao Paulo postcode, Spider-Man figure.
+    </div>
+    {% var mailErr = ''; var mail = null; %}
+    {% try { mail = $CustomApi.rh_email('01310-100', '100184971', '3'); } catch (e) { mailErr = String(e); } %}
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      type: [{%= typeof mail %}]<br>
+      resolved: [{%= mail ? mail.resolved : '' %}]<br>
+      storeName: [{%= mail ? mail.storeName : '' %}]<br>
+      hero available: [{%= mail && mail.hero ? mail.hero.available : '' %}]<br>
+      offers: [{%= mail && mail.offers ? mail.offers.length : '' %}]<br>
+      error: [{%= mailErr %}]
+    </div>
+  </td></tr>
+
+  <!-- 3. The big one that failed last time. 12.7 kilobytes. -->
+  <tr><td style="padding:12px 24px 4px;">
+    <div style="font-size:14px;font-weight:bold;">3. Large response, 12.7 KB, the one that failed</div>
+    {% var bigErr = ''; var big = null; %}
+    {% try { big = $CustomApi.rh_offer_fixed(); } catch (e) { bigErr = String(e); } %}
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      type: [{%= typeof big %}]<br>
+      resolved: [{%= big ? big.resolved : '' %}]<br>
+      error: [{%= bigErr %}]
+    </div>
+  </td></tr>
+
+  <!-- 4. Is it text rather than an object. -->
+  <tr><td style="padding:12px 24px 4px;">
+    <div style="font-size:14px;font-weight:bold;">4. Object or text</div>
+    <div style="font-size:11px;color:#727273;padding-bottom:6px;">
+      The working example in this account parses with JSON.parse when it sees a string, so this checks.
+    </div>
+    {% var parsed = null; var parseErr = ''; %}
+    {% try { parsed = (typeof mail === 'string') ? JSON.parse(mail) : mail; } catch (e) { parseErr = String(e); } %}
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      was text: [{%= typeof mail === 'string' ? 'YES' : 'no' %}]<br>
+      after parsing, storeName: [{%= parsed ? parsed.storeName : '' %}]<br>
+      parse error: [{%= parseErr %}]
+    </div>
+  </td></tr>
+
+  <!-- 5. Alternative call shapes, in case the convention differs. -->
+  <tr><td style="padding:12px 24px 4px;">
+    <div style="font-size:14px;font-weight:bold;">5. Other ways the call might be written</div>
+    {% var altA = ''; var altB = ''; var altC = ''; %}
+    {% try { altA = String($CustomApi.rh_ping); } catch (e) { altA = 'ERR ' + String(e); } %}
+    {% try { altB = String($CustomApi['rh_ping']()); } catch (e) { altB = 'ERR ' + String(e); } %}
+    {% try { altC = String(typeof $CustomApi); } catch (e) { altC = 'ERR ' + String(e); } %}
+    <div style="font-size:11px;font-family:monospace;background:#f6f7f8;padding:10px;border-radius:6px;">
+      without brackets: [{%= altA %}]<br>
+      square brackets: [{%= altB %}]<br>
+      what $CustomApi is: [{%= altC %}]
+    </div>
+  </td></tr>
+
+  <!-- 6. The scene itself, if section 2 worked. -->
+  <tr><td style="padding:12px 24px 24px;">
+    <div style="font-size:14px;font-weight:bold;padding-bottom:8px;">6. The real thing, if section 2 worked</div>
+    {% var show = parsed ? parsed : mail; %}
+    {% if (show && show.hero) { %}
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #e6e6e6;border-radius:8px;">
+        <tr>
+          <td width="130" style="padding:10px;">
+            <img src="{%= show.hero.image_url %}" width="110" alt="" style="display:block;border-radius:6px;">
+          </td>
+          <td style="padding:10px;font-size:13px;">
+            <div style="font-weight:bold;">{%= show.hero.name %}</div>
+            <div style="font-size:16px;font-weight:bold;padding-top:4px;">R$ {%= show.hero.price %}</div>
+            <div style="font-size:12px;padding-top:4px;">
+              {%= show.hero.available ? 'Collect at ' + show.storeName : 'Not available at ' + show.storeName %}
+            </div>
+            <a href="{%= show.hero.page_url %}" style="font-size:12px;color:#603F8E;">View this toy</a>
+          </td>
+        </tr>
+      </table>
+    {% } else { %}
+      <div style="font-size:12px;color:#727273;">Nothing to render, which is expected if section 2 was empty.</div>
+    {% } %}
+  </td></tr>
+
+  <tr><td style="padding:14px 24px;background:#f6f7f8;border-radius:0 0 12px 12px;font-size:11px;color:#727273;">
+    Ri Happy demo build. A test message.
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
