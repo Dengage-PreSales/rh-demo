@@ -1,46 +1,59 @@
-<!-- ==========================================================================
-     USE CASE 1, THE EMAIL. This is the deliverable, not the storefront.
-
-     R1.1 asks that campaign creative reflect inventory at each individual
-     store. This is that: one campaign, one block of content, and a different
-     message per recipient depending on which shop serves them and what that
-     shop has on its shelf right now.
-
-     HOW IT RESOLVES A SHOP, in order, because there is more than one way and
-     they are not equally good.
-
-       1. The contact's last page view. The postcode they actually browsed
-          under and the toy they actually looked at. This is the best version
-          because nothing has to be set by hand and the shop shown is the one
-          they were really served.
-       2. $Contact.nearest_store, if that column has been filled in. Works
-          today with no assumptions, which is why it is here.
-       3. A default postcode, so a send to a brand new contact still renders
-          something honest rather than nothing.
-
-     If none of those produce a shop the send is blocked. An email about
-     availability that cannot name a shop has nothing to say.
-
-     WHAT IS PROVEN AND WHAT IS NOT, as of 17 August 2026.
-
-     Proven by real sends: $Contact.columnName reads a contact field.
-     $CustomApi.rh_email(cep, sku, n) answers, 27 times out of 27 across nine
-     cities and three sends. All eight $from methods exist including .order().
-     Curly brace tags are NOT substituted; only {%= %} is.
-
-     NOT proven: the $from row read. The first attempt failed with
-     42703: column "contact_key" does not exist. factory/phase0/SCHEMA.md,
-     read from the live account on 9 August, records that these tables use
-     "key" and "event_date", so that is what this uses. It is still a first
-     attempt, which is exactly why path 1 is wrapped and falls through to
-     path 2 rather than taking the send down with it.
-
-     THE ONE RULE THIS FILE MUST NOT BREAK. Availability has three states.
-     True and false both mean a shop was asked. Null means no shop resolved and
-     nobody was asked, and it must read as silence, never as "not available".
-     ========================================================================== -->
-
 {%
+/* ==========================================================================
+   USE CASE 1, THE EMAIL. This is the deliverable, not the storefront.
+
+   THIS NOTE LIVES INSIDE THE SCRIPT BLOCK ON PURPOSE. It used to be an HTML
+   comment above the document, which meant every word of it was sent to every
+   recipient. Invisible in a mail client and fully present in View Source,
+   including the lines below about what is unproven and which Postgres error
+   was hit. The template engine eats this block instead, so nothing here ever
+   reaches the wire.
+
+   R1.1 asks that campaign creative reflect inventory at each individual store.
+   This is that: one campaign, one block of content, and a different message per
+   recipient depending on which shop serves them and what that shop has on its
+   shelf right now.
+
+   HOW IT RESOLVES A SHOP, in order, because there is more than one way and they
+   are not equally good.
+
+     1. The contact's last page view. The postcode they actually browsed under
+        and the toy they actually looked at. The best version, because nothing
+        has to be set by hand and the shop shown is the one they were served.
+     2. $Contact.nearest_store, if that column has been filled in. Null on every
+        contact tested so far, so this path does not currently fire.
+     3. A default postcode, so a send to a brand new contact still renders
+        something honest rather than nothing.
+
+   If none of those produce a shop the send is blocked. An email about
+   availability that cannot name a shop has nothing to say.
+
+   WHAT IS PROVEN AND WHAT IS NOT, as of 17 August 2026.
+
+   Proven by real sends: $Contact.columnName reads a contact field.
+   $CustomApi.rh_email(cep, sku, n) answers, 27 times out of 27 across nine
+   cities and three sends. All eight $from methods exist including .order().
+   Single curly brace tags are NOT substituted; only the output tag form is.
+
+   AND NOTE WHAT JUST BIT THIS PARAGRAPH. The line above used to spell that tag
+   out literally, which put the closing sequence inside this comment and ended
+   the script block right here, in the middle of a sentence. Everything after it
+   rendered as visible text in the email. A comment cannot contain the two
+   characters that close the block it lives in, whatever surrounds it, because
+   the engine scans for them rather than parsing JavaScript.
+
+   NOT proven: the $from row read. The first attempt failed with
+   42703: column "contact_key" does not exist. factory/phase0/SCHEMA.md, read
+   from the live account on 9 August, records that these tables use "key" and
+   "event_date", so that is what this uses. It is still a first attempt, which
+   is exactly why path 1 is wrapped and falls through to path 2 rather than
+   taking the send down with it.
+
+   THE ONE RULE THIS FILE MUST NOT BREAK. Availability has three states. True
+   and false both mean a shop was asked. Null means no shop resolved and nobody
+   was asked, and it must read as silence, never as "not available".
+   ========================================================================== */
+
 /* Brazilian money. 1548.99 becomes 1.548,99, not 1548.99.
 
    The storefront formats through its own helper; an email has none, so raw
@@ -137,27 +150,91 @@ var offers = d.offers || [];
 var heroKnown = hero && hero.available !== null && hero.available !== undefined;
 var heroHas = heroKnown && hero.available === true;
 var heroMissing = heroKnown && hero.available === false;
+
+/* THE PREVIEW LINE, which is the first thing anyone reads and the only part of
+   an email that is guaranteed to be seen. Without one, a mail client fills it
+   with whatever text comes first, and here that is the words "Your store"
+   followed by the shop name, which says nothing at all in an inbox list.
+
+   It follows the same three states as the message itself, so it can never
+   promise something the body then contradicts. */
+var preview = '';
+if (heroHas && hero) {
+    preview = hero.name + ' is on the shelf at ' + d.storeName + '.';
+} else if (heroMissing && sub) {
+    preview = 'Not at ' + d.storeName + ' today, but ' + sub.name + ' is.';
+} else if (heroMissing) {
+    preview = 'Not on the shelf at ' + d.storeName + ' right now.';
+} else {
+    preview = 'What ' + d.storeName + ' has on the shelf right now.';
+}
 %}
+<!doctype html>
+<html lang="pt-BR" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+{% /* THE CHARSET IS THE LINE THAT MATTERS MOST IN THIS HEAD, and its absence is
+     why this document grew one. Every product name in this catalogue is
+     Brazilian Portuguese: Veiculo Eletrico, Chocalho, Bebes, Fantasias. Without
+     a declared charset a mail client guesses, and a wrong guess turns every
+     accent into mojibake in front of the people whose catalogue it is. */ %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{%= d.storeName %}</title>
+<style>
+  /* Kept small on purpose. Everything structural is inline on the elements,
+     because the clients that strip a style block are exactly the ones this has
+     to survive. What is here either cannot be inlined or costs nothing if it
+     is dropped. */
+  body { margin: 0; padding: 0; width: 100% !important;
+         -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table { border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; }
+  img { border: 0; outline: none; text-decoration: none;
+        -ms-interpolation-mode: bicubic; }
+  a { color: inherit; }
+
+  /* One breakpoint, for the three product columns at the foot. Below 480 they
+     are unreadable side by side on a phone, which is where most of this will
+     be opened. */
+  @media only screen and (max-width: 480px) {
+    .rh-shell { width: 100% !important; }
+    .rh-offer { display: block !important; width: 100% !important;
+                padding: 0 0 16px 0 !important; }
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#f4f5f6;">
+
+{% /* The inbox preview line. Hidden in the body, read by the mail client. The
+     run of zero width spaces after it stops the client pulling the next
+     sentence of real copy in behind it. */ %}
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#f4f5f6;opacity:0;">
+  {%= preview %}
+  &#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;
+</div>
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f5f6;margin:0;padding:24px 0;">
 <tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:8px;overflow:hidden;font-family:Helvetica,Arial,sans-serif;color:#3F3F40;">
+<table class="rh-shell" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#ffffff;border-radius:8px;overflow:hidden;font-family:Helvetica,Arial,sans-serif;color:#3F3F40;">
 
-  <!-- Header. The Dengage mark, never the prospect's. -->
+  {% /* Header. The Dengage mark, never the prospect's. */ %}
   <tr><td style="background:#FCF708;padding:18px 24px;">
     <span style="font-size:20px;font-weight:700;color:#3F3F40;">Dengage</span>
     <span style="font-size:12px;color:#3F3F40;opacity:0.75;margin-left:8px;">eComm Demo</span>
   </td></tr>
 
-  <!-- The shop. This line is the whole use case: the message knows which
-       physical store serves this person. -->
+  {% /* The shop. This line is the whole use case: the message knows which
+       physical store serves this person. */ %}
   <tr><td style="padding:22px 24px 6px;">
     <div style="font-size:12px;color:#6b6b6d;text-transform:uppercase;letter-spacing:0.5px;">Your store</div>
     <div style="font-size:17px;font-weight:700;margin-top:4px;">{%= d.storeName %}</div>
   </td></tr>
 
   {% if (heroHas) { %}
-  <!-- ============ IN STOCK AT THEIR SHOP ============ -->
+  {% /* ============ IN STOCK AT THEIR SHOP ============ */ %}
   <tr><td style="padding:14px 24px 0;">
     <div style="font-size:15px;">Still available for collection at your store.</div>
   </td></tr>
@@ -184,7 +261,7 @@ var heroMissing = heroKnown && hero.available === false;
   </td></tr>
 
   {% } else if (heroMissing && sub) { %}
-  <!-- ============ NOT AT THEIR SHOP, SO SOMETHING THAT IS ============ -->
+  {% /* ============ NOT AT THEIR SHOP, SO SOMETHING THAT IS ============ */ %}
   <tr><td style="padding:14px 24px 0;">
     <div style="font-size:15px;">
       {%= hero ? hero.name : 'The toy you looked at' %} is not on the shelf at your store right now.
@@ -220,17 +297,17 @@ var heroMissing = heroKnown && hero.available === false;
   </td></tr>
 
   {% } else { %}
-  <!-- ============ NOTHING CLAIMED ============
+  {% /* ============ NOTHING CLAIMED ============
        Reached when availability is unknown, which is not the same as absent.
        No claim is made either way; the shop is named and the offers below
-       stand on their own. -->
+       stand on their own. */ %}
   <tr><td style="padding:14px 24px 0;">
     <div style="font-size:15px;">Ready to collect at your store.</div>
   </td></tr>
   {% } %}
 
-  <!-- What that shop can actually hand over. Every one of these is filtered by
-       the same per store stock, so nothing here can be unavailable. -->
+  {% /* What that shop can actually hand over. Every one of these is filtered by
+       the same per store stock, so nothing here can be unavailable. */ %}
   {% if (offers.length) { %}
   <tr><td style="padding:8px 24px 4px;">
     <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b6b6d;">
@@ -241,7 +318,7 @@ var heroMissing = heroKnown && hero.available === false;
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
       <tr>
       {% for (var i = 0; i < offers.length && i < 3; i++) { %}
-        <td width="33%" valign="top" style="padding-right:8px;">
+        <td class="rh-offer" width="33%" valign="top" style="padding-right:8px;">
           <a href="{%= offers[i].page_url %}" style="text-decoration:none;color:#3F3F40;">
             <img src="{%= offers[i].image_url %}" width="100%" alt="{%= offers[i].name %}"
                  style="display:block;border:0;max-width:160px;">
@@ -259,8 +336,8 @@ var heroMissing = heroKnown && hero.available === false;
     <div style="font-size:11px;color:#9a9a9c;line-height:1.5;">
       A Dengage demonstration storefront. Product names and images are Ri Happy's own.
       Availability resolved at send time from the store serving this contact.
-      <!-- Remove this line before the call. It is how you tell, at a glance,
-           which of the three resolution paths produced this email. -->
+      {% /* Remove this line before the call. It is how you tell, at a glance,
+           which of the three resolution paths produced this email. */ %}
       <br>Resolved by: {%= how %}{% if (d.storeId) { %} ({%= d.storeId %}){% } %}
     </div>
   </td></tr>
@@ -268,3 +345,6 @@ var heroMissing = heroKnown && hero.available === false;
 </table>
 </td></tr>
 </table>
+
+</body>
+</html>

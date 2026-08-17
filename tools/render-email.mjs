@@ -46,6 +46,41 @@ async function rh_email(cep, sku, n) {
 
 class Blocked extends Error {}
 
+/* THE ENVELOPE, ASSERTED RATHER THAN ASSUMED.
+
+   The template shipped for a day with no doctype, no head and no charset: it
+   opened on a table. Nothing here caught it, because everything here was
+   checking which branch fired and what each contact would read, and all of that
+   was correct. A document can be right in every word and still arrive as
+   mojibake, so the container gets its own assertions.
+
+   The charset is the one that would actually have shown. Every product name in
+   this catalogue is Brazilian Portuguese, so an undeclared charset means a mail
+   client guesses at "Veiculo Eletrico" and "Bebes" in front of the people whose
+   catalogue it is.
+
+   The comment count is the other half. An HTML comment is invisible in a mail
+   client and fully present in View Source, so internal notes in one are sent to
+   every recipient. They belong in the script block, which the engine eats. */
+function checkEnvelope(label, html) {
+    const problems = [];
+    if (!/^\s*<!doctype html>/i.test(html)) problems.push('no doctype');
+    if (!/<html[^>]*\blang=/i.test(html)) problems.push('no lang on html');
+    if (!/<head[\s>]/i.test(html)) problems.push('no head');
+    if (!/<meta[^>]+charset=["']?utf-8/i.test(html)) problems.push('no utf-8 charset');
+    if (!/<meta[^>]+name=["']viewport/i.test(html)) problems.push('no viewport');
+    if (!/<body[\s>]/i.test(html)) problems.push('no body');
+    if (!/<\/html>\s*$/i.test(html)) problems.push('html not closed');
+
+    const comments = html.match(/<!--/g);
+    if (comments) problems.push(`${comments.length} HTML comment(s) sent to the recipient`);
+
+    if (problems.length) {
+        console.error(`\n  ENVELOPE FAILED for ${label}: ${problems.join(', ')}`);
+        process.exitCode = 1;
+    }
+}
+
 async function render(label, contact, lastVisit) {
     const src = (await import('node:fs')).readFileSync(TEMPLATE, 'utf8');
 
@@ -79,6 +114,7 @@ async function render(label, contact, lastVisit) {
     };
     const $blockSend = () => { throw new Blocked(); };
 
+
     try {
         const fn = new Function('$Contact', '$from', '$CustomApi', '$blockSend', compile(src));
         const html = fn($Contact, $from, $CustomApi, $blockSend);
@@ -90,12 +126,39 @@ async function render(label, contact, lastVisit) {
                      : html.includes('Still available') ? 'IN STOCK' : 'no claim';
         const how = /Resolved by: ([^<(]+)/.exec(html);
         console.log(`  ${label.padEnd(14)} ${branch.padEnd(11)} shop: ${(shop ? shop[1] : '?').slice(0, 38).padEnd(40)} via ${how ? how[1].trim() : '?'}`);
+        checkEnvelope(label, html);
         return file;
     } catch (e) {
         if (e instanceof Blocked) { console.log(`  ${label.padEnd(14)} BLOCKED     the send is stopped, which is correct here`); return null; }
         throw e;
     }
 }
+
+/* THE GUARD IS TESTED AGAINST KNOWN BAD INPUT, because a guard that has only
+   ever seen a passing document proves nothing. Both cases below are real: the
+   first is the template exactly as it shipped yesterday, the second is a
+   correct envelope with an internal note left in a comment.
+
+     node tools/render-email.mjs --self-test                                  */
+if (process.argv.includes('--self-test')) {
+    const cases = [
+        ['a bare table, as this template shipped', '<table><tr><td>hi</td></tr></table>'],
+        ['a good envelope with a leaked comment',
+         '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">' +
+         '<meta name="viewport" content="width=device-width"></head>' +
+         '<body><!-- internal note --></body></html>']
+    ];
+    let failures = 0;
+    for (const [what, html] of cases) {
+        process.exitCode = 0;
+        checkEnvelope(what, html);
+        const caught = process.exitCode === 1;
+        console.log(`  ${caught ? 'caught  ' : 'MISSED  '} ${what}`);
+        if (!caught) failures += 1;
+    }
+    process.exitCode = failures ? 1 : 0;
+    console.log(failures ? '\nThe guard can fail open. Fix it.' : '\nThe guard catches both.');
+} else {
 
 console.log('Rendering the Use Case 1 email against live data:\n');
 await render('sao-paulo',    { contact_key: 'DPS-1', nearest_store: null },
@@ -106,3 +169,5 @@ await render('vitoria',      { contact_key: 'DPS-3', nearest_store: null },
              { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=29010-000', product_id: '100184971' });
 await render('new-contact',  { contact_key: 'DPS-4', nearest_store: null }, null);
 console.log('\nOpen the files in out/ to see exactly what each contact receives.');
+
+}
