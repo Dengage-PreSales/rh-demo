@@ -239,15 +239,23 @@
             done(v === undefined || v === null || v === '' ? 'not set' : String(v));
         }
         try {
-            /* TWO ANSWER SHAPES, AND ONLY ONE WAS BEING READ.
+            /* THREE ANSWER SHAPES, and the middle one cost a regression.
 
-               getDeviceId and getToken answer through the callback. But
-               getNotificationPermission and isPushNotificationsSupported return
-               their value directly and never call back, so waiting only for a
-               callback reported "no answer" for two getters that had already
-               answered. The return value is taken first when there is one. */
+               Some getters answer through the callback. Some return a value.
+               And some return a PROMISE, which is neither: taking the return
+               value blindly printed [object Promise] into the panel for every
+               one of them, which was worse than the "no answer" it replaced.
+
+               So a returned thenable is awaited, a returned plain value is
+               taken as the answer, and the callback covers the rest. */
             var returned = window.dengage(name, function (value) { finish(value); });
-            if (returned !== undefined) { finish(returned); }
+            if (returned && typeof returned.then === 'function') {
+                returned.then(finish, function (err) {
+                    finish('failed: ' + (err && err.message ? err.message : err));
+                });
+            } else if (returned !== undefined) {
+                finish(returned);
+            }
         } catch (err) { finish('unavailable: ' + err.message); }
         window.setTimeout(function () { finish('no answer'); }, 1500);
     }
@@ -256,9 +264,27 @@
         var host = document.getElementById('dps-debug-device');
         if (!host) return;
 
+        /* THE SDK KEEPS ITS SESSION IN LOCAL STORAGE, and reading it here is
+           the difference between guessing and knowing. The browser turned out
+           to have a live session the whole time while session_info stayed
+           empty, and nothing on the page could show that, so the argument went
+           round in circles. */
+        var sdkSession = '';
+        var sdkDevice = '';
+        try {
+            var raw = window.localStorage.getItem('_dn_sessions');
+            if (raw) {
+                var parsed = JSON.parse(raw);
+                sdkSession = parsed.sessionId || '';
+                sdkDevice = parsed.deviceId || '';
+            }
+        } catch (err) { sdkSession = 'unreadable'; }
+
         var rows = [
             ['Contact key', (window.DemoIdentity && window.DemoIdentity.contactKey) ||
                             (window.Account && window.Account.contactKey()) || 'anonymous'],
+            ['SDK session id', sdkSession || 'none yet'],
+            ['SDK device id', sdkDevice || 'none yet'],
             ['Demo slug', window.DEMO_SLUG || '?'],
             ['Resolved shop', (window.StoreContext && window.StoreContext.storeName()) || 'none'],
             ['Postcode', (window.StoreContext && window.StoreContext.state().cep) || 'none'],
@@ -273,9 +299,11 @@
                        '<code>' + esc(r[1]) + '</code></div>';
             }).join('') +
             '<p class="dps-debug-note">Device id and token come from the SDK. ' +
-            'A session is opened when a contact key is applied, not by page ' +
-            'views, so an anonymous browser shows no sessions however much it ' +
-            'browses. Sign in, or load with ?ck=, then check session_info.</p>';
+            'The SDK session id above is read from its own local storage. A ' +
+            'session row is written when a session STARTS; while one is alive ' +
+            'the SDK extends it for 30 minutes rather than writing again, so ' +
+            'continuous browsing produces one row, not many. Search ' +
+            'session_info for this exact session id.</p>';
         }
 
         draw([['Device id', 'asking...'], ['Push token', 'asking...'],
