@@ -91,6 +91,21 @@
                 return;
             }
 
+            /* Gift by age is an anchor to the chips further down the page and
+               is the one item here that should keep its default behaviour. An
+               earlier version cancelled every click before deciding what to do,
+               so this link was cancelled and then handled by nobody: it looked
+               dead while every other item worked. Anything not handled below
+               keeps its own behaviour rather than being silently swallowed. */
+            if (which === 'age') {
+                var chips = document.getElementById('age-chips');
+                if (chips) {
+                    event.preventDefault();
+                    chips.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                return;
+            }
+
             event.preventDefault();
 
             if (which === 'all') { clearFilters(); repaint(); return; }

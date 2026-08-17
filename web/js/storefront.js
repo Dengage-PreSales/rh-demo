@@ -176,12 +176,24 @@
             return !state.store || s.id !== state.store.id;
         });
         if (!others.length) { host.innerHTML = ''; return; }
-        host.innerHTML = '<div class="store-list">' + others.slice(0, 8).map(function (s) {
-            return '<button type="button" data-pick-store="' + escapeAttr(s.id) + '">' +
-                '<span class="store-name">' + escapeText(s.name) + '</span>' +
-                (s.mall ? '<span class="store-where">' + escapeText(s.mall) + '</span>' : '') +
-            '</button>';
-        }).join('') + '</div>';
+
+        /* The count is stated and the list scrolls, rather than eight being
+           shown as though eight were all there were. 37 shops serve Avenida
+           Paulista; a silent cap made that look like 9 and made the resolved
+           shop look like a shortlist rather than a choice out of many. A cap
+           that hides how much it hid is the same fault as a filter that
+           silently matches everything. */
+        var total = (state.stores || []).length;
+        host.innerHTML =
+            '<div class="store-list-head">' +
+                escapeText(t('cepOtherStores', { count: total })) +
+            '</div>' +
+            '<div class="store-list">' + others.map(function (s) {
+                return '<button type="button" data-pick-store="' + escapeAttr(s.id) + '">' +
+                    '<span class="store-name">' + escapeText(s.name) + '</span>' +
+                    (s.mall ? '<span class="store-where">' + escapeText(s.mall) + '</span>' : '') +
+                '</button>';
+            }).join('') + '</div>';
     }
 
     function submitCep() {

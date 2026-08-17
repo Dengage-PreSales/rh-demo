@@ -219,6 +219,73 @@
 
     /* ------------------------------------------------------------------ */
 
+
+    /* ------------------------------------------------------------------ */
+    /* What the SDK itself knows                                           */
+
+    /* Every one of these is the SDK's own getter, asked at the moment the tab
+       is opened rather than cached, because a push token appears the instant
+       permission is granted and a stale panel would say it never arrived.
+
+       Each is wrapped separately. An SDK that has not finished loading, or a
+       getter this account's build does not expose, must show as one unknown
+       line rather than emptying the whole tab. */
+    function askSdk(name, done) {
+        if (typeof window.dengage !== 'function') { done('SDK not on the page'); return; }
+        var settled = false;
+        function finish(v) {
+            if (settled) return;
+            settled = true;
+            done(v === undefined || v === null || v === '' ? 'not set' : String(v));
+        }
+        try {
+            window.dengage(name, function (value) { finish(value); });
+        } catch (err) { finish('unavailable: ' + err.message); }
+        /* Some getters answer synchronously and never call back. */
+        window.setTimeout(function () { finish('no answer'); }, 1500);
+    }
+
+    function paintDevice() {
+        var host = document.getElementById('dps-debug-device');
+        if (!host) return;
+
+        var rows = [
+            ['Contact key', (window.DemoIdentity && window.DemoIdentity.contactKey) ||
+                            (window.Account && window.Account.contactKey()) || 'anonymous'],
+            ['Demo slug', window.DEMO_SLUG || '?'],
+            ['Resolved shop', (window.StoreContext && window.StoreContext.storeName()) || 'none'],
+            ['Postcode', (window.StoreContext && window.StoreContext.state().cep) || 'none'],
+            ['Availability from', (window.StoreContext && window.StoreContext.state().servedFrom) || '?'],
+            ['App guid', ((window.DEMO_CONFIG || {}).dengage || {}).appGuid || '?'],
+            ['Account', ((window.DEMO_CONFIG || {}).dengage || {}).accountId || '?']
+        ];
+
+        function draw(extra) {
+            host.innerHTML = rows.concat(extra).map(function (r) {
+                return '<div class="dps-kv"><span>' + esc(r[0]) + '</span>' +
+                       '<code>' + esc(r[1]) + '</code></div>';
+            }).join('') +
+            '<p class="dps-debug-note">Device id and token come from the SDK. ' +
+            'Session id is not exposed by the Web SDK, so it is read from the ' +
+            'stored row in Data Space rather than from here.</p>';
+        }
+
+        draw([['Device id', 'asking...'], ['Push token', 'asking...'],
+              ['Push permission', 'asking...'], ['Push supported', 'asking...']]);
+
+        var got = {};
+        function maybe() {
+            if (Object.keys(got).length < 4) return;
+            draw([['Device id', got.getDeviceId], ['Push token', got.getToken],
+                  ['Push permission', got.getNotificationPermission],
+                  ['Push supported', got.isPushNotificationsSupported]]);
+        }
+        ['getDeviceId', 'getToken', 'getNotificationPermission', 'isPushNotificationsSupported']
+            .forEach(function (name) {
+                askSdk(name, function (v) { got[name] = v; maybe(); });
+            });
+    }
+
     function build() {
         panel = document.createElement('aside');
         panel.id = 'dps-debug';
@@ -231,7 +298,12 @@
               '<button type="button" data-debug-clear title="Clear the list">Clear</button>' +
               '<button type="button" data-debug-close title="Hide. Add ?debug=1 to bring it back">&times;</button>' +
             '</div>' +
+            '<div class="dps-debug-tabs">' +
+              '<button type="button" data-debug-tab="events" class="is-on">Events</button>' +
+              '<button type="button" data-debug-tab="device">Device</button>' +
+            '</div>' +
             '<ol id="dps-debug-list"></ol>' +
+            '<div id="dps-debug-device" hidden></div>' +
             '<p class="dps-debug-foot">What this page sent, and every request to a ' +
             'dengage.com host. An accepted request is still not a stored row: ' +
             'confirm in Data Space.</p>';
@@ -244,6 +316,20 @@
             if (t.hasAttribute && t.hasAttribute('data-debug-close')) {
                 try { window.sessionStorage.removeItem(storeKey()); } catch (err) { /* private mode */ }
                 panel.remove();
+                return;
+            }
+            if (t.hasAttribute && t.hasAttribute('data-debug-tab')) {
+                var which = t.getAttribute('data-debug-tab');
+                var tabs = panel.querySelectorAll('[data-debug-tab]');
+                for (var i = 0; i < tabs.length; i += 1) {
+                    tabs[i].classList.toggle('is-on', tabs[i] === t);
+                }
+                document.getElementById('dps-debug-list').hidden = which !== 'events';
+                document.getElementById('dps-debug-device').hidden = which !== 'device';
+                /* Asked fresh on every open. A push token appears the moment
+                   permission is granted, and a cached panel would keep saying
+                   it never arrived. */
+                if (which === 'device') paintDevice();
                 return;
             }
             if (t.hasAttribute && t.hasAttribute('data-debug-clear')) {

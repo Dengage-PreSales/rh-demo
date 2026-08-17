@@ -92,12 +92,25 @@ img { max-width: 100%; display: block; }
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    max-width: 320px;
+    /* Was 320px with an ellipsis, which cut "PBKIDS SHOPPING ELDORADO - Loja
+       Parceira" down to "PBKIDS SHOPPING ELDORADO ...". The resolved shop is
+       the single most important phrase on the page for this demo, so it gets
+       the room to be read rather than a tooltip nobody hovers during a call. */
+    max-width: min(420px, 34vw);
+    text-align: left;
 }
 
 .store-chip:hover { background: rgba(255, 255, 255, .85); }
 .store-chip .pin { flex: 0 0 auto; }
-.store-chip .chip-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Two lines rather than one truncated one. line-clamp keeps a pathological
+   name from pushing the header apart. */
+.store-chip .chip-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.25;
+}
 .store-chip .chip-label { font-weight: 500; opacity: .65; }
 .store-chip[data-state="unavailable"] { opacity: .6; }
 
@@ -949,3 +962,39 @@ body.has-drawer { overflow: hidden; }
 @media (max-width: 640px) {
   #dps-debug { max-height: 42vh; font-size: 11px; }
 }
+
+/* The list of shops serving a postcode. It states the true total and scrolls,
+   rather than showing the first eight as though eight were all there were. */
+.store-list-head {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 14px 0 6px;
+  font-weight: 600;
+}
+.store-list { max-height: 210px; overflow-y: auto; }
+
+/* The readout's two tabs: what the page sent, and what the SDK itself knows. */
+.dps-debug-tabs { display: flex; gap: 4px; padding: 6px 10px 0; flex: none; }
+.dps-debug-tabs button {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: #8b8d92;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 3px 8px 5px;
+  cursor: pointer;
+}
+.dps-debug-tabs button.is-on { color: #FCF708; border-bottom-color: #FCF708; }
+
+#dps-debug-device { padding: 8px 10px; overflow-y: auto; flex: 1; }
+.dps-kv {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 3px 0;
+  border-bottom: 1px solid #2a2c30;
+}
+.dps-kv span { color: #8b8d92; min-width: 116px; flex: none; font-size: 10.5px; }
+.dps-kv code { color: #cfd2d6; word-break: break-all; font-size: 10.5px; }
+.dps-debug-note { color: #8b8d92; font-size: 10px; margin: 8px 0 0; line-height: 1.4; }

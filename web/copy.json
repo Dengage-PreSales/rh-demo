@@ -33,7 +33,7 @@
   "cepUnknown": "We could not match that postcode to a region we cover.",
   "cepLocationDenied": "Location permission was declined, so nothing was shared. Enter a postcode instead.",
   "cepLocationUnavailable": "Your browser could not provide a location. Enter a postcode instead.",
-  "cepOtherStores": "Other shops that serve this postcode",
+  "cepOtherStores": "{count} shops serve this postcode. Choose another:",
   "sectionByAge": "Gift by age",
   "sectionFavourites": "Favourite brands",
   "sectionAll": "All toys",

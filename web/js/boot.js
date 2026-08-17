@@ -74,6 +74,18 @@
         });
     }
 
+
+    /* A real title per page, for the browser tab and for the row Dengage keeps. */
+    function setTitle(pageType) {
+        var suffix = 'Dengage eComm Demo';
+        if (pageType === 'product') {
+            var product = window.Catalog.get(window.Storefront.currentProductId());
+            document.title = product ? product.name + ' | ' + suffix : suffix;
+            return;
+        }
+        document.title = 'Toys, gifts and games | ' + suffix;
+    }
+
     function boot(pageType) {
         return Promise.all([
             json('demo.config.json'),
@@ -145,6 +157,18 @@
                drawer. Two owners for one element is how a number ends up stale
                in one place and current in the other, so the drawer owns it
                alone now, through the same listener that repaints the lines. */
+
+            /* THE TITLE IS SET BEFORE THE PAGE VIEW, and that order is the
+               whole point. Every page called itself "Dengage eComm Demo", so
+               page_title in Dengage was the same string on every row and could
+               tell nobody which page anything happened on. The SDK reads the
+               document title at the moment of the call, so this has to happen
+               first.
+
+               It names the page, never the prospect. "Ri Happy" in a browser
+               tab would read as their own site, which is the one thing this
+               demo must never imply. */
+            setTitle(pageType);
 
             /* One page view per page, before anything else is reported. */
             if (window.DengageEvents) {
