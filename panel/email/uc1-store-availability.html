@@ -145,11 +145,30 @@ if (!keyUsed) {
     why = 'no contact key on this send';
 } else {
     try {
-        /* Step one: the contact's devices. */
+        /* Step one: the contact's devices.
+
+           THE LIMIT IS A CORRECTNESS PROBLEM AND NOT A PERFORMANCE ONE, which
+           is the opposite of how it reads. The first working send reported
+           exactly 20 devices against a cap of 20, so the list was truncated and
+           nothing said so. It happened to contain the newest visit. Had that
+           visit been on the twenty first device, the email would have named a
+           different city with complete confidence and no way to tell.
+
+           A demo contact collects devices fast: every private window is a new
+           one. So the cap is raised, and hitting it is now reported rather than
+           passing silently.
+
+           The cost is one page view query per device, at send time, per
+           recipient. Fine for a demo and worth saying plainly if anyone in the
+           room asks: production personalisation does this join inside the
+           platform through the Star Schema, and the hand walk here exists only
+           because a $from reads one table and joins nothing. */
+        var DEVICE_LIMIT = 50;
         var devices = $from('$db.master_device')
             .where('contact_key', '=', keyUsed)
-            .take(20)
+            .take(DEVICE_LIMIT)
             .get() || [];
+        var capped = devices.length >= DEVICE_LIMIT;
 
         if (!devices.length) {
             why = 'no device on contact ' + keyUsed;
@@ -181,7 +200,8 @@ if (!keyUsed) {
                 if (!visit) {
                     why = devices.length + ' device(s) on ' + keyUsed + ', no page view under any';
                 } else {
-                    why = 'via master_device.' + idField + ', ' + devices.length + ' device(s)';
+                    why = 'via master_device.' + idField + ', ' + devices.length + ' device(s)' +
+                          (capped ? ', CAPPED at ' + DEVICE_LIMIT + ' so the list may be incomplete' : '');
                 }
             }
         }

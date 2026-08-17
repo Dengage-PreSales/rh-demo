@@ -238,6 +238,18 @@ await render('no-device', {
     contact_key: 'salil-demo', nearest_store: null, __devices: [], __visitsByDevice: {}
 }, null);
 
+/* Exactly the cap, which is what the first working send hit. It resolved the
+   right city and could not have known whether it had. The footer must now say
+   the list was truncated, so this case exists to keep that line honest. */
+const capped = [];
+const cappedVisits = {};
+for (let i = 1; i <= 50; i++) { capped.push({ device_id: 'dev-' + i }); }
+cappedVisits['dev-50'] = poaVisit;
+await render('device-cap', {
+    contact_key: 'salil-demo', nearest_store: null,
+    __devices: capped, __visitsByDevice: cappedVisits
+}, poaVisit);
+
 console.log('\nOpen the files in out/ to see exactly what each contact receives.');
 
 }
