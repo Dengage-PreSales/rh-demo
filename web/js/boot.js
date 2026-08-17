@@ -86,37 +86,83 @@
         document.title = 'Toys, gifts and games | ' + suffix;
     }
 
+    /* THE SHOP LIST IS 108 KB AND ONLY "use my location" READS IT, so it is
+       fetched when that button is pressed rather than on every page load. It
+       used to sit in the blocking set below, which meant every visitor
+       downloaded it and every page view waited behind it. Almost nobody presses
+       the button.
+
+       FULFILLING SHOPS ONLY, and this filter is the whole point of the list
+       rather than a detail. 78 of the 202 shops we hold are ones their own
+       checkout never offered for collection at any postcode we tested, and
+       every one of them still carries a full stock map. Without the filter,
+       pressing "use my location" anywhere near one of those 78 resolved it and
+       the storefront then answered every availability question about a shop
+       that does not fulfil. The postcode path never had this problem because
+       rh_offer selects on is_pickup itself. Two paths, one of them filtering
+       and the other not, is how a demo ends up contradicting the real
+       storefront in front of the people who know it best. */
+    var storesPromise = null;
+    function loadStores() {
+        if (!storesPromise) {
+            storesPromise = json('stores.json')
+                .catch(function () { return { stores: [] }; })
+                .then(function (data) {
+                    window.STORE_DIRECTORY = (data.stores || []).filter(function (s) {
+                        return s.is_pickup === true &&
+                               typeof s.lat === 'number' && typeof s.lng === 'number';
+                    }).map(function (s) {
+                        return { id: s.store_id, name: s.name, lat: s.lat, lng: s.lng };
+                    });
+                    return window.STORE_DIRECTORY;
+                });
+        }
+        return storesPromise;
+    }
+
+    /* THE FIRST EVENT NO LONGER WAITS FOR THE SHOP LIST OR THE CATALOGUE, and
+       that ordering is the point of this function rather than a refinement.
+
+       Measured at 1051 ms on localhost with no network in the way. Every page
+       view sat behind two round trips and roughly 220 KB: config, copy and the
+       shop list together, and only then the catalogue. On a conference room
+       network that is seconds, and it made this demo slower to report than any
+       other implementation, which is exactly how it was noticed.
+
+       A home page view needs nothing. Its title is a fixed string and its
+       payload is empty, so it fires at once. A product page view needs the
+       catalogue, for its product id, price and category path, and for the title
+       the SDK reads at the moment of the call, so it waits on that one fetch
+       and on nothing else.
+
+       tools/check-first-event.mjs measures both and fails over budget. */
     function boot(pageType) {
-        return Promise.all([
-            json('demo.config.json'),
-            json('copy.json'),
-            json('stores.json').catch(function () { return { stores: [] }; })
-        ]).then(function (results) {
+        var configPromise = json('demo.config.json');
+        var copyPromise = json('copy.json');
+        var catalogPromise = window.Catalog.load('products.json');
+
+        if (pageType === 'home') {
+            setTitle('home');
+            if (window.DengageEvents) window.DengageEvents.pageview('home', {});
+        } else {
+            catalogPromise.then(function () {
+                setTitle('product');
+                if (!window.DengageEvents) return;
+                var early = window.Catalog.get(window.Storefront.currentProductId());
+                window.DengageEvents.pageview('product', early ? {
+                    productId: early.id,
+                    price: early.price,
+                    categoryPath: early.categoryPath
+                } : {});
+            });
+        }
+
+        return Promise.all([configPromise, copyPromise, catalogPromise]).then(function (results) {
             var config = results[0];
             var copy = results[1];
 
             window.DEMO_CONFIG = config;
             window.DEMO_COPY = copy;
-            /* Used only to pick the nearest shop from a browser position, which
-               needs no network call.
-
-               FULFILLING SHOPS ONLY, and this filter is the whole point of the
-               list rather than a detail. 78 of the 215 shops we hold are ones
-               their own checkout never offered for collection at any postcode
-               we tested, and every one of them still carries a full stock map.
-               Without the filter, pressing "use my location" anywhere near one
-               of those 78 resolved it and the storefront then answered every
-               availability question about a shop that does not fulfil. The
-               postcode path never had this problem because rh_offer selects on
-               is_pickup itself. Two paths, one of them filtering and the other
-               not, is how a demo ends up contradicting the real storefront in
-               front of the people who know it best. */
-            window.STORE_DIRECTORY = (results[2].stores || []).filter(function (s) {
-                return s.is_pickup === true &&
-                       typeof s.lat === 'number' && typeof s.lng === 'number';
-            }).map(function (s) {
-                return { id: s.store_id, name: s.name, lat: s.lat, lng: s.lng };
-            });
 
             /* The slug the storefront namespaces everything under must agree
                with the one in the markup, or two demos on this shared origin
@@ -158,35 +204,24 @@
                in one place and current in the other, so the drawer owns it
                alone now, through the same listener that repaints the lines. */
 
-            /* THE TITLE IS SET BEFORE THE PAGE VIEW, and that order is the
-               whole point. Every page called itself "Dengage eComm Demo", so
-               page_title in Dengage was the same string on every row and could
+            /* THE PAGE VIEW HAS ALREADY GONE, from the top of this function,
+               and it does not fire again here. One page per row.
+
+               The title is still set before it, and that order is the whole
+               point. Every page used to call itself "Dengage eComm Demo", so
+               page_title was the same string on every row in Dengage and could
                tell nobody which page anything happened on. The SDK reads the
-               document title at the moment of the call, so this has to happen
-               first.
+               document title at the moment of the call, so it has to be right
+               first, which is why setTitle sits beside each emit above rather
+               than here.
 
                It names the page, never the prospect. "Ri Happy" in a browser
                tab would read as their own site, which is the one thing this
                demo must never imply. */
-            setTitle(pageType);
-
-            /* One page view per page, before anything else is reported. */
-            if (window.DengageEvents) {
-                if (pageType === 'product') {
-                    var product = window.Catalog.get(window.Storefront.currentProductId());
-                    window.DengageEvents.pageview('product', product ? {
-                        productId: product.id,
-                        price: product.price,
-                        categoryPath: product.categoryPath
-                    } : {});
-                } else {
-                    window.DengageEvents.pageview('home', {});
-                }
-            }
 
             return loaded;
         });
     }
 
-    window.RhBoot = { boot: boot, fail: fail };
+    window.RhBoot = { boot: boot, fail: fail, loadStores: loadStores };
 })(window, document);

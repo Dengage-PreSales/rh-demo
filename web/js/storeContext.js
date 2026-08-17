@@ -333,8 +333,19 @@
         }
         state.status = 'loading';
         notify();
+
+        /* THE SHOP LIST IS FETCHED HERE, not on every page load, because this
+           is the only thing that reads it and it is 108 KB. Started before the
+           permission prompt rather than after the answer, so it downloads while
+           the visitor is deciding and is normally in hand by the time a
+           position arrives. */
+        var stores = window.RhBoot && window.RhBoot.loadStores
+            ? window.RhBoot.loadStores()
+            : Promise.resolve(window.STORE_DIRECTORY || []);
+
         return new Promise(function (resolve) {
             window.navigator.geolocation.getCurrentPosition(function (position) {
+              stores.then(function () {
                 var nearest = nearestStore(position.coords.latitude, position.coords.longitude);
                 if (!nearest) {
                     state.status = 'no_store';
@@ -347,6 +358,7 @@
                     result.source = 'geolocation';
                     return result;
                 }));
+              });
             }, function (error) {
                 state.status = 'idle';
                 state.locationRefused = error && error.code === 1
@@ -364,6 +376,10 @@
     /* Straight line distance is enough to pick the closest shop from a list of
        this size, and it needs no network call. */
     function nearestStore(lat, lng) {
+        /* The list is fetched on demand rather than on every page load, so by
+           the time a position comes back it is normally here. useLocation waits
+           for it explicitly before calling this, which is what makes the empty
+           case a real failure to report rather than a race to tolerate. */
         var stores = window.STORE_DIRECTORY || [];
         var best = null;
         var bestDistance = Infinity;

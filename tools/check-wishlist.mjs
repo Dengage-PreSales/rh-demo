@@ -31,7 +31,12 @@ console.log('  signed out :', JSON.stringify(await page.evaluate(() => ({
     saved: window.Wishlist.items().length
 }))));
 
-await page.fill('#account-email', 'ana.silva@example.com');
+/* The form asks for a contact key rather than an email address, and this check
+   was still typing into the field it replaced. Typing a key is the point rather
+   than a detail: deriving one from an address creates a fresh contact with no
+   history, which is what made the Use Case 1 email resolve nothing while the
+   whole loop looked correctly wired. */
+await page.fill('#account-key', 'RH-1');
 await page.click('#account-submit');
 await page.waitForTimeout(400);
 
