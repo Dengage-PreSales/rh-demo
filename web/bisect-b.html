@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bisect B: probe plus the readout</title>
+
+<!-- ==========================================================================
+     A BISECT, NOT A PAGE.
+
+     The storefront records page views against its device and never a session.
+     The showcase demo, on this same origin, same account 28 and same app guid,
+     records both. Reading the minified SDK to explain that produced three wrong
+     answers in a row, so this stops reading and splits the difference instead.
+
+     Everything here except the block below is deleted: no identity script, no
+     storefront modules, no catalogue, no postcode, no event module. What
+     remains is the showcase's dengage block, character for character.
+
+     Two outcomes, and only two.
+
+       A session appears  -> the SDK setup is fine at this path, and something
+                             else on the storefront page is interfering.
+       No session appears -> the path itself is the difference, and the app's
+                             configuration is where to look, not our code.
+     ========================================================================== -->
+
+  <script>
+  (function (window, document) {
+    window.dengage = window.dengage || function () {
+      (window.dengage.q = window.dengage.q || []).push(arguments);
+    };
+    var accountId = '28';
+    var appGuid = '99d9b8fb-0c62-5a85-3e43-2402554d93a5';
+    if (accountId.indexOf('__') !== 0 && appGuid.indexOf('__') !== 0) {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://pcdn.dengage.com/p/push/' + accountId + '/' + appGuid + '/dengage_sdk_loader.js';
+      document.getElementsByTagName('head')[0].appendChild(script);
+    }
+    window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage('initialize');
+  })(window, document);
+  </script>
+
+<style>
+  body { font-family: ui-sans-serif, system-ui, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #23232b; }
+  h1 { font-size: 20px; }
+  code { background: #f2f2f6; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  #out { background: #1e1f22; color: #e8e9ea; padding: 14px; border-radius: 8px; font-family: ui-monospace, monospace; font-size: 12px; white-space: pre-wrap; word-break: break-all; }
+  button { font: inherit; padding: 8px 14px; border-radius: 6px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+</style>
+<script src="js/identity.js"></script>
+<script src="js/debug.js"></script>
+</head>
+<body>
+
+<h1>Bisect B</h1>
+<p>
+  The working probe, with identity.js and debug.js added and nothing else. It exists
+  to answer one question: does a session appear for a page at this path, with no
+  storefront code running?
+</p>
+<p>
+  Leave it open for a few seconds, then read the session id below and look for it
+  in <code>session_info</code>.
+</p>
+
+<p><button type="button" id="again">Read again</button></p>
+<div id="out">reading...</div>
+
+<script>
+/* Reads what the SDK put in its own local storage. No SDK calls of any kind are
+   made from this page, so nothing here can affect the outcome it is measuring. */
+function show() {
+  var lines = [];
+  ['_dn_sessions', '_dn_visitors', '_dn_activeState'].forEach(function (key) {
+    var raw = null;
+    try { raw = window.localStorage.getItem(key); } catch (err) { raw = 'unreadable'; }
+    if (!raw) { lines.push(key + ': (nothing yet)'); return; }
+    try {
+      var o = JSON.parse(raw);
+      if (key === '_dn_sessions') {
+        lines.push('session id : ' + (o.sessionId || '(none)'));
+        lines.push('device id  : ' + (o.deviceId || '(none)'));
+      } else if (key === '_dn_visitors') {
+        lines.push('contactKey : ' + (o.contactKey === '' ? '(anonymous)' : o.contactKey));
+        var ss = o.lastServerSideDataRequest;
+        lines.push('serverSide : ' + (ss ? 'status ' + ss.response.status + ', time ' + ss.time : '(not attempted)'));
+      } else {
+        lines.push('installation: ' + (o.installationId || '(none)'));
+      }
+    } catch (err) { lines.push(key + ': unparseable'); }
+  });
+  lines.push('');
+  lines.push('page: ' + window.location.href);
+  document.getElementById('out').textContent = lines.join('\n');
+}
+document.getElementById('again').addEventListener('click', show);
+setTimeout(show, 2500);
+setTimeout(show, 6000);
+</script>
+
+</body>
+</html>

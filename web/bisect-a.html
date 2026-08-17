@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en" data-demo-slug="rh-demo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bisect A: storefront without the readout</title>
+<!-- Poppins from this repository, not from Google. A third party CDN in the
+     render path is one more thing that can be slow or blocked on a conference
+     room network, and when it is the storefront falls back to a system font in
+     front of the customer whose brand it is meant to look like. -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts/poppins.css">
+<link rel="stylesheet" href="style.css">
+
+<!-- Resolves the demo slug and the contact key synchronously, before the SDK
+     is initialised, so the first page view carries an identity rather than
+     landing on an anonymous device and being reconciled seconds later. -->
+<script src="js/identity.js"></script>
+
+<script>
+/* THE SDK SETUP, MATCHED EXACTLY TO THE SHOWCASE DEMO, which writes sessions
+   correctly on this same account, this same app guid and this same origin.
+
+   This is deliberately not clever. An earlier version here replaced the queue
+   with a poll that waited for the real SDK before calling initialize, on the
+   theory that the SDK never drains window.dengage.q. That theory was wrong: the
+   showcase uses the queue and its sessions land. The SDK reads the queue
+   through a minified alias, which is why grepping the bundle for ".q" found
+   nothing and produced a confident, incorrect conclusion.
+
+   Worse, the poll changed WHEN initialize runs. The SDK boots, drains what is
+   waiting, and sets up the visitor and session from it. An initialize that
+   arrives after that has already missed the boot.
+
+   So: stub, append the loader, call initialize, all in one synchronous block,
+   in that order. If this ever needs to change, diff it against the showcase
+   first rather than reasoning about the bundle. */
+(function (window, document) {
+    window.dengage = window.dengage || function () {
+        (window.dengage.q = window.dengage.q || []).push(arguments);
+    };
+    var accountId = '28';
+    var appGuid = '99d9b8fb-0c62-5a85-3e43-2402554d93a5';
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://pcdn.dengage.com/p/push/' + accountId + '/' + appGuid + '/dengage_sdk_loader.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+    window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage('initialize');
+})(window, document);
+</script>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <div class="header-top">
+      <div class="brand">
+        <span class="brand-mark" data-copy="brandMark">Dengage</span>
+        <span class="brand-sub" data-copy="brandSub">eComm Demo</span>
+      </div>
+
+      <!-- Their own header carries a postcode chip reading "Deliver by:
+           05319-000". This sits in the same place and does the same job. -->
+      <button class="store-chip" id="store-chip" type="button">
+        <span class="pin">▾</span><span class="chip-text">Enter your postcode</span>
+      </button>
+
+      <div class="search">
+        <input id="search-input" type="search" data-copy-attr="placeholder:searchPlaceholder"
+               placeholder="Discover a world of fun here...">
+        <span aria-hidden="true">⌕</span>
+        <div class="results" id="search-results" hidden></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-button" type="button" id="wishlist-button" aria-label="Wish list">
+          &#9825;<span class="badge-count" id="wishlist-count" hidden>0</span>
+        </button>
+        <div class="account">
+        <button class="icon-button" type="button" id="account-button" data-signed-in="false">
+          <span aria-hidden="true">&#128100;</span><span id="account-label">Sign in</span>
+        </button>
+        <div class="account-menu" id="account-menu" hidden>
+          <a href="#" id="account-wishlist" data-copy="loginMyAccount">My account</a>
+          <button type="button" class="button link" id="account-signout" data-copy="loginLogout">Sign out</button>
+        </div>
+      </div>
+      <button class="icon-button" type="button" id="cart-button" aria-label="Bag">
+          🛒<span class="badge-count" id="cart-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="header-nav">
+      <!-- Four of their nine items, the four the capture can back. News, Gift
+           Card, Imported, Exclusive and In-store event are removed rather than
+           left pointing at nothing: no field we captured supports them, and a
+           link that ignores a click is the defect, not the absent one. -->
+      <a href="#" data-nav="all" aria-current="true" data-copy="navAll">All departments</a>
+      <div class="nav-departments">
+        <a href="#" data-nav="departments">
+          <span id="nav-departments-label" data-default="Departments">Departments</span>
+          <span aria-hidden="true">&#9662;</span>
+        </a>
+        <div class="nav-menu" id="nav-departments-menu" hidden></div>
+      </div>
+      <a href="#by-age" data-nav="age" data-copy="navByAge">Gift by age</a>
+      <a href="#" data-nav="pickup" data-copy="navPickup">Pick up in store</a>
+      <a class="pill" href="#" data-nav="outlet" data-copy="navOutlet">OUTLET</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Their service promises. The middle one is the reason this demo exists:
+     collection in ninety minutes only means anything if the shop nearby
+     actually has the toy. -->
+<section class="promises">
+  <div class="wrap promises-row">
+    <div class="promise"><span class="promise-icon">🎁</span>
+      <strong data-copy="promiseGiftWrap">Gift wrapped</strong><span data-copy="promiseGiftWrapSub"></span></div>
+    <div class="promise"><span class="promise-icon">⚡</span>
+      <strong data-copy="promiseFast">Delivered in 3 hours</strong><span data-copy="promiseFastSub"></span></div>
+    <div class="promise"><span class="promise-icon">🏬</span>
+      <strong data-copy="promisePickup">Collect in store in 90 min</strong><span data-copy="promisePickupSub"></span></div>
+    <div class="promise"><span class="promise-icon">🔁</span>
+      <strong data-copy="promiseExchange">Exchange in any store</strong><span data-copy="promiseExchangeSub"></span></div>
+    <div class="promise"><span class="promise-icon">💳</span>
+      <strong data-copy="promiseInstalments">Pay in 6 instalments</strong><span data-copy="promiseInstalmentsSub"></span></div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <div id="state-notice"></div>
+
+    <section class="section" id="by-age">
+      <div class="section-head">
+        <h2 data-copy="sectionByAge">Gift by age</h2>
+      </div>
+      <div class="age-chips" id="age-chips"></div>
+    </section>
+
+    <section class="section" id="all">
+      <div class="section-head">
+        <h2 data-copy="sectionAll">All toys</h2>
+      </div>
+      <div class="toolbar">
+        <button class="chip" id="filter-available" type="button" aria-pressed="false" hidden></button>
+        <span class="result-count" id="result-count"></span>
+      </div>
+      <div class="grid" id="product-grid"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap"><span data-copy="footerNote"></span></div>
+</footer>
+
+<!-- The postcode gateway, mirroring theirs: a yellow card, the postcode field
+     with the continue button attached, and the location option underneath. -->
+<div class="overlay" id="cep-overlay">
+  <div class="dialog cep-dialog" role="dialog" aria-modal="true" aria-labelledby="cep-title">
+    <h2 id="cep-title" data-copy="cepTitle">Your postcode guarantees offers and delivery times for your region</h2>
+    <p data-copy="cepBody"></p>
+    <div class="field cep-field">
+      <input id="cep-input" inputmode="numeric" autocomplete="postal-code"
+             data-copy-attr="placeholder:cepPlaceholder" placeholder="00000-000">
+      <button class="button cep-continue" id="cep-submit" type="button" data-copy="cepSubmit">continue</button>
+    </div>
+    <div class="dialog-error" id="cep-error"></div>
+    <button class="button secondary cep-locate" id="cep-locate" type="button">
+      <span aria-hidden="true">➤</span> <span data-copy="cepUseLocation">use my location</span>
+    </button>
+    <div id="cep-stores"></div>
+    <div class="cep-foot">
+      <span data-copy="cepPrivacy"></span>
+      <button class="button link" id="cep-clear" type="button" data-copy="cepClear">Clear my shop</button>
+      <button class="button link" data-close-cep type="button" data-copy="cepLater">Please provide your zip code later.</button>
+    </div>
+  </div>
+</div>
+
+<!-- The cart, built to match theirs rather than to a generic pattern.
+
+     Read from rihappy.com.br on 16 August 2026, from the blocks their own
+     VTEX theme declares:
+
+       minicart.v2            maxDrawerWidth 450, quantityDisplay "not-empty"
+       minicart-banner        a content slot above the lines
+       minicart-product-list  a numeric stepper per line
+       minicart-coupon        a coupon field
+       minicart-summary       Subtotal, Descontos, Impostos, Total
+       minicart-checkout-button   "Finalizar compra"
+       minicart-empty-state
+
+     So it is a right drawer at 450px, their block order, and their labels in
+     English. Their badge shows only when the cart is not empty, which is what
+     quantityDisplay "not-empty" means and what ours already did.
+
+     TWO DELIBERATE DIFFERENCES, both chosen rather than overlooked.
+
+     The coupon field is left out. There is no discount behind it here, and a
+     control that ignores what you type is the same defect as a navigation link
+     that goes nowhere.
+
+     Impostos is left out. We hold no tax figure, and printing a row we cannot
+     compute would be inventing a number. Subtotal and Total are real, and
+     Discounts appears only when a line genuinely carries a higher list price.
+
+     ONE DELIBERATE ADDITION, and it is the point of the demo rather than an
+     embellishment: the notice naming what the resolved shop cannot supply.
+     Their cart does not have it. It is the Dengage layer, in the one place
+     where ship from store stops being an abstraction. -->
+<div class="scrim" id="scrim"></div>
+<!-- Saved items. Their list, gated behind a sign in the way theirs is, and
+     carrying availability because a saved item outlives the shop it was
+     saved at. -->
+<aside class="drawer" id="wishlist" role="dialog" aria-modal="true" aria-labelledby="wishlist-title">
+  <header class="drawer-head">
+    <h2 id="wishlist-title" data-copy="wishlistTitle">Wish list</h2>
+    <button class="icon-button" id="wishlist-close" type="button" aria-label="Close">&#215;</button>
+  </header>
+  <ul class="cart-lines" id="wishlist-lines"></ul>
+</aside>
+
+<aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+  <header class="drawer-head">
+    <h2 id="cart-title" data-copy="cartTitle">Cart</h2>
+    <button class="icon-button" id="cart-close" type="button"
+            data-copy-attr="aria-label:cartClose" aria-label="Close">&#215;</button>
+  </header>
+
+  <!-- Their minicart-banner. A Dengage inline content target, so a campaign in
+       the panel can place content here without anyone touching this file. The
+       documented convention is an id carrying the dn-inline-target prefix, and
+       the div has to exist even while empty or there is nothing to inject into.
+       Empty it has no height. -->
+  <div id="dn-inline-target-cart" class="inline-slot"></div>
+
+  <div id="cart-notice-host"></div>
+  <ul class="cart-lines" id="cart-lines"></ul>
+
+  <footer class="drawer-foot">
+    <dl class="cart-summary">
+      <div class="summary-row"><dt data-copy="cartSubtotal">Subtotal</dt><dd id="cart-subtotal"></dd></div>
+      <div class="summary-row" id="cart-discount-row" hidden>
+        <dt data-copy="cartDiscounts">Discounts</dt><dd id="cart-discount"></dd>
+      </div>
+      <div class="summary-row is-total"><dt data-copy="cartTotal">Total</dt><dd id="cart-total"></dd></div>
+    </dl>
+    <button class="button primary block" id="cart-checkout" type="button"
+            data-copy="cartCheckout" disabled>Complete purchase</button>
+  </footer>
+</aside>
+
+<!-- Checkout. Their bundle names every part: a shipping method choice of
+     Entrega or Retirada, a store selection under pickup, the noStoresState
+     that offers Continuar com entrega, a summary carrying Shipping, and
+     Meios de pagamento. -->
+<div class="overlay" id="checkout-overlay">
+  <div class="dialog checkout-dialog" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <header class="drawer-head">
+      <h2 id="checkout-title" data-copy="checkoutTitle">Checkout</h2>
+      <button class="icon-button" id="checkout-close" type="button" aria-label="Close">&#215;</button>
+    </header>
+    <div id="checkout-body"></div>
+    <footer class="drawer-foot">
+      <button class="button primary block" id="checkout-place" type="button"
+              data-copy="checkoutPlace">Place order</button>
+      <button class="button secondary block" id="checkout-close-done" type="button"
+              data-copy="checkoutCloseDone" hidden>Continue shopping</button>
+    </footer>
+  </div>
+</div>
+
+<!-- Sign in. Their flow offers an access code by email; the code step is
+     collapsed because there is no mailbox in a demo and a field that accepts
+     any six digits would be pretending to check something. -->
+<div class="overlay" id="account-overlay">
+  <div class="dialog account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-title">
+    <h2 id="account-title" data-copy="loginTitle">Sign in</h2>
+    <p id="account-reason" hidden></p>
+    <p class="login-method" data-copy="loginKeyMethod">Link this browser to a contact</p>
+    <div class="field">
+      <input id="account-key" type="text" autocomplete="off" spellcheck="false"
+             data-copy-attr="placeholder:loginKeyPlaceholder" placeholder="e.g. salil-demo">
+      <button class="button cep-continue" id="account-submit" type="button"
+              data-copy="loginContinue">Continue</button>
+    </div>
+    <div class="dialog-error" id="account-error"></div>
+    <div class="cep-foot">
+      <span data-copy="loginNote"></span>
+      <button class="button link" data-close-account type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/dengageEvents.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/storeContext.js"></script>
+<script src="js/availability.js"></script>
+<script src="js/storefront.js"></script>
+<script src="js/cartDrawer.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/search.js"></script>
+<script src="js/account.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/boot.js"></script>
+<script>
+window.RhBoot.boot('home').then(function () {
+    window.Storefront.ageChips(document.getElementById('age-chips'));
+    window.Storefront.paintHome();
+
+    /* The shop is resolved after the shelves are already on screen. A slow
+       availability lookup slows down the badges, never the shop. */
+    window.StoreContext.boot().then(function (state) {
+        if (state.status === 'idle') window.Storefront.openCep();
+    });
+}).catch(function (err) {
+    window.RhBoot.fail(err && err.message ? err.message : '');
+});
+</script>
+
+<div style="position:fixed;bottom:12px;left:12px;z-index:99;background:#1e1f22;color:#e8e9ea;
+     font:12px ui-monospace,monospace;padding:12px 14px;border-radius:8px;max-width:420px">
+  <strong>Bisect A</strong>: the whole storefront, with debug.js removed and nothing else changed.
+  <div id="bis" style="margin-top:8px;white-space:pre-wrap;word-break:break-all">reading...</div>
+</div>
+<script>
+setTimeout(function () {
+  var out = [];
+  try {
+    var s = JSON.parse(localStorage.getItem('_dn_sessions') || '{}');
+    out.push('session id : ' + (s.sessionId || '(none)'));
+    out.push('device id  : ' + (s.deviceId || '(none)'));
+    var v = JSON.parse(localStorage.getItem('_dn_visitors') || '{}');
+    var ss = v.lastServerSideDataRequest;
+    out.push('serverSide : ' + (ss ? 'status ' + ss.response.status + ', time ' + ss.time : '(not attempted)'));
+  } catch (e) { out.push('unreadable: ' + e.message); }
+  document.getElementById('bis').textContent = out.join('\n');
+}, 4000);
+</script>
+</body>
+</html>

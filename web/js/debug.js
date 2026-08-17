@@ -153,6 +153,27 @@
        first pageView. The SDK loads async and later, so its own traffic is caught
        too. Every wrapper passes the original through untouched and never swallows
        an error: a readout is not allowed to change what the page does. */
+    /* THIS FUNCTION BROKE THE THING IT WAS BUILT TO WATCH. Two faults, and both
+       are worth spelling out because a diagnostic that changes the system it
+       measures is the worst kind of bug to own.
+
+       ONE. window.fetch must be invoked with window as its receiver. The
+       wrapper forwarded whatever receiver the caller happened to have, with
+       originalFetch.apply(this, ...). Called from strict mode code, and the SDK
+       is strict mode code, `this` is undefined, and the browser throws Illegal
+       invocation before the request is ever made. That is precisely the
+       signature we chased for hours: lastServerSideDataRequest sitting at
+       status 0, time 0, an empty payload, while other traffic went through
+       untouched because it used XHR or sendBeacon instead.
+
+       TWO, and this is why it hid for so long: the patch only exists when the
+       readout is on, and the readout was on for every single test. The SDK
+       probe has no debug.js at all, so it wrote its session immediately, and
+       that difference read as a mystery about paths and configuration rather
+       than about the observer.
+
+       The receiver is always window now. A page is otherwise untouched, which
+       the early return above already guaranteed. */
     function watchTransport() {
         var originalFetch = window.fetch;
         if (typeof originalFetch === 'function') {
@@ -160,10 +181,10 @@
                 var url = '';
                 try { url = typeof input === 'string' ? input : (input && input.url) || ''; }
                 catch (err) { url = ''; }
-                if (!isDengage(url)) return originalFetch.apply(this, arguments);
+                if (!isDengage(url)) return originalFetch.apply(window, arguments);
                 var method = String((init && init.method) || (input && input.method) || 'GET').toUpperCase();
                 var at = Date.now();
-                return originalFetch.apply(this, arguments).then(function (response) {
+                return originalFetch.apply(window, arguments).then(function (response) {
                     net(method, url, response.status, '', at);
                     return response;
                 }, function (err) {
@@ -215,6 +236,8 @@
         }
     }
 
+    /* Already gated: the module returns above when the readout is not wanted,
+       so nothing here patches a page that is not being watched. */
     watchTransport();
 
     /* ------------------------------------------------------------------ */
