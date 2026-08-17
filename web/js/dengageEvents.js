@@ -442,6 +442,61 @@
         return true;
     }
 
+
+    /* ------------------------------------------------------------------ */
+    /* Availability seen, which is the row a segment can be built on       */
+
+    /* THE PROBLEM THIS SOLVES. scenario() pushes to dataLayer and dispatches a
+       window event, and that is all it does: it never reaches Dengage. It is an
+       on-site trigger, not data. So rh_substitution_shown cannot be segmented
+       on, however useful it looks in the readout.
+
+       A segment for "people who wanted a toy their shop could not supply" needs
+       a stored row, so this writes one. Same mechanism as the wishlist, for the
+       same reason: sendDeviceEvent is the SDK's documented way to write a named
+       table with the payload untouched, and it fills in nothing on your behalf,
+       so event_id, event_type and is_used are set here.
+
+       IT RECORDS WHAT WAS SHOWN, NOT WHAT IS TRUE. The row says a person was
+       told a shop could not supply a toy. It is a record of the message, which
+       is what a campaign should act on, and it stays correct even after the
+       stock behind it changes.
+
+       The table rh_availability_events has to exist in the panel before this
+       stores anything. Until it does, the call is accepted and dropped, which
+       looks identical to success from the browser: confirm the row in Data
+       Space, never the 200. */
+    function availabilitySeen(product, store, state) {
+        if (!product || !store) return null;
+        var row = compact({
+            product_id: String(product.id),
+            store_id: String(store.id || ''),
+            store_name: String(store.name || ''),
+            cep: String(product.cep || ''),
+            state: state,
+            price: money(product.price),
+            substitute_id: product.substituteId ? String(product.substituteId) : undefined,
+            substitute_reason: product.substituteReason
+        });
+        row.event_id = eventId();
+        row.event_type = state === 'available' ? 'available' : 'unavailable';
+        row.is_used = false;
+
+        if (typeof window.dengage !== 'function') {
+            if (window.console) console.log('[dengage dry] availabilitySeen', row);
+            announceSent('availabilitySeen', row, false);
+            return row;
+        }
+        try {
+            window.dengage('sendDeviceEvent', 'rh_availability_events', row);
+            announceSent('availabilitySeen', row, true);
+        } catch (err) {
+            if (window.console) console.error('[dengage] availabilitySeen failed', err);
+            announceSent('availabilitySeen', row, false);
+        }
+        return row;
+    }
+
     /* ------------------------------------------------------------------ */
     /* On-site scenarios                                                   */
 
@@ -862,6 +917,7 @@
         addToWishlist: addToWishlist,
         removeFromWishlist: removeFromWishlist,
         setContactKey: setContactKey,
+        availabilitySeen: availabilitySeen,
         scenario: scenario,
         pushSupported: pushSupported,
         pushStatus: pushStatus,

@@ -176,11 +176,35 @@
                 '</div>' +
             '</div>';
 
-        /* Worth a campaign trigger: a customer who was shown a replacement is a
-           customer whose first choice was not there, and that is a moment a
-           marketer would want to follow up. */
+        /* TWO REPORTS OF ONE MOMENT, and they are not interchangeable.
+
+           A customer shown a replacement is a customer whose first choice was
+           not there, which is exactly the moment a marketer wants to follow up.
+           Reporting it needs both of these:
+
+             scenario() fires an on-site trigger. It reaches dataLayer and a
+               window event and NOTHING ELSE. It never leaves the browser, so a
+               segment can never be built on it, however plainly it shows in the
+               readout.
+             availabilitySeen() writes a stored row, which is the one a segment
+               and therefore a journey can act on.
+
+           The first was here alone for a while and looked sufficient. It is
+           not: it drives widgets, not audiences. */
+        var ctx = context();
+        var state = ctx ? ctx.state() : null;
+
         if (window.DengageEvents && window.DengageEvents.scenario) {
             window.DengageEvents.scenario('substitution_shown');
+        }
+        if (window.DengageEvents && window.DengageEvents.availabilitySeen && state && state.store) {
+            window.DengageEvents.availabilitySeen({
+                id: product.id,
+                price: product.price,
+                cep: state.cep,
+                substituteId: replacement.id,
+                substituteReason: result.reason
+            }, state.store, 'withoutStock');
         }
     }
 
