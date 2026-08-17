@@ -154,9 +154,16 @@ if (!keyUsed) {
            visit been on the twenty first device, the email would have named a
            different city with complete confidence and no way to tell.
 
-           A demo contact collects devices fast: every private window is a new
-           one. So the cap is raised, and hitting it is now reported rather than
-           passing silently.
+           A long lived contact accumulates devices without limit. The one this
+           was found on has six years of them, which is what a real Ri Happy
+           contact looks like rather than an artefact of testing, so the cap is
+           a production concern and not a demo one. It is raised, and hitting it
+           is now reported rather than passing silently.
+
+           It also makes "newest across every device" the load bearing part of
+           this walk rather than a nicety. Six years of devices means most of
+           them are dead, and the first one a query happens to return is more
+           likely to be an old phone than the browser somebody is using now.
 
            The cost is one page view query per device, at send time, per
            recipient. Fine for a demo and worth saying plainly if anyone in the
