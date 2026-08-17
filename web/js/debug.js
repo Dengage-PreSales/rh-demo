@@ -239,9 +239,16 @@
             done(v === undefined || v === null || v === '' ? 'not set' : String(v));
         }
         try {
-            window.dengage(name, function (value) { finish(value); });
+            /* TWO ANSWER SHAPES, AND ONLY ONE WAS BEING READ.
+
+               getDeviceId and getToken answer through the callback. But
+               getNotificationPermission and isPushNotificationsSupported return
+               their value directly and never call back, so waiting only for a
+               callback reported "no answer" for two getters that had already
+               answered. The return value is taken first when there is one. */
+            var returned = window.dengage(name, function (value) { finish(value); });
+            if (returned !== undefined) { finish(returned); }
         } catch (err) { finish('unavailable: ' + err.message); }
-        /* Some getters answer synchronously and never call back. */
         window.setTimeout(function () { finish('no answer'); }, 1500);
     }
 
@@ -266,8 +273,9 @@
                        '<code>' + esc(r[1]) + '</code></div>';
             }).join('') +
             '<p class="dps-debug-note">Device id and token come from the SDK. ' +
-            'Session id is not exposed by the Web SDK, so it is read from the ' +
-            'stored row in Data Space rather than from here.</p>';
+            'A session is opened when a contact key is applied, not by page ' +
+            'views, so an anonymous browser shows no sessions however much it ' +
+            'browses. Sign in, or load with ?ck=, then check session_info.</p>';
         }
 
         draw([['Device id', 'asking...'], ['Push token', 'asking...'],
