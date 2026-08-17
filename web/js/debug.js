@@ -322,11 +322,13 @@
                        '<code>' + esc(r[1]) + '</code></div>';
             }).join('') +
             '<p class="dps-debug-note">Device id and token come from the SDK. ' +
-            'The SDK session id above is read from its own local storage. A ' +
-            'session row is written when a session STARTS; while one is alive ' +
-            'the SDK extends it for 30 minutes rather than writing again, so ' +
-            'continuous browsing produces one row, not many. Search ' +
-            'session_info for this exact session id.</p>';
+            'The SDK session id above is read from its own local storage. ' +
+            'session_info is keyed by the DEVICE id, with the session in its ' +
+            'own column, so look the device id up rather than the session id. ' +
+            'Rows arrive hours after the visit rather than at once: measured ' +
+            'on 17 August 2026, the newest row on the whole account was about ' +
+            'three hours old. An absent row means look again later. It does ' +
+            'not mean the visit was lost.</p>';
         }
 
         draw([['Device id', 'asking...'], ['Push token', 'asking...'],

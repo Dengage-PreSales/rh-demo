@@ -88,6 +88,12 @@ Until the table exists the call is **accepted and dropped**, which looks
 identical to success from the browser. Confirm the row in Data Space, never the
 200.
 
+**And give it time before calling it dropped.** Measured on 17 August 2026:
+`session_info` rows arrived about three hours after the visit, account wide,
+while the device appeared in Profiles within seconds. Dropped and not yet
+ingested look identical for the first few hours, so a missing row is only
+evidence once a row from a later visit has appeared beside it.
+
 ### Could the tables we already have do this?
 
 Asked on 17 August 2026, and worth the answer being written down, because three
