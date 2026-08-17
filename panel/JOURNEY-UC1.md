@@ -63,12 +63,26 @@ Columns to create:
 | `substitute_id` | text | what was offered instead |
 | `substitute_reason` | text | `same_licence`, `same_age_and_shelf`, `same_shelf`, `nearby_price` |
 
-Two relations, and the table does nothing without either:
+**One relation, to `master_device`.** An earlier revision of this file asked for
+a second one to `master_contact` and that was wrong. The Star Schema keeps
+`master_contact` and `master_device` as its two centres, joined by
+`master_device.contact_key`, which is nullable so that anonymous devices exist.
+The six standard event tables all hang off `master_device`, and a contact is
+reached through the device rather than directly. Dengage describe this as
+"N-level relations while keeping master_contact and master_device as the central
+connection points", which is why segment A can still be built as a Table Filter
+from a table that never touches `master_contact` itself.
 
-| Relation | Why |
-|---|---|
-| to `master_device` | Dengage's SDK reference requires it for any Big Data Table written by `sendDeviceEvent`. Without it the call is accepted and dropped |
-| to `master_contact`, on `key` | what makes the table reachable from Segments as a **Table Filter**, which is how segment A below is built |
+The relation is also what makes the table work at all: the SDK reference
+requires one for any Big Data Table written by `sendDeviceEvent`, and without it
+the call is accepted, returns 200, and the row is discarded.
+
+**Get the column pair by copying, not by reading.** Dengage's Star Schema page
+does not describe the event tables, and the `key` column holds a contact key
+when the visitor is identified and a device id when they are not, so the pairing
+is not something to reason out. Open the relation that already exists on
+`page_view_events` in Data Space > schema, and mirror it. Five sibling tables
+already carry the connection this table needs, and Dengage made all five.
 
 Until the table exists the call is **accepted and dropped**, which looks
 identical to success from the browser. Confirm the row in Data Space, never the
@@ -186,8 +200,9 @@ noticeable on a shared screen. One per day per contact.
 
 ## Order to build it in
 
-1. **Create `rh_availability_events`**, with `price` as a decimal and both
-   relations set. Segment A waits on it. Nothing else does.
+1. **Create `rh_availability_events`**, with `price` as a decimal and its
+   `master_device` relation copied from `page_view_events`. Segment A waits on
+   it. Nothing else does.
 2. Browse a toy Porto Alegre cannot supply, then confirm one row landed.
 3. Paste the email. Send it once manually to confirm it renders.
 4. Build segment A. Confirm it has exactly the contact who browsed.
