@@ -105,32 +105,88 @@ var keyUsed = '';
 
 try { keyUsed = String($Contact.contact_key || ''); } catch (eK) { keyUsed = ''; }
 
+/* THE KEY COLUMN HOLDS A DEVICE ID, ALWAYS. Established 17 August 2026 by a
+   send that reported "no page view row under salil-demo" while the contact was
+   signed in and its rows were sitting in the table under
+   09d62423-d55f-4e50-bc22-5ddbb45d671f.
+
+   Our own notes said key was "the contact key when identified, the device id
+   when not". That was written from the column's name and never checked. It is
+   simply the device id, signed in or not, and an earlier version of this
+   template joined a contact key straight to it and matched nothing.
+
+   Segments are unaffected and that is worth understanding rather than assuming,
+   because it is the reason this looked fine for so long. The Star Schema hangs
+   the event tables off master_device, and master_device.contact_key reaches
+   master_contact, so the platform performs that hop itself whenever a segment
+   or an event definition is evaluated. A raw $from query gets no such help. It
+   has to walk the same two steps by hand, which is what this now does. */
+function readVisit(k) {
+    var v = $from('$db.page_view_events')
+        .where('key', '=', k)
+        .order('event_date', 'DESC')
+        .first();
+    /* .first() is reported to exist but has never returned a row here, so if it
+       gives nothing the same query is asked for a list instead. */
+    if (!v) {
+        var rows = $from('$db.page_view_events')
+            .where('key', '=', k)
+            .order('event_date', 'DESC')
+            .take(1)
+            .get();
+        if (rows && rows.length) { v = rows[0]; }
+    }
+    return v || null;
+}
+
 /* ---- 1. What they actually did, if we can read it ---------------------- */
+var visit = null;
 if (!keyUsed) {
     why = 'no contact key on this send';
 } else {
     try {
-        var visit = $from('$db.page_view_events')
-            .where('key', '=', keyUsed)
-            .order('event_date', 'DESC')
-            .first();
+        /* Step one: the contact's devices. */
+        var devices = $from('$db.master_device')
+            .where('contact_key', '=', keyUsed)
+            .take(20)
+            .get() || [];
 
-        /* .first() is reported to exist but has never returned a row here, so
-           if it gives nothing the same query is asked for a list instead. One
-           of the two shapes is the right one and this stops the send being the
-           place we find out which. */
-        if (!visit) {
-            var rows = $from('$db.page_view_events')
-                .where('key', '=', keyUsed)
-                .order('event_date', 'DESC')
-                .take(1)
-                .get();
-            if (rows && rows.length) { visit = rows[0]; why = 'resolved via take/get, not first()'; }
+        if (!devices.length) {
+            why = 'no device on contact ' + keyUsed;
+        } else {
+            /* The column naming the device is not documented anywhere this
+               repository can reach, so the first row is asked which of the
+               likely names it actually carries, and the answer is reported in
+               the footer rather than guessed at again next time. */
+            var idField = '';
+            var probe = devices[0];
+            var names = ['device_id', 'id', 'deviceId', 'device_uuid', 'key'];
+            for (var f = 0; f < names.length; f++) {
+                if (probe[names[f]]) { idField = names[f]; break; }
+            }
+
+            if (!idField) {
+                why = 'device row carries no recognisable id column';
+            } else {
+                /* Newest page view across every device this contact owns. One
+                   person on a laptop and a phone has two, and the laptop's last
+                   visit is not necessarily the relevant one. */
+                var best = null;
+                for (var i = 0; i < devices.length; i++) {
+                    var v = readVisit(String(devices[i][idField]));
+                    if (!v) { continue; }
+                    if (!best || String(v.event_date) > String(best.event_date)) { best = v; }
+                }
+                visit = best;
+                if (!visit) {
+                    why = devices.length + ' device(s) on ' + keyUsed + ', no page view under any';
+                } else {
+                    why = 'via master_device.' + idField + ', ' + devices.length + ' device(s)';
+                }
+            }
         }
 
-        if (!visit) {
-            why = 'no page view row under ' + keyUsed;
-        } else {
+        if (visit) {
             if (visit.product_id) { sku = String(visit.product_id); }
             /* The postcode rides in the page url as ?cep=01310-100, so it is
                only there if they arrived by one of our links. */

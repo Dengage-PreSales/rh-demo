@@ -116,14 +116,38 @@ async function render(label, contact, lastVisit) {
        breakFirst makes .first() answer nothing here, which is the only way to
        exercise that fallback before a send does. */
     const breakFirst = contact.__breakFirst === true;
-    const $from = () => {
+
+    /* TWO TABLES NOW, because the template walks the star schema by hand. The
+       key column on page_view_events holds a device id and never a contact key,
+       proven by a send on 17 August, so a contact's visits are only reachable
+       through master_device.
+
+       The device rows are modelled as the panel presents them, with device_id
+       as the id column. contact.__deviceIdField renames it, which is how the
+       "device row carries no recognisable id column" branch gets exercised. */
+    const devices = contact.contact_key
+        ? (contact.__devices || [{ [contact.__deviceIdField || 'device_id']: 'dev-1' }])
+        : [];
+    const visitsByDevice = contact.__visitsByDevice
+        || (lastVisit ? { 'dev-1': lastVisit } : {});
+
+    const $from = (table) => {
+        let col = null, val = null;
         const chain = {
-            where: () => chain,
+            where: (c, _op, v) => { col = c; val = v; return chain; },
             order: () => chain,
             take: () => chain,
-            first: () => (breakFirst ? null : lastVisit),
-            get: () => (lastVisit ? [lastVisit] : [])
+            first: () => (breakFirst ? null : rows()[0] || null),
+            get: () => rows()
         };
+        function rows() {
+            if (String(table).indexOf('master_device') > -1) return devices;
+            if (col === 'key') {
+                const v = visitsByDevice[val];
+                return v ? [v] : [];
+            }
+            return [];
+        }
         return chain;
     };
     const $CustomApi = {
@@ -194,6 +218,25 @@ await render('first-broken', { contact_key: 'salil-demo', nearest_store: null, _
              { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971' });
 await render('no-contact',   { contact_key: '', nearest_store: null },
              { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971' });
+
+/* Two devices on one contact, with the newer visit on the second. A laptop and
+   a phone is the ordinary case rather than an exotic one, and taking whichever
+   device the query returned first would show the wrong city. */
+const poaVisit = { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971', event_date: '2026-08-17T19:44:00' };
+await render('two-devices', {
+    contact_key: 'salil-demo', nearest_store: null,
+    __devices: [{ device_id: 'dev-1' }, { device_id: 'dev-2' }],
+    __visitsByDevice: {
+        'dev-1': { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=01310-100', product_id: '100184971', event_date: '2026-08-16T09:00:00' },
+        'dev-2': poaVisit
+    }
+}, poaVisit);
+
+/* A contact Dengage knows with no device under it, which is what a contact
+   created by import rather than by browsing looks like. */
+await render('no-device', {
+    contact_key: 'salil-demo', nearest_store: null, __devices: [], __visitsByDevice: {}
+}, null);
 
 console.log('\nOpen the files in out/ to see exactly what each contact receives.');
 
