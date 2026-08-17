@@ -14,56 +14,36 @@
 
 <script src="js/identity.js"></script>
 <script>
-/* INITIALIZE IS CALLED WHEN THE SDK IS REALLY THERE, NOT QUEUED AHEAD OF IT.
+/* THE SDK SETUP, MATCHED EXACTLY TO THE SHOWCASE DEMO, which writes sessions
+   correctly on this same account, this same app guid and this same origin.
 
-   The page used to define a stub that pushed calls onto window.dengage.q and
-   then called initialize immediately. Nothing threw, so it looked fine. But the
-   Dengage SDK never drains that queue: there is no replay of pending calls
-   anywhere in it. The initialize call sat in an array forever.
+   This is deliberately not clever. An earlier version here replaced the queue
+   with a poll that waited for the real SDK before calling initialize, on the
+   theory that the SDK never drains window.dengage.q. That theory was wrong: the
+   showcase uses the queue and its sessions land. The SDK reads the queue
+   through a minified alias, which is why grepping the bundle for ".q" found
+   nothing and produced a confident, incorrect conclusion.
 
-   Everything after it still worked, which is what made this so hard to see.
-   By the time the storefront sent its first page view the real function had
-   replaced the stub, so events arrived normally. Only the calls made before the
-   SDK finished loading were lost, and initialize is the one that matters most:
-   it is what starts a session and what applies the contact key. That is exactly
-   the shape of the symptom, page views landing while session_info stayed empty.
+   Worse, the poll changed WHEN initialize runs. The SDK boots, drains what is
+   waiting, and sets up the visitor and session from it. An initialize that
+   arrives after that has already missed the boot.
 
-   So the stub is marked, and initialize waits for a window.dengage that is not
-   the stub. Ten seconds, then it gives up and says so rather than polling for
-   the life of the page. */
-window.dengage = window.dengage || function () {
-    (window.dengage.q = window.dengage.q || []).push(arguments);
-};
-window.dengage.__dnStub = true;
-</script>
-<script async src="https://pcdn.dengage.com/p/push/28/99d9b8fb-0c62-5a85-3e43-2402554d93a5/dengage_sdk_loader.js"></script>
-<script>
-(function (w) {
-    var tries = 0;
-    function announce(ok) {
-        w.__dnReady = ok;
-        try { w.dispatchEvent(new CustomEvent('dps:sdk-ready', { detail: { ok: ok } })); }
-        catch (err) { /* a notification must never break the page */ }
-    }
-    (function wait() {
-        if (typeof w.dengage === 'function' && !w.dengage.__dnStub) {
-            try {
-                w.__dnInit ? w.dengage('initialize', w.__dnInit) : w.dengage('initialize');
-                announce(true);
-            } catch (err) {
-                if (w.console) w.console.error('[dengage] initialize failed', err);
-                announce(false);
-            }
-            return;
-        }
-        if (tries++ > 200) {
-            if (w.console) w.console.warn('[dengage] SDK did not load, so nothing was initialised');
-            announce(false);
-            return;
-        }
-        w.setTimeout(wait, 50);
-    })();
-})(window);
+   So: stub, append the loader, call initialize, all in one synchronous block,
+   in that order. If this ever needs to change, diff it against the showcase
+   first rather than reasoning about the bundle. */
+(function (window, document) {
+    window.dengage = window.dengage || function () {
+        (window.dengage.q = window.dengage.q || []).push(arguments);
+    };
+    var accountId = '28';
+    var appGuid = '99d9b8fb-0c62-5a85-3e43-2402554d93a5';
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://pcdn.dengage.com/p/push/' + accountId + '/' + appGuid + '/dengage_sdk_loader.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+    window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage('initialize');
+})(window, document);
 </script>
 </head>
 <body>

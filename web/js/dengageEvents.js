@@ -114,62 +114,27 @@
     }
 
 
-    /* ------------------------------------------------------------------ */
-    /* Nothing goes out before initialize has run                          */
+    /* NO BUFFER HERE, AND THAT IS DELIBERATE.
 
-    /* The page waits for the real SDK before calling initialize, so for the
-       first moment or two there is a live window.dengage that has not been
-       initialised yet. Sending into that gap is how an event lands outside a
-       session, which is the thing we just spent an evening chasing. So calls
-       are held until the page announces the SDK is ready, then flushed in the
-       order they were made.
+       A previous version held every call until the page announced the SDK was
+       ready, built on the belief that the SDK ignores the stub's queue. It does
+       not: the showcase demo uses that queue and its sessions land. Buffering
+       on top of a queue that already works only delayed everything and changed
+       the order the SDK boots in.
 
-       If the SDK never loads, the buffer is flushed anyway so every call takes
-       its usual dry path and still shows in the readout. A demo with no network
-       must still be inspectable. */
-    var ready = window.__dnReady;
-    var pending = [];
-
-    function flush() {
-        var queued = pending;
-        pending = [];
-        for (var i = 0; i < queued.length; i += 1) {
-            try { queued[i](); } catch (err) {
-                if (window.console) window.console.error('[dengage] queued call failed', err);
-            }
-        }
-    }
-
-    if (ready === undefined) {
-        window.addEventListener('dps:sdk-ready', function (event) {
-            ready = !!(event.detail && event.detail.ok);
-            flush();
-        });
-        /* A page that somehow never announces must not swallow everything. */
-        window.setTimeout(function () {
-            if (ready === undefined) { ready = false; flush(); }
-        }, 12000);
-    }
-
-    function whenReady(fn) {
-        if (ready !== undefined) { fn(); return; }
-        pending.push(fn);
-    }
+       The stub in the page head collects anything sent before the SDK arrives,
+       and the SDK drains it. Calls made after that reach the real function
+       directly. Nothing here needs to know which case it is in. */
 
     function send(action, payload) {
         var body = compact(payload);
-        whenReady(function () { dispatch(action, body); });
-        return body;
-    }
-
-    function dispatch(action, body) {
         if (typeof window.dengage !== 'function') {
             /* No SDK on the page, which is the normal state when the template
                is served locally without an application configured. Log the
                shape so it stays reviewable. */
             if (window.console) console.log('[dengage dry] ' + action, body);
             announceSent(action, body, false);
-            return;
+            return body;
         }
         try {
             window.dengage(action, body);
@@ -178,6 +143,7 @@
             if (window.console) console.error('[dengage] ' + action + ' failed', err);
             announceSent(action, body, false);
         }
+        return body;
     }
 
     /* ------------------------------------------------------------------ */
@@ -453,18 +419,10 @@
        Handoff 1.7, 6.2. */
     function setContactKey(key) {
         if (!key) return false;
-        /* Held behind the same gate as every event. Signing in before the SDK
-           has landed would otherwise be dropped in precisely the way initialize
-           was, and silently. */
-        whenReady(function () { applyContactKey(key); });
-        return true;
-    }
-
-    function applyContactKey(key) {
         if (typeof window.dengage !== 'function') {
             if (window.console) console.log('[dengage dry] setContactKey ' + key);
             announceSent('setContactKey', { contact_key: key }, false);
-            return;
+            return true;
         }
         try {
             /* A bare string, not a payload object. compact() is deliberately not
@@ -474,13 +432,14 @@
         } catch (err) {
             if (window.console) console.error('[dengage] setContactKey failed', err);
             announceSent('setContactKey', { contact_key: key }, false);
-            return;
+            return false;
         }
         if (window.console) console.log('[dengage] setContactKey ' + key);
         /* Announced like every other call, so the readout can show that the
            browser was linked to a contact. It used to happen silently, which
            made a working call indistinguishable from one that never fired. */
         announceSent('setContactKey', { contact_key: key }, true);
+        return true;
     }
 
     /* ------------------------------------------------------------------ */
