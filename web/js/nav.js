@@ -67,6 +67,38 @@
         }).join('');
     }
 
+
+    /* THE MENU IS POSITIONED AGAINST THE VIEWPORT, not against the nav, and
+       that is the whole fix rather than a refinement.
+
+       .header-nav carries overflow-x: auto so the bar can scroll sideways on a
+       phone. An absolutely positioned child of a scroll container is clipped by
+       it, so the dropdown opened at full height and was cut down to a two pixel
+       sliver under the bar. It looked like a link that did nothing, and the
+       check that was supposed to cover it asked the DOM whether the buttons
+       existed. They did. Nobody could see them.
+
+       position: fixed escapes the clip, but only if no ancestor carries a
+       transform, so the coordinates are measured from the button each time it
+       opens rather than written into the stylesheet. */
+    function toggleDepartments(button) {
+        var menu = el('nav-departments-menu');
+        if (!menu) return;
+        if (!menu.hidden) { menu.hidden = true; return; }
+
+        var box = button.getBoundingClientRect();
+        menu.style.position = 'fixed';
+        menu.style.top = Math.round(box.bottom + 6) + 'px';
+        menu.style.left = Math.round(box.left) + 'px';
+        menu.style.right = 'auto';
+        menu.hidden = false;
+
+        /* If it would run off the bottom, let it scroll rather than disappear. */
+        var room = window.innerHeight - box.bottom - 24;
+        menu.style.maxHeight = Math.max(160, room) + 'px';
+        menu.style.overflowY = 'auto';
+    }
+
     function clearFilters() {
         sf().setDepartment(null);
         sf().setOutlet(false);
@@ -86,8 +118,7 @@
 
             if (which === 'departments') {
                 event.preventDefault();
-                var menu = el('nav-departments-menu');
-                if (menu) menu.hidden = !menu.hidden;
+                toggleDepartments(link);
                 return;
             }
 

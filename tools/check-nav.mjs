@@ -31,7 +31,21 @@ const realPickup = await page.evaluate(() =>
     window.Catalog.all().filter(p => window.StoreContext.availabilityOf(p.id) === 'available').length);
 console.log('  pick up in store:', pickup, 'tiles, shop can supply', realPickup, pickup === realPickup ? 'match' : 'MISMATCH');
 
-await page.click('[data-nav="departments"]'); await page.waitForTimeout(300);
+await page.click('[data-nav="departments"]'); await page.waitForTimeout(400);
+
+/* ASSERT WHAT A PERSON CAN SEE, not what the DOM contains. The first version
+   counted buttons inside the menu and passed while the menu was clipped to a
+   two pixel sliver by the nav's own horizontal scrolling. The buttons existed.
+   Nobody could see them, and the link read as dead. */
+const menuBox = await page.locator('#nav-departments-menu').boundingBox();
+const firstBox = await page.locator('#nav-departments-menu button').first().boundingBox();
+console.log('  menu visible    :', menuBox && menuBox.height > 80
+    ? `yes, ${Math.round(menuBox.height)}px tall`
+    : `NO, only ${menuBox ? Math.round(menuBox.height) : 0}px tall`);
+console.log('  first item      :', firstBox && firstBox.height > 10
+    ? `visible, ${Math.round(firstBox.height)}px tall`
+    : 'NOT VISIBLE');
+if (!menuBox || menuBox.height < 80) process.exitCode = 1;
 const depts = await page.evaluate(() => document.querySelectorAll('#nav-departments-menu button').length);
 await page.click('#nav-departments-menu button'); await page.waitForTimeout(500);
 const inDept = await tiles();
