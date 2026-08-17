@@ -14,7 +14,11 @@ saying out loud in the room: one creative, two entry points, correct every time.
 
 ### A Big Data Table, `rh_availability_events`
 
-**This is the blocking item.** Without it the primary segment cannot be built.
+**Not blocking, and an earlier revision of this file was wrong to say it was.**
+The email that Ri Happy receive can be produced today with no new table at all,
+using `page_view_events` and `$blockSend`. What the table buys is an audience
+that exists as an audience. [The alternatives, and why this one](#could-the-tables-we-already-have-do-this)
+sets out the whole comparison.
 
 The storefront already fires `rh_substitution_shown` when a visitor is shown a
 replacement. That is an on-site trigger and **nothing else**: `scenario()`
@@ -55,13 +59,54 @@ Columns to create:
 | `store_name` | text | for the message, so it need not be looked up |
 | `cep` | text | the postcode they browsed under |
 | `state` | text | `withoutStock` |
-| `price` | number | |
+| `price` | **decimal** | not integer. The row carries `99.99`, and an integer column rounds or rejects it |
 | `substitute_id` | text | what was offered instead |
 | `substitute_reason` | text | `same_licence`, `same_age_and_shelf`, `same_shelf`, `nearby_price` |
+
+Two relations, and the table does nothing without either:
+
+| Relation | Why |
+|---|---|
+| to `master_device` | Dengage's SDK reference requires it for any Big Data Table written by `sendDeviceEvent`. Without it the call is accepted and dropped |
+| to `master_contact`, on `key` | what makes the table reachable from Segments as a **Table Filter**, which is how segment A below is built |
 
 Until the table exists the call is **accepted and dropped**, which looks
 identical to success from the browser. Confirm the row in Data Space, never the
 200.
+
+### Could the tables we already have do this?
+
+Asked on 17 August 2026, and worth the answer being written down, because three
+of the four alternatives are more attractive than they turn out to be.
+
+**The moment has three facts in it**: who, which toy, and **what the shop that
+would actually serve them answered**. The first two are already in
+`page_view_events`, which carries `key` and `product_id`. The third has no
+column anywhere in the six, and columns cannot be added to them.
+
+| Route | Verdict |
+|---|---|
+| `stock_count` on `page_view_events` | **No.** `rh_store_stock` holds a state, `available` or `withoutStock`, and no counts at all, so a number there would be invented. It is also a shared column whose meaning is catalogue-wide stock for every other demo writing it |
+| `page_url` | **Nearly.** It already carries `cep=`, and the answer could be stamped in beside it. Two things stop it: `pageView` fires at boot, before the shop resolves, so the first product view has no postcode in its URL at all; and a segment on it needs a `contains` operator on `page_url`, which Dengage's published operator examples do not include |
+| `page_type` | **No.** It takes free text in practice, but inventing a value writes a private vocabulary into a table five live demo sites share |
+| A Remote Table over Supabase | **No.** The remote table reference lists Oracle, BigQuery, MSSQL, Azure SQL Data Warehouse and Redshift. Postgres is not among them, and the feature needs the Relational Database licence |
+| A Remote Segment over Supabase | **Possible, and more work.** Remote Segments do support PostgreSQL and can be a flow audience. But Supabase knows every availability fact and does not know who browsed what: `rh_offer` is `stable`, which it has to be for PostgREST to allow a GET, so it cannot log. The remote route is therefore a new logging endpoint, a new table, and a Remote Source someone has to configure, in place of one Data Space table |
+
+**And the route that genuinely needs nothing new.** Segment on `Product Viewed`
+from `page_view_events`, and let the email do the availability check and
+`$blockSend` when the shop has the toy. The person who receives an email is
+exactly the same person either way.
+
+What that version cannot do is show the audience as an audience. The panel would
+report everyone who looked at a toy, most of whom are then silently blocked, so
+there is no honest number to cap on, report on or put on screen. It also spends a
+Custom API call per recipient to decide not to send. The stored row is what turns
+"we suppressed the ones who were fine" into "this many people hit the problem
+today", and on the 24th that is the sentence worth being able to say.
+
+So: build the table, and know that it is an improvement rather than a
+prerequisite. If it is not ready in time, the `$blockSend` version ships and the
+demo still works.
 
 ### The email
 
@@ -141,7 +186,8 @@ noticeable on a shared screen. One per day per contact.
 
 ## Order to build it in
 
-1. **Create `rh_availability_events`.** Everything else waits on it.
+1. **Create `rh_availability_events`**, with `price` as a decimal and both
+   relations set. Segment A waits on it. Nothing else does.
 2. Browse a toy Porto Alegre cannot supply, then confirm one row landed.
 3. Paste the email. Send it once manually to confirm it renders.
 4. Build segment A. Confirm it has exactly the contact who browsed.
