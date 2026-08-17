@@ -3,40 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bisect B: initialize with a contact key</title>
+<title>Bisect C: getters queued before the SDK loads</title>
 
 <!-- ==========================================================================
-     ONE VARIABLE, AND IT IS THE ONE THE PROBE NEVER TESTED.
+     ONE VARIABLE: four getter calls queued behind initialize.
 
-     An earlier version of this page added identity.js and debug.js together,
-     which is two variables and answers nothing. This changes exactly one thing
-     against sdk-probe.html: initialize is called WITH an argument.
+     The debug readout asks the SDK four questions, and the storefront can reach
+     them before the real SDK has finished loading. When that happens they do
+     not run: they are pushed onto window.dengage.q, the same queue initialize
+     sits in, and the SDK processes the whole queue when it boots.
 
-     Why that is worth its own page. identity.js sets window.__dnInit when a
-     contact key is known, and the snippet then calls
+     The theory this page tests is that one of those four throws while the queue
+     is being drained, and that whatever the SDK does after them, session
+     creation included, never runs. It would fit the symptom exactly. Page views
+     are queued early and land; a session is set up later in the same boot and
+     does not.
 
-         dengage('initialize', { contactKey: ... })
+     It is a theory and nothing more. Four have already been wrong.
 
-     The probe has no identity.js, so __dnInit is undefined there and the same
-     line calls dengage('initialize') with nothing. So the two pages have never
-     been running the same call, and the storefront comment claiming they match
-     the showcase "character for character" was true of the text and false of
-     the behaviour whenever a key was present.
-
-     Dengage's own Web SDK reference documents setContactKey as a call made
-     AFTER initialize and shows no argument for initialize at all. Passing one
-     is therefore undocumented rather than merely different, which is enough to
-     make it worth ruling in or out before anything else.
-
-     THE ARGUMENT IS SET INLINE HERE rather than by loading identity.js, so the
-     variable is the argument itself and not a second script.
-
-       A session appears  -> initialize's argument is innocent. Try bisect C.
-       No session appears -> found it. The storefront stops passing __dnInit and
-                             calls setContactKey after boot instead.
+       A session appears  -> the getters are innocent, and with bisect A and B
+                             also clean the difference is somewhere neither page
+                             carries. Say so rather than guessing again.
+       No session appears -> found it. The readout asks the SDK nothing until
+                             the SDK is genuinely present.
      ========================================================================== -->
-
-  <script>window.__dnInit = { contactKey: 'bisect-b' };</script>
 
   <script>
   (function (window, document) {
@@ -51,7 +41,16 @@
       script.src = 'https://pcdn.dengage.com/p/push/' + accountId + '/' + appGuid + '/dengage_sdk_loader.js';
       document.getElementsByTagName('head')[0].appendChild(script);
     }
-    window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage('initialize');
+    window.dengage('initialize');
+
+    /* The four the readout asks, in the order it asks them, queued immediately
+       behind initialize because the loader above is async and cannot have
+       arrived yet. This is the storefront's timing reproduced rather than
+       described. */
+    window.dengage('getDeviceId', function () {});
+    window.dengage('getToken', function () {});
+    window.dengage('getNotificationPermission', function () {});
+    window.dengage('isPushNotificationsSupported', function () {});
   })(window, document);
   </script>
 
@@ -66,32 +65,32 @@
 </head>
 <body>
 
-<h1>Bisect B: initialize with a contact key</h1>
+<h1>Bisect C: getters queued before the SDK loads</h1>
 
 <p>
-  The probe, with one change: <code>initialize</code> is called with
-  <code>{ contactKey: 'bisect-b' }</code> instead of with nothing. That is the
-  only difference between the two pages.
+  The probe, with one change: four getter calls are queued straight after
+  <code>initialize</code>, exactly as the debug readout can do on the storefront.
+  Nothing else differs.
 </p>
 
 <p class="warn">
   <strong>Open this in a fresh private window.</strong> A live session is
   extended rather than restarted for 30 minutes, and every page on this origin
-  shares one browser storage, so a session started by the probe minutes earlier
-  would be reused here and would report a pass that means nothing.
+  shares one browser storage, so a session started on another page minutes
+  earlier would be reused here and would report a pass that means nothing.
+</p>
+
+<p>
+  Open the browser console as well. If the theory is right, the error that
+  breaks the drain is printed there.
 </p>
 
 <p><button type="button" id="again">Read again</button></p>
 <div id="out">reading...</div>
 
 <script>
-/* Reads what the SDK put in its own local storage. No SDK calls of any kind are
-   made from this page, so nothing here can affect the outcome it is measuring.
-
-   serverSide is the line worth watching. It is the SDK's own record of the call
-   it makes to Dengage about this visitor, and if a session is never written
-   this says whether the request was refused, never attempted, or answered fine
-   and simply did not produce a row. Those three point in three directions. */
+/* Reads what the SDK put in its own local storage. Nothing below calls the SDK,
+   so the readout cannot affect the outcome it is measuring. */
 function show() {
   var lines = [];
   ['_dn_sessions', '_dn_visitors', '_dn_activeState'].forEach(function (key) {
@@ -113,6 +112,8 @@ function show() {
     } catch (err) { lines.push(key + ': unparseable'); }
   });
   lines.push('');
+  lines.push('queue left : ' +
+    (window.dengage && window.dengage.q ? window.dengage.q.length + ' undrained' : 'drained or absent'));
   lines.push('page: ' + window.location.href);
   document.getElementById('out').textContent = lines.join('\n');
 }
