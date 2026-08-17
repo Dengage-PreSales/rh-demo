@@ -1,19 +1,18 @@
-node_modules/
-
-# Nothing secret is ever committed here. These three are the files that would
-# carry a credential if anyone was in a hurry.
-.env
-tools/.env
-android/local.properties
-android/app/google-services.json
 
 # Android build output
-android/.gradle/
-android/build/
-android/app/build/
-android/.idea/
-*.iml
+# Nothing secret is ever committed here. These three are the files that would
+# carry a credential if anyone was in a hurry.
 *.apk
+*.iml
 *.keystore
-
 .DS_Store
+.env
+android/.gradle/
+android/.idea/
+android/app/build/
+android/app/google-services.json
+android/build/
+android/local.properties
+node_modules/
+out/
+tools/.env

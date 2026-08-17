@@ -1,0 +1,270 @@
+<!-- ==========================================================================
+     USE CASE 1, THE EMAIL. This is the deliverable, not the storefront.
+
+     R1.1 asks that campaign creative reflect inventory at each individual
+     store. This is that: one campaign, one block of content, and a different
+     message per recipient depending on which shop serves them and what that
+     shop has on its shelf right now.
+
+     HOW IT RESOLVES A SHOP, in order, because there is more than one way and
+     they are not equally good.
+
+       1. The contact's last page view. The postcode they actually browsed
+          under and the toy they actually looked at. This is the best version
+          because nothing has to be set by hand and the shop shown is the one
+          they were really served.
+       2. $Contact.nearest_store, if that column has been filled in. Works
+          today with no assumptions, which is why it is here.
+       3. A default postcode, so a send to a brand new contact still renders
+          something honest rather than nothing.
+
+     If none of those produce a shop the send is blocked. An email about
+     availability that cannot name a shop has nothing to say.
+
+     WHAT IS PROVEN AND WHAT IS NOT, as of 17 August 2026.
+
+     Proven by real sends: $Contact.columnName reads a contact field.
+     $CustomApi.rh_email(cep, sku, n) answers, 27 times out of 27 across nine
+     cities and three sends. All eight $from methods exist including .order().
+     Curly brace tags are NOT substituted; only {%= %} is.
+
+     NOT proven: the $from row read. The first attempt failed with
+     42703: column "contact_key" does not exist. factory/phase0/SCHEMA.md,
+     read from the live account on 9 August, records that these tables use
+     "key" and "event_date", so that is what this uses. It is still a first
+     attempt, which is exactly why path 1 is wrapped and falls through to
+     path 2 rather than taking the send down with it.
+
+     THE ONE RULE THIS FILE MUST NOT BREAK. Availability has three states.
+     True and false both mean a shop was asked. Null means no shop resolved and
+     nobody was asked, and it must read as silence, never as "not available".
+     ========================================================================== -->
+
+{%
+/* Brazilian money. 1548.99 becomes 1.548,99, not 1548.99.
+
+   The storefront formats through its own helper; an email has none, so raw
+   numbers were reaching the page. Showing R$ 1548.99 to the Head of CRM of a
+   Brazilian retailer is the kind of detail that costs more attention than it
+   deserves. Written out rather than using toLocaleString, because the panel's
+   engine is not a browser and its locale support is not something to bet a
+   send on. */
+function brl(v) {
+    var n = Number(v);
+    if (!n && n !== 0) { return ''; }
+    var neg = n < 0;
+    n = Math.abs(n);
+    var whole = Math.floor(n);
+    var cents = Math.round((n - whole) * 100);
+    if (cents === 100) { whole += 1; cents = 0; }
+    var w = String(whole);
+    var out = '';
+    for (var k = 0; k < w.length; k++) {
+        if (k > 0 && (w.length - k) % 3 === 0) { out += '.'; }
+        out += w.charAt(k);
+    }
+    return (neg ? '-' : '') + out + ',' + (cents < 10 ? '0' + cents : String(cents));
+}
+
+var cep = '';
+var sku = '';
+var shopId = '';
+var how = '';
+
+/* ---- 1. What they actually did, if we can read it ---------------------- */
+try {
+    var visit = $from('$db.page_view_events')
+        .where('key', '=', $Contact.contact_key)
+        .order('event_date', 'DESC')
+        .first();
+
+    if (visit) {
+        if (visit.product_id) { sku = String(visit.product_id); }
+        /* The postcode rides in the page url as ?cep=01310-100, so it is only
+           there if they arrived by one of our links. Missing is normal. */
+        var url = String(visit.page_url || '');
+        var at = url.indexOf('cep=');
+        if (at > -1) {
+            cep = url.substring(at + 4).split('&')[0].replace(/[^0-9]/g, '');
+        }
+        if (cep) { how = 'last visit'; }
+    }
+} catch (e) {
+    /* Path 1 is the newest and least proven part of this. It must never be the
+       reason a campaign fails to send. */
+    how = '';
+}
+
+/* ---- 2. A shop set on the contact -------------------------------------- */
+if (!cep) {
+    try {
+        if ($Contact.nearest_store) {
+            shopId = String($Contact.nearest_store);
+            how = 'contact shop';
+        }
+    } catch (e2) { shopId = ''; }
+}
+
+/* ---- 3. Somewhere real, so a new contact still gets a sensible email ---- */
+if (!cep && !shopId) {
+    cep = '01310100';
+    how = 'default';
+}
+
+/* The hero toy. Their own Spider-Man Titan Hero unless the contact looked at
+   something else, which is what makes this personal rather than a broadcast. */
+if (!sku) { sku = '100184971'; }
+
+var d = null;
+try {
+    var raw = shopId
+        ? $CustomApi.rh_store_offer(shopId)
+        : $CustomApi.rh_email(cep, sku, '3');
+    d = JSON.parse(raw);
+} catch (e3) {
+    d = null;
+}
+
+/* No answer, or an answer that names no shop, means there is nothing truthful
+   to say about availability. Say nothing at all rather than something wrong. */
+if (!d || !d.storeName) { $blockSend(); }
+
+var hero = d.hero || null;
+var sub = d.substitute || null;
+var offers = d.offers || [];
+
+/* THE THREE STATES. Null is silence. */
+var heroKnown = hero && hero.available !== null && hero.available !== undefined;
+var heroHas = heroKnown && hero.available === true;
+var heroMissing = heroKnown && hero.available === false;
+%}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f5f6;margin:0;padding:24px 0;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:8px;overflow:hidden;font-family:Helvetica,Arial,sans-serif;color:#3F3F40;">
+
+  <!-- Header. The Dengage mark, never the prospect's. -->
+  <tr><td style="background:#FCF708;padding:18px 24px;">
+    <span style="font-size:20px;font-weight:700;color:#3F3F40;">Dengage</span>
+    <span style="font-size:12px;color:#3F3F40;opacity:0.75;margin-left:8px;">eComm Demo</span>
+  </td></tr>
+
+  <!-- The shop. This line is the whole use case: the message knows which
+       physical store serves this person. -->
+  <tr><td style="padding:22px 24px 6px;">
+    <div style="font-size:12px;color:#6b6b6d;text-transform:uppercase;letter-spacing:0.5px;">Your store</div>
+    <div style="font-size:17px;font-weight:700;margin-top:4px;">{%= d.storeName %}</div>
+  </td></tr>
+
+  {% if (heroHas) { %}
+  <!-- ============ IN STOCK AT THEIR SHOP ============ -->
+  <tr><td style="padding:14px 24px 0;">
+    <div style="font-size:15px;">Still available for collection at your store.</div>
+  </td></tr>
+  <tr><td style="padding:16px 24px;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td width="150" valign="top">
+          <img src="{%= hero.image_url %}" width="140" alt="{%= hero.name %}"
+               style="display:block;border:0;max-width:140px;">
+        </td>
+        <td valign="top" style="padding-left:14px;">
+          <div style="font-size:15px;font-weight:600;line-height:1.35;">{%= hero.name %}</div>
+          <div style="font-size:19px;font-weight:700;margin-top:8px;">R$ {%= brl(hero.price) %}</div>
+          <div style="margin-top:6px;font-size:13px;color:#2E7D32;font-weight:600;">
+            Collect at {%= d.storeName %}
+          </div>
+          <a href="{%= hero.page_url %}"
+             style="display:inline-block;margin-top:14px;background:#603F8E;color:#ffffff;
+                    text-decoration:none;padding:11px 20px;border-radius:4px;
+                    font-size:14px;font-weight:600;">Reserve for collection</a>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  {% } else if (heroMissing && sub) { %}
+  <!-- ============ NOT AT THEIR SHOP, SO SOMETHING THAT IS ============ -->
+  <tr><td style="padding:14px 24px 0;">
+    <div style="font-size:15px;">
+      {%= hero ? hero.name : 'The toy you looked at' %} is not on the shelf at your store right now.
+    </div>
+    <div style="font-size:14px;color:#6b6b6d;margin-top:6px;">
+      This one is, and it is
+      {%= d.substituteReason === 'same_licence' ? 'from the same range' :
+          d.substituteReason === 'same_age_and_shelf' ? 'for the same age group' :
+          d.substituteReason === 'same_shelf' ? 'from the same shelf' :
+          'a close match' %}.
+    </div>
+  </td></tr>
+  <tr><td style="padding:16px 24px;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td width="150" valign="top">
+          <img src="{%= sub.image_url %}" width="140" alt="{%= sub.name %}"
+               style="display:block;border:0;max-width:140px;">
+        </td>
+        <td valign="top" style="padding-left:14px;">
+          <div style="font-size:15px;font-weight:600;line-height:1.35;">{%= sub.name %}</div>
+          <div style="font-size:19px;font-weight:700;margin-top:8px;">R$ {%= brl(sub.price) %}</div>
+          <div style="margin-top:6px;font-size:13px;color:#2E7D32;font-weight:600;">
+            Collect at {%= d.storeName %}
+          </div>
+          <a href="{%= sub.page_url %}"
+             style="display:inline-block;margin-top:14px;background:#603F8E;color:#ffffff;
+                    text-decoration:none;padding:11px 20px;border-radius:4px;
+                    font-size:14px;font-weight:600;">See it</a>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  {% } else { %}
+  <!-- ============ NOTHING CLAIMED ============
+       Reached when availability is unknown, which is not the same as absent.
+       No claim is made either way; the shop is named and the offers below
+       stand on their own. -->
+  <tr><td style="padding:14px 24px 0;">
+    <div style="font-size:15px;">Ready to collect at your store.</div>
+  </td></tr>
+  {% } %}
+
+  <!-- What that shop can actually hand over. Every one of these is filtered by
+       the same per store stock, so nothing here can be unavailable. -->
+  {% if (offers.length) { %}
+  <tr><td style="padding:8px 24px 4px;">
+    <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b6b6d;">
+      Also on the shelf at {%= d.storeName %}
+    </div>
+  </td></tr>
+  <tr><td style="padding:10px 24px 20px;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+      {% for (var i = 0; i < offers.length && i < 3; i++) { %}
+        <td width="33%" valign="top" style="padding-right:8px;">
+          <a href="{%= offers[i].page_url %}" style="text-decoration:none;color:#3F3F40;">
+            <img src="{%= offers[i].image_url %}" width="100%" alt="{%= offers[i].name %}"
+                 style="display:block;border:0;max-width:160px;">
+            <div style="font-size:12px;line-height:1.3;margin-top:6px;">{%= offers[i].name %}</div>
+            <div style="font-size:14px;font-weight:700;margin-top:4px;">R$ {%= brl(offers[i].price) %}</div>
+          </a>
+        </td>
+      {% } %}
+      </tr>
+    </table>
+  </td></tr>
+  {% } %}
+
+  <tr><td style="padding:16px 24px 22px;border-top:1px solid #eceef0;">
+    <div style="font-size:11px;color:#9a9a9c;line-height:1.5;">
+      A Dengage demonstration storefront. Product names and images are Ri Happy's own.
+      Availability resolved at send time from the store serving this contact.
+      <!-- Remove this line before the call. It is how you tell, at a glance,
+           which of the three resolution paths produced this email. -->
+      <br>Resolved by: {%= how %}{% if (d.storeId) { %} ({%= d.storeId %}){% } %}
+    </div>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
