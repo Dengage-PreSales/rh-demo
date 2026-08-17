@@ -84,28 +84,70 @@ var sku = '';
 var shopId = '';
 var how = '';
 
-/* ---- 1. What they actually did, if we can read it ---------------------- */
-try {
-    var visit = $from('$db.page_view_events')
-        .where('key', '=', $Contact.contact_key)
-        .order('event_date', 'DESC')
-        .first();
+/* WHY PATH 1 DID NOT FIRE, carried all the way to the footer.
 
-    if (visit) {
-        if (visit.product_id) { sku = String(visit.product_id); }
-        /* The postcode rides in the page url as ?cep=01310-100, so it is only
-           there if they arrived by one of our links. Missing is normal. */
-        var url = String(visit.page_url || '');
-        var at = url.indexOf('cep=');
-        if (at > -1) {
-            cep = url.substring(at + 4).split('&')[0].replace(/[^0-9]/g, '');
+   The first real send resolved by 'default' after a visit that had a postcode
+   and a contact key in its address, and the template could not say which of the
+   five possible reasons applied. Swallowing the error is right, because path 1
+   must never take a send down. Swallowing the reason as well is not: it turns
+   every send into the same dead end.
+
+   Five outcomes, and each points somewhere different:
+
+     read failed          the $from call itself. The message names the fault
+     no contact key       a test send with no contact behind it, which is the
+                          most likely explanation of the first attempt
+     no row               the key is real but no page view is stored under it
+     row, no cep          they browsed without a postcode in the address
+     row, cep             path 1 worked                                        */
+var why = '';
+var keyUsed = '';
+
+try { keyUsed = String($Contact.contact_key || ''); } catch (eK) { keyUsed = ''; }
+
+/* ---- 1. What they actually did, if we can read it ---------------------- */
+if (!keyUsed) {
+    why = 'no contact key on this send';
+} else {
+    try {
+        var visit = $from('$db.page_view_events')
+            .where('key', '=', keyUsed)
+            .order('event_date', 'DESC')
+            .first();
+
+        /* .first() is reported to exist but has never returned a row here, so
+           if it gives nothing the same query is asked for a list instead. One
+           of the two shapes is the right one and this stops the send being the
+           place we find out which. */
+        if (!visit) {
+            var rows = $from('$db.page_view_events')
+                .where('key', '=', keyUsed)
+                .order('event_date', 'DESC')
+                .take(1)
+                .get();
+            if (rows && rows.length) { visit = rows[0]; why = 'resolved via take/get, not first()'; }
         }
-        if (cep) { how = 'last visit'; }
+
+        if (!visit) {
+            why = 'no page view row under ' + keyUsed;
+        } else {
+            if (visit.product_id) { sku = String(visit.product_id); }
+            /* The postcode rides in the page url as ?cep=01310-100, so it is
+               only there if they arrived by one of our links. */
+            var url = String(visit.page_url || '');
+            var at = url.indexOf('cep=');
+            if (at > -1) {
+                cep = url.substring(at + 4).split('&')[0].replace(/[^0-9]/g, '');
+            }
+            if (cep) { how = 'last visit'; }
+            else { why = 'row found, no cep in its page_url'; }
+        }
+    } catch (e) {
+        /* Path 1 is the newest and least proven part of this. It must never be
+           the reason a campaign fails to send. */
+        how = '';
+        why = 'read failed: ' + (e && e.message ? e.message : String(e));
     }
-} catch (e) {
-    /* Path 1 is the newest and least proven part of this. It must never be the
-       reason a campaign fails to send. */
-    how = '';
 }
 
 /* ---- 2. A shop set on the contact -------------------------------------- */
@@ -339,6 +381,8 @@ if (heroHas && hero) {
       {% /* Remove this line before the call. It is how you tell, at a glance,
            which of the three resolution paths produced this email. */ %}
       <br>Resolved by: {%= how %}{% if (d.storeId) { %} ({%= d.storeId %}){% } %}
+      {% if (why) { %}<br>Path 1: {%= why %}{% } %}
+      <br>Contact key on this send: {%= keyUsed ? keyUsed : '(none)' %}
     </div>
   </td></tr>
 
