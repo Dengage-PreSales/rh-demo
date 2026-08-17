@@ -21,17 +21,22 @@
    something it cannot check is worse than one that is honestly absent. The step
    that carries meaning, identifying the person, is the one we keep.
 
-   THE CONTACT KEY IS DERIVED, NOT COUNTED
+   THE FORM ASKS FOR THE CONTACT KEY, and that is the point rather than a
+   convenience.
 
-   DPS-<n>, where n comes from the email address rather than from a counter.
-   Signing in twice with the same address has to reach the same contact, or a
-   rehearsal quietly creates a second one and the email reads the wrong last
-   visit. A counter cannot survive a page reload; a derivation needs nothing
-   stored at all.
+   An earlier version asked for an email address and derived DPS-<n> from it.
+   That is exactly backwards for this demo: deriving a key CREATES a contact
+   rather than linking to one, so signing in as salil@dengage.com produced a
+   brand new contact with no history, and the Use Case 1 email then had no last
+   visit to read. The whole loop looked wired and resolved nothing.
 
-   The prefix carries no slug on purpose. Storage is namespaced by slug so a
-   second demo never adopts this identity, and the prefix is what a purge
-   filters on across all demos. See identity.js.
+   So the key is typed and passed to setContactKey verbatim. Nothing is
+   derived, nothing is invented, and the browser attaches to a contact that
+   already exists in Dengage with whatever history it already has.
+
+   This is the same identity ?ck= sets in the address bar, which is how a
+   pre-sales person switches contact without touching the form at all. Both
+   routes end in the same SDK call.
    ========================================================================== */
 (function (window, document) {
     'use strict';
@@ -63,24 +68,12 @@
     /* ------------------------------------------------------------------ */
     /* Identity                                                            */
 
-    /* A small stable number from the address. Not a security device and not
-       pretending to be one: it exists so the same person reaches the same
-       contact on Tuesday as they did on Monday. */
-    function numberFor(email) {
-        var normalised = String(email || '').trim().toLowerCase();
-        var hash = 0;
-        for (var i = 0; i < normalised.length; i += 1) {
-            hash = ((hash << 5) - hash) + normalised.charCodeAt(i);
-            hash = hash & hash;
-        }
-        return Math.abs(hash) % 100000;
-    }
-
-    function firstNameFrom(email) {
-        var local = String(email || '').split('@')[0] || '';
-        var word = local.split(/[._-]/)[0] || local;
+    /* A readable name for the header, from the key itself. salil-demo becomes
+       Salil. Display only: the key is never altered. */
+    function nameFrom(key) {
+        var word = String(key || '').split(/[.@_-]/)[0] || String(key || '');
         if (!word) return '';
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        return word.charAt(0).toUpperCase() + word.slice(1);
     }
 
     function isSignedIn() { return !!(account && account.contactKey); }
@@ -101,8 +94,15 @@
             why.hidden = !reason;
         }
         overlay.classList.add(OPEN);
-        var input = el('account-email');
-        if (input) { input.value = ''; input.focus(); }
+        var input = el('account-key');
+        if (input) {
+            /* Pre-filled with whatever key is already in force, so the common
+               case is confirming rather than retyping. */
+            input.value = (account && account.contactKey) ||
+                          (window.DemoIdentity && window.DemoIdentity.contactKey) || '';
+            input.focus();
+            input.select();
+        }
     }
 
     function close() {
@@ -116,31 +116,34 @@
     }
 
     function submit() {
-        var input = el('account-email');
-        var email = input ? String(input.value || '').trim() : '';
+        var input = el('account-key');
+        var key = input ? String(input.value || '').trim() : '';
 
-        /* Their two validation messages, both of them. */
-        if (!email) { setError(t('loginEmptyField')); return; }
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setError(t('loginInvalidEmail')); return; }
+        if (!key) { setError(t('loginEmptyField')); return; }
+        /* Anything Dengage would accept as a key is accepted here. No format is
+           enforced, because enforcing one would mean guessing at their
+           conventions and refusing a real contact. */
+        if (key.length < 2) { setError(t('loginKeyTooShort')); return; }
 
-        signIn(email);
+        signIn(key);
         close();
     }
 
-    function signIn(email) {
-        var key = window.DemoIdentity && window.DemoIdentity.mintKey
-            ? window.DemoIdentity.mintKey(numberFor(email))
-            : 'DPS-' + numberFor(email);
-
-        account = { email: email, name: firstNameFrom(email), contactKey: key };
+    function signIn(key) {
+        account = { email: null, name: nameFrom(key), contactKey: key };
         write(account);
 
         /* The call that attaches everything this browser goes on to do to a
-           person Dengage can send to. */
+           contact that already exists in Dengage. Passed exactly as typed. */
         if (window.DengageEvents) {
             window.DengageEvents.setContactKey(key);
             window.DengageEvents.scenario('signed_in');
         }
+
+        /* So anything reading the identity later, including the debug readout,
+           sees the key that is actually in force rather than the one the page
+           happened to load with. */
+        if (window.DemoIdentity) window.DemoIdentity.contactKey = key;
 
         paint();
         notify();
@@ -194,7 +197,7 @@
         var submitButton = el('account-submit');
         if (submitButton) submitButton.addEventListener('click', submit);
 
-        var input = el('account-email');
+        var input = el('account-key');
         if (input) {
             input.addEventListener('keydown', function (event) {
                 if (event.key === 'Enter') { event.preventDefault(); submit(); }
@@ -248,7 +251,7 @@
         signOut: signOut,
         isSignedIn: isSignedIn,
         contactKey: contactKey,
-        email: function () { return account ? account.email : null; },
+        signIn: signIn,
         onChange: function (fn) { listeners.push(fn); return fn; }
     };
 })(window, document);

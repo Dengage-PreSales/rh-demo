@@ -18,11 +18,56 @@
 <script src="js/identity.js"></script>
 
 <script>
-window.dengage=window.dengage||function(){(window.dengage.q=window.dengage.q||[]).push(arguments)};
+/* INITIALIZE IS CALLED WHEN THE SDK IS REALLY THERE, NOT QUEUED AHEAD OF IT.
+
+   The page used to define a stub that pushed calls onto window.dengage.q and
+   then called initialize immediately. Nothing threw, so it looked fine. But the
+   Dengage SDK never drains that queue: there is no replay of pending calls
+   anywhere in it. The initialize call sat in an array forever.
+
+   Everything after it still worked, which is what made this so hard to see.
+   By the time the storefront sent its first page view the real function had
+   replaced the stub, so events arrived normally. Only the calls made before the
+   SDK finished loading were lost, and initialize is the one that matters most:
+   it is what starts a session and what applies the contact key. That is exactly
+   the shape of the symptom, page views landing while session_info stayed empty.
+
+   So the stub is marked, and initialize waits for a window.dengage that is not
+   the stub. Ten seconds, then it gives up and says so rather than polling for
+   the life of the page. */
+window.dengage = window.dengage || function () {
+    (window.dengage.q = window.dengage.q || []).push(arguments);
+};
+window.dengage.__dnStub = true;
 </script>
 <script async src="https://pcdn.dengage.com/p/push/28/99d9b8fb-0c62-5a85-3e43-2402554d93a5/dengage_sdk_loader.js"></script>
 <script>
-window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage('initialize');
+(function (w) {
+    var tries = 0;
+    function announce(ok) {
+        w.__dnReady = ok;
+        try { w.dispatchEvent(new CustomEvent('dps:sdk-ready', { detail: { ok: ok } })); }
+        catch (err) { /* a notification must never break the page */ }
+    }
+    (function wait() {
+        if (typeof w.dengage === 'function' && !w.dengage.__dnStub) {
+            try {
+                w.__dnInit ? w.dengage('initialize', w.__dnInit) : w.dengage('initialize');
+                announce(true);
+            } catch (err) {
+                if (w.console) w.console.error('[dengage] initialize failed', err);
+                announce(false);
+            }
+            return;
+        }
+        if (tries++ > 200) {
+            if (w.console) w.console.warn('[dengage] SDK did not load, so nothing was initialised');
+            announce(false);
+            return;
+        }
+        w.setTimeout(wait, 50);
+    })();
+})(window);
 </script>
 </head>
 <body>
@@ -255,12 +300,12 @@ window.__dnInit ? window.dengage('initialize', window.__dnInit) : window.dengage
      any six digits would be pretending to check something. -->
 <div class="overlay" id="account-overlay">
   <div class="dialog account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-title">
-    <h2 id="account-title" data-copy="loginTitle">Choose an option to sign in</h2>
+    <h2 id="account-title" data-copy="loginTitle">Sign in</h2>
     <p id="account-reason" hidden></p>
-    <p class="login-method" data-copy="loginEmailVerification">Receive an access code by email</p>
+    <p class="login-method" data-copy="loginKeyMethod">Link this browser to a contact</p>
     <div class="field">
-      <input id="account-email" type="email" autocomplete="email"
-             data-copy-attr="placeholder:loginEmailPlaceholder" placeholder="e.g. example@mail.com">
+      <input id="account-key" type="text" autocomplete="off" spellcheck="false"
+             data-copy-attr="placeholder:loginKeyPlaceholder" placeholder="e.g. salil-demo">
       <button class="button cep-continue" id="account-submit" type="button"
               data-copy="loginContinue">Continue</button>
     </div>

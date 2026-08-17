@@ -46,7 +46,7 @@ step('served from', await page.evaluate(() => ({
 
 // 1. sign in
 await page.click('#account-button'); await page.waitForTimeout(250);
-await page.fill('#account-email', 'ana.silva@example.com');
+await page.fill('#account-key', 'salil-demo');
 await page.click('#account-submit'); await page.waitForTimeout(500);
 step('signed in', await page.evaluate(() => window.Account.contactKey()));
 
