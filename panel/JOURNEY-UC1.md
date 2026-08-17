@@ -88,11 +88,18 @@ Until the table exists the call is **accepted and dropped**, which looks
 identical to success from the browser. Confirm the row in Data Space, never the
 200.
 
-**And give it time before calling it dropped.** Measured on 17 August 2026:
-`session_info` rows arrived about three hours after the visit, account wide,
-while the device appeared in Profiles within seconds. Dropped and not yet
-ingested look identical for the first few hours, so a missing row is only
-evidence once a row from a later visit has appeared beside it.
+**And give it time before calling it dropped.** A device appears in Profiles
+within seconds, and a stored row does not. Dropped and not yet ingested look
+identical until something later shows up beside it, so a missing row on the
+afternoon you made it is not evidence of anything.
+
+How long is not known. `session_info` was still empty of the afternoon's
+sessions several hours after them on 17 August 2026, and an earlier estimate of
+three hours in this file was one measurement that then failed to hold. It is
+recorded as unknown rather than as a number, because a number nobody has
+measured twice is what sends the next person looking for a defect that is not
+there. **Nothing in Use Case 1 reads `session_info`**, so this is a question
+about how to verify, never a dependency.
 
 ### Could the tables we already have do this?
 

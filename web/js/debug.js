@@ -325,10 +325,9 @@
             'The SDK session id above is read from its own local storage. ' +
             'session_info is keyed by the DEVICE id, with the session in its ' +
             'own column, so look the device id up rather than the session id. ' +
-            'Rows arrive hours after the visit rather than at once: measured ' +
-            'on 17 August 2026, the newest row on the whole account was about ' +
-            'three hours old. An absent row means look again later. It does ' +
-            'not mean the visit was lost.</p>';
+            'Rows appear long after the visit and how long is not known, so an ' +
+            'absent row means look again later rather than a lost visit. ' +
+            'Nothing in this demo reads that table.</p>';
         }
 
         draw([['Device id', 'asking...'], ['Push token', 'asking...'],
