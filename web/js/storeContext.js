@@ -178,9 +178,60 @@
         state.fetchedAt = Date.now();
         state.source = source;
         remember();
+        stampUrl();
         report(data, source);
         notify();
         return state;
+    }
+
+    /* PUT THE RESOLVED POSTCODE IN THE ADDRESS BAR, and this is not cosmetic.
+
+       page_view_events records page_url and nothing else that could carry a
+       postcode. A visitor who types one into the gate never changes the
+       address, so the row Dengage stores looks exactly like an anonymous
+       visit, and the message that reads it later has no idea which shop was
+       serving them. Found by running the real site and reading the payload in
+       the debug panel: the badges on screen were all correct and the stored
+       row knew nothing about them.
+
+       So the address is kept in step with the resolved shop. The page view for
+       THIS page has already gone out by the time a shop resolves, which is
+       correct and deliberate, since a slow lookup must never hold up the page.
+       What this fixes is every page after it, plus a reload, plus the link
+       being shareable in the state you are looking at.
+
+       replaceState rather than pushState: this is not a navigation and it must
+       not add a back button step. */
+    function stampUrl() {
+        if (!window.history || !window.history.replaceState) return;
+        if (!state.cep) return;
+        try {
+            var url = new window.URL(window.location.href);
+            if (url.searchParams.get('cep') === state.cep) return;
+            url.searchParams.set('cep', state.cep);
+            window.history.replaceState(null, '', url.toString());
+        } catch (err) { /* an address bar tidy is never worth an exception */ }
+    }
+
+    /* Internal links do not carry the postcode, so following one loses it from
+       the address and the next page view records a visit with no shop again.
+       The shop itself survives in storage, so only the record was wrong, which
+       is the kind of gap that stays invisible until a message reads it. */
+    function keepCepOnLinks() {
+        document.addEventListener('click', function (event) {
+            if (!state.cep) return;
+            var link = event.target.closest ? event.target.closest('a[href]') : null;
+            if (!link) return;
+            var href = link.getAttribute('href') || '';
+            if (!href || href.charAt(0) === '#') return;
+            try {
+                var url = new window.URL(href, window.location.href);
+                if (url.origin !== window.location.origin) return;
+                if (url.searchParams.get('cep')) return;
+                url.searchParams.set('cep', state.cep);
+                link.setAttribute('href', url.pathname + url.search + url.hash);
+            } catch (err) { /* leave the link exactly as the author wrote it */ }
+        }, true);
     }
 
     /* What the page tells Dengage. These are the events a campaign can be built
@@ -382,6 +433,8 @@
         state.fetchedAt = 0;
         notify();
     }
+
+    keepCepOnLinks();
 
     window.StoreContext = {
         boot: boot,
