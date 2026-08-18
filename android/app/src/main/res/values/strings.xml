@@ -62,4 +62,5 @@
     <string name="debug_no_token">No token yet. Grant notification permission first.</string>
     <string name="debug_token_copied">Token copied.</string>
     <string name="debug_no_calls">Nothing sent yet this launch.</string>
+    <string name="debug_geofence_note">Geofence clusters sync from the panel, not from this app. The shop network cluster imports from panel/geofence/store-geofences.csv in the repository. The rehearsal cluster is still waiting for an address, so until it exists a walk test has nothing to trigger.</string>
 </resources>

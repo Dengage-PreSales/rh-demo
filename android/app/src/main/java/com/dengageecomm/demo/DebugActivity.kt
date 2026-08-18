@@ -91,6 +91,8 @@ class DebugActivity : AppCompatActivity() {
             appendLine("contactKey     " + (sub?.contactKey.takeUnless { it.isNullOrBlank() }
                 ?: "anonymous"))
             appendLine("pushPermission " + (sub?.permission?.toString() ?: "unknown"))
+            appendLine("locationPerm   " + (sub?.locationPermission.takeUnless { it.isNullOrBlank() }
+                ?: "not reported yet"))
             append("pushToken      " + when {
                 token.isNullOrBlank() -> "none. Ask for notification permission below"
                 else -> token.take(24) + "... (" + token.length + " chars, copy below)"

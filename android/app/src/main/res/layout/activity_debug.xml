@@ -84,6 +84,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/debug_start_geofence" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/debug_geofence_note"
+                android:textColor="@color/muted"
+                android:textSize="11sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
