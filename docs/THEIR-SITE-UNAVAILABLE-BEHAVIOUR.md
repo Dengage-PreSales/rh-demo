@@ -36,23 +36,52 @@ and its child list:
 So an unavailable product page says "Produto indisponível" and shows twelve
 other products underneath it.
 
-**And this is the sentence that matters: `OrderByTopSaleDESC`.** That shelf is
-the store's best sellers, in sales order, capped at twelve. It is the same
-twelve products for every visitor. It does not know which toy you came for, it
-does not know which shop serves you, and it cannot know whether any of the twelve
-is on that shop's shelf either.
+**CORRECTED 18 August 2026, after seeing it rendered.** An earlier revision of
+this file read `OrderByTopSaleDESC` and concluded the shelf was generic best
+sellers, "the same twelve products for every visitor". That was wrong, and it
+was wrong in the direction that would have embarrassed us in the room. Screenshots
+of the live pages show the suggestions are clearly related to the product:
 
-So the honest framing on the 24th is not "we can show a replacement". It is:
+| Unavailable product | What they suggested |
+|---|---|
+| Mini Brands Magic Cook Kitchen | Mini Brands Fill The Fridge, same line |
+| Mesa Para Jogo de Botão Sportv | Jogo Clássico Futebol de Botão, same game |
+
+So the ordering is top sellers **within the product's own category**, not across
+the shop. Their shelf is contextually relevant. Do not claim otherwise.
+
+Their copy on it, verbatim:
+
+> Poxa! O produto não está mais disponível... Confira abaixo nossas sugestões
+> para você:
+
+### So what is actually left, and it is one thing, and it is provable
+
+**Their suggestion is not filtered by what the shop serving you can hand over.**
+
+Measured through their own checkout simulation, on the exact pair a shopper in
+Porto Alegre sees:
+
+| | Porto Alegre `90010150` | Sao Paulo `01310100` |
+|---|---|---|
+| Magic Cook, the toy wanted | `withoutStock`, 0 pickup options | `available`, 5 pickup options |
+| Fill The Fridge, **their suggestion** | `available`, **0 pickup options** | `available`, 3 pickup options |
+
+Read the middle cell twice. In Porto Alegre their own suggestion is deliverable
+and **cannot be collected from any shop serving that postcode.** The page answers
+a store level problem with a delivery.
+
+That is the whole argument, and it is now narrow, specific and true:
 
 | Their shelf today | Use Case 1 |
 |---|---|
-| Best sellers, `OrderByTopSaleDESC` | The toy they actually looked at |
-| Same twelve for everyone | Resolved per contact |
-| Catalogue wide | Filtered to the shop that serves that postcode |
-| On the page only, if they come back | In an email, sent because they did not come back |
+| Top sellers in the same category | The toy they actually looked at |
+| Not checked against the serving shop | Filtered to what that shop can hand over |
+| No collection promise | "Collect at Ri Happy Praia de Belas Prime Offices" |
+| On the page, if they come back | In an email, sent because they did not |
 
-Claiming the first row does not exist would be wrong, and someone in that room
-built it. Claiming the other three rows is the whole point.
+Two of those four rows are new since the correction. The first row is theirs and
+it is good work, so say so.
 
 ---
 
