@@ -141,6 +141,14 @@ demo still works.
 
 ### The email
 
+**Subject:** `We checked your store, not the warehouse`
+**Pre-header:** leave empty, the body carries its own dynamic preview line.
+
+A personalised subject was attempted and parked on 18 August after four refused
+saves. `panel/email/README.md` has the evidence and what to ask Dengage if it is
+ever reopened.
+
+
 `panel/email/uc1-store-availability.html`, pasted into **Content > Email > Code
 Editor**. Both journeys use this one creative.
 

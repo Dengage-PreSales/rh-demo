@@ -90,10 +90,43 @@ appends the subject it already computes. Drift is impossible by construction.
 `node tools/render-email.mjs` then renders both through the same nine cases and
 fails if any subject names a different shop from its message.
 
-| Field | Paste | Why |
+### Settled 18 August 2026: a static subject
+
+| Field | Paste |
+|---|---|
+| Subject | `We checked your store, not the warehouse` |
+| Pre-header | **nothing. Leave it empty** |
+
+**The Subject field will not accept a template block, and four attempts is where
+this stopped.** A 110 character expression calling `$CustomApi` saved and
+previewed a real shop name, which is what made it look possible. Everything
+larger was refused with "unable to create/update content", and the panel gives no
+reason:
+
+| Build | Size | Result |
 |---|---|---|
-| Subject | all of `uc1-subject.txt` | it runs the engine, at the cost of one extra resolution per recipient |
-| Pre-header | **nothing. Leave it empty** | it does NOT run the engine. See below |
+| one line `$CustomApi` test | 110 | saved and previewed |
+| lifted from the body | 5,765 | refused |
+| purpose built, compact | 1,610 | refused |
+| compact with no angle brackets | 1,727 | refused |
+
+Length was the first theory and the compact build disproved it. Angle brackets
+were the second, because the one build that worked had none, and the bracket free
+build disproved that too. The third theory would have been another guess, and the
+cost of a fourth round is a day this project does not have with the demo on the
+24th.
+
+**What this costs, and it is less than it sounds.** The subject loses the shop
+name. Nothing else changes: the message still names the shop, the toy, the
+substitute, the price and the collection point, and the body's own hidden preview
+line still carries "Same range, R$ 87,99, ready to collect today" into the inbox.
+The static line above states the differentiator in seven words, which is what a
+Head of CRM reads before opening anything.
+
+**If it is ever worth reopening**, `uc1-subject-nobracket.txt` is the build to try
+and one question to Dengage support settles it faster than any more attempts from
+this side: what does the Subject field accept, and does it run the content
+engine?
 
 **The Pre-header field does not run the template engine, and the Subject field
 does.** Proven on 18 August 2026 by pasting the generated file into both: the
