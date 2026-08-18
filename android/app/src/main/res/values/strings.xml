@@ -33,6 +33,28 @@
     <string name="added_to_cart_action">Add to basket</string>
     <string name="added_to_cart">Added to the basket</string>
 
+    <string name="search_hint">Search toys, brands, licences</string>
+    <string name="chip_all">All</string>
+
+    <!-- The basket and the order -->
+    <string name="action_cart">Basket</string>
+    <string name="action_cart_counted">Basket (%1$d)</string>
+    <string name="cart_empty">The basket is empty. Add a toy from its page.</string>
+    <string name="cart_total">Total: %1$s</string>
+    <string name="cart_remove">Remove</string>
+    <string name="cart_line_detail">%1$d x %2$s</string>
+    <string name="cart_line_detail_no_price">%1$d in the basket</string>
+    <string name="checkout_title">Place this order?</string>
+    <string name="checkout_message">A real order event is written for %1$s, exactly as the storefront writes one at checkout.</string>
+    <string name="checkout_confirm">Checkout</string>
+    <string name="order_placed">Order %1$s placed</string>
+    <string name="order_cancel">Cancel order</string>
+    <string name="order_cancelled">Order cancelled, and the cancellation recorded.</string>
+
+    <!-- Wishlist -->
+    <string name="wishlist_save">Save</string>
+    <string name="wishlist_saved">Saved</string>
+
     <!-- Sign in -->
     <string name="action_sign_in">Sign in</string>
     <string name="sign_in_title">Sign in</string>
@@ -47,6 +69,7 @@
     <string name="inbox_empty">No messages for this device yet.</string>
     <string name="inbox_error">The inbox could not be read: %1$s</string>
     <string name="inbox_open">See it</string>
+    <string name="inbox_mark_all_read">Mark all read</string>
     <string name="inbox_dismiss">Dismiss</string>
 
     <!-- Debug -->
@@ -62,5 +85,9 @@
     <string name="debug_no_token">No token yet. Grant notification permission first.</string>
     <string name="debug_token_copied">Token copied.</string>
     <string name="debug_no_calls">Nothing sent yet this launch.</string>
+    <string name="debug_test_page">Open the SDK test page</string>
+    <string name="debug_last_push">Read last push payload</string>
+    <string name="debug_dismiss_in_app">Dismiss current in-app</string>
+    <string name="debug_rating_dialog">Show rating dialog</string>
     <string name="debug_geofence_note">Geofence clusters sync from the panel, not from this app. The shop network cluster imports from panel/geofence/store-geofences.csv in the repository. The rehearsal cluster is still waiting for an address, so until it exists a walk test has nothing to trigger.</string>
 </resources>

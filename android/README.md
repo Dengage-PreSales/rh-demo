@@ -25,10 +25,43 @@ SDK's application guid is visible in the storefront's page source.
 
 | Screen | What it proves |
 |---|---|
-| The shop | The grid gates on a postcode and badges every toy with the resolved shop's own answer, exactly as the storefront does. The same postcodes work: 01310100, 90010150 |
-| Product | Availability at the resolved shop, the substitute card when the shop cannot supply the toy, add to basket. Showing the unavailable answer writes the `rh_availability_events` row that Use Case 1's segment reads |
-| Inbox | The messages Dengage holds for this device. Opening reports the click. Dismissing hides locally and never deletes from the shared account |
-| Debug | Device id, push token, contact key, which shop answered and whether the live endpoint or a stored answer produced it, and every SDK call this launch, as sent, not as stored |
+| The shop | The grid gates on a postcode and badges every toy with the resolved shop's own answer, exactly as the storefront does. Search fires a search event per settled query, the department chips fire category page views, and the top of the screen carries the App Stories row and an inline in-app slot, both panel driven. The same postcodes work: 01310100, 90010150 |
+| Product | Availability at the resolved shop, the substitute card when the shop cannot supply the toy, save to wishlist, add to basket. Showing the unavailable answer writes the `rh_availability_events` row that Use Case 1's segment reads |
+| Basket | The rest of the order vocabulary: viewCart on open, removeFromCart per line, beginCheckout, a real order with real lines and a real total, and cancelOrder on the undo |
+| Inbox | The messages Dengage holds for this device. Opening reports the click, mark all read reports every receipt. Dismissing hides locally and never deletes from the shared account |
+| Debug | Device id, push token, contact key, every permission state, which shop answered and from where, the SDK's own test page, the last push payload, and every SDK call this launch, as sent, not as stored |
+
+## Every Dengage mobile capability, and where this app stands on each
+
+The SDK surface was read from the 6.0.99 sources, not assumed. One file
+talks to Dengage, `DengageGateway.kt`; two more implement extension points
+the SDK itself invokes, `PushNotificationReceiver` for carousel rendering
+and `OrderLiveUpdateHandler` for Live Updates.
+
+| Capability | State in this app |
+|---|---|
+| Push, text and rich | Working out of the box through `FcmMessagingService`. The notification channel carries the app's name |
+| Push action buttons | Handled by the SDK automatically; no app code is required or present |
+| Carousel push | Wired: `PushNotificationReceiver` plus the `den_carousel_*` layouts render it, and the manifest receiver keeps the arrows working after the process dies. Author it as a carousel message in the panel |
+| Live Updates | Wired for activity type `order_status`: a push whose data carries `live_notification` starts, updates and ends a persistent order status notification with an optional progress bar. This is the Android counterpart of what iOS calls a Live Activity. The payload contract is documented in `OrderLiveUpdateHandler.kt` |
+| Live Activity by that name | iOS only, ActivityKit. It does not exist on Android; Live Updates above are the equivalent surface |
+| In-app messages | Wired on every screen through `setNavigation`, with screen names `home`, `product`, `cart`, `inbox`, `debug` for targeting |
+| Real time in-app | Wired beside it through `showRealTimeInApp`, with comparison data kept fresh: city from the resolved shop, category path from the viewed toy, cart item count and amount from the basket. `setCart` is deliberately not used: its price fields are integers and these prices do not round honestly |
+| In-app device info | The resolved shop's name, id and postcode are set, so a message template can print the person's own shop with `dnInAppDeviceInfo.store_name` |
+| In-app inline | An `InAppInlineElement` sits on the home screen, property id `rh-home-inline`, hidden until a panel campaign targets it |
+| App Stories | A `StoriesListView` sits on the home screen, property id `rh-home-stories`, hidden until a panel campaign targets it |
+| App Inbox | Wired with the inbox API this SDK version ships: list, open with click report, mark all read. Delete is withheld on purpose, the shared account rule |
+| Geofence | Monitoring starts with the app; permissions are requested from the debug screen; clusters are panel work, `../panel/geofence/` |
+| eCommerce events | The full vocabulary fires from real actions: page views for home, product, category and cart, add and remove cart, viewCart, beginCheckout, order, cancelOrder, search on settled queries, wishlist add and remove |
+| Custom device events | `rh_availability_events` rows, the same field set the storefront writes |
+| Contact key | Verbatim sign in, same key as the web makes the same person |
+| Tags | The device tags itself `app = rh-demo` at start, so the panel can target exactly the devices running this app |
+| Permissions | Notification and the two step location flow prompted from the debug screen; user, tracking and location permission states all reported there |
+| SDK test page | One tap on the debug screen opens Dengage's own diagnostics activity |
+| Rating dialog | On the debug screen. Play usually declines to show it on a sideloaded debug build, and the call log says which happened |
+| RFM | Available in the SDK (`categoryView`, `saveRFMScores`, `sortRFMItems`) and not used: it sorts local content by scores, and this catalogue's ordering is the storefront's. Documented so nobody mistakes absence for ignorance |
+| Huawei HMS | Deliberately excluded: the demo phone is Google services hardware |
+| Adjust sync | Deliberately excluded: no attribution SDK belongs in a demo app |
 
 Sign in from the menu. The contact key is passed to Dengage exactly as typed,
 so using the same `DPS-` key as on the storefront makes the phone and the

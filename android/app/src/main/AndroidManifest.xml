@@ -11,6 +11,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!-- Live Updates, the Android 16 progress style notifications the SDK's
+         live_notification pushes drive. Declared by the SDK as well; stated
+         here so the capability is visible where permissions are read. -->
+    <uses-permission android:name="android.permission.POST_PROMOTED_NOTIFICATIONS" />
 
     <application
         android:name=".DemoApplication"
@@ -46,11 +50,13 @@
         </activity>
 
         <activity android:name=".ProductActivity" android:exported="false" />
+        <activity android:name=".CartActivity" android:exported="false" />
         <activity android:name=".InboxActivity" android:exported="false" />
         <activity android:name=".DebugActivity" android:exported="false" />
 
-        <!-- Dengage's Firebase service handles both marketing pushes and the
-             silent pushes the geofence module rides on. -->
+        <!-- Dengage's Firebase service handles marketing pushes, the silent
+             pushes the geofence module rides on, and live_notification
+             payloads for Live Updates. -->
         <service
             android:name="com.dengage.sdk.push.FcmMessagingService"
             android:exported="false">
@@ -58,5 +64,22 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <!-- Carousel pushes render through this receiver, and it has to be
+             declared in the manifest rather than registered at runtime: the
+             arrows on a carousel are tapped minutes after delivery, when the
+             process that registered any runtime receiver may be long dead. -->
+        <receiver
+            android:name=".PushNotificationReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.dengage.push.intent.RECEIVE" />
+                <action android:name="com.dengage.push.intent.OPEN" />
+                <action android:name="com.dengage.push.intent.DELETE" />
+                <action android:name="com.dengage.push.intent.ACTION_CLICK" />
+                <action android:name="com.dengage.push.intent.ITEM_CLICK" />
+                <action android:name="com.dengage.push.intent.CAROUSEL_ITEM_CLICK" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

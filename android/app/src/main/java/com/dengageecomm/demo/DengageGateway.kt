@@ -9,6 +9,11 @@ import com.dengage.sdk.callback.DengageError
 import com.dengage.sdk.data.remote.api.DeviceConfigurationPreference
 import com.dengage.sdk.domain.inboxmessage.model.InboxMessage
 import com.dengage.sdk.domain.subscription.model.Subscription
+import com.dengage.sdk.domain.tag.model.TagItem
+import com.dengage.sdk.callback.ReviewDialogCallback
+import com.dengage.sdk.liveupdate.DengageLiveUpdateManager
+import com.dengage.sdk.ui.inappmessage.InAppInlineElement
+import com.dengage.sdk.ui.story.StoriesListView
 import com.dengage.sdk.util.DengageLifecycleTracker
 import java.util.UUID
 
@@ -22,8 +27,11 @@ import java.util.UUID
    two mobile apps share, columns cannot be added to those tables, and a row
    written wrongly is permanent. One surface is what keeps that auditable.
 
-   Nothing else in this app may import com.dengage.*. Screens call this
-   object, and this object calls the SDK.
+   Nothing else in this app may CALL into com.dengage.*. Screens call this
+   object, and this object calls the SDK. Two files are the deliberate
+   exception, and they point the other way: OrderLiveUpdateHandler and
+   PushNotificationReceiver implement SDK extension points that the SDK
+   invokes when a push arrives. Neither initiates a call.
 
    THE OMISSION RULE lives here too, exactly as it does on the web: a price or
    a count the catalogue did not genuinely produce is dropped from the payload
@@ -95,9 +103,26 @@ object DengageGateway {
                 deviceConfigurationPreference = DeviceConfigurationPreference.Google
             )
             record("init", "firebase key ending " + key.takeLast(6), true)
+            /* Marketing pushes arrive on a channel carrying the app's name
+               instead of the SDK's default "General", which is what shows in
+               the phone's notification settings. */
+            Dengage.setNotificationChannelName("Dengage eComm Demo")
+            /* One tag, so the panel can target exactly the devices running
+               this app: Target Audience, tag `app` equals `rh-demo`. */
+            Dengage.setTags(listOf(TagItem("app", "rh-demo")))
         } catch (err: Throwable) {
             record("init", "failed: " + (err.message ?: err.javaClass.simpleName), false)
             return
+        }
+
+        /* Live Updates: the SDK routes any push carrying live_notification
+           to the handler registered for its activity type, and rendering is
+           the app's job. One handler, for the order scenario. */
+        try {
+            DengageLiveUpdateManager.register("order_status", OrderLiveUpdateHandler())
+            record("liveUpdate", "handler registered for order_status", true)
+        } catch (err: Throwable) {
+            record("liveUpdate", "registration failed: " + (err.message ?: err.javaClass.simpleName), false)
         }
 
         /* Geofence monitoring starts with the app, not with a button, because
@@ -298,4 +323,232 @@ object DengageGateway {
     fun startGeofence() {
         send("startGeofence", "restarted from debug screen") { DengageGeofence.startGeofence() }
     }
+
+    /* ------------------------------------------------------------------ */
+    /* In-app messages, on every screen                                    */
+
+    /* One call per screen entry unlocks BOTH in-app families: setNavigation
+       serves the scheduled kind, showRealTimeInApp evaluates the real time
+       kind, and each takes the screen name so a panel campaign can target
+       "home", "product", "cart", "inbox" or "debug" by name. A screen that
+       skips this can never show an in-app message, which is invisible until
+       the one afternoon a campaign is aimed at it, so every Activity calls
+       it from onResume. */
+    fun screen(activity: Activity, screenName: String) {
+        if (!started) { record("screen", screenName + ": SDK not started", false); return }
+        try {
+            Dengage.setNavigation(activity = activity, screenName = screenName)
+            Dengage.showRealTimeInApp(activity = activity, screenName = screenName)
+            record("screen", screenName + " (setNavigation + showRealTimeInApp)", true)
+        } catch (err: Throwable) {
+            record("screen", screenName + " failed: " + (err.message ?: err.javaClass.simpleName), false)
+        }
+    }
+
+    /* The facts a real time in-app rule can compare against, and the values
+       a message template can print. dnInAppDeviceInfo.store_name in a
+       template renders the shop this device resolved, which is the same
+       personalisation the email does, arriving through a different door. */
+    fun shopContext(storeId: String, storeName: String, city: String?, cep: String?) {
+        send("shopContext", storeName) {
+            Dengage.setInAppDeviceInfo("store_id", storeId)
+            Dengage.setInAppDeviceInfo("store_name", storeName)
+            if (!cep.isNullOrBlank()) Dengage.setInAppDeviceInfo("cep", cep)
+            if (!city.isNullOrBlank()) Dengage.setCity(city)
+        }
+    }
+
+    fun categoryContext(path: String) {
+        send("categoryContext", path) { Dengage.setCategoryPath(path) }
+    }
+
+    /* Count and amount go as exact strings, "139.99" and not 139. The SDK
+       also offers setCart with per-item comparisons, and it is deliberately
+       not used: its price fields are integers, and these prices do not fit
+       in an integer without rounding them into figures nobody set. */
+    fun cartContext(itemCount: Int, amount: Double) {
+        send("cartContext", itemCount.toString() + " item(s), " + formatAmount(amount)) {
+            Dengage.setCartItemCount(itemCount.toString())
+            Dengage.setCartAmount(formatAmount(amount))
+        }
+    }
+
+    private fun formatAmount(amount: Double): String =
+        if (amount == amount.toLong().toDouble()) amount.toLong().toString()
+        else String.format(java.util.Locale.US, "%.2f", amount)
+
+    fun dismissInApp() {
+        send("removeInAppMessageDisplay", "dismissed current in-app") {
+            Dengage.removeInAppMessageDisplay()
+        }
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* The rest of the commerce vocabulary                                 */
+
+    fun categoryViewed(categoryId: String) {
+        val data = HashMap<String, Any>()
+        data["page_type"] = "category"
+        data["category_id"] = categoryId
+        send("pageView", "category " + categoryId) { Dengage.pageView(data) }
+    }
+
+    fun removeFromCart(product: Product, quantity: Int) {
+        val data = cartLine(product, quantity)
+        send("ec:removeFromCart", product.id) { Dengage.removeFromCart(data) }
+    }
+
+    fun viewCart() {
+        send("ec:viewCart", "-") { Dengage.viewCart(HashMap()) }
+    }
+
+    fun beginCheckout(lines: List<Pair<Product, Int>>) {
+        val data = HashMap<String, Any>()
+        data["cartItems"] = cartItems(lines)
+        send("ec:beginCheckout", lines.size.toString() + " line(s)") { Dengage.beginCheckout(data) }
+    }
+
+    fun order(orderId: String, lines: List<Pair<Product, Int>>, totalAmount: Double) {
+        val data = HashMap<String, Any>()
+        data["order_id"] = orderId
+        data["item_count"] = lines.sumOf { it.second }
+        data["total_amount"] = totalAmount
+        data["discounted_price"] = totalAmount
+        data["payment_method"] = "credit_card"
+        data["cartItems"] = cartItems(lines)
+        send("ec:order", orderId + ", " + formatAmount(totalAmount)) { Dengage.order(data) }
+    }
+
+    fun cancelOrder(orderId: String, itemCount: Int, totalAmount: Double) {
+        val data = HashMap<String, Any>()
+        data["order_id"] = orderId
+        data["item_count"] = itemCount
+        data["total_amount"] = totalAmount
+        data["discounted_price"] = totalAmount
+        send("ec:cancelOrder", orderId) { Dengage.cancelOrder(data) }
+    }
+
+    /* Fires once per SETTLED query, never per keystroke. The caller owns the
+       settling; this only records, the same division the web module states. */
+    fun search(term: String, resultCount: Int) {
+        val data = HashMap<String, Any>()
+        data["keywords"] = term
+        data["result_count"] = resultCount
+        send("ec:search", "\"" + term + "\" -> " + resultCount) { Dengage.search(data) }
+    }
+
+    /* The Android SDK has first class wishlist calls, so they are used here.
+       The web writes its wishlist rows through sendDeviceEvent instead, and
+       the difference is deliberate on both sides: each surface uses the
+       documented mechanism its own SDK provides for the same table. */
+    fun addToWishlist(product: Product) {
+        val data = HashMap<String, Any>()
+        data["product_id"] = product.id
+        product.price?.let { data["price"] = it }
+        send("ec:addToWishlist", product.id) { Dengage.addToWishList(data) }
+    }
+
+    fun removeFromWishlist(product: Product) {
+        val data = HashMap<String, Any>()
+        data["product_id"] = product.id
+        send("ec:removeFromWishlist", product.id) { Dengage.removeFromWishList(data) }
+    }
+
+    private fun cartLine(product: Product, quantity: Int): HashMap<String, Any> {
+        val line = HashMap<String, Any>()
+        line["product_id"] = product.id
+        line["product_variant_id"] = product.id
+        line["quantity"] = quantity
+        product.price?.let {
+            line["unit_price"] = it
+            line["discounted_price"] = it
+        }
+        return line
+    }
+
+    private fun cartItems(lines: List<Pair<Product, Int>>): ArrayList<HashMap<String, Any>> {
+        val items = ArrayList<HashMap<String, Any>>(lines.size)
+        lines.forEach { (product, quantity) -> items.add(cartLine(product, quantity)) }
+        return items
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* Inbox, the non-destructive extras                                   */
+
+    fun inboxMarkAllRead() {
+        send("setAllInboxMessagesAsClicked", "all read") { Dengage.setAllInboxMessagesAsClicked() }
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* Debug surfaces the SDK ships with                                   */
+
+    /* Dengage's own diagnostics screen: subscription, cache, push and
+       in-app state, from inside the SDK itself. */
+    fun openTestPage(activity: Activity) {
+        send("showTestPage", "opened") { Dengage.showTestPage(activity) }
+    }
+
+    /* Reading it also CLEARS it in the SDK, so the debug screen labels the
+       button accordingly and shows what it got. */
+    fun lastPushPayload(): String {
+        if (!started) return "SDK not started"
+        return try {
+            val payload = Dengage.getLastPushPayload()
+            record("getLastPushPayload", if (payload.isBlank()) "empty" else payload.take(60), true)
+            payload.ifBlank { "no payload stored" }
+        } catch (err: Throwable) {
+            record("getLastPushPayload", "failed", false)
+            "failed: " + (err.message ?: err.javaClass.simpleName)
+        }
+    }
+
+    /* App Stories and the inline in-app slot. Both are panel driven: the
+       view stays empty until a campaign in the panel is created against the
+       property id the screen passes, so wiring them costs nothing until the
+       day they are wanted on a call. */
+    fun showStories(activity: Activity, view: StoriesListView, propertyId: String, screenName: String) {
+        send("showStoriesList", propertyId + " on " + screenName) {
+            Dengage.showStoriesList(
+                storyPropertyId = propertyId,
+                storiesListView = view,
+                activity = activity,
+                screenName = screenName,
+                hideIfNotFound = true
+            )
+        }
+    }
+
+    fun showInline(activity: Activity, view: InAppInlineElement, propertyId: String, screenName: String) {
+        send("showInlineInApp", propertyId + " on " + screenName) {
+            Dengage.showInlineInApp(
+                propertyId = propertyId,
+                inAppInlineElement = view,
+                activity = activity,
+                screenName = screenName,
+                hideIfNotFound = true
+            )
+        }
+    }
+
+    /* Play's in-app review flow, through the SDK's wrapper. On a sideloaded
+       debug build Play usually declines to show it, which the record makes
+       visible instead of mysterious. */
+    fun showRatingDialog(activity: Activity) {
+        if (!started) { record("showRatingDialog", "SDK not started", false); return }
+        try {
+            Dengage.showRatingDialog(activity, object : ReviewDialogCallback {
+                override fun onCompletion() { record("showRatingDialog", "completed", true) }
+                override fun onError() { record("showRatingDialog", "declined or failed", false) }
+            })
+            record("showRatingDialog", "requested", true)
+        } catch (err: Throwable) {
+            record("showRatingDialog", "failed: " + (err.message ?: err.javaClass.simpleName), false)
+        }
+    }
+
+    fun userPermission(): Boolean? =
+        if (started) try { Dengage.getUserPermission() } catch (err: Throwable) { null } else null
+
+    fun trackingPermission(): Boolean? =
+        if (started) try { Dengage.getTrackingPermission() } catch (err: Throwable) { null } else null
 }

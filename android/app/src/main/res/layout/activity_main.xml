@@ -34,6 +34,52 @@
         android:layout_marginTop="8dp"
         android:text="@string/store_unresolved" />
 
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/surface"
+        android:hint="@string/search_hint"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textColor="@color/ink"
+        android:textColorHint="@color/muted"
+        android:textSize="14sp"
+        android:autofillHints="" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:paddingHorizontal="12dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/department_chips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true" />
+    </HorizontalScrollView>
+
+    <!-- Panel driven surfaces: App Stories and an inline in-app slot. Both
+         collapse until a campaign in the panel targets their property ids,
+         rh-home-stories and rh-home-inline. -->
+    <com.dengage.sdk.ui.story.StoriesListView
+        android:id="@+id/stories_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.dengage.sdk.ui.inappmessage.InAppInlineElement
+        android:id="@+id/inline_element"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/product_grid"
         android:layout_width="match_parent"

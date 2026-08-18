@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The collapsed row of a carousel push. Layout ids are the contract the
+     receiver's RemoteViews fill, so they keep Dengage's den_carousel names.
+     An explicit surface background keeps the fixed ink text readable in
+     both system themes. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="12dp">
+
+    <ImageView
+        android:id="@+id/den_carousel_image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="12dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_carousel_brand" />
+
+    <TextView
+        android:id="@+id/den_carousel_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/den_carousel_image"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/ink"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/den_carousel_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/den_carousel_title"
+        android:layout_alignStart="@+id/den_carousel_title"
+        android:layout_alignEnd="@+id/den_carousel_title"
+        android:ellipsize="end"
+        android:lineSpacingMultiplier="1.2"
+        android:maxLines="1"
+        android:textColor="@color/muted"
+        android:textSize="14sp" />
+
+</RelativeLayout>

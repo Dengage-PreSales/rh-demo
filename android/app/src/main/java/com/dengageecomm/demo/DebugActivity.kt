@@ -54,6 +54,18 @@ class DebugActivity : AppCompatActivity() {
             DengageGateway.startGeofence()
             paint()
         }
+        binding.debugTestPage.setOnClickListener { DengageGateway.openTestPage(this) }
+        binding.debugDismissInApp.setOnClickListener { DengageGateway.dismissInApp(); paint() }
+        binding.debugRatingDialog.setOnClickListener { DengageGateway.showRatingDialog(this); paint() }
+        binding.debugLastPush.setOnClickListener {
+            val payload = DengageGateway.lastPushPayload()
+            com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.debug_last_push)
+                .setMessage(payload)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+            paint()
+        }
         binding.debugCopyToken.setOnClickListener {
             val token = DengageGateway.pushToken()
             if (token.isNullOrBlank()) {
@@ -69,6 +81,7 @@ class DebugActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         paint()
+        DengageGateway.screen(this, "debug")
     }
 
     override fun onSupportNavigateUp(): Boolean { finish(); return true }
@@ -93,6 +106,8 @@ class DebugActivity : AppCompatActivity() {
             appendLine("pushPermission " + (sub?.permission?.toString() ?: "unknown"))
             appendLine("locationPerm   " + (sub?.locationPermission.takeUnless { it.isNullOrBlank() }
                 ?: "not reported yet"))
+            appendLine("userPerm       " + (DengageGateway.userPermission()?.toString() ?: "unknown"))
+            appendLine("trackingPerm   " + (DengageGateway.trackingPermission()?.toString() ?: "unknown"))
             append("pushToken      " + when {
                 token.isNullOrBlank() -> "none. Ask for notification permission below"
                 else -> token.take(24) + "... (" + token.length + " chars, copy below)"

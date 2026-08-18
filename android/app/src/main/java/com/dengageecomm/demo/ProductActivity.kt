@@ -36,6 +36,7 @@ class ProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductBinding
     private val repository by lazy { StoreRepository.get(this) }
     private val money: NumberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+    private val wishlistPrefs by lazy { getSharedPreferences("rh_demo_wishlist", MODE_PRIVATE) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +50,19 @@ class ProductActivity : AppCompatActivity() {
         load(productId)
     }
 
+    override fun onResume() {
+        super.onResume()
+        DengageGateway.screen(this, "product")
+    }
+
     override fun onSupportNavigateUp(): Boolean { finish(); return true }
+
+    private fun savedIds(): MutableSet<String> =
+        (wishlistPrefs.getStringSet("saved", emptySet()) ?: emptySet()).toMutableSet()
+
+    private fun paintSaveButton(saved: Boolean) {
+        binding.saveButton.text = getString(if (saved) R.string.wishlist_saved else R.string.wishlist_save)
+    }
 
     private fun load(productId: String) {
         lifecycleScope.launch {
@@ -68,10 +81,34 @@ class ProductActivity : AppCompatActivity() {
                toy, before the shop answers, mirroring the web ordering: the
                row needs the product, not the availability. */
             DengageGateway.pageView("product", product)
+            /* And the category path becomes comparison data a real time
+               in-app rule can read. */
+            DengageGateway.categoryContext(product.categoryPath)
 
             binding.addToCart.setOnClickListener {
+                CartState.add(product)
                 DengageGateway.addToCart(product)
-                Snackbar.make(binding.root, R.string.added_to_cart, Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, R.string.added_to_cart, Snackbar.LENGTH_SHORT)
+                    .setAction(R.string.action_cart) {
+                        startActivity(Intent(this@ProductActivity, CartActivity::class.java))
+                    }
+                    .show()
+            }
+
+            /* Saved is a per device fact, kept in preferences, and each
+               toggle is reported with the SDK's own wishlist calls. */
+            paintSaveButton(product.id in savedIds())
+            binding.saveButton.setOnClickListener {
+                val saved = savedIds()
+                if (product.id in saved) {
+                    saved.remove(product.id)
+                    DengageGateway.removeFromWishlist(product)
+                } else {
+                    saved.add(product.id)
+                    DengageGateway.addToWishlist(product)
+                }
+                wishlistPrefs.edit().putStringSet("saved", saved).apply()
+                paintSaveButton(product.id in saved)
             }
 
             /* Re-resolve with this sku so the answer's substitute slot is

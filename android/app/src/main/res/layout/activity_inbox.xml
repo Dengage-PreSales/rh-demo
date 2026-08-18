@@ -14,14 +14,28 @@
         app:title="@string/action_inbox"
         app:titleTextColor="@color/on_header" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/inbox_refresh"
-        style="@style/Widget.Material3.Button.TextButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="8dp"
-        android:text="@string/debug_refresh" />
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:paddingEnd="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/inbox_mark_all_read"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inbox_mark_all_read"
+            android:textColor="@color/muted" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/inbox_refresh"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_refresh" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/inbox_state"

@@ -45,6 +45,17 @@ class InboxActivity : AppCompatActivity() {
         binding.inboxList.layoutManager = LinearLayoutManager(this)
         refresh()
         binding.inboxRefresh.setOnClickListener { refresh() }
+        /* Non destructive by design, unlike a delete: every message stays,
+           every read receipt lands in the report. */
+        binding.inboxMarkAllRead.setOnClickListener {
+            DengageGateway.inboxMarkAllRead()
+            refresh()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        DengageGateway.screen(this, "inbox")
     }
 
     override fun onSupportNavigateUp(): Boolean { finish(); return true }
