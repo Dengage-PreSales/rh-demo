@@ -90,15 +90,27 @@ appends the subject it already computes. Drift is impossible by construction.
 `node tools/render-email.mjs` then renders both through the same nine cases and
 fails if any subject names a different shop from its message.
 
-| Field | Paste | Cost |
+| Field | Paste | Why |
 |---|---|---|
-| Subject | all of `uc1-subject.txt` | one extra resolution per recipient |
-| Pre-header | **leave empty** | none. The body's hidden preview line already resolves at no extra cost |
+| Subject | all of `uc1-subject.txt` | it runs the engine, at the cost of one extra resolution per recipient |
+| Pre-header | **nothing. Leave it empty** | it does NOT run the engine. See below |
 
-`uc1-preheader.txt` exists for the case where the panel field has to be
-populated, and it is the more expensive option: the body has already resolved the
-shop by the time it renders its own preview, so filling the field spends a second
-resolution to say the same sentence.
+**The Pre-header field does not run the template engine, and the Subject field
+does.** Proven on 18 August 2026 by pasting the generated file into both: the
+subject rendered a real sentence and the pre-header rendered its own source code,
+which arrived in the inbox as `Not at ... This one is. - {% function brl(v) { var
+n = Number(v); ...`. So `uc1-preheader.txt` is kept only as the generated
+counterpart of the subject and **must not be pasted into that field**. The body's
+own hidden preview line already does the job, dynamically, at no extra cost,
+because the body has resolved the shop by the time it renders.
+
+**No regular expressions anywhere in this block.** The shop shortener first used
+four `.replace()` calls with regex literals and returned the name untouched in a
+real send: the subject read "Not at Ri Happy Praia de Belas Prime Offices. This
+one is." with nothing trimmed. Every other part of the same block worked, so the
+engine runs JavaScript but does not apply those replacements. It uses `indexOf`
+and `substring` now, which are portable and produce the same result. Treat a
+regex in this template as something that will silently do nothing.
 
 Rebuild both files after any change to the body, or the subject silently keeps
 resolving the old way.

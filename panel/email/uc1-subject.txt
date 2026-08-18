@@ -121,11 +121,26 @@ var heroHas = heroKnown && hero.available === true;
 var heroMissing = heroKnown && hero.available === false;
 function shortStore(name) {
     var n = String(name || '');
-    n = n.replace(/^Ri Happy\s+/i, '');
-    n = n.replace(/\s*[-]\s*Loja Parceira$/i, '');
-    n = n.replace(/\s+Prime Offices$/i, '');
-    n = n.replace(/^PBKIDS\s+/i, '');
-    return n || String(name || '');
+    var whole = n;
+    function dropStart(text, prefix) {
+        return text.length > prefix.length &&
+               text.substring(0, prefix.length).toLowerCase() === prefix.toLowerCase()
+            ? text.substring(prefix.length)
+            : text;
+    }
+    function dropEnd(text, suffix) {
+        var at = text.length - suffix.length;
+        return at > 0 && text.substring(at).toLowerCase() === suffix.toLowerCase()
+            ? text.substring(0, at)
+            : text;
+    }
+    n = dropStart(n, 'Ri Happy ');
+    n = dropStart(n, 'PBKIDS ');
+    n = dropEnd(n, ' - Loja Parceira');
+    n = dropEnd(n, ' Prime Offices');
+    while (n.length && n.charAt(0) === ' ') { n = n.substring(1); }
+    while (n.length && n.charAt(n.length - 1) === ' ') { n = n.substring(0, n.length - 1); }
+    return n || whole;
 }
 var shop = shortStore(d.storeName);
 var subject = '';

@@ -291,14 +291,47 @@ var heroMissing = heroKnown && hero.available === false;
    returned whole and the line is simply longer. */
 function shortStore(name) {
     var n = String(name || '');
-    n = n.replace(/^Ri Happy\s+/i, '');
-    n = n.replace(/\s*[-]\s*Loja Parceira$/i, '');
-    n = n.replace(/\s+Prime Offices$/i, '');
-    n = n.replace(/^PBKIDS\s+/i, '');
-    /* "SHOPPING" is NOT stripped. Doing so turned "PBKIDS SHOPPING ELDORADO"
-       into a bare shouted "ELDORADO", which reads as a mistake rather than as a
-       shop. Their own data is upper case and that is theirs to be. */
-    return n || String(name || '');
+    var whole = n;
+
+    /* NO REGULAR EXPRESSIONS HERE, AND THAT IS THE POINT.
+
+       The first version used four .replace() calls with regex literals. In a
+       send it returned the name untouched: the subject read "Not at Ri Happy
+       Praia de Belas Prime Offices. This one is." with nothing trimmed. Every
+       other part of the same block worked, the branch, the concatenation and
+       the endpoint call, so the engine runs JavaScript but does not apply these
+       replacements. Whether it drops the regex literal or ignores the flag is
+       not worth finding out, because indexOf and slice are portable everywhere
+       and do the same job.
+
+       Trimming only. Anything that does not match a known shape comes back
+       whole, so a shop we have never seen is long rather than mangled. */
+    function dropStart(text, prefix) {
+        return text.length > prefix.length &&
+               text.substring(0, prefix.length).toLowerCase() === prefix.toLowerCase()
+            ? text.substring(prefix.length)
+            : text;
+    }
+    function dropEnd(text, suffix) {
+        var at = text.length - suffix.length;
+        return at > 0 && text.substring(at).toLowerCase() === suffix.toLowerCase()
+            ? text.substring(0, at)
+            : text;
+    }
+
+    n = dropStart(n, 'Ri Happy ');
+    n = dropStart(n, 'PBKIDS ');
+    n = dropEnd(n, ' - Loja Parceira');
+    n = dropEnd(n, ' Prime Offices');
+
+    /* "SHOPPING" is deliberately not stripped. Doing so turned
+       "PBKIDS SHOPPING ELDORADO" into a bare shouted "ELDORADO", which reads as
+       a mistake rather than as a shop. Their data is upper case and that is
+       theirs to be. */
+    while (n.length && n.charAt(0) === ' ') { n = n.substring(1); }
+    while (n.length && n.charAt(n.length - 1) === ' ') { n = n.substring(0, n.length - 1); }
+
+    return n || whole;
 }
 
 /* NO TOY SHORTENER, AND THAT IS A FINDING RATHER THAN A GAP.
