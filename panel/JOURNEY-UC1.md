@@ -78,11 +78,15 @@ requires one for any Big Data Table written by `sendDeviceEvent`, and without it
 the call is accepted, returns 200, and the row is discarded.
 
 **Get the column pair by copying, not by reading.** Dengage's Star Schema page
-does not describe the event tables, and the `key` column holds a contact key
-when the visitor is identified and a device id when they are not, so the pairing
-is not something to reason out. Open the relation that already exists on
-`page_view_events` in Data Space > schema, and mirror it. Five sibling tables
-already carry the connection this table needs, and Dengage made all five.
+does not describe the event tables at all, so the pairing is not something to
+reason out. Open the relation that already exists on `page_view_events` in
+Data Space > schema, and mirror it. Five sibling tables already carry the
+connection this table needs, and Dengage made all five.
+
+The `key` column is **the device id, on every row, signed in or not.** This file
+said it was the contact key when identified, which was inferred from the
+column's name and disproved on 17 August by a send that found nothing under
+`salil-demo` while that contact's rows sat under a device uuid.
 
 Until the table exists the call is **accepted and dropped**, which looks
 identical to success from the browser. Confirm the row in Data Space, never the
@@ -138,8 +142,15 @@ demo still works.
 ### The email
 
 `panel/email/uc1-store-availability.html`, pasted into **Content > Email > Code
-Editor**. It is already written and already renders correctly against live data
-in all four cases. Both journeys use this one creative.
+Editor**. Both journeys use this one creative.
+
+**Proven end to end on 17 August 2026**, on two contacts. `RH-1`, clean, one
+device, and `salil-demo`, six years old, 25 devices. Both resolved Porto Alegre
+from the contact's own last visit, reported the Titan Hero as absent from Praia
+de Belas, and offered the Amazing Friends figure from the same range at
+R$ 87,99. The footer prints which path resolved the shop, how it reached the
+page views, and the contact key the send ran under, so a bad send explains
+itself rather than needing another round.
 
 ---
 
@@ -152,11 +163,26 @@ Ri Happy's actual problem, so the email always has a substitute to offer and
 never reads as a generic browse reminder.
 
 - **Type**: Interactive
-- **Filter**: User Event on `rh_availability_events`
+- **Filter**: **Relational DB > Table Filter**, on `rh_availability_events`
 - **Occurrence**: at least 1
 - **Time**: in the last 1 day
 - Turn on **Enable Real-time Segment Sync** if this is ever used on-site as well.
   Ten real-time segments is the account limit, so spend one only if needed.
+
+**Table Filter, not User Event.** An earlier revision of this file said User
+Event, which is the wrong screen. User Event reads Event Definitions, which are
+built on the six standard tables. A Big Data Table joins the Star Schema through
+the relation you created and is reached under Relational DB instead. If the
+panel does turn out to offer this table as an event source as well, either is
+fine, but Table Filter is what the relation was made for.
+
+**THE VISITOR HAS TO BE SIGNED IN WHEN THE ROW IS WRITTEN, and this is the one
+way to build a segment that is correct and still selects nobody.** The row's
+`key` is a device id, always. A contact is reached from it through
+`master_device.contact_key`, and that column is null for an anonymous device. So
+a substitution seen while signed out produces a real, correct row that no
+segment can ever attribute to a person. Browse with `?ck=` in the address, or
+sign in first, every time you generate rows for this.
 
 ### B. Viewed any product
 
