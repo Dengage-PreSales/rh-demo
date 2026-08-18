@@ -1000,3 +1000,31 @@ body.has-drawer { overflow: hidden; }
 .dps-kv span { color: #8b8d92; min-width: 116px; flex: none; font-size: 10.5px; }
 .dps-kv code { color: #cfd2d6; word-break: break-all; font-size: 10.5px; }
 .dps-debug-note { color: #8b8d92; font-size: 10px; margin: 8px 0 0; line-height: 1.4; }
+
+/* ---------- The App Inbox ---------- */
+
+/* Layout mirrors the cart lines: media column, text column, quiet metadata.
+   The media column is reserved for the whole list at once (with-media) so a
+   mixed list keeps one left edge. */
+.inbox-body { padding: 10px 18px 18px; overflow-y: auto; }
+.inbox-unread { font-size: 12px; color: #6b6b6d; margin-left: auto; margin-right: 6px; }
+.inbox-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eceef0; }
+.inbox-media { flex: 0 0 56px; }
+.inbox-body:not(.with-media) .inbox-media { display: none; }
+.inbox-media img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; display: block; }
+.inbox-text { flex: 1; min-width: 0; }
+.inbox-top { display: flex; align-items: baseline; gap: 8px; }
+.inbox-top h3 { font-size: 14px; margin: 0; flex: 1; min-width: 0; }
+.inbox-item.is-read .inbox-top h3 { font-weight: 500; color: #6b6b6d; }
+.inbox-when { font-size: 11px; color: #9a9a9c; white-space: nowrap; }
+.inbox-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+             background: var(--cta, #46aa42); margin-right: 6px; vertical-align: 1px; }
+.inbox-text p { font-size: 13px; color: #3f3f40; margin: 4px 0 0; line-height: 1.4; }
+.inbox-actions { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
+.inbox-open { font-size: 13px; font-weight: 700; color: var(--primary, #5a2d82); text-decoration: none; }
+.inbox-open:hover { text-decoration: underline; }
+.inbox-dismiss { font-size: 12px; color: #9a9a9c; background: none; border: 0; padding: 0;
+                 cursor: pointer; margin-left: auto; }
+.inbox-dismiss:hover { color: #3f3f40; }
+.inbox-empty { color: #6b6b6d; font-size: 14px; padding-top: 18px; text-align: center; }
+.inbox-empty-hint { color: #9a9a9c; font-size: 12px; text-align: center; }

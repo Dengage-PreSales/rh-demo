@@ -74,6 +74,13 @@
       </div>
 
       <div class="header-actions">
+        <!-- The App Inbox bell. The one Dengage capability with no panel
+             template behind it, so the storefront draws it: the messages
+             Dengage holds for this device, readable before anyone signs in. -->
+        <button class="icon-button" type="button" id="inbox-button"
+                data-copy-attr="aria-label:inboxTitle" aria-label="Messages">
+          &#128276;<span class="badge-count" id="inbox-badge" hidden>0</span>
+        </button>
         <button class="icon-button" type="button" id="wishlist-button" aria-label="Wish list">
           &#9825;<span class="badge-count" id="wishlist-count" hidden>0</span>
         </button>
@@ -217,6 +224,20 @@
 <!-- Saved items. Their list, gated behind a sign in the way theirs is, and
      carrying availability because a saved item outlives the shop it was
      saved at. -->
+<!-- The App Inbox. Messages composed in the Dengage panel and held per device;
+     js/inbox.js reads them through the SDK's message provider and reports
+     impressions and opens back. Read state is local to this demo's slug. -->
+<aside class="drawer" id="inbox" role="dialog" aria-modal="true" aria-labelledby="inbox-title">
+  <header class="drawer-head">
+    <h2 id="inbox-title" data-copy="inboxTitle">Messages</h2>
+    <span class="inbox-unread" id="inbox-count" hidden></span>
+    <button class="icon-button" id="inbox-refresh" type="button"
+            data-copy-attr="aria-label:inboxRefresh" aria-label="Refresh">&#8635;</button>
+    <button class="icon-button" id="inbox-close" type="button" aria-label="Close">&#215;</button>
+  </header>
+  <div class="inbox-body" id="inbox-body"></div>
+</aside>
+
 <aside class="drawer" id="wishlist" role="dialog" aria-modal="true" aria-labelledby="wishlist-title">
   <header class="drawer-head">
     <h2 id="wishlist-title" data-copy="wishlistTitle">Wish list</h2>
@@ -309,6 +330,7 @@
 <script src="js/search.js"></script>
 <script src="js/account.js"></script>
 <script src="js/wishlist.js"></script>
+<script src="js/inbox.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/boot.js"></script>
 <script>

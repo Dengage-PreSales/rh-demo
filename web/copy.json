@@ -134,5 +134,19 @@
   "wishlistEmpty": "This list is empty",
   "loginKeyMethod": "Link this browser to a contact",
   "loginKeyPlaceholder": "e.g. salil-demo",
-  "loginKeyTooShort": "That is too short to be a contact key"
+  "loginKeyTooShort": "That is too short to be a contact key",
+  "inboxTitle": "Messages",
+  "inboxRefresh": "Check again",
+  "inboxUnread": "{n} unread",
+  "inboxUntitled": "Message",
+  "inboxOpen": "See it",
+  "inboxDismiss": "Dismiss",
+  "inboxEmpty": "Nothing here yet.",
+  "inboxEmptyHint": "Messages sent to this device appear here, even before you sign in.",
+  "inboxStarting": "Checking for messages...",
+  "inboxNoSdk": "Messaging is not connected on this page.",
+  "inboxError": "Messages could not be loaded. Check again in a moment.",
+  "inboxJustNow": "just now",
+  "inboxMinutes": "{n} min ago",
+  "inboxHours": "{n} h ago"
 }
