@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.dengageecomm.demo'
+    compileSdk 34
+
+    defaultConfig {
+        // Registered in the Firebase project "dengageecomm". The package name,
+        // google-services.json and the Dengage application definition all have
+        // to agree on this string, and they were verified against each other
+        // before this project was written.
+        applicationId "com.dengageecomm.demo"
+        // 26 rather than lower because the launcher icon is an adaptive icon
+        // drawn from vectors, with no raster fallbacks committed to this
+        // public repository. Android 8.0 is 2017 hardware, older than any
+        // phone this demo will ever be installed on.
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        // One config slot for the one panel supplied value. The key lives in
+        // gradle.properties next to an explanation of its escaped characters.
+        buildConfigField "String", "DENGAGE_INTEGRATION_KEY",
+                "\"" + (project.findProperty('DENGAGE_INTEGRATION_KEY') ?: '') + "\""
+
+        // Everything the app reads at runtime comes from the published demo
+        // site and the same Supabase project the storefront uses. Both are
+        // public read surfaces; the anon key is the storefront's own.
+        buildConfigField "String", "DEMO_BASE_URL",
+                "\"https://dengage-presales.github.io/rh-demo\""
+        buildConfigField "String", "SUPABASE_REST",
+                "\"https://raextqlludkagdntyzwn.supabase.co/rest/v1\""
+        buildConfigField "String", "SUPABASE_ANON_KEY",
+                "\"sb_publishable_HcLAWb6E5Gn_d5vVTjPB_Q_zkjklifK\""
+    }
+
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+}
+
+dependencies {
+    // The reason this app exists. Core SDK plus the geofence module, same
+    // version for both, per Dengage's own minimum version guidance.
+    implementation 'com.github.dengage-tech.dengage-android-sdk:sdk:6.0.99'
+    implementation 'com.github.dengage-tech.dengage-android-sdk:sdk-geofence:6.0.99'
+
+    implementation platform('com.google.firebase:firebase-bom:33.1.2')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.android.gms:play-services-location:21.3.0'
+
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'io.coil-kt:coil:2.6.0'
+}

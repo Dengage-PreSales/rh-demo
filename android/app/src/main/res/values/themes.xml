@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.DengageDemo" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/cta</item>
+        <item name="colorOnPrimary">@color/on_cta</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="android:statusBarColor">@color/header</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@color/page</item>
+    </style>
+</resources>

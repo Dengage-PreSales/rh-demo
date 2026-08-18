@@ -1,0 +1,40 @@
+# Compiles the companion app on every change to it, so "opens cleanly in
+# Android Studio" is verified by a machine rather than promised. The debug
+# APK it produces is kept as an artifact for convenience, but the deliverable
+# is the project itself: the phone install happens from Android Studio.
+name: Android app
+
+on:
+  push:
+    branches: [main]
+    paths: ['android/**', '.github/workflows/android.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v3
+
+      - name: Assemble the debug build
+        run: ./gradlew --no-daemon assembleDebug
+
+      - name: Keep the APK as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dengage-ecomm-demo-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14

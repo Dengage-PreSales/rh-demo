@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A paper plane, the oldest shorthand for a message on its way, which is
+     what this app exists to demonstrate. Drawn inside the adaptive icon's
+     66dp safe zone. Deliberately generic: the launcher carries the Dengage
+     demo's identity, never the prospect's mark. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,56 L84,30 L58,80 L50,62 Z" />
+    <path
+        android:fillColor="#9BB4D6"
+        android:pathData="M50,62 L84,30 L54,70 L54,78 Z" />
+</vector>

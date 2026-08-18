@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The prospect palette, the same values web/demo.config.json themes the
+     storefront with, so the two surfaces read as one product. Colours are
+     theirs by design; logos and word marks never are. -->
+<resources>
+    <color name="header">#FCF708</color>
+    <color name="on_header">#3F3F40</color>
+    <color name="cta">#603F8E</color>
+    <color name="on_cta">#FFFFFF</color>
+    <color name="accent">#FFB100</color>
+    <color name="available">#4CAF50</color>
+    <color name="unavailable">#FF4C4C</color>
+    <color name="ink">#3F3F40</color>
+    <color name="muted">#727273</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="page">#F2F4F5</color>
+    <color name="line">#E6E6E6</color>
+    <color name="warn_bg">#B3261E</color>
+    <!-- The launcher icon's own ground, deliberately not a prospect colour:
+         the icon is the Dengage surface of this app. -->
+    <color name="icon_background">#10233F</color>
+</resources>

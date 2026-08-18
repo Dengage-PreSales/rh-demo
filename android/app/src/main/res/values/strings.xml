@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Every user facing string in one file, the same reason the web keeps its
+     copy in copy.json: a Portuguese version is a file swap, not an edit hunt.
+     The app name is Dengage's, never the prospect's word mark. -->
+<resources>
+    <string name="app_name">Dengage eComm Demo</string>
+
+    <string name="config_warning">The Dengage integration key is missing. Set DENGAGE_INTEGRATION_KEY in gradle.properties and rebuild, or nothing on this screen reaches the panel.</string>
+
+    <!-- The shop gate -->
+    <string name="cep_title">Where will you collect?</string>
+    <string name="cep_message">Enter a postcode and the app resolves the shop that would serve it, exactly as the storefront does. Try 01310100 or 90010150.</string>
+    <string name="cep_hint">01310100</string>
+    <string name="cep_confirm">Find my shop</string>
+    <string name="cep_invalid">A postcode has eight digits.</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <string name="store_resolving">Finding your shop…</string>
+    <string name="store_unresolved">Choose a shop</string>
+    <string name="store_none_serves">No shop serves this postcode</string>
+    <string name="store_deeplink_landed">Welcome to %1$s</string>
+    <string name="store_resolve_failed">Could not resolve a shop. Check the connection and try again.</string>
+    <string name="catalogue_failed">The catalogue could not be loaded.</string>
+    <string name="retry">Retry</string>
+
+    <!-- The grid and the product page. Availability language names the shop,
+         never the warehouse, because that distinction is the demo. -->
+    <string name="badge_available">At your shop</string>
+    <string name="badge_unavailable">Not at your shop</string>
+    <string name="pdp_available">Available today at %1$s</string>
+    <string name="pdp_unavailable">Not available at %1$s</string>
+    <string name="substitute_heading">In stock at your shop right now</string>
+    <string name="added_to_cart_action">Add to basket</string>
+    <string name="added_to_cart">Added to the basket</string>
+
+    <!-- Sign in -->
+    <string name="action_sign_in">Sign in</string>
+    <string name="sign_in_title">Sign in</string>
+    <string name="sign_in_message">The contact key is sent to Dengage exactly as typed. Use the same key you use on the storefront, so both surfaces are the same person.</string>
+    <string name="sign_in_hint">DPS-1001</string>
+    <string name="sign_in_confirm">Sign in</string>
+    <string name="sign_in_done">Signed in as %1$s</string>
+
+    <!-- Inbox -->
+    <string name="action_inbox">Inbox</string>
+    <string name="inbox_checking">Checking for messages…</string>
+    <string name="inbox_empty">No messages for this device yet.</string>
+    <string name="inbox_error">The inbox could not be read: %1$s</string>
+    <string name="inbox_open">See it</string>
+    <string name="inbox_dismiss">Dismiss</string>
+
+    <!-- Debug -->
+    <string name="action_debug">Debug</string>
+    <string name="debug_identity_heading">Identity</string>
+    <string name="debug_context_heading">Shop context</string>
+    <string name="debug_calls_heading">Recent calls, as sent, not as stored</string>
+    <string name="debug_refresh">Refresh</string>
+    <string name="debug_notification_permission">Ask notification permission</string>
+    <string name="debug_location_permission">Ask location permissions</string>
+    <string name="debug_start_geofence">Start geofence monitoring</string>
+    <string name="debug_copy_token">Copy push token</string>
+    <string name="debug_no_token">No token yet. Grant notification permission first.</string>
+    <string name="debug_token_copied">Token copied.</string>
+    <string name="debug_no_calls">Nothing sent yet this launch.</string>
+</resources>
