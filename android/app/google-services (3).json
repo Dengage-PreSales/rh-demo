@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "308118439771",
+    "project_id": "dengageecomm",
+    "storage_bucket": "dengageecomm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308118439771:android:aeae2149b99bc8e2b93c7e",
+        "android_client_info": {
+          "package_name": "com.dengageecomm.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArOd4QSxWjCXE5qGPaTLJPS5Ald1cOItA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
