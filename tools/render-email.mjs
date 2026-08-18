@@ -255,28 +255,52 @@ console.log('\nOpen the files in out/ to see exactly what each contact receives.
    impossible by lifting the body's own block; this proves it on real data
    rather than trusting the lift. */
 console.log('\nSubject field, rendered through the same cases:\n');
-const SUBJECT = 'panel/email/uc1-subject.txt';
-const renderSubject = (label, contact, visit) => render(label, contact, visit, SUBJECT);
+/* BOTH SUBJECT BUILDS ARE CHECKED, because the panel refused the generated one
+   and the compact one is hand written rather than lifted.
+
+   The lifted build cannot drift by construction and is 5.7 KB. The compact
+   build is 1.6 KB and CAN drift, so it is held to the same standard here: if it
+   ever names a different shop from the message, this fails. That test is the
+   only thing making a hand written subject safe to ship. */
+const SUBJECTS = [
+    ['lifted ', 'panel/email/uc1-subject.txt'],
+    ['compact', 'panel/email/uc1-subject-compact.txt']
+];
+const renderSubject = (label, contact, visit, file) => render(label, contact, visit, file);
 let subjectMismatch = 0;
-for (const [label, contact, visit] of CASES) {
-    const bodyFile = `${OUT}/email-${label}.html`;
-    let bodyShop = null;
-    try {
-        const html = (await import('node:fs')).readFileSync(bodyFile, 'utf8');
-        const m = /Your store<\/div>\s*<div[^>]*>([^<]+)</.exec(html);
-        bodyShop = m ? m[1].trim() : null;
-    } catch { bodyShop = null; }
+for (const [buildName, file] of SUBJECTS) {
+    console.log(`  ${buildName}`);
+    for (const [label, contact, visit] of CASES) {
+        let bodyShop = null;
+        try {
+            const html = (await import('node:fs')).readFileSync(`${OUT}/email-${label}.html`, 'utf8');
+            const m = /Your store<\/div>\s*<div[^>]*>([^<]+)</.exec(html);
+            bodyShop = m ? m[1].trim() : null;
+        } catch { bodyShop = null; }
 
-    const subj = await renderSubject(label, contact, visit);
-    if (subj === null) { console.log(`  ${label.padEnd(14)} (blocked, as the body is)`); continue; }
+        const subj = await renderSubject(label, contact, visit, file);
+        if (subj === null) { console.log(`    ${label.padEnd(14)} (blocked, as the body is)`); continue; }
+        console.log(`    ${label.padEnd(14)} ${subj}`);
 
-    /* The subject shortens the shop name, so agreement means the body's shop
-       CONTAINS the subject's, not that the strings match. */
-    const agrees = bodyShop && subj.indexOf('.') > -1
-        ? bodyShop.toLowerCase().includes(subj.replace(/^.*?at\s+|^Not at\s+|\..*$|\s+today$|^What\s+|\s+has today$/g, '').trim().toLowerCase())
-        : true;
-    console.log(`  ${label.padEnd(14)} ${subj}`);
-    if (bodyShop && !agrees) { console.log(`     MISMATCH: body says ${bodyShop}`); subjectMismatch += 1; }
+        /* The subject shortens the shop name, so agreement means the body's
+           shop CONTAINS the subject's, not that the strings match. */
+        if (bodyShop) {
+            const named = subj
+                .replace('Still on the shelf at ', '')
+                .replace('Not on the shelf at ', '')
+                .replace('Not at ', '')
+                .replace('What ', '')
+                .replace('. This one is.', '')
+                .replace(' has today', '')
+                .replace(' today', '')
+                .trim();
+            if (named && named !== 'your store' &&
+                !bodyShop.toLowerCase().includes(named.toLowerCase())) {
+                console.log(`      MISMATCH: the message says ${bodyShop}`);
+                subjectMismatch += 1;
+            }
+        }
+    }
 }
 if (subjectMismatch) {
     console.log(`\n${subjectMismatch} subject(s) name a different shop from the body.`);

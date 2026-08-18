@@ -220,7 +220,18 @@ if (!keyUsed) {
             var url = String(visit.page_url || '');
             var at = url.indexOf('cep=');
             if (at > -1) {
-                cep = url.substring(at + 4).split('&')[0].replace(/[^0-9]/g, '');
+                /* Digits only, without a regex, for the same reason the shop
+                   shortener has none: .replace() with a literal silently does
+                   nothing in this engine. A postcode written 01310-100 would
+                   otherwise reach the endpoint with its dash still in it. The
+                   storefront happens to write the dashless form today, so this
+                   was a bug waiting for the day something linked the other. */
+                var raw = url.substring(at + 4).split('&')[0];
+                cep = '';
+                for (var ci = 0; ci < raw.length; ci++) {
+                    var ch = raw.charAt(ci);
+                    if (ch >= '0' && ch <= '9') { cep += ch; }
+                }
             }
             if (cep) { how = 'last visit'; }
             else { why = 'row found, no cep in its page_url'; }

@@ -80,7 +80,12 @@ if (!keyUsed) {
             var url = String(visit.page_url || '');
             var at = url.indexOf('cep=');
             if (at > -1) {
-                cep = url.substring(at + 4).split('&')[0].replace(/[^0-9]/g, '');
+                var raw = url.substring(at + 4).split('&')[0];
+                cep = '';
+                for (var ci = 0; ci < raw.length; ci++) {
+                    var ch = raw.charAt(ci);
+                    if (ch >= '0' && ch <= '9') { cep += ch; }
+                }
             }
             if (cep) { how = 'last visit'; }
             else { why = 'row found, no cep in its page_url'; }
