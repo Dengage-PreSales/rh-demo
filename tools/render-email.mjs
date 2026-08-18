@@ -264,7 +264,8 @@ console.log('\nSubject field, rendered through the same cases:\n');
    only thing making a hand written subject safe to ship. */
 const SUBJECTS = [
     ['lifted ', 'panel/email/uc1-subject.txt'],
-    ['compact', 'panel/email/uc1-subject-compact.txt']
+    ['compact', 'panel/email/uc1-subject-compact.txt'],
+    ['no <  > ', 'panel/email/uc1-subject-nobracket.txt']
 ];
 const renderSubject = (label, contact, visit, file) => render(label, contact, visit, file);
 let subjectMismatch = 0;
