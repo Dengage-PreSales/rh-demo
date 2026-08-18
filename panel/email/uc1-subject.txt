@@ -109,6 +109,7 @@ if (!cep && !shopId) {
 }
 if (!sku) { sku = '100184971'; }
 var d = null;
+var apiError = '';
 try {
     var raw = shopId
         ? $CustomApi.rh_store_offer(shopId)
@@ -116,8 +117,13 @@ try {
     d = JSON.parse(raw);
 } catch (e3) {
     d = null;
+    apiError = (e3 && e3.message) ? e3.message : String(e3);
 }
-if (!d || !d.storeName) { $blockSend(); }
+if (!d || !d.storeName) {
+    if (typeof $blockSend === 'function') { $blockSend(); }
+    d = { storeName: '', storeId: '', hero: null, substitute: null, offers: [] };
+    if (!why) { why = apiError ? ('endpoint failed: ' + apiError) : 'no shop resolved'; }
+}
 var hero = d.hero || null;
 var sub = d.substitute || null;
 var offers = d.offers || [];

@@ -265,6 +265,7 @@ if (!cep && !shopId) {
 if (!sku) { sku = '100184971'; }
 
 var d = null;
+var apiError = '';
 try {
     var raw = shopId
         ? $CustomApi.rh_store_offer(shopId)
@@ -272,11 +273,40 @@ try {
     d = JSON.parse(raw);
 } catch (e3) {
     d = null;
+    apiError = (e3 && e3.message) ? e3.message : String(e3);
 }
 
-/* No answer, or an answer that names no shop, means there is nothing truthful
-   to say about availability. Say nothing at all rather than something wrong. */
-if (!d || !d.storeName) { $blockSend(); }
+/* NOTHING BELOW THIS LINE MAY ASSUME THE SEND STOPS HERE, and that assumption
+   is what broke the campaign while every test passed.
+
+   This used to read:
+
+       if (!d || !d.storeName) { $blockSend(); }
+       var hero = d.hero || null;
+
+   which dereferences d on the very next line. It is only safe if $blockSend
+   halts execution immediately, and nothing documents that it does. A template
+   is a function that returns a string, so the likeliest behaviour is that
+   $blockSend marks the send and RETURNS, and then d.hero throws
+   "cannot read property of null".
+
+   That is exactly the shape of the reported fault. Every preview and every test
+   send picked a contact whose shop resolved, so d was never null and this line
+   was never reached with null in it. A campaign runs the whole segment, and the
+   first contact whose shop cannot be resolved hits it and takes the run down
+   with an error the panel does not explain.
+
+   $blockSend is also called through a typeof guard now. It has never once run
+   in a real send here, because no test ever chose a contact that blocks, so
+   whether it exists in this account is genuinely unverified. An undefined
+   function called directly is a ReferenceError and would fail the same way. */
+if (!d || !d.storeName) {
+    if (typeof $blockSend === 'function') { $blockSend(); }
+    /* Whether or not the send is blocked, the rest of this template must be
+       able to run to completion without throwing. */
+    d = { storeName: '', storeId: '', hero: null, substitute: null, offers: [] };
+    if (!why) { why = apiError ? ('endpoint failed: ' + apiError) : 'no shop resolved'; }
+}
 
 var hero = d.hero || null;
 var sub = d.substitute || null;
