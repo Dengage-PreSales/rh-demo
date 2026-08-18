@@ -1,0 +1,146 @@
+{%
+function brl(v) {
+    var n = Number(v);
+    if (!n && n !== 0) { return ''; }
+    var neg = n < 0;
+    n = Math.abs(n);
+    var whole = Math.floor(n);
+    var cents = Math.round((n - whole) * 100);
+    if (cents === 100) { whole += 1; cents = 0; }
+    var w = String(whole);
+    var out = '';
+    for (var k = 0; k < w.length; k++) {
+        if (k > 0 && (w.length - k) % 3 === 0) { out += '.'; }
+        out += w.charAt(k);
+    }
+    return (neg ? '-' : '') + out + ',' + (cents < 10 ? '0' + cents : String(cents));
+}
+var cep = '';
+var sku = '';
+var shopId = '';
+var how = '';
+var why = '';
+var keyUsed = '';
+try { keyUsed = String($Contact.contact_key || ''); } catch (eK) { keyUsed = ''; }
+function readVisit(k) {
+    var v = $from('$db.page_view_events')
+        .where('key', '=', k)
+        .order('event_date', 'DESC')
+        .first();
+    if (!v) {
+        var rows = $from('$db.page_view_events')
+            .where('key', '=', k)
+            .order('event_date', 'DESC')
+            .take(1)
+            .get();
+        if (rows && rows.length) { v = rows[0]; }
+    }
+    return v || null;
+}
+var visit = null;
+if (!keyUsed) {
+    why = 'no contact key on this send';
+} else {
+    try {
+        var DEVICE_LIMIT = 50;
+        var devices = $from('$db.master_device')
+            .where('contact_key', '=', keyUsed)
+            .take(DEVICE_LIMIT)
+            .get() || [];
+        var capped = devices.length >= DEVICE_LIMIT;
+        if (!devices.length) {
+            why = 'no device on contact ' + keyUsed;
+        } else {
+            var idField = '';
+            var probe = devices[0];
+            var names = ['device_id', 'id', 'deviceId', 'device_uuid', 'key'];
+            for (var f = 0; f < names.length; f++) {
+                if (probe[names[f]]) { idField = names[f]; break; }
+            }
+            if (!idField) {
+                why = 'device row carries no recognisable id column';
+            } else {
+                var best = null;
+                for (var i = 0; i < devices.length; i++) {
+                    var v = readVisit(String(devices[i][idField]));
+                    if (!v) { continue; }
+                    if (!best || String(v.event_date) > String(best.event_date)) { best = v; }
+                }
+                visit = best;
+                if (!visit) {
+                    why = devices.length + ' device(s) on ' + keyUsed + ', no page view under any';
+                } else {
+                    why = 'via master_device.' + idField + ', ' + devices.length + ' device(s)' +
+                          (capped ? ', CAPPED at ' + DEVICE_LIMIT + ' so the list may be incomplete' : '');
+                }
+            }
+        }
+        if (visit) {
+            if (visit.product_id) { sku = String(visit.product_id); }
+            var url = String(visit.page_url || '');
+            var at = url.indexOf('cep=');
+            if (at > -1) {
+                cep = url.substring(at + 4).split('&')[0].replace(/[^0-9]/g, '');
+            }
+            if (cep) { how = 'last visit'; }
+            else { why = 'row found, no cep in its page_url'; }
+        }
+    } catch (e) {
+        how = '';
+        why = 'read failed: ' + (e && e.message ? e.message : String(e));
+    }
+}
+if (!cep) {
+    try {
+        if ($Contact.nearest_store) {
+            shopId = String($Contact.nearest_store);
+            how = 'contact shop';
+        }
+    } catch (e2) { shopId = ''; }
+}
+if (!cep && !shopId) {
+    cep = '01310100';
+    how = 'default';
+}
+if (!sku) { sku = '100184971'; }
+var d = null;
+try {
+    var raw = shopId
+        ? $CustomApi.rh_store_offer(shopId)
+        : $CustomApi.rh_email(cep, sku, '3');
+    d = JSON.parse(raw);
+} catch (e3) {
+    d = null;
+}
+if (!d || !d.storeName) { $blockSend(); }
+var hero = d.hero || null;
+var sub = d.substitute || null;
+var offers = d.offers || [];
+var heroKnown = hero && hero.available !== null && hero.available !== undefined;
+var heroHas = heroKnown && hero.available === true;
+var heroMissing = heroKnown && hero.available === false;
+function shortStore(name) {
+    var n = String(name || '');
+    n = n.replace(/^Ri Happy\s+/i, '');
+    n = n.replace(/\s*[-]\s*Loja Parceira$/i, '');
+    n = n.replace(/\s+Prime Offices$/i, '');
+    n = n.replace(/^PBKIDS\s+/i, '');
+    return n || String(name || '');
+}
+var shop = shortStore(d.storeName);
+var subject = '';
+var preview = '';
+if (heroHas && hero) {
+    subject = 'Still on the shelf at ' + shop;
+    preview = 'R$ ' + brl(hero.price) + ', ready to collect today.';
+} else if (heroMissing && sub) {
+    subject = 'Not at ' + shop + '. This one is.';
+    preview = 'Same range, R$ ' + brl(sub.price) + ', ready to collect today.';
+} else if (heroMissing) {
+    subject = 'Not on the shelf at ' + shop + ' today';
+    preview = 'Here is what that shop can hand over instead.';
+} else {
+    subject = 'What ' + shop + ' has today';
+    preview = 'Ready to collect, from the shop that serves you.';
+}
+%}{%= preview %}

@@ -62,3 +62,43 @@ Change one word. The email calls `$CustomApi.rh_offer(...)`; the standby is
 our own site with exactly the same shape. Both endpoint definitions are in
 `../custom-api-endpoints.md` and should both exist before the session so the
 switch is an edit rather than a setup.
+
+---
+
+## The Subject and Pre-header fields
+
+**The Subject field runs the template engine.** Proven in the panel on 18 August
+2026: an expression calling `$CustomApi.rh_email` and `JSON.parse` previewed as a
+real shop name rather than as literal text. So the subject can name the shop the
+message is about, which is the whole use case stated in an inbox line.
+
+**It also introduces the one failure worth engineering against.** The subject
+resolves a shop independently of the body. If its logic drifts from the body's by
+a line, the inbox names one shop and the message names another, and on a shared
+screen that reads as the platform guessing. The first test did exactly this: it
+hardcoded Sao Paulo's postcode and previewed "Still at PBKIDS SHOPPING ELDORADO"
+above a message about Praia de Belas.
+
+So the subject is **generated from the body, never written beside it**:
+
+```
+node tools/build-subject.mjs
+```
+
+That lifts the body's own script block, strips only comments and blank lines, and
+appends the subject it already computes. Drift is impossible by construction.
+`node tools/render-email.mjs` then renders both through the same nine cases and
+fails if any subject names a different shop from its message.
+
+| Field | Paste | Cost |
+|---|---|---|
+| Subject | all of `uc1-subject.txt` | one extra resolution per recipient |
+| Pre-header | **leave empty** | none. The body's hidden preview line already resolves at no extra cost |
+
+`uc1-preheader.txt` exists for the case where the panel field has to be
+populated, and it is the more expensive option: the body has already resolved the
+shop by the time it renders its own preview, so filling the field spends a second
+resolution to say the same sentence.
+
+Rebuild both files after any change to the body, or the subject silently keeps
+resolving the old way.

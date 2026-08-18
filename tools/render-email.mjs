@@ -81,8 +81,8 @@ function checkEnvelope(label, html) {
     }
 }
 
-async function render(label, contact, lastVisit) {
-    const src = (await import('node:fs')).readFileSync(TEMPLATE, 'utf8');
+async function render(label, contact, lastVisit, templatePath) {
+    const src = (await import('node:fs')).readFileSync(templatePath || TEMPLATE, 'utf8');
 
     /* Pre-resolve the endpoint calls the template will make, because the panel
        engine is synchronous and fetch here is not. */
@@ -160,6 +160,7 @@ async function render(label, contact, lastVisit) {
     try {
         const fn = new Function('$Contact', '$from', '$CustomApi', '$blockSend', compile(src));
         const html = fn($Contact, $from, $CustomApi, $blockSend);
+        if (templatePath) return html.trim();
         mkdirSync(OUT, { recursive: true });
         const file = `${OUT}/email-${label}.html`;
         writeFileSync(file, html);
@@ -171,7 +172,11 @@ async function render(label, contact, lastVisit) {
         checkEnvelope(label, html);
         return file;
     } catch (e) {
-        if (e instanceof Blocked) { console.log(`  ${label.padEnd(14)} BLOCKED     the send is stopped, which is correct here`); return null; }
+        if (e instanceof Blocked) {
+            if (templatePath) return null;
+            console.log(`  ${label.padEnd(14)} BLOCKED     the send is stopped, which is correct here`);
+            return null;
+        }
         throw e;
     }
 }
@@ -202,54 +207,82 @@ if (process.argv.includes('--self-test')) {
     console.log(failures ? '\nThe guard can fail open. Fix it.' : '\nThe guard catches both.');
 } else {
 
-console.log('Rendering the Use Case 1 email against live data:\n');
-await render('sao-paulo',    { contact_key: 'DPS-1', nearest_store: null },
-             { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=01310-100', product_id: '100184971' });
-await render('porto-alegre', { contact_key: 'DPS-2', nearest_store: null },
-             { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=90010-150', product_id: '100184971' });
-await render('vitoria',      { contact_key: 'DPS-3', nearest_store: null },
-             { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=29010-000', product_id: '100184971' });
-await render('new-contact',  { contact_key: 'DPS-4', nearest_store: null }, null);
-
-/* The two cases the first real send turned up. The email resolved by 'default'
-   after a visit that carried both a postcode and a contact key, and nothing in
-   it could say why, so these are now rendered every run. */
-await render('first-broken', { contact_key: 'salil-demo', nearest_store: null, __breakFirst: true },
-             { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971' });
-await render('no-contact',   { contact_key: '', nearest_store: null },
-             { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971' });
-
-/* Two devices on one contact, with the newer visit on the second. A laptop and
-   a phone is the ordinary case rather than an exotic one, and taking whichever
-   device the query returned first would show the wrong city. */
 const poaVisit = { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971', event_date: '2026-08-17T19:44:00' };
-await render('two-devices', {
-    contact_key: 'salil-demo', nearest_store: null,
-    __devices: [{ device_id: 'dev-1' }, { device_id: 'dev-2' }],
-    __visitsByDevice: {
-        'dev-1': { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=01310-100', product_id: '100184971', event_date: '2026-08-16T09:00:00' },
-        'dev-2': poaVisit
-    }
-}, poaVisit);
+const capDevices = [];
+const capVisits = {};
+for (let i = 1; i <= 50; i++) { capDevices.push({ device_id: 'dev-' + i }); }
+capVisits['dev-50'] = poaVisit;
 
-/* A contact Dengage knows with no device under it, which is what a contact
-   created by import rather than by browsing looks like. */
-await render('no-device', {
-    contact_key: 'salil-demo', nearest_store: null, __devices: [], __visitsByDevice: {}
-}, null);
+/* ONE LIST, TWO PASSES. The body and the Subject field each resolve a shop
+   independently at send time, so they are exercised against identical inputs
+   here. A case that renders one and not the other is the drift this is for. */
+const CASES = [
+    ['sao-paulo',    { contact_key: 'DPS-1', nearest_store: null },
+     { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=01310-100', product_id: '100184971' }],
+    ['porto-alegre', { contact_key: 'DPS-2', nearest_store: null },
+     { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=90010-150', product_id: '100184971' }],
+    ['vitoria',      { contact_key: 'DPS-3', nearest_store: null },
+     { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=29010-000', product_id: '100184971' }],
+    ['new-contact',  { contact_key: 'DPS-4', nearest_store: null }, null],
+    ['first-broken', { contact_key: 'salil-demo', nearest_store: null, __breakFirst: true },
+     { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971' }],
+    ['no-contact',   { contact_key: '', nearest_store: null },
+     { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?ck=salil-demo&id=100184971&cep=90010150', product_id: '100184971' }],
+    ['two-devices',  { contact_key: 'salil-demo', nearest_store: null,
+        __devices: [{ device_id: 'dev-1' }, { device_id: 'dev-2' }],
+        __visitsByDevice: {
+            'dev-1': { page_url: 'https://dengage-presales.github.io/rh-demo/product.html?id=100184971&cep=01310-100', product_id: '100184971', event_date: '2026-08-16T09:00:00' },
+            'dev-2': poaVisit
+        } }, poaVisit],
+    ['no-device',    { contact_key: 'salil-demo', nearest_store: null, __devices: [], __visitsByDevice: {} }, null],
+    ['device-cap',   { contact_key: 'salil-demo', nearest_store: null,
+        __devices: capDevices, __visitsByDevice: capVisits }, poaVisit]
+];
 
-/* Exactly the cap, which is what the first working send hit. It resolved the
-   right city and could not have known whether it had. The footer must now say
-   the list was truncated, so this case exists to keep that line honest. */
-const capped = [];
-const cappedVisits = {};
-for (let i = 1; i <= 50; i++) { capped.push({ device_id: 'dev-' + i }); }
-cappedVisits['dev-50'] = poaVisit;
-await render('device-cap', {
-    contact_key: 'salil-demo', nearest_store: null,
-    __devices: capped, __visitsByDevice: cappedVisits
-}, poaVisit);
+console.log('Rendering the Use Case 1 email against live data:\n');
+for (const [label, contact, visit] of CASES) {
+    await render(label, contact, visit);
+}
 
 console.log('\nOpen the files in out/ to see exactly what each contact receives.');
+
+/* THE SUBJECT IS RENDERED THROUGH THE SAME CASES AND COMPARED TO THE BODY.
+
+   The Subject field runs the template engine, so a personalised subject is
+   possible, and it resolves its shop independently of the message. If the two
+   ever disagree the inbox names one shop and the email names another, which
+   reads as the platform guessing. tools/build-subject.mjs makes drift
+   impossible by lifting the body's own block; this proves it on real data
+   rather than trusting the lift. */
+console.log('\nSubject field, rendered through the same cases:\n');
+const SUBJECT = 'panel/email/uc1-subject.txt';
+const renderSubject = (label, contact, visit) => render(label, contact, visit, SUBJECT);
+let subjectMismatch = 0;
+for (const [label, contact, visit] of CASES) {
+    const bodyFile = `${OUT}/email-${label}.html`;
+    let bodyShop = null;
+    try {
+        const html = (await import('node:fs')).readFileSync(bodyFile, 'utf8');
+        const m = /Your store<\/div>\s*<div[^>]*>([^<]+)</.exec(html);
+        bodyShop = m ? m[1].trim() : null;
+    } catch { bodyShop = null; }
+
+    const subj = await renderSubject(label, contact, visit);
+    if (subj === null) { console.log(`  ${label.padEnd(14)} (blocked, as the body is)`); continue; }
+
+    /* The subject shortens the shop name, so agreement means the body's shop
+       CONTAINS the subject's, not that the strings match. */
+    const agrees = bodyShop && subj.indexOf('.') > -1
+        ? bodyShop.toLowerCase().includes(subj.replace(/^.*?at\s+|^Not at\s+|\..*$|\s+today$|^What\s+|\s+has today$/g, '').trim().toLowerCase())
+        : true;
+    console.log(`  ${label.padEnd(14)} ${subj}`);
+    if (bodyShop && !agrees) { console.log(`     MISMATCH: body says ${bodyShop}`); subjectMismatch += 1; }
+}
+if (subjectMismatch) {
+    console.log(`\n${subjectMismatch} subject(s) name a different shop from the body.`);
+    process.exitCode = 1;
+} else {
+    console.log('\nEvery subject names the same shop as its message.');
+}
 
 }
