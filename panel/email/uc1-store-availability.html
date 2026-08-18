@@ -276,22 +276,74 @@ var heroKnown = hero && hero.available !== null && hero.available !== undefined;
 var heroHas = heroKnown && hero.available === true;
 var heroMissing = heroKnown && hero.available === false;
 
-/* THE PREVIEW LINE, which is the first thing anyone reads and the only part of
-   an email that is guaranteed to be seen. Without one, a mail client fills it
-   with whatever text comes first, and here that is the words "Your store"
-   followed by the shop name, which says nothing at all in an inbox list.
+/* SHORT NAMES, BECAUSE A SUBJECT LINE HAS ABOUT FORTY CHARACTERS AND BOTH OF
+   OUR VARIABLES ARE LONG.
 
-   It follows the same three states as the message itself, so it can never
-   promise something the body then contradicts. */
+   "Ri Happy Praia de Belas Prime Offices" is 37 characters on its own and
+   "Boneco Articulado - Disney - Marvel - Homem Aranha - Titan Hero Series -
+   Hasbro" is 78. Either one alone fills an inbox line on a phone and truncates
+   before the verb, so the sentence a reader sees is a shop name and an ellipsis.
+
+   This trims rather than invents. The shop keeps the part a Porto Alegre
+   shopper actually says out loud, and the toy keeps the licence rather than the
+   packaging words, because that is the half a parent recognises. Nothing is
+   substituted for anything: if a name does not match the shapes below it is
+   returned whole and the line is simply longer. */
+function shortStore(name) {
+    var n = String(name || '');
+    n = n.replace(/^Ri Happy\s+/i, '');
+    n = n.replace(/\s*[-]\s*Loja Parceira$/i, '');
+    n = n.replace(/\s+Prime Offices$/i, '');
+    n = n.replace(/^PBKIDS\s+/i, '');
+    /* "SHOPPING" is NOT stripped. Doing so turned "PBKIDS SHOPPING ELDORADO"
+       into a bare shouted "ELDORADO", which reads as a mistake rather than as a
+       shop. Their own data is upper case and that is theirs to be. */
+    return n || String(name || '');
+}
+
+/* NO TOY SHORTENER, AND THAT IS A FINDING RATHER THAN A GAP.
+
+   Two were written and both were tested against the real catalogue. Taking the
+   longest inner segment produced "Modelos Sortidos". Taking the third segment
+   from the end produced "Branco", "Bilingue" and "Bumbo". The licence sits in a
+   different position in every title Ri Happy writes, so any rule that shortens
+   one correctly mangles the next, and a mangled product name on a shared screen
+   in front of the people who own that catalogue is worse than a long one.
+
+   So the preview line carries no product name at all. It carries the price and
+   the collection promise instead: both are short, both are facts we hold, and
+   neither can be wrong. The full name is in the message a line below. */
+
+var shop = shortStore(d.storeName);
+
+/* THE SUBJECT AND THE PREVIEW ARE WRITTEN TOGETHER AND SAY DIFFERENT THINGS.
+
+   The preview line is the first thing anyone reads and the only part of an
+   email guaranteed to be seen. Without one, a mail client fills it with whatever
+   text comes first, and here that is the words "Your store" followed by the shop
+   name, which says nothing at all in an inbox list.
+
+   So the subject carries the SHOP and the verdict, and the preview carries the
+   PRODUCT and what to do about it. A preview that repeats the subject wastes the
+   only two lines the inbox gives us.
+
+   Both follow the same three states as the message body, so neither can ever
+   promise something the message then contradicts. */
+var subject = '';
 var preview = '';
+
 if (heroHas && hero) {
-    preview = hero.name + ' is on the shelf at ' + d.storeName + '.';
+    subject = 'Still on the shelf at ' + shop;
+    preview = 'R$ ' + brl(hero.price) + ', ready to collect today.';
 } else if (heroMissing && sub) {
-    preview = 'Not at ' + d.storeName + ' today, but ' + sub.name + ' is.';
+    subject = 'Not at ' + shop + '. This one is.';
+    preview = 'Same range, R$ ' + brl(sub.price) + ', ready to collect today.';
 } else if (heroMissing) {
-    preview = 'Not on the shelf at ' + d.storeName + ' right now.';
+    subject = 'Not on the shelf at ' + shop + ' today';
+    preview = 'Here is what that shop can hand over instead.';
 } else {
-    preview = 'What ' + d.storeName + ' has on the shelf right now.';
+    subject = 'What ' + shop + ' has today';
+    preview = 'Ready to collect, from the shop that serves you.';
 }
 %}
 <!doctype html>
@@ -466,6 +518,7 @@ if (heroHas && hero) {
       <br>Resolved by: {%= how %}{% if (d.storeId) { %} ({%= d.storeId %}){% } %}
       {% if (why) { %}<br>Path 1: {%= why %}{% } %}
       <br>Contact key on this send: {%= keyUsed ? keyUsed : '(none)' %}
+      <br>Subject this logic would set: {%= subject %}
     </div>
   </td></tr>
 
