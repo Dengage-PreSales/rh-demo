@@ -52,6 +52,8 @@ object CartState {
 
     fun onChange(listener: () -> Unit) { listeners.add(listener) }
 
+    fun removeOnChange(listener: () -> Unit) { listeners.remove(listener) }
+
     private fun changed() {
         listeners.forEach { it() }
         DengageGateway.cartContext(itemCount(), totalAmount())

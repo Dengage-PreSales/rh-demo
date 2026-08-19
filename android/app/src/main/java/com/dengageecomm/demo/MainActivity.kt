@@ -57,6 +57,16 @@ class MainActivity : AppCompatActivity() {
         private const val REQUEST_LOCATION = 41
     }
 
+    /* Held so onDestroy can remove exactly what onCreate registered. An
+       activity recreation that leaves the old listener behind keeps the dead
+       activity reachable and repaints a menu that no longer exists. */
+    private val cartListener: () -> Unit = { invalidateOptionsMenu() }
+
+    override fun onDestroy() {
+        CartState.removeOnChange(cartListener)
+        super.onDestroy()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -89,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             if (query.isNotEmpty()) binding.searchInput.postDelayed(searchSettle, 700)
         }
 
-        CartState.onChange { invalidateOptionsMenu() }
+        CartState.onChange(cartListener)
 
         /* Both are panel driven surfaces on the home screen: stories at the
            top, an inline in-app slot under them. They stay collapsed until a
@@ -298,7 +308,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildDepartmentChips(departments: List<String>) {
         binding.departmentChips.removeAllViews()
+        /* ChipGroup tracks the checked child BY VIEW ID, and a chip built in
+           code has none, so without generated ids the group cannot say which
+           chip is selected and the filter goes quiet. */
         val all = Chip(this).apply {
+            id = View.generateViewId()
             text = getString(R.string.chip_all)
             isCheckable = true
             isChecked = true
@@ -306,6 +320,7 @@ class MainActivity : AppCompatActivity() {
         binding.departmentChips.addView(all)
         departments.forEach { dep ->
             binding.departmentChips.addView(Chip(this).apply {
+                id = View.generateViewId()
                 text = dep
                 isCheckable = true
             })
