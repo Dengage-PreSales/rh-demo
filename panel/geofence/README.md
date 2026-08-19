@@ -78,3 +78,42 @@ On the phone, the app requests notification permission and both location
 steps from its debug screen. Background location must end at "Allow all the
 time", or fences are only monitored while the app is open, which defeats
 the scenario.
+
+## An open question for Dengage support, before the network cluster is used
+
+One campaign over the whole 124 fence cluster raises a question this
+documentation does not answer: **can the push content read which fence
+fired**, so its deeplink can carry that shop's id? If the content has no
+access to the triggering geofence, every fence in the campaign sends the
+same deeplink, and per-shop landing needs one campaign per fence.
+
+For the demo this does not matter: the rehearsal campaign targets one
+fence, so its content deeplinks to one known shop, `rhdemo://store/<id>`,
+and the app lands scoped to it with live availability. Ask the question
+before promising the network-wide version.
+
+## Trying Use Case 2 end to end, alone
+
+1. Confirm the Firebase **service account key** is uploaded to the
+   application definition in the panel. Without it no push reaches the app.
+2. Install the app, sign in, and on the **Debug** screen grant notification
+   permission, then both location steps, ending at "Allow all the time".
+3. Create the `RH rehearsal` cluster with one fence, 150 to 300 m, centred
+   on a spot you can walk out of and back into. Not on the building you are
+   sitting in when you want to test entry by walking: a fence registered
+   while already inside fires its enter event immediately.
+4. Create **transactional push content** with the deeplink
+   `rhdemo://store/poa-praia-de-belas` (or any shop), then a campaign under
+   **Targeting Campaigns > Geofencing**: trigger **Enter**, cluster
+   `RH rehearsal`.
+5. Press **Sync Now** so the device fetches the fence at once instead of on
+   the six hour cycle. Give it a minute with the app open.
+6. Close the app. Walk clearly out of the fence, wait a few minutes, walk
+   back in. The push should arrive on entry; tapping it opens the app
+   already scoped to the deeplinked shop, availability answered live.
+7. Repeat entries are rate limited to one signal per five minutes per
+   fence, so a second lap needs the wait.
+
+If nothing arrives: the debug screen's identity block shows whether a push
+token exists and location permission state, and Dengage's own test page
+(one tap on the same screen) shows the subscription the panel sees.

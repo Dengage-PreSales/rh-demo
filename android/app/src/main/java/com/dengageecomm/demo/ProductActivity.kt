@@ -161,7 +161,13 @@ class ProductActivity : AppCompatActivity() {
         binding.availabilityBadge.setBackgroundResource(R.drawable.badge_unavailable)
         binding.availabilityBadge.text = getString(R.string.pdp_unavailable, store.name)
 
-        val substitute = answer.substitute?.takeIf { it.skuId != product.id }
+        /* Only when the answer was computed for this exact toy. On the live
+           path the hero always is; on a stored fallback it is the captured
+           default, and offering its substitute here would recommend a
+           replacement for a different product. */
+        val substitute = answer.substitute?.takeIf {
+            answer.heroSkuId == product.id && it.skuId != product.id
+        }
         if (substitute != null) {
             binding.substituteCard.visibility = View.VISIBLE
             binding.substituteName.text = substitute.name

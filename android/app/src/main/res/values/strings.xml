@@ -16,6 +16,10 @@
     <string name="dialog_cancel">Cancel</string>
 
     <string name="store_resolving">Finding your shop…</string>
+    <string name="store_locating">Finding the nearest shop…</string>
+    <string name="location_button">Use my location</string>
+    <string name="location_refused">Location was refused. The postcode path works without it.</string>
+    <string name="location_failed">Could not resolve a shop from the location. Enter a postcode instead.</string>
     <string name="store_unresolved">Choose a shop</string>
     <string name="store_none_serves">No shop serves this postcode</string>
     <string name="store_deeplink_landed">Welcome to %1$s</string>

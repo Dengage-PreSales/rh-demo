@@ -49,6 +49,7 @@ class StoreRepository private constructor(private val prefs: SharedPreferences) 
         .build()
 
     private var catalogue: Catalogue? = null
+    private var storeDirectory: List<StoreLocation>? = null
     @Volatile var answer: StoreAnswer? = null
         private set
 
@@ -84,6 +85,18 @@ class StoreRepository private constructor(private val prefs: SharedPreferences) 
     fun imageUrl(path: String?): String? =
         path?.let { BuildConfig.DEMO_BASE_URL + "/" + it.trimStart('/') }
 
+    /* FULFILLING SHOPS ONLY, the same filter the storefront's own location
+       button applies, and the filter is the point rather than a detail: 78 of
+       the shops in the file are ones their checkout never offered for
+       collection at any postcode tested, and each still carries a full stock
+       map. Without the filter, pressing the location button near one of them
+       resolves a shop the demo would then answer availability for, and the
+       two ways in would contradict each other. */
+    suspend fun fulfillingStores(): List<StoreLocation> = withContext(Dispatchers.IO) {
+        storeDirectory ?: parseStores(fetch(BuildConfig.DEMO_BASE_URL + "/stores.json"))
+            .also { storeDirectory = it }
+    }
+
     /* ------------------------------------------------------------------ */
     /* Resolving a shop                                                    */
 
@@ -114,7 +127,13 @@ class StoreRepository private constructor(private val prefs: SharedPreferences) 
             if (!sku.isNullOrBlank()) add("sku=" + sku)
             add("n=8")
         }.joinToString("&")
-        return BuildConfig.SUPABASE_REST + "/rh_offer?" + query
+        /* Functions are served under /rpc, tables directly under /rest/v1.
+           The first build missed the segment, PostgREST answered 400 to every
+           live call, and the app silently served stored answers while looking
+           healthy, because the fallback is good. The debug screen's
+           answeredBy line is how that state is caught: it must say live on a
+           working network. */
+        return BuildConfig.SUPABASE_REST + "/rpc/rh_offer?" + query
     }
 
     private fun fallbackUrl(cep: String?, storeId: String?): String =
@@ -167,6 +186,20 @@ class StoreRepository private constructor(private val prefs: SharedPreferences) 
         return Catalogue(root.optStringOrNull("capturedAt"), departments, products)
     }
 
+    private fun parseStores(body: String): List<StoreLocation> {
+        val root = JSONObject(body)
+        val list = root.optJSONArray("stores") ?: return emptyList()
+        val out = ArrayList<StoreLocation>()
+        for (i in 0 until list.length()) {
+            val s = list.getJSONObject(i)
+            if (!s.optBoolean("is_pickup", false)) continue
+            val lat = s.optDoubleOrNull("lat") ?: continue
+            val lng = s.optDoubleOrNull("lng") ?: continue
+            out.add(StoreLocation(s.getString("store_id"), s.getString("name"), lat, lng))
+        }
+        return out
+    }
+
     private fun parseAnswer(body: String, servedFrom: String): StoreAnswer {
         val root = JSONObject(body)
         val storeJson = root.optJSONObject("store")
@@ -187,6 +220,7 @@ class StoreRepository private constructor(private val prefs: SharedPreferences) 
             cep = root.optStringOrNull("cep"),
             store = store,
             stock = stock,
+            heroSkuId = root.optJSONObject("hero")?.optStringOrNull("sku_id"),
             substitute = root.optJSONObject("substitute")?.let { parseOffer(it) },
             substituteReason = root.optStringOrNull("substituteReason"),
             offers = offers,

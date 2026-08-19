@@ -43,6 +43,14 @@ data class Store(
     val city: String?
 )
 
+/* One row of the shop directory, for the nearest-shop lookup. */
+data class StoreLocation(
+    val id: String,
+    val name: String,
+    val lat: Double,
+    val lng: Double
+)
+
 /* One item from the offers list or the substitute slot. Same shape either
    way, because rh_offer builds them from the same query. */
 data class OfferItem(
@@ -69,6 +77,11 @@ data class StoreAnswer(
        map was not captured for this shop, and absence renders as silence,
        never as a claim either way. */
     val stock: Map<String, String>,
+    /* The sku the answer's hero and substitute were computed FOR. A stored
+       fallback answer carries the postcode's captured hero, not necessarily
+       the toy on screen, and a substitute must never be shown against a toy
+       it was not computed for. */
+    val heroSkuId: String?,
     val substitute: OfferItem?,
     val substituteReason: String?,
     val offers: List<OfferItem>,

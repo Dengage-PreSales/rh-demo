@@ -1,6 +1,8 @@
 package com.dengageecomm.demo
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.text.InputType
@@ -10,7 +12,12 @@ import android.view.View
 import android.widget.EditText
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
+import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.material.chip.Chip
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -45,6 +52,10 @@ class MainActivity : AppCompatActivity() {
     private var query: String = ""
     private var department: String? = null
     private val searchSettle = Runnable { searchSettled() }
+
+    companion object {
+        private const val REQUEST_LOCATION = 41
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -144,8 +155,85 @@ class MainActivity : AppCompatActivity() {
                 if (cep.length == 8) resolve(cep = cep)
                 else Snackbar.make(binding.root, R.string.cep_invalid, Snackbar.LENGTH_LONG).show()
             }
+            .setNeutralButton(R.string.location_button) { _, _ -> useMyLocation() }
             .setNegativeButton(R.string.dialog_cancel, null)
             .show()
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* The other way in: where the phone actually is                       */
+
+    /* The storefront's "use my location", on the surface where it belongs
+       most, since the phone is the device that genuinely knows. One fresh
+       balanced-accuracy fix, the nearest FULFILLING shop from the same
+       directory the web filters, and the ordinary resolve by shop id from
+       there, so both ways in end at the same answer for the same shop.
+
+       Every failure is defined and says so: permission refused, no fix,
+       directory unreachable. None of them block the postcode path. */
+    private fun useMyLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_LOCATION
+            )
+            return
+        }
+        binding.storeChip.text = getString(R.string.store_locating)
+        try {
+            LocationServices.getFusedLocationProviderClient(this)
+                .getCurrentLocation(
+                    Priority.PRIORITY_BALANCED_POWER_ACCURACY,
+                    CancellationTokenSource().token
+                )
+                .addOnSuccessListener { location ->
+                    if (location == null) locationFailed()
+                    else nearestShop(location.latitude, location.longitude)
+                }
+                .addOnFailureListener { locationFailed() }
+        } catch (err: SecurityException) {
+            locationFailed()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode != REQUEST_LOCATION) return
+        if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) useMyLocation()
+        else Snackbar.make(binding.root, R.string.location_refused, Snackbar.LENGTH_LONG).show()
+    }
+
+    private fun nearestShop(lat: Double, lng: Double) {
+        lifecycleScope.launch {
+            try {
+                val stores = repository.fulfillingStores()
+                val nearest = stores.minByOrNull { distanceKm(lat, lng, it.lat, it.lng) }
+                if (nearest == null) locationFailed()
+                else resolve(storeId = nearest.id, announce = true)
+            } catch (err: Exception) {
+                locationFailed()
+            }
+        }
+    }
+
+    private fun locationFailed() {
+        binding.storeChip.text = repository.storeName() ?: getString(R.string.store_unresolved)
+        Snackbar.make(binding.root, R.string.location_failed, Snackbar.LENGTH_LONG).show()
+    }
+
+    private fun distanceKm(lat1: Double, lng1: Double, lat2: Double, lng2: Double): Double {
+        val r = 6371.0
+        val dLat = Math.toRadians(lat2 - lat1)
+        val dLng = Math.toRadians(lng2 - lng1)
+        val a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+            Math.sin(dLng / 2) * Math.sin(dLng / 2)
+        return 2 * r * Math.asin(Math.sqrt(a))
     }
 
     /* ------------------------------------------------------------------ */
